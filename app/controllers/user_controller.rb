@@ -2,6 +2,12 @@ class UserController < ApplicationController
 
   layout 'user'
 
+  #before_filter :set_params
+
+  def index
+	 set_params
+  end
+
   def main
 	 set_params
   end
@@ -23,27 +29,22 @@ class UserController < ApplicationController
   end
 
   def contact_us
-	 @page_content = get_content("English")
-	 @payments = get_payments("English")
-	 @action = "contact_us"
+	 set_params false
   end
 
   def donors_list
+	 set_params false
     @donors = Donor.all_approved_donors()
-	 @payments = get_payments("English")
-	 @action = "donors_list"
   end
 
   def projects_and_expenses
     @projects = Project.all_completed_projects("English", false)
-	 @payments = get_payments("English")
-	 @action = "projects_and_expenses"
+	 set_params false
   end
 
   def projects_history
     @projects = Project.all_completed_projects("English", true)	
-	 @payments = get_payments("English")
-	 @action = "projects_history"
+	 set_params false
   end
 
   def show_project
@@ -52,7 +53,7 @@ class UserController < ApplicationController
 
   private
 
-  def set_params(to_render = nil)
+  def set_params(to_render = true)
 	 lang = "English" # params[:lang]
     @page_content = get_content("English")
 	 @payments = get_payments("English")
