@@ -1,0 +1,26 @@
+<h1>Listing payments</h1>
+
+<table>
+  <tr>
+  <th>Name</th>
+  <th>Language</th>
+  </tr>
+  
+<% for payment in @payments %>
+  <tr> 
+    <td><%= payment.name %></td>
+    <td><%= payment.language.name %></td>
+
+    <td><%= link_to 'Show', :action => 'show', :id => payment %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => payment %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => payment }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @payment_pages.current.previous } if @payment_pages.current.previous %>
+<%= link_to 'Next page', { :page => @payment_pages.current.next } if @payment_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New payment', :action => 'new' %>

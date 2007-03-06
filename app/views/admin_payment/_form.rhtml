@@ -1,0 +1,23 @@
+<%= error_messages_for 'payment' %>
+
+<!--[form:payment]-->
+
+<p><%=
+options = [["Select Language", "0"]] + Language.all_langs
+select("payment", "language_id", options)
+%></p>
+
+<p><label for="payment_name">Name</label><br/>
+<%= text_area 'payment', 'name'  %></p>
+
+<p><label for="payment_description">Description</label><br/>
+<%= text_area 'payment', 'description'  %></p>
+
+<p><label for="payment_code">Code</label><br/>
+<%= text_field 'payment', 'code'  %></p>
+
+<p><label for="payment_priority">Priority</label><br/>
+<%= text_field 'payment', 'priority'  %></p>
+
+<!--[eoform:payment]-->
+

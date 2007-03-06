@@ -1,0 +1,9 @@
+<h1>Editing donor</h1>
+
+<% form_tag :action => 'update', :id => @donor do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @donor %> |
+<%= link_to 'Back', :action => 'list' %>

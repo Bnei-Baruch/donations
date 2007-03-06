@@ -1,0 +1,52 @@
+<p>
+  <b>Name: </b><%=@donor.name%>
+</p>
+<p>
+  <b>Country: </b><%=@donor.country%>
+</p>
+<p>
+  <b>City: </b><%=@donor.city%>
+</p>
+<p>
+  <b>Region: </b><%=@donor.region%>
+</p>
+<p>
+  <b>Message: </b><%=@donor.message%>
+</p>
+<p>
+  <b>Sum $: </b><%=@donor.sum_dollars%>
+</p>
+
+<% if not @donor.project.nil?%>
+<p>
+  <b>Project Name: </b><%=@donor.project.name%>
+</p>
+<% end %>
+
+<p>
+  <b>Payment: </b><%=@donor.payment.name%>
+</p>
+<p>
+  <b>Anonymous: </b><%=@donor.is_anonymous%>
+</p>
+<p>
+  <b>Donation Date: </b><%=@donor.created_at%>
+</p>
+<p>
+  <b>Approved: </b><%=@donor.approved%>
+</p>
+<p>
+  <b>IP: </b><%=@donor.ip%>
+</p>
+
+<% if not @donor.currency.nil?%>
+<p>
+  <b>Currency: </b><%=@donor.currency.name%>
+</p>
+<p>
+  <b>Sum (currency): </b><%=@donor.sum_curr%>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @donor %> |
+<%= link_to 'Back', :action => 'list' %>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>AdminLang: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag "don_user" , :media => "all" %>
+</head>
+<body>
+	<div id="header">
+		<p id="BB">Bnei Baruch Foundation</p>
+		<p id="subt">Sharing the Wisdom of Kabbalah</p>
+	</div>
+  <div id="menu">
+	  <%= link_to "Home", {:action => "main"}, @action == "main" ? {:id => "select"} : {} %>
+	  <span> | </span>
+	  <%= link_to "About Bnei Baruh", {:action => "about"}, @action == "about" ? {:id => "select"} : {} %>
+	  <span> | </span>
+	  <%= link_to "Why Now", {:action => "why_now"}, @action == "why_now" ? {:id => "select"} : {} %>
+	  <span> | </span>
+	  <%= link_to "FAQ", {:action => "faq"}, @action == "faq" ? {:id => "select"} : {} %>
+	  <span> | </span>
+	  <%= link_to "Privacy and Security", {:action => "privacy_and_security"}, @action == "privacy_and_security" ? {:id => "select"} : {} %>
+	  <span> | </span>
+	  <%= link_to "Contact us", {:action => "contact_us"}, @action == "contact_us" ? {:id => "select"} : {} %>
+	  <span> | </span>
+	  <%= link_to "Donors list", {:action => "donors_list"}, @action == "donors_list" ? {:id => "select"} : {} %>
+	  <span> | </span>
+	  <%= link_to "Projects and Expenses", {:action => "projects_and_expenses"}, @action == "projects_and_expenses" ? {:id => "select"} : {} %>
+	  <span> | </span>
+	  <%= link_to "Projects History", {:action => "projects_history"}, @action == "projects_history" ? {:id => "select"} : {} %>
+  </div>
+  <div id="gray-pass">
+  </div>
+  <div id="main">
+    <%= yield :layout %>
+  </div>
+	<div id="C">
+		 Copyright (C)2007 Bnei Baruch. All righs reserved | This website is ...
+	</div>
+</body>
+</html>
+
+

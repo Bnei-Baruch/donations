@@ -1,0 +1,11 @@
+<p>
+  <b>Language: </b><%=@page_content.language.name%>
+</p>
+<% for column in PageContent.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @page_content.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @page_content %> |
+<%= link_to 'Back', :action => 'list' %>

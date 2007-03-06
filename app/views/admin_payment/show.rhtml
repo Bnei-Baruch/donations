@@ -1,0 +1,11 @@
+<p>
+  <b>Language: </b><%=@payment.language.name%>
+</p>
+<% for column in Payment.content_columns %>
+<p>  
+  <b><%= column.human_name %>:</b> <%=h @payment.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @payment %> |
+<%= link_to 'Back', :action => 'list' %>

@@ -1,0 +1,31 @@
+<%= error_messages_for 'project' %>
+
+<!--[form:project]-->
+
+<p><%=
+options = [["Select Language", "0"]] + Language.all_langs
+select("project", "language_id", options)
+%></p>
+
+<p><label for="project_name">Name</label><br/>
+<%= text_area 'project', 'name'  %></p>
+
+<p><label for="project_short_decr">Short decription</label><br/>
+<%= text_area 'project', 'short_decr'  %></p>
+
+<p><label for="project_description">Description</label><br/>
+<%= text_area 'project', 'description'  %></p>
+
+<p><label for="project_cost">Cost $</label><br/>
+<%= text_field 'project', 'cost'  %></p>
+
+<p><label for="project_is_completed">Completed</label><br/>
+<select id="project_is_completed" name="project[is_completed]"><option value="false">False</option><option value="true">True</option></select></p>
+
+<p><label for="project_start_date">Start date</label><br/>
+<%= datetime_select 'project', 'start_date'  %></p>
+
+<p><label for="project_duration">Duration</label><br/>
+<%= datetime_select 'project', 'duration'  %></p>
+<!--[eoform:project]-->
+

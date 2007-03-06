@@ -1,0 +1,30 @@
+<h1>Listing projects</h1>
+
+<table>
+  <tr>
+  <th>Name</th>
+  <th>Cost $</th>
+  <th>Completed</th>
+  <th>Language</th>
+  </tr>
+  
+<% for project in @projects %>
+  <tr>
+    <td><%= project.name %></td>
+    <td><%= project.cost %></td>
+    <td><%= project.is_completed%></td>
+    <td><%= project.language.name %></td>
+
+    <td><%= link_to 'Show', :action => 'show', :id => project %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => project %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => project }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @project_pages.current.previous } if @project_pages.current.previous %>
+<%= link_to 'Next page', { :page => @project_pages.current.next } if @project_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New project', :action => 'new' %>

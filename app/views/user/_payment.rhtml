@@ -1,0 +1,17 @@
+<div id="payment">
+<h3>Please help us by donating today</h3>
+<table cellspacing="0">
+	<tr>
+		<th id="left-pay-th">&nbsp;</th>
+		<% for payment in @payments -%>
+		<th class="pay-th"><%=payment.name%></th>
+		<% end -%>
+	</tr>
+	<tr>
+		<td id="left-pay"></td>
+		<% for payment in @payments -%>
+		<td class="pay"><%=payment.description%></td>
+		<% end -%>
+	</tr>
+</table>
+</div>

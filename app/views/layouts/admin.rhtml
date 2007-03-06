@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>AdminLang: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag "don" , :media => "all" %>
+</head>
+<body id="lang">
+  <div id="columns">
+    <div id="side">
+	<%= link_to "Languages", :controller => "admin_lang", :action => "" %><br />	
+	<%= link_to "Donors", :controller => "admin_donor", :action => "" %><br />
+	<%= link_to "Projects", :controller => "admin_project", :action => "" %><br />
+	<%= link_to "Payment", :controller => "admin_payment", :action => "" %><br />
+	<%= link_to "Page content", :controller => "admin_page_content", :action => "" %><br />
+	<%= link_to "Currency", :controller => "admin_currency", :action => "" %><br />
+	<%= link_to "Common data", :controller => "admin_common", :action => "" %><br />
+    </div>
+    <div id="main">
+      <%= yield :layout %>
+    </div>
+  </div>
+</body>
+</html>
+
+

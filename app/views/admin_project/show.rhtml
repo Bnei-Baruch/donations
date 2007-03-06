@@ -1,0 +1,26 @@
+<p>
+  <b>Language: </b><%=@project.language.name%>
+</p>
+<p>
+  <b>Name: </b><%=@project.name%>
+</p>
+<p>
+  <b>Short Description: </b><%=@project.short_decr%>
+</p>
+<p>
+  <b>Description: </b><%=@project.description%>
+</p>
+<p>
+  <b>Cost $: </b><%=@project.cost%>
+</p>
+<p>
+  <b>Start Date: </b><%=@project.start_date%>
+</p>
+<p>
+  <b>Duration: </b><%=@project.duration%>
+</p>
+<p>
+  <b>Completed: </b><%=@project.is_completed%>
+</p>
+<%= link_to 'Edit', :action => 'edit', :id => @project %> |
+<%= link_to 'Back', :action => 'list' %>

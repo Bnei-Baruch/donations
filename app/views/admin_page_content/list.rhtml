@@ -1,0 +1,23 @@
+<h1>Listing page_contents</h1>
+
+<table>
+  <tr>
+  <th>Language</th>
+  </tr>
+  
+<% for page_content in @page_contents %>
+  <tr>
+    <td><%= page_content.language.name %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => page_content %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => page_content %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => page_content }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @page_content_pages.current.previous } if @page_content_pages.current.previous %>
+<%= link_to 'Next page', { :page => @page_content_pages.current.next } if @page_content_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New page_content', :action => 'new' %>

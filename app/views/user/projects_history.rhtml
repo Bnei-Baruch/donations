@@ -1,0 +1,19 @@
+<table>
+  <tr>
+  <th>Name</th>
+  <th>Description</th>
+  </tr>
+  
+<% for project in @projects %>
+  <tr>
+    <td><%= project.name %></td>
+    <td><%= project.short_decr %></td>
+
+     <td><%= link_to 'More ...', 
+		 {:action => 'show_project', :id => project},
+		 {:target => "_blank"}
+		 %></td>
+  </tr>
+<% end %>
+</table>
+

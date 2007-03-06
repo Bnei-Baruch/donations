@@ -1,0 +1,2 @@
+module AdminLangHelper
+end

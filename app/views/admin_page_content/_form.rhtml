@@ -1,0 +1,28 @@
+<%= error_messages_for 'page_content' %>
+
+<!--[form:page_content]-->
+
+<p><%=
+options = [["Select Language", "0"]] + Language.all_langs
+select("page_content", "language_id", options)
+%></p>
+
+<p><label for="page_content_main_page">Main page</label><br/>
+<%= text_area 'page_content', 'main_page'  %></p>
+
+<p><label for="page_content_about_page">About page</label><br/>
+<%= text_area 'page_content', 'about_page'  %></p>
+
+<p><label for="page_content_why_now_page">Why now page</label><br/>
+<%= text_area 'page_content', 'why_now_page'  %></p>
+
+<p><label for="page_content_faq_page">Faq page</label><br/>
+<%= text_area 'page_content', 'faq_page'  %></p>
+
+<p><label for="page_content_parivacy_and_security_page">Parivacy and security page</label><br/>
+<%= text_area 'page_content', 'parivacy_and_security_page'  %></p>
+
+<p><label for="page_content_contact_us_page">Contact us page</label><br/>
+<%= text_area 'page_content', 'contact_us_page'  %></p>
+<!--[eoform:page_content]-->
+

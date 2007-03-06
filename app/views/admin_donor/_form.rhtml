@@ -1,0 +1,53 @@
+<%= error_messages_for 'donor' %>
+
+<!--[form:donor]-->
+<p><label for="donor_name">Name</label><br/>
+<%= text_area 'donor', 'name', :default => "" %></p>
+
+<p><label for="donor_country">Country</label><br/>
+<%= text_field 'donor', 'country', :default => "" %></p>
+
+<p><label for="donor_city">City</label><br/>
+<%= text_field 'donor', 'city', :default => "" %></p>
+
+<p><label for="donor_region">Region</label><br/>
+<%= text_field 'donor', 'region', :default => "" %></p>
+
+<p><label for="donor_message">Message</label><br/>
+<%= text_area 'donor', 'message', :default => "" %></p>
+
+<p><label for="donor_sum_dollars">Sum $</label><br/>
+<%= text_field 'donor', 'sum_dollars'  %></p>
+
+<p><%=
+	options = [["All Projects", "0"]] + Project.all_projects
+	select("donor", "project_id", options)
+%></p>
+
+<p><%=
+	options = [["Select Payment", "0"]] + Payment.all_payments_by_lang_sorted("English")
+	select("donor", "payment_id", options)
+%></p>
+
+<p><label for="donor_is_anonymous">Anonymous</label><br/>
+<select id="donor_is_anonymous" name="donor[is_anonymous]"><option value="false">False</option><option value="true">True</option></select></p>
+
+<p><label for="donor_created_at">Donation date</label><br/>
+<%= datetime_select 'donor', 'created_at'  %></p>
+
+<!--IP IS GENERATED AUTOMATICALLY-->
+<!--<p><label for="donor_ip">IP</label><br/>-->
+<!--<%= text_field 'donor', 'ip'  %></p>-->
+
+<p><label for="donor_approved">Approved</label><br/>
+<select id="donor_approved" name="donor[approved]"><option value="false">False</option><option value="true">True</option></select></p>
+
+<p><%=
+	options = [["Select Currency", "0"]] + Currency.all_currencies
+	select("donor", "currency_id", options)
+%></p>
+
+<p><label for="donor_sum_curr">Sum (currency)</label><br/>
+<%= text_field 'donor', 'sum_curr'  %></p>
+
+<!--[eoform:donor]-->
