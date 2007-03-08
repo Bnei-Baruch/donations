@@ -1,5 +1,8 @@
 class AdminProjectController < ApplicationController
   layout 'admin'
+
+  before_filter :authorize
+
   def index
     list
     render :action => 'list'

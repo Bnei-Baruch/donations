@@ -16,12 +16,12 @@ class Payment < ActiveRecord::Base
  
   def self.all_payments_by_lang(lang)
     language = Language.find (:first, :conditions => [ "name = ?", lang]) 
-	 find(:all, :conditions => [ "language_id = ?", language.id ])
+	 find(:all, :conditions => [ "language_id = ?", language.id ], :order => [:priority])
   end
 
   def self.all_payments_by_lang_sorted(lang)
     language = Language.find (:first, :conditions => [ "name = ?", lang]) 
-	 find(:all, :conditions => [ "language_id = ?", language.id ]).map { |l| [l.name, l.id] }.sort
+	 find(:all, :conditions => [ "language_id = ?", language.id ], :order => [:priority]).map { |l| [l.name, l.id] }.sort
   end
 
   def validate

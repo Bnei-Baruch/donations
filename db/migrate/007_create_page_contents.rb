@@ -5,7 +5,7 @@ class CreatePageContents < ActiveRecord::Migration
 	t.column :about_page,   		  :text
 	t.column :why_now_page,   		  :text
 	t.column :faq_page,  			  :text
-	t.column :parivacy_and_security_page, :text
+	t.column :privacy_and_security_page, :text
 	t.column :contact_us_page,            :text
 	t.column :language_id,  		  :integer
     end

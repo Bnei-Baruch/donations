@@ -1,0 +1,24 @@
+<h1>Listing commons</h1>
+
+<table>
+  <tr>
+  <th>Language</th>
+  </tr>
+  
+<% for common in @commons %>
+  <tr>
+    <td><%= common.language.name %></td>
+
+    <td><%= link_to 'Show', :action => 'show', :id => common %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => common %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => common }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @common_pages.current.previous } if @common_pages.current.previous %>
+<%= link_to 'Next page', { :page => @common_pages.current.next } if @common_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New common', :action => 'new' %>

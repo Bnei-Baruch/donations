@@ -6,7 +6,7 @@ class PageContent < ActiveRecord::Base
   validates_presence_of :about_page
   validates_presence_of :why_now_page
   validates_presence_of :faq_page
-  validates_presence_of :parivacy_and_security_page
+  validates_presence_of :privacy_and_security_page
   validates_presence_of :contact_us_page
 
   def validate

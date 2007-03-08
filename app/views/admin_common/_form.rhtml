@@ -1,0 +1,16 @@
+<%= error_messages_for 'common' %>
+
+<!--[form:common]-->
+
+<p><%=
+options = [["Select Language", "0"]] + Language.all_langs
+select("common", "language_id", options)
+%></p>
+
+<p><label for="common_date">Start accumulation bar sum from</label><br/>
+<%= datetime_select 'common', 'date'  %></p>
+
+<p><label for="common_copyright">Copyright</label><br/>
+<%= text_area 'common', 'copyright'  %></p>
+<!--[eoform:common]-->
+

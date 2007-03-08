@@ -18,7 +18,7 @@
 <% else %>
     <td>Undefined</td>
 <% end %>
-    <td><%= donor.created_at %></td>
+    <td><%= donor.created_at.month %>.<%= donor.created_at.day %>.<%= donor.created_at.year %></td>
     <td><%= donor.message%></td>
   </tr>
 <% end %>

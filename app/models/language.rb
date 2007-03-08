@@ -2,6 +2,7 @@ class Language < ActiveRecord::Base
   
   has_many :payments
   has_many :contents
+  has_many :commons
 
   validates_presence_of :name
   validates_uniqueness_of :name
