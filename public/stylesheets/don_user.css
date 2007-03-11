@@ -7,58 +7,88 @@ body,html {
 	padding: 0;
 	font:normal normal 14px Arial, sans-serif;
 }
-#header {
-	background: #152F6A url(../images/header.jpg) no-repeat top left;
-	height:119px;
-	position:relative;
+#left{
+	float:left;
+	width:180px;
 }
-#header #BB{
-	position:absolute;
-	left:85px;
-	top:36px;
-	font:normal normal 22px serif;
-	color:white;
+#left #logo img{
+	float:left;
 }
-#header #subt{
-	position:absolute;
-	left:82px;
-	top:65px;
-	font:normal normal 14px serif;
-	color:white;
+#left #logo #BB{
+	font:normal normal 20px serif;
+	padding:36px 0 40px;
 }
-
+#menu {
+	line-height:26px;
+	border-top:1px solid #E1E3E2;
+	width:160px;
+	margin:0 0 50px;
+}
+#menu a{
+	display:block;
+}
+#menu a#select{
+	background-color:#F3F7F8;
+}
+#menu a, #menu a:visited{
+	padding:5px;
+	text-decoration:none;
+	color:#2D6188;
+	border:1px solid white;
+	border-bottom:1px solid #E1E3E2;
+	font:normal normal 14px Arial, sans-serif;
+}
+#menu a:hover{
+	border:1px solid #4B8CC2;
+	color:#4B8CC2;
+}
 #main{
 	margin: 20px 20px;
 }
-#main img{
-	margin:5px;
-	float:left;
+#main #head{
+	font:normal normal 25px serif;
+	margin: 0 0 20px 200px;
 }
-#main #content{
-	margin:0 50px;
+#content{
+	margin:0 30px 0 200px;
 }
-#main #payment{
-	clear:both;
-}
-#main #payment h3{
-	margin:10px 50px 10px;
+#payment h3{
+	margin:50px 50px 10px 200px;
 	font:bold normal 14px Arial, sans-serif;
+}
+#payment #bg{
+	margin:0 0 0 200px;
+	height:35px;
+	background: white url(../images/pay.gif) repeat-x top left;
+}
+#payment table{
+	position:relative;
+	top:-35px;
 }
 td, th{
 	border-collapse:collapse;
 	border:0 none;
+	width:180px;
+}
+td{
+	vertical-align:top;
 }
 #left-pay-th{
 	background: white url(../images/left-pay.jpg) no-repeat top right;
 	height:35px;
 	width:40px;
+	border:1px solid red;
+}
+#right-pay-th{
+	background: white url(../images/right-pay.jpg) top left;
+	height:35px;
+	width:119px;
 }
 .pay-th{
-	background: white url(../images/pay.jpg) no-repeat top left;
+	background: white url(../images/pay.jpg) top left;
 	height:35px;
-	width:189px;
 	color:white;
-	font:bold normal 18px serif;
+	font:bold normal 20px serif;
 }
 #left-pay{
 	background: white url(../images/v-border.gif) repeat-y top right;
@@ -68,36 +98,12 @@ td, th{
 	padding:10px;
 	border-bottom:1px solid #DADADA;
 }
-#pay-tr{
+.pay .el_payment{
+	margin: 10px 0
 }
 #C{
+	clear:both;
 	border-top:1px solid #DADADA;
 	padding:10px 0 0 70px;
-}
-#menu {
-	margin:1px 0;
-	line-height:26px;
-}
-#menu span{
-	color:#C4C4C4;
-}
-#menu #select{
-	background-color:#4B8CC2;
-	color:white;
-}
-#menu a, #menu a:visited{
-	padding:5px;
-	text-decoration:none;
-	color:black;
-	border:1px solid white;
-	font:normal normal 14px Arial, sans-serif;
-}
-#menu a:hover{
-	border:1px solid #4B8CC2;
-	color:#4B8CC2;
-}
-#gray-pass{
-	background: white url(../images/gray-pass.gif) repeat-x top left;
-	height:10px;
 }
 

@@ -3,12 +3,14 @@
 <table>
   <tr>
   <th>Name</th>
+  <th>Prio</th>
   <th>Language</th>
   </tr>
   
 <% for payment in @payments %>
   <tr> 
     <td><%= payment.name %></td>
+    <td><%= payment.priority %></td>
     <td><%= payment.language.name %></td>
 
     <td><%= link_to 'Show', :action => 'show', :id => payment %></td>

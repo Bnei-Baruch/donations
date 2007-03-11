@@ -4,13 +4,11 @@ class UserController < ApplicationController
 
   #before_filter :set_params
 
-  def index
-	 set_params
-  end
-
   def main
 	 set_params
   end
+
+  alias_method :index, :main
 
   def about
 	 set_params
@@ -55,18 +53,21 @@ class UserController < ApplicationController
 
   def set_params(to_render = true)
 	 lang = "English" # params[:lang]
-    @page_content = get_content("English")
-	 @payments = get_payments("English")
 	 @action = action_name
+	 if (@action == "index")
+		 @action = "main"
+	 end
+    @page_content = get_content(lang, @action)
+	 @payments = get_payments(lang)
 	 render :action => "main" if to_render
   end
 
-  def get_content(lang)
+  def get_content(lang, action)
     page_contents = PageContent.get_page_content_by_lang (lang)
     if page_contents.nil?
       "" 
     else
-      page_contents[action_name + "_page"]
+      page_contents[action + "_page"]
 	 end
   end
 

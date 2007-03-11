@@ -4,36 +4,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>AdminLang: <%= controller.action_name %></title>
+  <title>Bnei Baruch Foundation::<%= controller.action_name %></title>
   <%= stylesheet_link_tag "don_user" , :media => "all" %>
 </head>
 <body>
-	<div id="header">
-		<p id="BB">Bnei Baruch Foundation</p>
-		<p id="subt">Sharing the Wisdom of Kabbalah</p>
-	</div>
-  <div id="menu">
-	  <%= link_to "Home", {:action => "main"}, @action == "main" ? {:id => "select"} : {} %>
-	  <span> | </span>
-	  <%= link_to "About Bnei Baruh", {:action => "about"}, @action == "about" ? {:id => "select"} : {} %>
-	  <span> | </span>
-	  <%= link_to "Why Now", {:action => "why_now"}, @action == "why_now" ? {:id => "select"} : {} %>
-	  <span> | </span>
-	  <%= link_to "FAQ", {:action => "faq"}, @action == "faq" ? {:id => "select"} : {} %>
-	  <span> | </span>
-	  <%= link_to "Privacy and Security", {:action => "privacy_and_security"}, @action == "privacy_and_security" ? {:id => "select"} : {} %>
-	  <span> | </span>
-	  <%= link_to "Contact us", {:action => "contact_us"}, @action == "contact_us" ? {:id => "select"} : {} %>
-	  <span> | </span>
-	  <%= link_to "Donors list", {:action => "donors_list"}, @action == "donors_list" ? {:id => "select"} : {} %>
-	  <span> | </span>
-	  <%= link_to "Projects and Expenses", {:action => "projects_and_expenses"}, @action == "projects_and_expenses" ? {:id => "select"} : {} %>
-	  <span> | </span>
-	  <%= link_to "Projects History", {:action => "projects_history"}, @action == "projects_history" ? {:id => "select"} : {} %>
-  </div>
-  <div id="gray-pass">
+	<div id="left">
+		<div id="logo">
+			<img src="../images/tree.gif" alt="Bnei Baruch Foundation" />
+			<div id="BB">Bnei Baruch Foundation</div>
+		</div>
+	  <div id="menu">
+		  <%= link_to "Home", {:action => "main"},
+		  		@action == "main" ? {:id => "select"} : {} %>
+		  <%= link_to "About Bnei Baruh", {:action => "about"}, @action == "about" ? {:id => "select"} : {} %>
+		  <%= link_to "Why Now", {:action => "why_now"}, @action == "why_now" ? {:id => "select"} : {} %>
+		  <%= link_to "FAQ", {:action => "faq"}, @action == "faq" ? {:id => "select"} : {} %>
+		  <%= link_to "Privacy and Security", {:action => "privacy_and_security"}, @action == "privacy_and_security" ? {:id => "select"} : {} %>
+		  <%= link_to "Contact us", {:action => "contact_us"}, @action == "contact_us" ? {:id => "select"} : {} %>
+		  <%= link_to "Donors list", {:action => "donors_list"}, @action == "donors_list" ? {:id => "select"} : {} %>
+		  <%= link_to "Projects and Expenses", {:action => "projects_and_expenses"}, @action == "projects_and_expenses" ? {:id => "select"} : {} %>
+		  <%= link_to "Projects History", {:action => "projects_history"}, @action == "projects_history" ? {:id => "select"} : {} %>
+	  </div>
   </div>
   <div id="main">
+		<p id="head">Sharing the Wisdom of Kabbalah</p>
     <%= yield :layout %>
   </div>
 	<div id="C">

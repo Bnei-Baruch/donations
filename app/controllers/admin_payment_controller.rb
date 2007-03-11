@@ -13,7 +13,7 @@ class AdminPaymentController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @payment_pages, @payments = paginate :payments, :per_page => 10
+    @payment_pages, @payments = paginate :payments, :order => 'priority', :per_page => 10
   end
 
   def show

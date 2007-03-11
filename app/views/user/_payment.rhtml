@@ -1,17 +1,32 @@
 <div id="payment">
 <h3>Please help us by donating today</h3>
+<div id="bg">&nbsp;</div>
 <table cellspacing="0">
 	<tr>
 		<th id="left-pay-th">&nbsp;</th>
 		<% for payment in @payments -%>
-		<th class="pay-th"><%=payment.name%></th>
+			<th class="pay-th"><%=payment.name%></th>
 		<% end -%>
+		<th id="right-pay-th">&nbsp;</th>
 	</tr>
 	<tr>
 		<td id="left-pay"></td>
 		<% for payment in @payments -%>
-		<td class="pay"><%=payment.description%></td>
+			<td class="pay"><%=payment.description%>
+				<% if payment.code == "electronic" %>
+					<form class="el_payment" method="post" action="http://www.paypal.com/">
+						<div><input value="Paypal" type="submit" /></div>
+					</form>
+					<form class="el_payment" method="get" action="http://www.tranzilla.com/">
+						<div><input value="Credit Card" type="submit" /></div>
+					</form>
+					<form class="el_payment" method="get" action="http://www.webmoney.com/">
+						<div><input value="WebMoney" type="submit" /></div>
+					</form>
+				<% end %>
+			</td>
 		<% end -%>
+		<td id="right-pay"></td>
 	</tr>
 </table>
 </div>
