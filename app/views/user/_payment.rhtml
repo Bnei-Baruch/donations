@@ -10,19 +10,15 @@
 		<th id="right-pay-th">&nbsp;</th>
 	</tr>
 	<tr>
-		<td id="left-pay"></td>
+		<td id="left-pay-td"></td>
 		<% for payment in @payments -%>
-			<td class="pay"><%=payment.description%>
+			<td class="pay-td"><%=payment.description%>
 				<% if payment.code == "electronic" %>
-					<form class="el_payment" method="post" action="http://www.paypal.com/">
-						<div><input value="Paypal" type="submit" /></div>
-					</form>
-					<form class="el_payment" method="get" action="http://www.tranzilla.com/">
-						<div><input value="Credit Card" type="submit" /></div>
-					</form>
-					<form class="el_payment" method="get" action="http://www.webmoney.com/">
-						<div><input value="WebMoney" type="submit" /></div>
-					</form>
+				<%= link_to "Credit Card", "https://www.kabbalah.info/donations/tranzilla.html", :target => "_blank", :class => "el_payment" %>
+				<%= render :partial => "paypal" -%>
+<%#<form class="el_payment" method="get" action="http://www.webmoney.com/">%>
+	<%#<div><input value="WebMoney" type="submit" /></div>%>
+	<%#</form>%>
 				<% end %>
 			</td>
 		<% end -%>

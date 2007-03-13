@@ -16,7 +16,7 @@ body,html {
 }
 #left #logo #BB{
 	font:normal normal 20px serif;
-	padding:36px 0 40px;
+	padding:40px 0 25px 60px;
 }
 #menu {
 	line-height:26px;
@@ -64,20 +64,25 @@ body,html {
 #payment table{
 	position:relative;
 	top:-35px;
+	margin: 0 0 0 200px;
 }
 td, th{
 	border-collapse:collapse;
-	border:0 none;
 	width:180px;
+	margin:0;
+	padding:0;
 }
 td{
 	vertical-align:top;
+	width:160px; /* Minus padding */
 }
 #left-pay-th{
 	background: white url(../images/left-pay.jpg) no-repeat top right;
 	height:35px;
 	width:40px;
-	border:1px solid red;
+}
+#left-pay-td{
+	width:40px;
 }
 #right-pay-th{
 	background: white url(../images/right-pay.jpg) top left;
@@ -93,12 +98,15 @@ td{
 #left-pay{
 	background: white url(../images/v-border.gif) repeat-y top right;
 }
-.pay{
+.pay-td{
 	background: #F8F8F8 url(../images/v-border.gif) repeat-y top right;
 	padding:10px;
 	border-bottom:1px solid #DADADA;
 }
-.pay .el_payment{
+.el_payment{
+	display:block;
+}
+.pay-td .el_payment{
 	margin: 10px 0
 }
 #C{
@@ -106,4 +114,72 @@ td{
 	border-top:1px solid #DADADA;
 	padding:10px 0 0 70px;
 }
+
+/* Microsoft for Boka */
+h2
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic}
+p.MsoNormal{
+	mso-style-parent:"";
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0;
+	margin-right:0;
+	margin-top:0;
+}
+p.MySubTitle
+	{margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold}
+p.Myheading2
+	{margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	line-height:15.0pt;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;
+	}
+p.MyNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	line-height:15.0pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	}
+p.StyleMyHeading3NotLatinBold
+	{margin-top:15.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold}
+p.MyHeading3
+	{margin-top:15.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold}
 

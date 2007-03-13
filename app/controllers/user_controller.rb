@@ -5,7 +5,7 @@ class UserController < ApplicationController
   #before_filter :set_params
 
   def main
-	 set_params
+		set_params
   end
 
   alias_method :index, :main
@@ -49,10 +49,18 @@ class UserController < ApplicationController
 	  @project = Project.find(:first, :conditions => ["id = ?", params[:id]])
   end
 
+	def cancel_return # return from PayPal after "Cancel" was clicked
+	 set_params false
+	end
+
+	def thank_you # return from PayPal after payment was made
+	 set_params false
+	end
+
   private
 
   def set_params(to_render = true)
-	 lang = "English" # params[:lang]
+	 lang = get_language
 	 @action = action_name
 	 if (@action == "index")
 		 @action = "main"
@@ -60,6 +68,10 @@ class UserController < ApplicationController
     @page_content = get_content(lang, @action)
 	 @payments = get_payments(lang)
 	 render :action => "main" if to_render
+  end
+
+  def get_language
+	 "English" # params[:lang]
   end
 
   def get_content(lang, action)

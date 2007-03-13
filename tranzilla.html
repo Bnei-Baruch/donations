@@ -1,0 +1,196 @@
+<script type="text/javascript">
+//<![CDATA[
+var cot_loc0=(window.location.protocol == "https:")? "https://secure.comodo.net/trustlogo/javascript/cot.js" :
+"http://www.trustlogo.com/trustlogo/javascript/cot.js";
+document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/javascript"><\/script>');
+function Enable_Disable(){	if(document.forms['form1'].elements['reg_credit'].checked==1){
+		document.forms['form1'].elements['payments'].disabled=true;
+	}else{
+		document.forms['form1'].elements['payments'].disabled=false;
+	}
+}
+function Make_Payments(){var p_number;
+var sum;
+var payment;
+var warning;
+	if(document.forms['form1'].elements['myid'].value!=''&&document.forms['form1'].elements['ccno'].value!=''&&document.forms['form1'].elements['mycvv'].value!=''&&document.forms['form1'].elements['sum'].value!='') {
+		document.forms['form1'].submit();
+	} else {
+		warning='Please fill:\n';
+		if(document.forms['form1'].elements['ccno'].value=='') {
+			warning+="Card Number\n";
+		}
+
+		if(document.forms['form1'].elements['mycvv'].value=='') {
+			warning+="CVV Number\n";
+		}
+
+		if(document.forms['form1'].elements['sum'].value=='') {
+			warning+="Amount\n";
+		}
+		if(document.forms['form1'].elements['myid'].value=='') {
+			warning+="ID";
+		}
+	}
+
+	if(document.forms['form1'].elements['myid'].value=='') {
+		alert(warning);
+	} else {
+		document.forms['form1'].submit();
+	}
+
+	if(document.forms['form1'].elements['reg_credit'].checked==0) {
+		sum=document.forms['form1'].elements['summ'].value;
+		p_number=document.forms['form1'].elements['payments'].value;
+		p_number++;
+		payment=sum/p_number;
+		document.forms['form1'].elements['second_pay'].value=payment;
+		document.forms['form1'].elements['first_pay'].value=payment;	
+	}
+}		
+//]]>
+</script>
+
+<div align="center">
+       <form id="form1" Action="https://secure.tranzila.com/cgi-bin/tranzila31.cgi" method="POST">
+	<input type="hidden" name="supplier" value="kabbalahd"> 
+	<input type="hidden" name="lang" value="eng">
+			<td height="23">
+				<p align="left">Credit Card Number:*</p>
+			</td>
+
+			<td height="23">
+			<input style="width:150px height:20px" size="14" maxlenght="30" name="ccno" value="">
+			</td>
+		</tr>
+      <tr>
+			<td height="23">
+				<p align="left">Expire Date:*</p>
+			</td>
+
+			<td height="23">
+				<select size="1" name="expmonth">
+					<option value="01" selected>1</option>
+					<option value="02">2</option>
+					<option value="03">3</option>
+					<option value="04">4</option>
+					<option value="05">5</option>
+
+					<option value="06">6</option>
+					<option value="07">7</option>
+					<option value="08">8</option>
+					<option value="09">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+
+					<option value="12">12</option>
+				</select>
+
+				<select size="1" name="expyear">
+					<option selected value="06">2006</option>
+					<option value="07">2007</option>
+					<option value="08">2008</option>
+
+					<option value="09">2009</option>
+				</select>
+			</td>
+		</tr>
+      <tr>
+			<td height="21">
+				<p align="left">Currency:*</p>
+			</td>
+
+			<td height="21">
+				<input checked type="radio"  name="currency" value="1">Shekels
+				<input type="radio" name="currency" value="2">US Dollars
+			</td>
+		</tr>
+      <tr>
+			<td height="20">
+				<p align="left"> CVV Number*</p>
+			</td>
+
+			<td height="20">
+				<input size="6" maxlenght="5" name="mycvv" value="">
+			</td>
+		</tr>
+      <tr>
+			<td height="23">
+				<p align="left">Amount:*</p>
+			</td>
+
+			<td height="23">
+				<input id="summ"  size="10" maxlenght="50" name="sum" value="">
+			</td>
+		</tr>
+      <tr>
+			<td height="21">
+				<p align="left">Pay method:*</p>
+			</td>
+
+			<td height="21">
+				<input id="reg_credit" onclick="Enable_Disable();"  checked type="radio" name="cred_type" value="1">Regular 
+                Credit
+			
+				<input id="installments" onclick="Enable_Disable();" type="radio" name="cred_type" value="8">Installments
+			</td>
+		</tr>
+      <tr>
+			<td height="23">
+				<p align="left">Number of Payments</p>
+			</td>
+
+			<td height="23">
+				<select id="payments" disabled size="1" name="npay">
+					<option value="01" selected>2</option>
+					<option value="02">3</option>
+					<option value="03">4</option>
+					<option value="04">5</option>
+					<option value="05">6</option>
+
+					<option value="06">7</option>
+					<option value="07">8</option>
+					<option value="08">9</option>
+					<option value="09">10</option>
+					<option value="10">11</option>
+					<option value="11">12</option>
+
+				</select>
+			</td>
+		
+		</tr>
+      <tr>
+			<td height="23">
+				<p align="left">ID*</p>
+			</td>
+			<td height="23">
+
+				<input style="width:50px height:20px" size="14" maxlenght="30" name="myid" value="">
+			</td>
+		</tr>
+      <tr>
+			<td height="27">
+				<p align="left"></p>
+				<input id="first_pay" type="hidden" name="fpay" value="">
+				<input id="second_pay" type="hidden" name="spay" value="">
+			</td>	
+			<td height="27">
+
+				<br>
+				<input onclick="Make_Payments();" type="button" value="Submit">
+				<input type="reset" value="Reset"> 
+			</td>
+		</tr>
+                  
+    
+	</table>
+</form>
+</div>
+<!-- Tranzila Verified START -->
+
+<script language="JavaScript" type="text/javascript"
+
+src="https://secure.tranzila.com/verified//tranzila.js?lng=ENG"></script>
+
+<!-- Tranzila Verified END -->
+<script language="JavaScript">COT("https://www.kabbalah.info/engkab/images/secure_site.gif", "SC2", "none");</script>
