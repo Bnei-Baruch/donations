@@ -1,2 +1,10 @@
 <p> <%= @page_content %> </p>
+
+<%= link_to 'Send Email Now', 
+		 {:controller => "send_email", :action => "email_get_data"},
+		 {:target => "_blank"}
+		 %>	
+
 <%= render :partial => "payment" -%>
+
+

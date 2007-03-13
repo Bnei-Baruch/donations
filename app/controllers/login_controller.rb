@@ -3,17 +3,14 @@ class LoginController < ApplicationController
   layout "admin"
 
   before_filter :authorize, :except => :login
+  before_filter :is_root
 
   def add_user
-    if is_supervisor
-	redirect_to(:action => "list_users" )
-    else
-      @user = User.new(params[:user])
-      if request.post? and @user.save
-        flash.now[:notice] = "User #{@user.name} created"
-        @user = User.new
-      end 
-    end
+    @user = User.new(params[:user])
+    if request.post? and @user.save
+      flash.now[:notice] = "User #{@user.name} created"
+      @user = User.new
+    end 
   end
 
   def login
@@ -42,15 +39,13 @@ class LoginController < ApplicationController
     redirect = true	
     if request.post?
 	user = User.find(params[:id])
-	begin
-	  if (user.name != "supervisor")
-	    user.destroy
-	    flash[:notice] = "User #{user.name} deleted"
-	  else
-	    redirect = false	
+	if user.name != "root"
+	  begin
+	      user.destroy
+	      flash[:notice] = "User #{user.name} deleted"
+	  rescue Exception => e
+ 	    flash[:notice] = e.message	
 	  end
-	rescue Exception => e
- 	  flash[:notice] = e.message	
 	end
     end
     if redirect
@@ -68,9 +63,16 @@ class LoginController < ApplicationController
     end
   end
 
-  def is_supervisor
-    user = User.find(session[:user_id])
-    user.name == "supervisor"
+  private
+ 
+  def is_root
+    @is_root = false
+    user = nil
+    if session[:user_id]
+      user = User.find(session[:user_id])
+    end
+    if user && user.name == "root"
+	@is_root = true
+    end
   end
-	
 end

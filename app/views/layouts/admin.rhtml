@@ -17,8 +17,10 @@
 	<%= link_to "Page Content", :controller => "admin_page_content", :action => "" %><br/>
 	<%= link_to "Currency", :controller => "admin_currency", :action => "" %><br/>
 	<%= link_to "Common Data", :controller => "admin_common", :action => "" %><br/><br/>
+    <% if @is_root %>
 	<%= link_to "List Users", :controller => "login", :action => "list_users" %><br/>
 	<%= link_to "Add User", :controller => "login", :action => "add_user" %><br/><br/>
+    <% end %>
 	<%= link_to "Logout", :controller => "login", :action => "logout" %>
     </div>
     <div id="main">

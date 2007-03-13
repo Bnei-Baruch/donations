@@ -27,7 +27,7 @@ class UserController < ApplicationController
   end
 
   def contact_us
-	 set_params false
+	 set_params false	 
   end
 
   def donors_list

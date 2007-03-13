@@ -1,0 +1,22 @@
+<h3>Send Email</h3>
+
+<% form_tag :action => 'send_email', :id => @email do -%>
+<%= error_messages_for :email %>
+<table>
+<tr>
+<td><label for="email_name">Your name</label><br/>
+	<%= text_field :email, :name, :size => 40 %></td>
+</tr>
+<tr>
+<td><label for="email_email">Your email</label><br/>
+	<%= text_field :email, :email, :size => 40, :dir => "ltr" %></td>
+</tr>
+<tr>
+<td><label for="email_comment">Comments</label><br/>
+	<%= text_area :email, :comment, :rows => 5, :cols => 30 %></td>
+</tr>
+</table>
+<!--[eoform:friend]-->
+
+<%= submit_tag "Send" %>
+<% end %>

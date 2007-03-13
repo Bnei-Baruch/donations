@@ -15,6 +15,8 @@ Rails::Initializer.run do |config|
   
   # Skip frameworks you're not going to use (only works if using vendor/rails)
   # config.frameworks -= [ :action_web_service, :action_mailer ]
+config.action_mailer.delivery_method = :sendmail
+config.action_mailer.default_charset = "utf-8"
 
   # Only load the plugins named here, by default all plugins in vendor/plugins are loaded
   # config.plugins = %W( exception_notification ssl_requirement )
