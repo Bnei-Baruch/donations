@@ -1,11 +1,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Bnei Baruch Foundation::<%= controller.action_name %></title>
   <%= stylesheet_link_tag "don_user" , :media => "all" %>
+  <%= stylesheet_link_tag "window" , :media => "all" %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "window" %>
+<script type="text/javascript">
+//<![CDATA[
+var cot_loc0=(window.location.protocol == "https:")? "https://secure.comodo.net/trustlogo/javascript/cot.js" : "http://www.trustlogo.com/trustlogo/javascript/cot.js";
+document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/javascript"><\/script>');
+</script>
 </head>
 <body>
 	<div id="left">
@@ -33,7 +40,10 @@
 	<div id="C">
 		 <%= Common.get_copyright_by_lang('English') %>
 	</div>
-</body>
+	<%# Comodo Trust Logo -%>
+<script type="text/javascript">
+//<![CDATA[
+COT("https://www.kabbalah.info/donations/secure_site.gif", "SC2", "none");
+</script>
+	</body>
 </html>
-
-
