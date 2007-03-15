@@ -6,7 +6,7 @@ class ContactUsMailer < ActionMailer::Base
     @body['sender_name'] = email.name
     @body['sender_email'] = email.email
     @body['comment'] = email.comment
-    @recipients = 'dpol_bb@yahoo.com'
+    @recipients = Common.get_email_by_lang("English")
     @from       = [ "#{email.name} <#{email.email}>" ]
     @sent_on    = Time.now
     @headers    = {}

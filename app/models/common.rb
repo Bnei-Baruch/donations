@@ -13,6 +13,10 @@ class Common < ActiveRecord::Base
     get_common_by_lang(lang).copyright
   end
 
+  def self.get_email_by_lang(lang)
+    get_common_by_lang(lang).email
+  end
+
   def validate
       errors.add(:language_id, "is missing" ) if language.nil?
   end

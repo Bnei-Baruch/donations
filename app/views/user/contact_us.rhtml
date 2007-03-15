@@ -1,9 +1,13 @@
-<p> <%= @page_content %> </p>
+<div id="content">
+
+<p id="head"><%= @page_title %></p>
+<%= @page_content_short %>
 
 <%= link_to 'Send Email Now', 
-		 {:controller => "send_email", :action => "email_get_data"},
+		 {:controller => "user", :action => "email_get_data"},
 		 {:target => "_blank"}
 		 %>	
+</div>
 
 <%= render :partial => "payment" -%>
 

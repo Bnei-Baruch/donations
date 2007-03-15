@@ -10,7 +10,7 @@ class SendEmailController < ApplicationController
 	email = ContactUsMailer.create_email(@email)
 	#render(:text => "<pre>" + email.encoded + "</pre>" )
 	ContactUsMailer.deliver(email)
-	#render(:text => "Your email was successfully sent." )
+	render(:text => "Your email was successfully sent." )
 	#flash[:notice] = "Your email was successfully sent."
     else
       render :action => 'email_get_data'

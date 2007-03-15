@@ -1,14 +1,20 @@
 class UserController < ApplicationController
 
-  layout 'user'
+  layout 'user', :except => [ :main_full, :show_project ]
 
   #before_filter :set_params
 
   def main
-		set_params
+	set_params
   end
 
   alias_method :index, :main
+
+  def main_full
+	 lang = get_language     
+        @page_title = get_page_component(lang, params[:cur_action], "_page_title")
+	 @page_content = get_page_component(lang, params[:cur_action], "_page")
+  end
 
   def about
 	 set_params
@@ -65,22 +71,27 @@ class UserController < ApplicationController
 	 if (@action == "index")
 		 @action = "main"
 	 end
-    @page_content = get_content(lang, @action)
+        
+        @page_title = get_page_component(lang, @action, "_page_title")
+	 @page_content_short = get_page_component(lang, @action, "_page_short")
+	 @page_content = get_page_component(lang, @action, "_page")
+
 	 @payments = get_payments(lang)
-	 render :action => "main" if to_render
+	 
+        render :action => "main" if to_render
   end
 
   def get_language
 	 "English" # params[:lang]
   end
 
-  def get_content(lang, action)
+  def get_page_component(lang, action, suffix)
     page_contents = PageContent.get_page_content_by_lang (lang)
     if page_contents.nil?
       "" 
     else
-      page_contents[action + "_page"]
-	 end
+      page_contents[action + suffix]
+    end
   end
 
   def get_payments(lang)

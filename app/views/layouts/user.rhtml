@@ -33,8 +33,7 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 		  <%= link_to "Projects History", {:action => "projects_history"}, @action == "projects_history" ? {:id => "select"} : {} %>
 	  </div>
   </div>
-  <div id="main">
-		<p id="head">Sharing the Wisdom of Kabbalah</p>
+  <div id="main">		
     <%= yield :layout %>
   </div>
 	<div id="C">
