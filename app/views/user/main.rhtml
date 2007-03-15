@@ -6,7 +6,7 @@
 <%= link_to 'More...', 
 		 {:controller => "user", :action => "main_full", :cur_action => @action },
 		 {:target => "_blank",
-		 :onclick => "OpenWin('/don/user/main_full?cur_action=@action', @page_title, 600, 400);return false"}
+		  :onclick => "OpenWin('/don/user/main_full?cur_action=#@action', '#@page_title', 600, 400); return false"}
 		 %>	
 </div>
 <%= render :partial => "payment" -%>

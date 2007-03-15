@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 
-  layout 'user', :except => [ :main_full, :show_project ]
+  layout 'user', :except => [ :main_full, :show_project, :show_donor ]
 
   #before_filter :set_params
 
@@ -52,16 +52,20 @@ class UserController < ApplicationController
   end
 
   def show_project
-	  @project = Project.find(:first, :conditions => ["id = ?", params[:id]])
+    @project = Project.find(:first, :conditions => ["id = ?", params[:id]])
   end
 
-	def cancel_return # return from PayPal after "Cancel" was clicked
-	 set_params false
-	end
+  def show_donor
+    @donor = Donor.find(:first, :conditions => ["id = ?", params[:id]])
+  end
 
-	def thank_you # return from PayPal after payment was made
-	 set_params false
-	end
+  def cancel_return # return from PayPal after "Cancel" was clicked
+    set_params false
+  end
+
+  def thank_you # return from PayPal after payment was made
+   set_params false
+  end
 
   private
 

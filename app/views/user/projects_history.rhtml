@@ -4,15 +4,20 @@
   <th>Description</th>
   </tr>
   
-<% for project in @projects %>
+<% for @project in @projects %>
   <tr>
-    <td><%= project.name %></td>
-    <td><%= project.short_decr %></td>
+    <td><%= @project.name %></td>
+    <td><%= @project.short_decr %></td>
 
-     <td><%= link_to 'More ...', 
-		 {:action => 'show_project', :id => project},
-		 {:target => "_blank"}
-		 %></td>
+    <% @name = @project.name 
+	@id   = @project.id %>
+
+    <td><%= link_to 'More ...', 
+		 {:action => 'show_project', :id => @project},
+		 {:target => "_blank",
+		  :onclick => "OpenWin('/don/user/show_project/#@id', '#@name', 600, 400); return false"}
+		  %></td>
+
   </tr>
 <% end %>
 </table>

@@ -4,8 +4,9 @@
 <%= @page_content_short %>
 
 <%= link_to 'Send Email Now', 
-		 {:controller => "user", :action => "email_get_data"},
-		 {:target => "_blank"}
+		 {:controller => "send_email", :action => "email_get_data" },
+		 {:target => "_blank",
+		  :onclick => "OpenWin('/don/send_email/email_get_data', '#@page_title', 600, 400); return false"}
 		 %>	
 </div>
 

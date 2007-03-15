@@ -1,18 +1,28 @@
 <p>
-  <b>Name: </b><%=@donor.name%>
+  <b>Name: </b>
+<% if @donor.is_anonymous%>
+    <td>Anonymous</td>
+<% else %>
+    <td><%= @donor.name %></td>
+<% end %>
 </p>
+
 <p>
   <b>Country: </b><%=@donor.country%>
 </p>
+
 <p>
   <b>City: </b><%=@donor.city%>
 </p>
+
 <p>
   <b>Region: </b><%=@donor.region%>
 </p>
+
 <p>
   <b>Message: </b><%=@donor.message%>
 </p>
+
 <p>
   <b>Sum $: </b><%=@donor.sum_dollars%>
 </p>
@@ -26,23 +36,16 @@
 <p>
   <b>Payment: </b><%=@donor.payment.name%>
 </p>
-<p>
-  <b>Anonymous: </b><%=@donor.is_anonymous%>
-</p>
+
 <p>
   <b>Donation Date: </b><%=@donor.created_at%>
-</p>
-<p>
-  <b>Approved: </b><%=@donor.approved%>
-</p>
-<p>
-  <b>IP: </b><%=@donor.ip%>
 </p>
 
 <% if not @donor.currency.nil?%>
 <p>
   <b>Currency: </b><%=@donor.currency.name%>
 </p>
+
 <p>
   <b>Sum (currency): </b><%=@donor.sum_curr%>
 </p>
