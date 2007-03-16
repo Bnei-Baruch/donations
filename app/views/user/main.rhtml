@@ -3,7 +3,7 @@
 <p id="head"><%= @page_title %></p>
 <%= @page_content_short %>
 
-<%= link_to 'More...', 
+<%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
 		 {:controller => "user", :action => "main_full", :cur_action => @action },
 		 {:target => "_blank",
 		  :onclick => "OpenWin('/don/user/main_full?cur_action=#@action', '#@page_title', 600, 400); return false"}
