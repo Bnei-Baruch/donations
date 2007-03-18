@@ -65,10 +65,27 @@ class UserController < ApplicationController
 		render :text => bank_details.description
 	end
 
-  def cancel_return # return from PayPal after "Cancel" was clicked
+	def tranzilla
     set_params false
+		@first_pay = params[:first_pay] || ""
+		@second_pay = params[:second_pay] || ""
+		@currency = params[:currency] || "2"
+		@summ = params[:summ] || ""
+		@cred_type = params[:summ] || "1"
+		@npay = params[:summ].to_i || 0
+		@first_name = params[:first_name] || ""
+		@last_name = params[:last_name] || ""
+		@ccno = params[:ccno] || ""
+		@expmonth = params[:expmonth].to_i || 1
+		@expyear = params[:expyear].to_i || 1
+		@mycvv = params[:mycvv] || "1"
+		@myid = params[:myid] || "1"
+		@anon = params[:anon].to_i || 0
+		@email = params[:email] || ""
+		@message = params[:message] || ""
 		response = params[:Response].to_i
 		@error = case
+			when response == 0 : ""
 			when response == 1 : "Blocked Credit Card"
 			when response == 3 : "You have to obtain a permission from the Card Issuer"
 			when response == 4 : "Credit Card Issuer's refusal"
@@ -85,6 +102,8 @@ class UserController < ApplicationController
 			when response == 139 : "To many installments"
 			else "Error # #{response}"
 		end
+
+		render :layout => "tranzilla"
   end
 
   def thank_you # return from PayPal after payment was made
