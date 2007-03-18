@@ -7,6 +7,9 @@ options = [["Select Language", "0"]] + Language.all_langs
 select("common", "language_id", options)
 %></p>
 
+<p><label for="common_target_sum">Accumulation bar Target Sum</label><br/>
+<%= text_field 'common', 'target_sum'  %></p>
+
 <p><label for="common_date">Start accumulation bar sum from</label><br/>
 <%= datetime_select 'common', 'date'  %></p>
 

@@ -32,6 +32,29 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 		  <%= link_to "Projects and Expenses", {:action => "projects_and_expenses"}, @action == "projects_and_expenses" ? {:id => "select"} : {} %>
 		  <%= link_to "Projects History", {:action => "projects_history"}, @action == "projects_history" ? {:id => "select"} : {} %>
 	  </div>
+
+0
+<%  i = 0;
+    target_sum = Common.get_target_sum("English")
+    total_sum = Donor.get_total_sum
+    bars_num = total_sum * 10 / target_sum
+    if bars_num > 10
+	bars_num = 10
+    end
+    while i < bars_num
+	i = i + 1
+%> 
+       <img src="../images/more.gif"/>
+<%  end  %>	
+
+<%
+while i < 10
+	i = i + 1
+%> 
+       &nbsp;
+<%  end  %>	
+<%= Common.get_target_sum("English") %>
+
   </div>
   <div id="main">		
     <%= yield :layout %>

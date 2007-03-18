@@ -16,6 +16,16 @@ class Donor < ActiveRecord::Base
 	find(:all, :conditions => [ "approved = ?", true])
   end
 
+  def self.get_total_sum 
+	date = Common.get_date_by_lang("English")
+	sum = 0
+	donors = find(:all, :conditions => [ "approved  = ? AND created_at > ?", true, date ])
+	for donor in donors
+		sum += donor.sum_dollars
+	end
+	return sum
+  end
+
   protected
 
   def validate
