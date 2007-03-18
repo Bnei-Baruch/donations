@@ -12,8 +12,9 @@ class UserController < ApplicationController
 
   def main_full
 	 lang = get_language     
-        @page_title = get_page_component(lang, params[:cur_action], "_page_title")
+	 @page_title = get_page_component(lang, params[:cur_action], "_page_title")
 	 @page_content = get_page_component(lang, params[:cur_action], "_page")
+	 render(:layout =>  'layouts/main_full')
   end
 
   def about
@@ -59,8 +60,31 @@ class UserController < ApplicationController
     @donor = Donor.find(:first, :conditions => ["id = ?", params[:id]])
   end
 
+	def bank_details
+		bank_details = Payment.bank_details(get_language())
+		render :text => bank_details.description
+	end
+
   def cancel_return # return from PayPal after "Cancel" was clicked
     set_params false
+		response = params[:Response].to_i
+		@error = case
+			when response == 1 : "Blocked Credit Card"
+			when response == 3 : "You have to obtain a permission from the Card Issuer"
+			when response == 4 : "Credit Card Issuer's refusal"
+			when response == 6 : "Wrong ID number"
+			when response == 33 : "Wrong Card"
+			when response == 35 : "Wrong kind of credit"
+			when response == 36 : "The card is expired"
+			when response == 39 : "Wrong card number"
+			when response == 57 : "Missed ID"
+			when response == 61 : "Missed credit card number"
+			when response == 107 : "Too large sum"
+			when response == 111 : "Temporary cannot accept installments"
+			when response == 138 : "No permission for installments"
+			when response == 139 : "To many installments"
+			else "Error # #{response}"
+		end
   end
 
   def thank_you # return from PayPal after payment was made
@@ -76,13 +100,13 @@ class UserController < ApplicationController
 		 @action = "main"
 	 end
         
-        @page_title = get_page_component(lang, @action, "_page_title")
+   @page_title = get_page_component(lang, @action, "_page_title")
 	 @page_content_short = get_page_component(lang, @action, "_page_short")
 	 @page_content = get_page_component(lang, @action, "_page")
 
 	 @payments = get_payments(lang)
 	 
-        render :action => "main" if to_render
+   render :action => "main" if to_render
   end
 
   def get_language

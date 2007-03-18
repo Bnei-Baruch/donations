@@ -6,7 +6,7 @@
 }
 
 .darkX_nw {
-	background: transparent url(../images/window/titlebar-left-focused.png) no-repeat 0 0;			
+	background: transparent url(../images/window/titlebar-left-focused.png) repeat-x 0 0;			
   width:6px;
   height:21px;
 }
@@ -15,7 +15,7 @@
   height:21px;
 }
 .darkX_ne {
-  background: transparent url(../images/window/titlebar-right-focused.png) no-repeat 0 0;			
+  background: transparent url(../images/window/titlebar-right-focused.png) repeat-x 0 0;			
   width:6px;	  
   height:21px;
 }
@@ -30,22 +30,24 @@
 }
 
 .darkX_sw {
-  background: transparent url(../images/window/frame-bottom-left-focused.png) no-repeat 0 0;			
+  background: transparent url(../images/window/frame-bottom-left-focused.png) repeat-x 0 0;			
   width:5px;
   height:3px;
 }
 .darkX_s {
   background: transparent url(../images/window/frame-bottom-mid-focused.png) repeat-x 0 0;			
-  height:3px;
+  height:5px;
 }
-.darkX_se, .darkX_sizer {
-  background: transparent url(../images/window/frame-bottom-right-focused.png) no-repeat 0 0;			
+.darkX_se{
+  background: transparent url(../images/window/frame-bottom-right-focused.png) repeat-x 0 0;			
   width:5px;
   height:3px;
 }
-
 .darkX_sizer {
-	cursor:se-resize;	
+  background: transparent url(../images/window/frame-bottom-right-focused.png) repeat-x 0 0;			
+  width:5px;
+  height:3px;
+  cursor:se-resize;	
 }
 
 .darkX_close {
@@ -112,6 +114,12 @@
 	background-color: transparent;
 	background-image: none;
 	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../images/window/button-maximize-focused.png", sizingMethod="scale");
+}
+
+.wired_frame {
+  display: block;
+  position: absolute;
+  border: 1px #000 dashed;
 }
 
 /* DO NOT CHANGE THESE VALUES*/

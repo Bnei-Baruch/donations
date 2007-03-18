@@ -73,19 +73,12 @@ body,html {
 	margin: 20px 0;
 	font:normal normal 16px Arial, sans-serif;
 }
+#payment{
+	margin:20px 50px 0 200px;
+}
 #payment h3{
-	margin:20px 50px 23px 200px;
-	font:bold normal 14px Arial, sans-serif;
-}
-#payment #bg{
-	margin:0 0 0 200px;
-	height:35px;
-	background: white url(../images/pay.gif) repeat-x top left;
-}
-#payment table{
-	position:relative;
-	top:-35px;
-	margin: 0 0 0 200px;
+	margin:20px 50px 23px 0;
+	font:bold normal 19px Arial, sans-serif;
 }
 td, th{
 	border-collapse:collapse;
@@ -114,21 +107,34 @@ td{
 	background: white url(../images/pay.jpg) top left;
 	height:35px;
 	color:white;
-	font:bold normal 20px serif;
+	font:normal normal 20px "Times New Roman",serif;
 }
 #left-pay{
 	background: white url(../images/v-border.gif) repeat-y top right;
 }
 .pay-td{
 	background: #F8F8F8 url(../images/v-border.gif) repeat-y top right;
-	padding:10px;
+	padding:30px 10px 10px;
 	border-bottom:1px solid #DADADA;
+	font:normal normal 14px Arial,serif;
+}
+.pay-td p{
+	padding:0 0 5px;
+}
+.pay-td .hdr{
+	font-weight:bold;
+}
+.pay-td pre{
+	font-size:14px;
 }
 .el_payment{
 	display:block;
 }
 .pay-td .el_payment{
-	margin: 10px 0
+	margin: 10px 0;
+}
+.pay-td .el_payment img{
+	border:0 none;
 }
 #C{
 	clear:both;

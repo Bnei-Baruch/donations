@@ -1,6 +1,4 @@
 <div id="payment">
-<h3>Please help us by donating today</h3>
-<div id="bg">&nbsp;</div>
 <table cellspacing="0">
 	<tr>
 		<th id="left-pay-th">&nbsp;</th>
@@ -14,11 +12,14 @@
 		<% for payment in @payments -%>
 			<td class="pay-td"><%=payment.description%>
 				<% if payment.code == "electronic" %>
-				<%= link_to image_tag("../images/cc-donate.gif", :size => "60x30"), "https://www.kabbalah.info/donations/tranzilla.html", :target => "_blank", :class => "el_payment", :onclick => "OpenWin('https://www.kabbalah.info/donations/tranzilla.html', 'Credit Card Payment', 600, 400);return false" %>
-				<%= render :partial => "paypal" -%>
+					<%= link_to image_tag("../images/cc-donate.gif", :size => "60x30"), "https://www.kabbalah.info/donations/tranzilla.html", :target => "_blank", :class => "el_payment", :onclick => "OpenWin('https://www.kabbalah.info/donations/tranzilla.html', 'Credit Card Payment', 600, 500);return false" %>
+					<%= render :partial => "paypal" -%>
 <%#<form class="el_payment" method="get" action="http://www.webmoney.com/">%>
 	<%#<div><input value="WebMoney" type="submit" /></div>%>
 	<%#</form>%>
+				<% end %>
+				<% if payment.code == "bank_transaction" %>
+					<%= link_to "Details", "bank_details", :target => "_blank", :class => "el_payment", :onclick => "OpenWin('bank_details', '#{payment.name}', 600, 400);return false" %>
 				<% end %>
 			</td>
 		<% end -%>

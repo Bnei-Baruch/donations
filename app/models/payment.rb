@@ -24,6 +24,11 @@ class Payment < ActiveRecord::Base
 	 find(:all, :conditions => [ "language_id = ?", language.id ], :order => [:priority]).map { |l| [l.name, l.id] }.sort
   end
 
+  def self.bank_details(lang)
+    language = Language.find (:first, :conditions => [ "name = ?", lang]) 
+	 find(:first, :conditions => [ "language_id = ? AND code = ?", language.id, "bank_transaction" ])
+  end
+
   def validate
       errors.add(:language_id, "is missing" ) if language.nil?
   end
