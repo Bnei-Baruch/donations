@@ -16,10 +16,15 @@ class Project < ActiveRecord::Base
 	find(:all, :conditions => "true").map { |l| [l.name, l.id] }.sort
   end
 
-  def self.all_completed_projects(lang, is_completed)
+  def self.all_completed_projects(lang, is_completed, is_limit)
 	language = Language.find (:first, :conditions => ["name = ?", lang])
 	if not language.nil?
-		find(:all, :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed ])
+		if is_limit
+			@entries_num = Common.get_entries_per_page("English")
+			find(:all, :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed ], :limit => @entries_num)
+		else
+			find(:all, :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed ])
+		end
       end
   end
 

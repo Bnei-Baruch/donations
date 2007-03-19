@@ -5,6 +5,7 @@ class Common < ActiveRecord::Base
   validates_presence_of :copyright
   validates_presence_of :target_sum
   validates_numericality_of :target_sum
+  validates_numericality_of :entries_per_page
 
   def self.get_common_by_lang(lang)
     language = Language.find (:first, :conditions => [ "name = ?", lang]) 
@@ -25,6 +26,10 @@ class Common < ActiveRecord::Base
 
   def self.get_target_sum(lang)
     get_common_by_lang(lang).target_sum
+  end
+
+  def self.get_entries_per_page(lang)
+    get_common_by_lang(lang).entries_per_page
   end
 
   def validate

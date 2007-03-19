@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 
-  layout 'user', :except => [ :main_full, :show_project, :show_donor ]
+  layout 'user', :except => [ :main_full, :show_projects, :show_donors ]
 
   #before_filter :set_params
 
@@ -41,25 +41,25 @@ class UserController < ApplicationController
 
   def donors_list
 	 set_params false
-    @donors = Donor.all_approved_donors()
+    @donors = Donor.all_approved_donors(true)
   end
 
   def projects_and_expenses
-    @projects = Project.all_completed_projects("English", false)
+    @projects = Project.all_completed_projects("English", false, true)
 	 set_params false
   end
 
   def projects_history
-    @projects = Project.all_completed_projects("English", true)	
+    @projects = Project.all_completed_projects("English", true, true)	
 	 set_params false
   end
 
-  def show_project
-    @project = Project.find(:first, :conditions => ["id = ?", params[:id]])
+  def show_projects
+    @projects = Project.all_completed_projects("English", params[:completed], false)
   end
 
-  def show_donor
-    @donor = Donor.find(:first, :conditions => ["id = ?", params[:id]])
+  def show_donors
+    @donors = Donor.all_approved_donors(true)
   end
 
 	def bank_details

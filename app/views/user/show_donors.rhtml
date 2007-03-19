@@ -2,8 +2,11 @@
   <tr>
   <th>Name </th>
   <th>Contry </th>
+  <th>City </th>
+  <th>Region </th>
+  <th>Message</th>
   <th>Sum $</th>
-  <th>Project </th>
+  <th>Project Name </th>
   <th>Donation date </th>
   </tr>
   
@@ -17,6 +20,9 @@
 <% end %>
 
     <td><%= @donor.country %></td>
+    <td><%= @donor.city%></td>
+    <td><%= @donor.region%></td>
+    <td><%= @donor.message%></td>
     <td><%= @donor.sum_dollars %></td>
 
 <% if not @donor.project.nil?%>
@@ -34,10 +40,3 @@
 <% end %>
 </table>
 
-<%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
-		 {:controller => "user", :action => "show_donors" },
-		 {:target => "_blank",
-		  :onclick => "OpenWin('/don/user/show_donors', 'Donors List', 600, 400); return false"}
-		 %>
-
-<%= render :partial => "payment" -%>

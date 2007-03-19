@@ -12,8 +12,13 @@ class Donor < ActiveRecord::Base
 	find(:all)
   end
 
-  def self.all_approved_donors
-	find(:all, :conditions => [ "approved = ?", true])
+  def self.all_approved_donors(is_limit)
+	if is_limit
+		@entries_num = Common.get_entries_per_page("English")
+		find(:all, :conditions => [ "approved = ?", true], :limit => @entries_num)
+	else
+		find(:all, :conditions => [ "approved = ?", true])
+	end
   end
 
   def self.get_total_sum 
