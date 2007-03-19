@@ -4,13 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Bnei Baruch Association::<%= controller.action_name %></title>
-  <%= stylesheet_link_tag "don_user" , :media => "all" %>
-<!-- Tranzila Verified START -->
-<div style="float:right">
-<script language="JavaScript" type="text/javascript"
-src="https://secure.tranzila.com/verified//tranzila.js?lng=ENG"></script>
-</div>
-<!-- Tranzila Verified END -->
+  <%= stylesheet_link_tag "tranzilla" , :media => "all" %>
 <script type="text/javascript">
 //<![CDATA[
 var cot_loc0=(window.location.protocol == "https:")? "https://secure.comodo.net/trustlogo/javascript/cot.js" : "http://www.trustlogo.com/trustlogo/javascript/cot.js";
@@ -76,6 +70,12 @@ var warning;
 </script>
 </head>
 <body>
+<!-- Tranzila Verified START -->
+<div style="float:right">
+<script language="JavaScript" type="text/javascript"
+src="https://secure.tranzila.com/verified//tranzila.js?lng=ENG"></script>
+</div>
+<!-- Tranzila Verified END -->
     <%= yield :layout %>
 	<%# Comodo Trust Logo -%>
 <script type="text/javascript">

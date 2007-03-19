@@ -1,11 +1,11 @@
 <div id="content">
 
-<p id="head"><%= @page_title %></p>
+<h3><%= @page_title %></h3>
 <%= @page_content_short %>
 
 <%= link_to 'Send Email Now', 
 		 {:controller => "send_email", :action => "email_get_data" },
-		 {:target => "_blank",
+		 {:target => "_blank", :class => "email",
 		  :onclick => "OpenWin('/don/send_email/email_get_data', '#@page_title', 600, 400); return false"}
 		 %>	
 </div>

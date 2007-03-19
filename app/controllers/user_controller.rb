@@ -8,7 +8,9 @@ class UserController < ApplicationController
 	set_params
   end
 
-  alias_method :index, :main
+  def index
+	set_params
+  end
 
   def main_full
 	 lang = get_language     
@@ -72,15 +74,15 @@ class UserController < ApplicationController
 		@currency = params[:currency] || "2"
 		@summ = params[:summ] || ""
 		@cred_type = params[:summ] || "1"
-		@npay = params[:summ].to_i || 0
+		@npay = params[:summ] || "2"
 		@first_name = params[:first_name] || ""
 		@last_name = params[:last_name] || ""
-		@ccno = params[:ccno] || ""
-		@expmonth = params[:expmonth].to_i || 1
-		@expyear = params[:expyear].to_i || 1
-		@mycvv = params[:mycvv] || "1"
-		@myid = params[:myid] || "1"
-		@anon = params[:anon].to_i || 0
+		@ccno = ""
+		@expmonth = params[:expmonth] || "1"
+		@expyear = params[:expyear] || "7"
+		@mycvv = params[:mycvv] || ""
+		@myid = params[:myid] || ""
+		@anon = params[:anon] || "0"
 		@email = params[:email] || ""
 		@message = params[:message] || ""
 		response = params[:Response].to_i
@@ -125,6 +127,7 @@ class UserController < ApplicationController
 
 	 @payments = get_payments(lang)
 	 
+	 @host = request.env["HTTP_HOST"]
    render :action => "main" if to_render
   end
 

@@ -1,50 +1,50 @@
 <% if @error != "" -%>
 <p style="color: red"><%= @error %></p>
 <%end-%>
-<form id="form1" action="https://secure.tranzila.com/cgi-bin/tranzila31.cgi" method="POST">
-	<input type="hidden" name="supplier" value="test2"> 
-	<input type="hidden" name="lang" value="English"> 
-	<input id="first_pay" type="hidden" name="fpay" value="<%=@first_pay%>">
-	<input id="second_pay" type="hidden" name="spay" value="<%=@second_pay%>">
+<form id="form1" action="https://secure.tranzila.com/cgi-bin/tranzila31.cgi" method="post">
+	<input type="hidden" name="supplier" value="test2" />
+	<input type="hidden" name="lang" value="English" />
+	<input id="first_pay" type="hidden" name="fpay" value="<%=@first_pay%>" />
+	<input id="second_pay" type="hidden" name="spay" value="<%=@second_pay%>" />
 	<table>
 		<tr>
 			<td colspan="2"><b>Payment</b></td>
 		</tr>
     <tr>
-			<td>Currency:*</td>
+			<td class="hdr">Currency:*</td>
 			<td>
 				<select id="currency" size="1" name="currency">
-					<option value="1" <%if @currency == 1%>selected<%end%>>Shekels</option>
-					<option value="2" <%if @currency == 2%>selected<%end%>>US Dollars</option>
+					<option value="1" <%if @currency == "1"%>selected="selected"<%end%>>Shekels</option>
+					<option value="2" <%if @currency == "2"%>selected="selected"<%end%>>US Dollars</option>
 				</select>
 			</td>
 		</tr>
     <tr>
 			<td>Amount:*</td>
-			<td><input id="summ" size="10" maxlenght="50" name="sum" value="<%=@summ%>"></td>
+			<td><input type="text" id="summ" size="10" maxlength="50" name="sum" value="<%=@summ%>" /></td>
 		</tr>
 		<tr>
 			<td>Payment method:*</td>
 			<td>
-				<input id="reg_credit" onclick="Enable_Disable();" <%if @cred_type = 1%>checked<%end%> type="radio" name="cred_type" value="1">Regular Credit
-				<input id="installments" onclick="Enable_Disable();" <%if @cred_type = 1%>checked<%end%> type="radio" name="cred_type" value="8">Installments
+				<input id="reg_credit" onclick="Enable_Disable();" <%if @cred_type == "1"%>checked="checked"<%end%> type="radio" name="cred_type" value="1" />Regular Credit
+				<input id="installments" onclick="Enable_Disable();" <%if @cred_type == "8"%>checked="checked"<%end%> type="radio" name="cred_type" value="8" />Installments
 			</td>
 		</tr>
     <tr>
 			<td>Number of Installments:</td>
 			<td>
-				<select id="payments" disabled size="1" name="npay">
-					<option value="2" <%if @npay = 2%>selected<%end%>>2</option>
-					<option value="3" <%if @npay = 3%>selected<%end%>>3</option>
-					<option value="4" <%if @npay = 4%>selected<%end%>>4</option>
-					<option value="5" <%if @npay = 5%>selected<%end%>>5</option>
-					<option value="6" <%if @npay = 6%>selected<%end%>>6</option>
-					<option value="7" <%if @npay = 7%>selected<%end%>>7</option>
-					<option value="8" <%if @npay = 8%>selected<%end%>>8</option>
-					<option value="9" <%if @npay = 9%>selected<%end%>>9</option>
-					<option value="10" <%if @npay = 10%>selected<%end%>>10</option>
-					<option value="11" <%if @npay = 11%>selected<%end%>>11</option>
-					<option value="12" <%if @npay = 12%>selected<%end%>>12</option>
+				<select id="payments" disabled="disabled" size="1" name="npay">
+					<option value="2" <%if @npay == "2"%>selected="selected"<%end%>>2</option>
+					<option value="3" <%if @npay == "3"%>selected="selected"<%end%>>3</option>
+					<option value="4" <%if @npay == "4"%>selected="selected"<%end%>>4</option>
+					<option value="5" <%if @npay == "5"%>selected="selected"<%end%>>5</option>
+					<option value="6" <%if @npay == "6"%>selected="selected"<%end%>>6</option>
+					<option value="7" <%if @npay == "7"%>selected="selected"<%end%>>7</option>
+					<option value="8" <%if @npay == "8"%>selected="selected"<%end%>>8</option>
+					<option value="9" <%if @npay == "9"%>selected="selected"<%end%>>9</option>
+					<option value="10" <%if @npay == "10"%>selected="selected"<%end%>>10</option>
+					<option value="11" <%if @npay == "11"%>selected="selected"<%end%>>11</option>
+					<option value="12" <%if @npay == "12"%>selected="selected"<%end%>>12</option>
 				</select>
 			</td>
 		</tr>
@@ -53,53 +53,51 @@
 		</tr>
 		<tr>
 			<td>First Name:*</td>
-			<td><input style="width:150px height:20px" size="14" maxlenght="30" name="first_name" value="<%=@first_name%>"></td>
+			<td><input size="14" maxlength="30" name="first_name" value="<%=@first_name%>" /></td>
 		</tr>
 		<tr>
 			<td>Last Name:*</td>
-			<td><input style="width:150px height:20px" size="14" maxlenght="30" name="last_name" value="<%=@last_name%>"></td>
+			<td><input size="14" maxlength="30" name="last_name" value="<%=@last_name%>" /></td>
 		</tr>
 		<tr>
 			<td>Credit Card Number:*</td>
-			<td><input style="width:150px height:20px" size="14" maxlenght="30" name="ccno" value="<%=@ccno%>"></td>
+			<td><input size="14" maxlength="30" name="ccno" value="<%=@ccno%>" /></td>
 		</tr>
     <tr>
 			<td>Expiration Date:*</td>
 			<td>
 				<select size="1" name="expmonth">
-					<option value="01" <%if @expmonth = 1%>selected<%end%>>1</option>
-					<option value="02" <%if @expmonth = 2%>selected<%end%>>2</option>
-					<option value="03" <%if @expmonth = 3%>selected<%end%>>3</option>
-					<option value="04" <%if @expmonth = 4%>selected<%end%>>4</option>
-					<option value="05" <%if @expmonth = 5%>selected<%end%>>5</option>
-					<option value="06" <%if @expmonth = 6%>selected<%end%>>6</option>
-					<option value="07" <%if @expmonth = 7%>selected<%end%>>7</option>
-					<option value="08" <%if @expmonth = 8%>selected<%end%>>8</option>
-					<option value="09" <%if @expmonth = 9%>selected<%end%>>9</option>
-					<option value="10" <%if @expmonth = 10%>selected<%end%>>10</option>
-					<option value="11" <%if @expmonth = 11%>selected<%end%>>11</option>
-
-					<option value="12">12</option>
+					<option value="01" <%if @expmonth == "1"%>selected="selected"<%end%>>1</option>
+					<option value="02" <%if @expmonth == "2"%>selected="selected"<%end%>>2</option>
+					<option value="03" <%if @expmonth == "3"%>selected="selected"<%end%>>3</option>
+					<option value="04" <%if @expmonth == "4"%>selected="selected"<%end%>>4</option>
+					<option value="05" <%if @expmonth == "5"%>selected="selected"<%end%>>5</option>
+					<option value="06" <%if @expmonth == "6"%>selected="selected"<%end%>>6</option>
+					<option value="07" <%if @expmonth == "7"%>selected="selected"<%end%>>7</option>
+					<option value="08" <%if @expmonth == "8"%>selected="selected"<%end%>>8</option>
+					<option value="09" <%if @expmonth == "9"%>selected="selected"<%end%>>9</option>
+					<option value="10" <%if @expmonth == "10"%>selected="selected"<%end%>>10</option>
+					<option value="11" <%if @expmonth == "11"%>selected="selected"<%end%>>11</option>
+					<option value="12" <%if @expmonth == "12"%>selected="selected"<%end%>>12</option>
 				</select>
 
-				<select size="1" name="expyear">
-					<option <%if @expyear = 7%>selected<%end%> value="07">2007</option>
-					<option <%if @expyear = 8%>selected<%end%> value="08">2008</option>
-
-					<option <%if @expyear = 9%>selected<%end%> value="09">2009</option>
-					<option <%if @expyear = 10%>selected<%end%> value="10">2010</option>
-					<option <%if @expyear = 11%>selected<%end%> value="11">2011</option>
-					<option <%if @expyear = 12%>selected<%end%> value="12">2012</option>
+				<select name="expyear">
+					<option <%if @expyear == "7"%>selected="selected"<%end%> value="07">2007</option>
+					<option <%if @expyear == "8"%>selected="selected"<%end%> value="08">2008</option>
+					<option <%if @expyear == "9"%>selected="selected"<%end%> value="09">2009</option>
+					<option <%if @expyear == "10"%>selected="selected"<%end%> value="10">2010</option>
+					<option <%if @expyear == "11"%>selected="selected"<%end%> value="11">2011</option>
+					<option <%if @expyear == "12"%>selected="selected"<%end%> value="12">2012</option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>CVV Number*</td>
-			<td><input size="6" maxlenght="5" name="mycvv" value="<%=@mycvv%>"></td>
+			<td><input size="6" maxlength="5" name="mycvv" value="<%=@mycvv%>" /></td>
 		</tr>
     <tr>
 			<td>ID*</td>
-			<td><input style="width:50px height:20px" size="14" maxlenght="30" name="myid" value="<%=@myid%>"></td>
+			<td><input size="14" maxlength="30" name="myid" value="<%=@myid%>" /></td>
 		</tr>
 		<tr>
 			<td colspan="2"><b>Contact Information</b></td>
@@ -107,21 +105,21 @@
 		<tr>
 			<td>I'd like my name to be published:</td>
 			<td>
-				<input id="anon" <%if @anon = 0%>checked<%end%> type="radio" name="anon" value="0">Yes
-				<input id="anon" <%if @anon = 1%>checked<%end%> type="radio" name="anon" value="1">No
+				<input id="anon_yes" <%if @anon == "0"%>checked="checked"<%end%> type="radio" name="anon" value="0" />Yes
+				<input id="anon_no" <%if @anon == "1"%>checked="checked"<%end%> type="radio" name="anon" value="1" />No
 			</td>
 		</tr>
 		<tr>
 			<td>Email Address:*</td>
-			<td><input style="width:150px height:20px" size="14" maxlenght="30" name="email" value="<%=@email%>"></td>
+			<td><input size="14" maxlength="30" name="email" value="<%=@email%>" /></td>
 		</tr>
 		<tr>
 			<td>Message:</td>
 			<td>
-				<textarea maxlength="255" id="message" name="message"><%=@message%></textarea>
+				<textarea rows="5" cols="30" id="message" name="message"><%=@message%></textarea>
 			</td>
 		</tr>
 	</table>
-	<input onclick="Make_Payments();" type="button" value="Submit">
-	<input type="reset" value="Reset"> 
+	<input onclick="Make_Payments();" type="button" value="Submit" />
+	<input type="reset" value="Reset" />
 </form>

@@ -1,6 +1,9 @@
 <div id="content">
 
-<p id="head"><%= @page_title %></p>
+<%if @page_title != ""-%>
+<h3><%= @page_title %></h3>
+<%else @page_title = "Bnei Baruch Association"-%>
+<%end-%>
 <%= @page_content_short %>
 
 <%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 

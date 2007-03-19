@@ -1,50 +1,50 @@
 .overlay_darkX {
-	background-color: #85BBEF;
+	background-color: white;
 	filter:alpha(opacity=60);
 	-moz-opacity: 0.6;
 	opacity: 0.6;
 }
 
 .darkX_nw {
-	background: transparent url(../images/window/titlebar-left-focused.png) repeat-x 0 0;			
+  background-color: #00479C;
   width:6px;
   height:21px;
 }
 .darkX_n {
-  background: transparent url(../images/window/titlebar-mid-focused.png) repeat-x 0 0;			
+  background-color: #00479C;
   height:21px;
 }
 .darkX_ne {
-  background: transparent url(../images/window/titlebar-right-focused.png) repeat-x 0 0;			
+  background-color: #00479C;
   width:6px;	  
   height:21px;
 }
 .darkX_w {
-  background: transparent url(../images/window/frame-left-focused.png) repeat-y top left;			
+  background-color: #00479C;
   width:3px;
 }
 
 .darkX_e {
-  background: transparent url(../images/window/frame-right-focused.png) repeat-y top right;			
+  background-color: #00479C;
   width:3px;	  
 }
 
 .darkX_sw {
-  background: transparent url(../images/window/frame-bottom-left-focused.png) repeat-x 0 0;			
+  border-top: 3px solid #00479C;
   width:5px;
-  height:3px;
+  height:5px;
 }
 .darkX_s {
-  background: transparent url(../images/window/frame-bottom-mid-focused.png) repeat-x 0 0;			
+  border-top: 3px solid #00479C;
   height:5px;
 }
 .darkX_se{
-  background: transparent url(../images/window/frame-bottom-right-focused.png) repeat-x 0 0;			
+  border-top: 3px solid #00479C;
   width:5px;
   height:3px;
 }
 .darkX_sizer {
-  background: transparent url(../images/window/frame-bottom-right-focused.png) repeat-x 0 0;			
+  border-top: 3px solid #00479C;
   width:5px;
   height:3px;
   cursor:se-resize;	
@@ -55,8 +55,8 @@
 	height: 21px;
 	background: transparent url(../images/window/button-close-focused.gif) no-repeat 0 0;			
 	position:absolute;
-	top:0px;
-	right:5px;
+	top:2px;
+	right:-3px;
 	cursor:pointer;
 	z-index:1000;
 }
@@ -88,7 +88,7 @@
 	float:left;
 	height:14px;
 	font-size:12px;
-	text-align:center;
+	font-weight:bold;
 	margin-top:2px;
 	width:100%;
 	color:#FFF;
