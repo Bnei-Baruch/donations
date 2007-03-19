@@ -59,7 +59,7 @@ class UserController < ApplicationController
   end
 
   def show_donors
-    @donors = Donor.all_approved_donors(true)
+    @donors = Donor.all_approved_donors(false)
   end
 
 	def bank_details
