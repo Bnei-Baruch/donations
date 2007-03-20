@@ -30,7 +30,11 @@
 %></p>
 
 <p><label for="donor_is_anonymous">Anonymous</label><br/>
-<select id="donor_is_anonymous" name="donor[is_anonymous]"><option value="false">False</option><option value="true">True</option></select></p>
+<% if @donor.is_anonymous %>
+	<select id="donor_is_anonymous" name="donor[is_anonymous]"><option value="true">True</option><option value="false">False</option></select></p>
+<% else %>
+	<select id="donor_is_anonymous" name="donor[is_anonymous]"><option value="false">False</option><option value="true">True</option></select></p>
+<% end %>
 
 <p><label for="donor_created_at">Donation date</label><br/>
 <%= datetime_select 'donor', 'created_at'  %></p>
@@ -40,7 +44,11 @@
 <!--<%= text_field 'donor', 'ip'  %></p>-->
 
 <p><label for="donor_approved">Approved</label><br/>
-<select id="donor_approved" name="donor[approved]"><option value="false">False</option><option value="true">True</option></select></p>
+<% if @donor.approved %>
+	<select id="donor_approved" name="donor[approved]"><option value="true">True</option><option value="false">False</option></select></p>
+<% else %>
+	<select id="donor_approved" name="donor[approved]"><option value="false">False</option><option value="true">True</option></select></p>
+<% end %>
 
 <p><%=
 	options = [["Select Currency", "0"]] + Currency.all_currencies

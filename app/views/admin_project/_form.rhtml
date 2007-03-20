@@ -20,7 +20,11 @@ select("project", "language_id", options)
 <%= text_field 'project', 'cost'  %></p>
 
 <p><label for="project_is_completed">Completed</label><br/>
-<select id="project_is_completed" name="project[is_completed]"><option value="false">False</option><option value="true">True</option></select></p>
+<% if @project.is_completed %>
+	<select id="project_is_completed" name="project[is_completed]"><option value="true">True</option><option value="false">False</option></select></p>
+<% else %>
+	<select id="project_is_completed" name="project[is_completed]"><option value="false">False</option><option value="true">True</option></select></p>
+<% end %>
 
 <p><label for="project_start_date">Start date</label><br/>
 <%= datetime_select 'project', 'start_date'  %></p>
