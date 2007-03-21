@@ -12,7 +12,10 @@
 	<td class="short-name">Description</td><td><%=@project.description%></td>
 </tr>
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
-	<td class="short-name">Cost</td><td>$<%=@project.cost%></td>
+	<td class="short-name">Monthly Cost</td><td>$<%=@project.cost%></td>
+</tr>
+	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
+	<td class="short-name">Fixed Cost</td><td>$<%=@project.fixed_sum%></td>
 </tr>
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
 	<td class="short-name">Start Date</td><td><%=@project.start_date.to_date%></td>

@@ -16,8 +16,11 @@ select("project", "language_id", options)
 <p><label for="project_description">Description</label><br/>
 <%= text_area 'project', 'description'  %></p>
 
-<p><label for="project_cost">Cost $</label><br/>
+<p><label for="project_cost">Monthly Cost $</label><br/>
 <%= text_field 'project', 'cost'  %></p>
+
+<p><label for="project_fixed_sum">Fixed Cost $</label><br/>
+<%= text_field 'project', 'fixed_sum'  %></p>
 
 <p><label for="project_is_completed">Completed</label><br/>
 <% if @project.is_completed %>
