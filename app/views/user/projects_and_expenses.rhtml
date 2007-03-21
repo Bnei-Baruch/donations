@@ -19,12 +19,12 @@
 <% end %>
 </table>
 
-<% show = url_for(:controller => "user", :action => "show_projects", :completed => "#{@completed}") -%>
+<% show = url_for(:controller => "user", :action => "show_projects/completed/#{@completed}") -%>
 <%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
-		 {:controller => "user", :action => "show_projects", :completed => "false" },
-		 {:target => "_blank",
-		 :onclick => "OpenWin('#{show}', '#{h3}', 600, 410); return false"}
-		 %>
+	{:controller => "user", :action => "show_projects/completed/#{@completed}" },
+	{:target => "_blank",
+	 :onclick => "OpenWin('#{show}', '#{h3}', 600, 410); return false"}
+	%>
 
 </div>
 <%= render :partial => "payment" -%>
