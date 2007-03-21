@@ -12,71 +12,71 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 </script>
 <script type="text/javascript">
 //<![CDATA[
-function Enable_Disable(){      if(document.forms['form1'].elements['reg_credit'].checked==1){
-                document.forms['form1'].elements['payments'].disabled=true;
-        }else{
-                document.forms['form1'].elements['payments'].disabled=false;
-        }
+function Enable_Disable(){
+	document.forms['tranzilla'].elements['payments'].disabled=
+		document.forms['tranzilla'].elements['reg_credit'].checked==1
 }
-function Make_Payments(){var p_number;
-var sum;
+function Make_Payments(){
+var p_number;
+var sum = parseFloat(document.forms['tranzilla'].elements['sum'].value);
 var payment;
 var warning;
-        if(document.forms['form1'].elements['myid'].value!=''&&document.forms['form1'].elements['ccno'].value!=''&&document.forms['form1'].elements['mycvv'].value!=''&&document.forms['form1'].elements['sum'].value!=''&&document.forms['first_name']!=''&&document.forms['last_name']!=''&&document.forms['email']!='') {
-                document.forms['form1'].submit();
-        } else {
-                warning='Please fill:\n';
-                if(document.forms['form1'].elements['first_name'].value=='') {
-                        warning+="First Name\n";
-                }
-                if(document.forms['form1'].elements['last_name'].value=='') {
-                        warning+="Last Name\n";
-                }
-                if(document.forms['form1'].elements['email'].value=='') {
-                        warning+="Email Address\n";
-                }
-                if(document.forms['form1'].elements['ccno'].value=='') {
-                        warning+="Card Number\n";
-                }
+var value = (document.forms['tranzilla'].elements['myid'].value!='')&&(document.forms['tranzilla'].elements['ccno'].value!='')&&(document.forms['tranzilla'].elements['mycvv'].value!='')&&(document.forms['tranzilla'].elements['sum'].value!='')&&(document.forms['first_name']!='')&&(document.forms['last_name']!='')&&(document.forms['email']!='')&&(sum>=0.01);
 
-                if(document.forms['form1'].elements['mycvv'].value=='') {
-                        warning+="CVV Number\n";
-                }
+	if(value == true){
+		document.forms['tranzilla'].submit();
+	} else {
+		warning='Please fill:\n';
+		if(document.forms['tranzilla'].elements['first_name'].value=='') {
+			warning+="First Name\n";
+		}
+		if(document.forms['tranzilla'].elements['last_name'].value=='') {
+			warning+="Last Name\n";
+		}
+		if(document.forms['tranzilla'].elements['email'].value=='') {
+			warning+="Email Address\n";
+		}
+		if(document.forms['tranzilla'].elements['ccno'].value=='') {
+			warning+="Card Number\n";
+		}
+		if(document.forms['tranzilla'].elements['mycvv'].value=='') {
+			warning+="CVV Number\n";
+		}
+		if((document.forms['tranzilla'].elements['sum'].value=='') || (sum < 0.01)) {
+			warning+="Correct Amount\n";
+		}
+		if(document.forms['tranzilla'].elements['myid'].value=='') {
+			warning+="ID";
+		}
+	}
 
-                if(document.forms['form1'].elements['sum'].value=='') {
-                        warning+="Amount\n";
-                }
-                if(document.forms['form1'].elements['myid'].value=='') {
-                        warning+="ID";
-                }
-        }
+	if(document.forms['tranzilla'].elements['reg_credit'].checked==0) {
+		sum=document.forms['tranzilla'].elements['sum'].value;
+		p_number=document.forms['tranzilla'].elements['payments'].value;
+		p_number++;
+		payment=sum/p_number;
+		document.forms['tranzilla'].elements['second_pay'].value=payment;
+		document.forms['tranzilla'].elements['first_pay'].value=payment;
+	}
 
-        if(document.forms['form1'].elements['myid'].value=='') {
-                alert(warning);
-        } else {
-                document.forms['form1'].submit();
-        }
-
-        if(document.forms['form1'].elements['reg_credit'].checked==0) {
-                sum=document.forms['form1'].elements['summ'].value;
-                p_number=document.forms['form1'].elements['payments'].value;
-                p_number++;
-                payment=sum/p_number;
-                document.forms['form1'].elements['second_pay'].value=payment;
-                document.forms['form1'].elements['first_pay'].value=payment;
-        }
+	if(value == false) {
+		alert(warning);
+	} else {
+		document.forms['tranzilla'].submit();
+	}
+	return false;
 }
 //]]>
 </script>
 </head>
 <body>
+    <%= yield :layout %>
 <!-- Tranzila Verified START -->
-<div style="float:right">
+<div style="float:left">
 <script language="JavaScript" type="text/javascript"
 src="https://secure.tranzila.com/verified//tranzila.js?lng=ENG"></script>
 </div>
 <!-- Tranzila Verified END -->
-    <%= yield :layout %>
 	<%# Comodo Trust Logo -%>
 <script type="text/javascript">
 //<![CDATA[

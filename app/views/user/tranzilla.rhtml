@@ -1,17 +1,22 @@
-<% if @error != "" -%>
-<p style="color: red"><%= @error %></p>
+<% if flash[:notice] != ""-%>
+<div id="notice"><%= flash[:notice] %></div>
+<%else-%>
+<div id="no-notice">&nbsp;</div>
 <%end-%>
-<form id="form1" action="https://secure.tranzila.com/cgi-bin/tranzila31.cgi" method="post">
+<form id="tranzilla" action="https://secure.tranzila.com/cgi-bin/tranzila31.cgi" method="post">
 	<input type="hidden" name="supplier" value="test2" />
 	<input type="hidden" name="lang" value="English" />
 	<input id="first_pay" type="hidden" name="fpay" value="<%=@first_pay%>" />
 	<input id="second_pay" type="hidden" name="spay" value="<%=@second_pay%>" />
 	<table>
 		<tr>
-			<td colspan="2"><b>Payment</b></td>
+			<td colspan="5"><div>Payment</div></td>
 		</tr>
     <tr>
-			<td class="hdr">Currency:*</td>
+			<td>Amount:<span class="star">*</span></td>
+			<td><input type="text" id="sum" size="10" maxlength="50" name="sum" value="<%=@sum%>" /></td>
+			<td class="sep"></td>
+			<td>Currency:<span class="star">*</span></td>
 			<td>
 				<select id="currency" size="1" name="currency">
 					<option value="1" <%if @currency == "1"%>selected="selected"<%end%>>Shekels</option>
@@ -19,19 +24,15 @@
 				</select>
 			</td>
 		</tr>
-    <tr>
-			<td>Amount:*</td>
-			<td><input type="text" id="summ" size="10" maxlength="50" name="sum" value="<%=@summ%>" /></td>
-		</tr>
 		<tr>
-			<td>Payment method:*</td>
+			<td>Payment method:<span class="star">*</span></td>
 			<td>
 				<input id="reg_credit" onclick="Enable_Disable();" <%if @cred_type == "1"%>checked="checked"<%end%> type="radio" name="cred_type" value="1" />Regular Credit
+			</td>
+			<td class="sep"></td>
+			<td>
 				<input id="installments" onclick="Enable_Disable();" <%if @cred_type == "8"%>checked="checked"<%end%> type="radio" name="cred_type" value="8" />Installments
 			</td>
-		</tr>
-    <tr>
-			<td>Number of Installments:</td>
 			<td>
 				<select id="payments" disabled="disabled" size="1" name="npay">
 					<option value="2" <%if @npay == "2"%>selected="selected"<%end%>>2</option>
@@ -49,22 +50,20 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2"><b>Credit Card Information</b></td>
+			<td colspan="5"><div>Credit Card Information</div></td>
 		</tr>
 		<tr>
-			<td>First Name:*</td>
+			<td>First Name:<span class="star">*</span></td>
 			<td><input size="14" maxlength="30" name="first_name" value="<%=@first_name%>" /></td>
-		</tr>
-		<tr>
-			<td>Last Name:*</td>
-			<td><input size="14" maxlength="30" name="last_name" value="<%=@last_name%>" /></td>
-		</tr>
-		<tr>
-			<td>Credit Card Number:*</td>
+			<td class="sep"></td>
+			<td>Credit Card Number:<span class="star">*</span></td>
 			<td><input size="14" maxlength="30" name="ccno" value="<%=@ccno%>" /></td>
 		</tr>
-    <tr>
-			<td>Expiration Date:*</td>
+		<tr>
+			<td>Last Name:<span class="star">*</span></td>
+			<td><input size="14" maxlength="30" name="last_name" value="<%=@last_name%>" /></td>
+			<td class="sep"></td>
+			<td>Expiration Date:<span class="star">*</span></td>
 			<td>
 				<select size="1" name="expmonth">
 					<option value="01" <%if @expmonth == "1"%>selected="selected"<%end%>>1</option>
@@ -92,34 +91,45 @@
 			</td>
 		</tr>
 		<tr>
-			<td>CVV Number*</td>
+			<td>ID<span class="star">*</span></td>
+			<td><input size="14" maxlength="30" name="myid" value="<%=@myid%>" /></td>
+			<td class="sep"></td>
+			<td>CVV Number<span class="star">*</span></td>
 			<td><input size="6" maxlength="5" name="mycvv" value="<%=@mycvv%>" /></td>
 		</tr>
-    <tr>
-			<td>ID*</td>
-			<td><input size="14" maxlength="30" name="myid" value="<%=@myid%>" /></td>
+		<tr>
+			<td colspan="5"><div>Contact Information</div></td>
 		</tr>
 		<tr>
-			<td colspan="2"><b>Contact Information</b></td>
-		</tr>
-		<tr>
-			<td>I'd like my name to be published:</td>
+			<td>Publish my name:</td>
 			<td>
 				<input id="anon_yes" <%if @anon == "0"%>checked="checked"<%end%> type="radio" name="anon" value="0" />Yes
 				<input id="anon_no" <%if @anon == "1"%>checked="checked"<%end%> type="radio" name="anon" value="1" />No
 			</td>
+			<td class="sep"></td>
+			<td></td>
+			<td></td>
 		</tr>
 		<tr>
-			<td>Email Address:*</td>
+			<td>Email Address:<span class="star">*</span></td>
 			<td><input size="14" maxlength="30" name="email" value="<%=@email%>" /></td>
+			<td class="sep"></td>
+			<td></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>Message:</td>
-			<td>
-				<textarea rows="5" cols="30" id="message" name="message"><%=@message%></textarea>
+			<td colspan="4">
+				<textarea rows="3" cols="47" id="message" name="message"><%=@message%></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<div id="buttons">
+					<input onclick="Make_Payments();" type="button" value="Submit" />
+					<input type="reset" value="Reset" />
+				</div>
 			</td>
 		</tr>
 	</table>
-	<input onclick="Make_Payments();" type="button" value="Submit" />
-	<input type="reset" value="Reset" />
 </form>

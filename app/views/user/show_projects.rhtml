@@ -1,21 +1,26 @@
+<div id="content">
+	<%if @completed -%>
+	<h3>Projects' History</h3>
+	<%else-%>
+	<h3>Projects and Expenses</h3>
+	<%end-%>
 <% for @project in @projects %>
-<p>
-  <b>Name: </b><%=@project.name%>
-</p>
-<p>
-  <b>Short Description: </b><%=@project.short_decr%>
-</p>
-<p>
-  <b>Description: </b><%=@project.description%>
-</p>
-<p>
-  <b>Cost:  $</b><%=@project.cost%>
-</p>
-<p>
-  <b>Start Date: </b><%=@project.start_date%>
-</p>
-<p>
-  <b>End date: </b><%=@project.duration%>
-</p>
-</br></br>
+<br/>
+<h3><%=@project.name%></h3>
+<table cellspacing="0" class="table projects">
+	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
+	<td class="short-name">Description</td><td><%=@project.description%></td>
+</tr>
+	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
+	<td class="short-name">Cost</td><td>$<%=@project.cost%></td>
+</tr>
+	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
+	<td class="short-name">Start Date</td><td><%=@project.start_date.to_date%></td>
+</tr>
+	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
+	<td class="short-name">End date</td><td><%=@project.duration.to_date%></td>
+</tr>
+</table>
 <% end %>
+</div>
+

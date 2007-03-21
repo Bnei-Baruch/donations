@@ -1,34 +1,24 @@
-<table>
+<div id="content">
+	<h3>Donors' list</h3>
+<table cellspacing="0" class="table">
   <tr>
-  <th>Name </th>
-  <th>Contry </th>
-  <th>Sum $</th>
-  <th>Project </th>
-  <th>Donation date </th>
+  <th>Donation date</th>
+  <th class="list-intern-right">Name</th>
+  <th>Amount</th>
   </tr>
   
 <% for @donor in @donors %>
-  <tr>
+	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
+
+    <td class="short-column"><%= @donor.created_at.to_date %></td>
 
 <% if @donor.is_anonymous%>
-    <td>Anonymous</td>
+    <td class="list-intern-right">Anonymous</td>
 <% else %>
-    <td><%= @donor.name %></td>
+    <td class="list-intern-right"><%= @donor.name %></td>
 <% end %>
 
-    <td><%= @donor.country %></td>
-    <td><%= @donor.sum_dollars %></td>
-
-<% if not @donor.project.nil?%>
-    <td><%= @donor.project.name %></td>
-<% else %>
-    <td>Undefined</td>
-<% end %>
-
-    <td><%= @donor.created_at.month %>.<%= @donor.created_at.day %>.<%= @donor.created_at.year %></td>
-
-    <% @name = @donor.name 
-	@id   = @donor.id %>
+    <td class="short-column">$<%= @donor.sum_dollars %></td>
 
   </tr>
 <% end %>
@@ -37,7 +27,8 @@
 <%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
 		 {:controller => "user", :action => "show_donors" },
 		 {:target => "_blank",
-		  :onclick => "OpenWin('/don/user/show_donors', 'Donors List', 600, 400); return false"}
+		  :onclick => "OpenWin('/don/user/show_donors', 'Donor\\\'s List', 600, 400); return false"}
 		 %>
 
+</div>
 <%= render :partial => "payment" -%>

@@ -12,12 +12,12 @@ class Donor < ActiveRecord::Base
 	find(:all)
   end
 
-  def self.all_approved_donors(is_limit)
-	if is_limit
+  def self.all_approved_donors(to_limit)
+	if to_limit
 		@entries_num = Common.get_entries_per_page("English")
-		find(:all, :conditions => [ "approved = ?", true], :limit => @entries_num)
+		find(:all, :conditions => [ "approved = ?", true], :limit => @entries_num, :order => "created_at DESC")
 	else
-		find(:all, :conditions => [ "approved = ?", true])
+		find(:all, :conditions => [ "approved = ?", true], :order => "created_at DESC")
 	end
   end
 
@@ -25,9 +25,7 @@ class Donor < ActiveRecord::Base
 	date = Common.get_date_by_lang("English")
 	sum = 0
 	donors = find(:all, :conditions => [ "approved  = ? AND created_at > ?", true, date ])
-	for donor in donors
-		sum += donor.sum_dollars
-	end
+	sum = donors.sum {|donor| donor.sum_dollars}
 	return sum
   end
 

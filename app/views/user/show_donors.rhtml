@@ -1,42 +1,33 @@
-<table>
+<div id="content">
+	<h3>Donors' list</h3>
+<table cellspacing="0" class="table">
   <tr>
-  <th>Name </th>
-  <th>Contry </th>
-  <th>City </th>
-  <th>Region </th>
-  <th>Message</th>
-  <th>Sum $</th>
-  <th>Project Name </th>
-  <th>Donation date </th>
+  <th>Date</th>
+  <th class="list-intern-left">Name</th>
+  <th class="list-intern-right">Message</th>
+  <th>Amount</th>
   </tr>
   
 <% for @donor in @donors %>
-  <tr>
+	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
 
+    <td class="don-date"><%= @donor.created_at.to_date %></td>
 <% if @donor.is_anonymous%>
-    <td>Anonymous</td>
+    <td class="don-name list-intern-left">Anonymous</td>
 <% else %>
-    <td><%= @donor.name %></td>
+    <td class="don-name list-intern-left"><%= @donor.name %></td>
 <% end %>
 
-    <td><%= @donor.country %></td>
-    <td><%= @donor.city%></td>
-    <td><%= @donor.region%></td>
-    <td><%= @donor.message%></td>
-    <td><%= @donor.sum_dollars %></td>
-
-<% if not @donor.project.nil?%>
-    <td><%= @donor.project.name %></td>
-<% else %>
-    <td>Undefined</td>
-<% end %>
-
-    <td><%= @donor.created_at.month %>.<%= @donor.created_at.day %>.<%= @donor.created_at.year %></td>
-
-    <% @name = @donor.name 
-	@id   = @donor.id %>
+	<td class="don-msg list-intern-right">
+		<% if @donor.message.empty? -%>
+		&nbsp;
+		<%else-%>
+			<%= @donor.message%>
+		<%end-%>
+	</td>
+    <td class="don-sum">$<%= @donor.sum_dollars %></td>
 
   </tr>
 <% end %>
 </table>
-
+</div>

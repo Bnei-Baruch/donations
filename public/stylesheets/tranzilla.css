@@ -3,10 +3,53 @@
 	margin:0;
 }
 body,html {
-	margin: 0;
-	padding: 0;
-	font:normal normal 14px Arial, sans-serif;
+	font:normal normal 12px Arial, sans-serif;
+	width:540px;
 }
-td.hdr{
-	width:200px;
+form#tranzilla {
+	border-bottom:1px solid gray;
+}
+form#tranzilla table{
+	margin: 0 0 0 10px;
+}
+form#tranzilla td{
+	vertical-align:top;
+	padding:0 3px;
+	height:20px;
+}
+form#tranzilla td.sep{
+	width:40px;
+}
+form#tranzilla td div{
+	margin: 15px 0 10px;
+	color:#00479B;
+	font-weight:bold;
+}
+form#tranzilla span.star{
+	color:#C50000;
+}
+form#tranzilla div#buttons{
+	float:right;
+	margin:0;
+}
+#notice {
+border: 2px solid red;
+padding: 3px;
+background-color: #f0f0f0 ;
+font: bold normal 12px Arial,sans-serif;
+width:540px;
+}
+#no-notice {
+padding: 3px;
+font: bold normal 12px Arial,sans-serif;
+width:540px;
+}
+h3{
+	text-align: left;
+	font:normal normal 18px "Times New Roman", serif;
+	color:#00479C;
+}
+.thanks{
+	height:420px;
+	border-bottom:1px solid gray;
 }

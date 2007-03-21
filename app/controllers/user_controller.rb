@@ -45,36 +45,44 @@ class UserController < ApplicationController
   end
 
   def projects_and_expenses
-    @projects = Project.all_completed_projects("English", false, true)
 	 set_params false
+    @projects = Project.all_completed_projects("English", false, true)
+	 @completed = false
   end
 
   def projects_history
-    @projects = Project.all_completed_projects("English", true, true)	
 	 set_params false
+    @projects = Project.all_completed_projects("English", true, true)	
+	 @completed = true
+	 render :action => "projects_and_expenses"
   end
 
   def show_projects
     @projects = Project.all_completed_projects("English", params[:completed], false)
+	 @completed = params[:completed]
+	 render(:layout =>  'layouts/main_full')
   end
 
   def show_donors
     @donors = Donor.all_approved_donors(false)
+	 render(:layout =>  'layouts/main_full')
   end
 
 	def bank_details
 		bank_details = Payment.bank_details(get_language())
-		render :text => bank_details.description
+		render :layout =>  'layouts/main_full', :text => bank_details.description
 	end
+
+require 'cgi'
 
 	def tranzilla
     set_params false
 		@first_pay = params[:first_pay] || ""
 		@second_pay = params[:second_pay] || ""
 		@currency = params[:currency] || "2"
-		@summ = params[:summ] || ""
-		@cred_type = params[:summ] || "1"
-		@npay = params[:summ] || "2"
+		@sum = params[:sum] || ""
+		@cred_type = params[:sum] || "1"
+		@npay = params[:sum] || "2"
 		@first_name = params[:first_name] || ""
 		@last_name = params[:last_name] || ""
 		@ccno = ""
@@ -84,25 +92,26 @@ class UserController < ApplicationController
 		@myid = params[:myid] || ""
 		@anon = params[:anon] || "0"
 		@email = params[:email] || ""
+		@email = CGI::unescape(@email)
 		@message = params[:message] || ""
 		response = params[:Response].to_i
-		@error = case
+		flash[:notice] = case
 			when response == 0 : ""
-			when response == 1 : "Blocked Credit Card"
-			when response == 3 : "You have to obtain a permission from the Card Issuer"
-			when response == 4 : "Credit Card Issuer's refusal"
-			when response == 6 : "Wrong ID number"
-			when response == 33 : "Wrong Card"
-			when response == 35 : "Wrong kind of credit"
-			when response == 36 : "The card is expired"
-			when response == 39 : "Wrong card number"
-			when response == 57 : "Missed ID"
-			when response == 61 : "Missed credit card number"
-			when response == 107 : "Too large sum"
-			when response == 111 : "Temporary cannot accept installments"
-			when response == 138 : "No permission for installments"
-			when response == 139 : "To many installments"
-			else "Error # #{response}"
+			when response == 1 : "Credit card is blocked"
+			when response == 3 : "Contact your credit company"
+			when response == 4 : "Credit card company refusal"
+			when response == 6 : "ID number or CVV is incorrect"
+			when response == 33 : "Defective card"
+			when response == 35 : "Card is not permitted for transaction or type of credit"
+			when response == 36 : "Credit card is expired"
+			when response == 39 : "Incorrect card number"
+			when response == 57 : "ID number missing"
+			when response == 61 : "Credit card number missing"
+			when response == 107 : "Transaction amount is too high"
+			when response == 111 : "Temporary cannot accept payments"
+			when response == 138 : "You don't have permission to make payments"
+			when response == 139 : "Number of installments is too high, maximum 12 installments are allowed"
+			else "Error ##{response}"
 		end
 
 		render :layout => "tranzilla"
@@ -110,6 +119,7 @@ class UserController < ApplicationController
 
   def thank_you # return from PayPal after payment was made
    set_params false
+	render :layout => "tranzilla"
   end
 
   private

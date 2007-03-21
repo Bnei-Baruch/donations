@@ -84,11 +84,13 @@
 }
 
 
+.darkX_title h3{
+	font:normal bold 12px Arial, sans-serif;
+}
 .darkX_title {
 	float:left;
 	height:14px;
-	font-size:12px;
-	font-weight:bold;
+	font:normal bold 12px Arial, sans-serif;
 	margin-top:2px;
 	width:100%;
 	color:#FFF;

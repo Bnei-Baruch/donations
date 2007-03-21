@@ -8,8 +8,8 @@
 	<input type="hidden" name="tax" value="0" />
 	<input type="hidden" name="on0" value="lang" />
 	<input type="hidden" name="os0" value="English" />
-	<input type="hidden" name="cancel_return" value="<%= @host + url_for(:action => "cancel_return")%>" />
-	<input type="hidden" name="return" value="<%= @host + url_for(:action => "thank_you")%>" />
+	<input type="hidden" name="cancel_return" value="<%= "http://" + @host + url_for(:action => "main")%>" />
+	<input type="hidden" name="return" value="<%= "http://" + @host + url_for(:action => "thank_you")%>" />
 	<input type="hidden" name="rm" value="2" />
 	<input type="image" src="../images/paypal.gif" name="submit" alt="PayPal" />
 </form>

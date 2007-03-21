@@ -11,7 +11,7 @@
 		<% for payment in @payments -%>
 			<td class="pay-td"><%=payment.short_description%>
 				<% if payment.code == "electronic" %>
-				<%= link_to image_tag("../images/visa.gif"),  "tranzilla", :target => "_blank", :class => "el_payment", :onclick => "OpenWin('tranzilla', 'Credit Card Payment', 600, 500);return false" %>
+				<%= link_to image_tag("../images/visa.gif"),  "tranzilla", :target => "_blank", :class => "el_payment", :onclick => "OpenWin('tranzilla', 'Credit Card Payment', 565, 510);return false" %>
 					<%= render :partial => "paypal" -%>
 <%#<form class="el_payment" method="get" action="http://www.webmoney.com/">%>
 	<%#<div><input value="WebMoney" type="submit" /></div>%>
