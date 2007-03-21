@@ -6,8 +6,6 @@
   <title>Bnei Baruch Association::<%= controller.action_name %></title>
   <%= stylesheet_link_tag "don_user" , :media => "all" %>
   <%= stylesheet_link_tag "window" , :media => "all" %>
-  <%= javascript_include_tag :defaults %>
-  <%= javascript_include_tag "window" %>
 <script type="text/javascript">
 //<![CDATA[
 var cot_loc0=(window.location.protocol == "https:")? "https://secure.comodo.net/trustlogo/javascript/cot.js" : "http://www.trustlogo.com/trustlogo/javascript/cot.js";
@@ -16,6 +14,7 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 </script>
 </head>
 <body>
+  <%= javascript_include_tag "application" %>
 	<div id="left">
 		<div id="logo">
 			<%=image_tag("../images/tree.gif", :alt => "Bnei Baruch Association")%>
@@ -50,5 +49,8 @@ COT("images/secure_site.gif", "SC2", "none");
 <% end -%>
 //]]>
 </script>
+  <%= javascript_include_tag "prototype" %>
+  <%= javascript_include_tag "effects" %>
+  <%= javascript_include_tag "window" %>
 </body>
 </html>

@@ -8,7 +8,7 @@ class Common < ActiveRecord::Base
   validates_numericality_of :entries_per_page
 
   def self.get_common_by_lang(lang)
-    language = Language.find (:first, :conditions => [ "name = ?", lang]) 
+    language = Language.find(:first, :conditions => [ "name = ?", lang]) 
 	 find(:first, :conditions => [ "language_id = ?", language.id ])
   end
 

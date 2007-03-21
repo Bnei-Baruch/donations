@@ -6,10 +6,11 @@
 <%end-%>
 <%= @page_content_short %>
 
+<% winurl = url_for(:controller => "user", :action => "main_full", :cur_action => @action) %>
 <%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
 		 {:controller => "user", :action => "main_full", :cur_action => @action },
 		 {:target => "_blank",
-		  :onclick => "OpenWin('/don/user/main_full?cur_action=#@action', '#@page_title', 600, 400); return false"}
+		  :onclick => "OpenWin('#{winurl}', '#@page_title', 600, 400); return false"}
 		 %>	
 </div>
 <%= render :partial => "payment" -%>

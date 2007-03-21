@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
   end
 
   def self.all_completed_projects(lang, is_completed, is_limit)
-	language = Language.find (:first, :conditions => ["name = ?", lang])
+	language = Language.find(:first, :conditions => ["name = ?", lang])
 	if not language.nil?
 		if is_limit
 			@entries_num = Common.get_entries_per_page("English")

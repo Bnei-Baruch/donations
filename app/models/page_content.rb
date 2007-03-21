@@ -14,7 +14,7 @@ class PageContent < ActiveRecord::Base
   end
 
   def self.get_page_content_by_lang(lang)
-    language = Language.find (:first, :conditions => [ "name = ?", lang]) 
-    find (:first, :conditions => [ "language_id = ?", language.id]) 
+    language = Language.find(:first, :conditions => [ "name = ?", lang]) 
+    find(:first, :conditions => [ "language_id = ?", language.id]) 
   end
 end

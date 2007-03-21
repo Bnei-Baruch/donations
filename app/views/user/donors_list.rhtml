@@ -27,7 +27,7 @@
 <%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
 		 {:controller => "user", :action => "show_donors" },
 		 {:target => "_blank",
-		  :onclick => "OpenWin('/don/user/show_donors', 'Donor\\\'s List', 600, 400); return false"}
+		  :onclick => "OpenWin('#{url_for(:controller => "user", :action => "show_donors")}', 'Donor\\\'s List', 600, 400); return false"}
 		 %>
 
 </div>

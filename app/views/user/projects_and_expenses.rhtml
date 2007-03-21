@@ -22,7 +22,7 @@
 <%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
 		 {:controller => "user", :action => "show_projects", :completed => "false" },
 		 {:target => "_blank",
-		 :onclick => "OpenWin('/don/user/show_projects?completed=#{@completed}', '#{h3}', 600, 410); return false"}
+		 :onclick => "OpenWin('#{url_for(:controller => "user", :action => "show_projects", :completed=>@completed)}', '#{h3}', 600, 410); return false"}
 		 %>
 
 </div>

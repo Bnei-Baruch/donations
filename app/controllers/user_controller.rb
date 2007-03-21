@@ -146,7 +146,7 @@ require 'cgi'
   end
 
   def get_page_component(lang, action, suffix)
-    page_contents = PageContent.get_page_content_by_lang (lang)
+    page_contents = PageContent.get_page_content_by_lang(lang)
     if page_contents.nil?
       "" 
     else
