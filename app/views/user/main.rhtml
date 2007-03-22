@@ -2,12 +2,12 @@
 
 <%if @page_title != ""-%>
 <h3><%= @page_title %></h3>
-<%else @page_title = "Bnei Baruch Association"-%>
+<%else @page_title = _('Bnei Baruch Association')-%>
 <%end-%>
 <%= @page_content_short %>
 
 <% winurl = url_for(:controller => "user", :action => "main_full/cur_action/#{@action}") %>
-<%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
+<%= link_to _('More') + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
 		{:controller => "user", :action => "main_full/cur_action/#{@action}" },
 		{:target => "_blank",
 		 :onclick => "OpenWin('#{winurl}', '#@page_title', 600, 400); return false"}

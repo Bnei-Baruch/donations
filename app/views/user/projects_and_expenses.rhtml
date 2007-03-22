@@ -1,14 +1,14 @@
 <div id="content">
 	<%if @completed
-		h3 = "Projects History"
+		h3 = _('Projects History')
 	else
-		h3 = "Projects and Expenses"
+		h3 = _('Projects and Expenses')
 	end-%>
 <h3><%=h3%></h3>
 <table cellspacing="0" class="table">
   <tr>
-  <th class="short-name">Name</th>
-  <th class="list-intern-left">Description</th>
+  <th class="short-name"><%=_('Name')%></th>
+  <th class="list-intern-left"><%=_('Description')%></th>
   </tr>
   
   <% for @project in @projects -%>
@@ -20,7 +20,7 @@
 </table>
 
 <% show = url_for(:controller => "user", :action => "show_projects/completed/#{@completed}") -%>
-<%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
+<%= link_to _('More') + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
 	{:controller => "user", :action => "show_projects/completed/#{@completed}" },
 	{:target => "_blank",
 	 :onclick => "OpenWin('#{show}', '#{h3}', 600, 410); return false"}

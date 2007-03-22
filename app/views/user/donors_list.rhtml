@@ -1,10 +1,10 @@
 <div id="content">
-	<h3>Donors' list</h3>
+	<h3><%=_("Donors' list")%></h3>
 <table cellspacing="0" class="table">
   <tr>
-  <th>Donation date</th>
-  <th class="list-intern-right">Name</th>
-  <th>Amount</th>
+  <th><%=_('Donation date')%></th>
+  <th class="list-intern-right"><%=_('Name')%></th>
+  <th><%=_('Amount')%></th>
   </tr>
   
 <% for @donor in @donors %>
@@ -13,7 +13,7 @@
     <td class="short-column"><%= @donor.created_at.to_date %></td>
 
 <% if @donor.is_anonymous%>
-    <td class="list-intern-right">Anonymous</td>
+    <td class="list-intern-right"><%=_('Anonymous')%></td>
 <% else %>
     <td class="list-intern-right"><%= @donor.name %></td>
 <% end %>
@@ -24,7 +24,7 @@
 <% end %>
 </table>
 
-<%= link_to 'More' + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
+<%= link_to _('More') + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
 		 {:controller => "user", :action => "show_donors" },
 		 {:target => "_blank",
 		  :onclick => "OpenWin('#{url_for(:controller => "user", :action => "show_donors")}', 'Donor\\\'s List', 600, 400); return false"}
