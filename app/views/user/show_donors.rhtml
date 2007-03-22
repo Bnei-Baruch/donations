@@ -1,11 +1,11 @@
 <div id="content">
-	<h3>Donors' list</h3>
+	<h3><%=_("Donors' list")%></h3>
 <table cellspacing="0" class="table">
   <tr>
-  <th>Date</th>
-  <th class="list-intern-left">Name</th>
-  <th class="list-intern-right">Message</th>
-  <th>Amount</th>
+  <th><%=_('Date')%></th>
+  <th class="list-intern-left"><%=_('Name')%></th>
+  <th class="list-intern-right"><%=_('Message')%></th>
+  <th><%=_('Amount')%></th>
   </tr>
   
 <% for @donor in @donors %>
@@ -13,7 +13,7 @@
 
     <td class="don-date"><%= @donor.created_at.to_date %></td>
 <% if @donor.is_anonymous%>
-    <td class="don-name list-intern-left">Anonymous</td>
+    <td class="don-name list-intern-left"><%=_('Anonymous')%></td>
 <% else %>
     <td class="don-name list-intern-left"><%= @donor.name %></td>
 <% end %>

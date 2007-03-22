@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Bnei Baruch Association::<%= controller.action_name %></title>
+  <title><%=_('Bnei Baruch Association')%>::<%= controller.action_name %></title>
   <%= stylesheet_link_tag "don_user" , :media => "all" %>
   <%= stylesheet_link_tag "window" , :media => "all" %>
 <script type="text/javascript">
@@ -17,20 +17,20 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
   <%= javascript_include_tag "application" %>
 	<div id="left">
 		<div id="logo">
-			<%=image_tag("../images/tree.gif", :alt => "Bnei Baruch Association")%>
-			<div id="BB">Bnei Baruch Association</div>
+			<%=image_tag("../images/tree.gif", :alt => _('Bnei Baruch Association'))%>
+			<div id="BB"><%=_('Bnei Baruch Association')%></div>
 		</div>
 	  <div id="menu">
-		  <%= link_to "Home", {:action => "main"},
+		  <%= link_to _("Home"), {:action => "main"},
 		  		@action == "main" ? {:id => "select"} : {} %>
-		  <%= link_to "About Bnei Baruh", {:action => "about"}, @action == "about" ? {:id => "select"} : {} %>
-		  <%= link_to "Why Now", {:action => "why_now"}, @action == "why_now" ? {:id => "select"} : {} %>
-		  <%= link_to "Donors' list", {:action => "donors_list"}, @action == "donors_list" ? {:id => "select"} : {} %>
-		  <%= link_to "Projects and Expenses", {:action => "projects_and_expenses"}, @action == "projects_and_expenses" ? {:id => "select"} : {} %>
-		  <%= link_to "Projects History", {:action => "projects_history"}, @action == "projects_history" ? {:id => "select"} : {} %>
-		  <%= link_to "Privacy and Security", {:action => "privacy_and_security"}, @action == "privacy_and_security" ? {:id => "select"} : {} %>
-		  <%= link_to "FAQ", {:action => "faq"}, @action == "faq" ? {:id => "select"} : {} %>
-		  <%= link_to "Contact us", {:action => "contact_us"}, @action == "contact_us" ? {:id => "select"} : {} %>
+		  <%= link_to _("About Bnei Baruh"), {:action => "about"}, @action == "about" ? {:id => "select"} : {} %>
+		  <%= link_to _("Why Now"), {:action => "why_now"}, @action == "why_now" ? {:id => "select"} : {} %>
+		  <%= link_to _("Donors' list"), {:action => "donors_list"}, @action == "donors_list" ? {:id => "select"} : {} %>
+		  <%= link_to _("Projects and Expenses"), {:action => "projects_and_expenses"}, @action == "projects_and_expenses" ? {:id => "select"} : {} %>
+		  <%= link_to _("Projects' History"), {:action => "projects_history"}, @action == "projects_history" ? {:id => "select"} : {} %>
+		  <%= link_to _("Privacy and Security"), {:action => "privacy_and_security"}, @action == "privacy_and_security" ? {:id => "select"} : {} %>
+		  <%= link_to _("FAQ"), {:action => "faq"}, @action == "faq" ? {:id => "select"} : {} %>
+		  <%= link_to _("Contact us"), {:action => "contact_us"}, @action == "contact_us" ? {:id => "select"} : {} %>
 	  </div>
   </div>
   <div id="main">		
