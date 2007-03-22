@@ -1,12 +1,16 @@
+<%require 'cgi'-%>
 <div id="content">
 
 <h3><%= @page_title %></h3>
 <%= @page_content_short %>
 
+<%
+winurl = CGI::unescape(url_for(:controller => "send_email", :action => "email_get_data"))
+onclick = "OpenWin('#{winurl}', '#@page_title', 600, 400); return false"
+%>
 <%= link_to 'Send Email Now', 
 		 {:controller => "send_email", :action => "email_get_data" },
-		 {:target => "_blank", :class => "email",
-		  :onclick => "OpenWin('#{url_for(:controller => "user", :action => "email_get_data")}', '#@page_title', 600, 400); return false"}
+		 {:target => "_blank", :class => "email", :onclick => onclick }
 		 %>	
 </div>
 
