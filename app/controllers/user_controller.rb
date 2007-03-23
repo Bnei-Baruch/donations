@@ -81,8 +81,8 @@ class UserController < ApplicationController
 		@second_pay = params[:second_pay] || ""
 		@currency = params[:currency] || "2"
 		@sum = params[:sum] || ""
-		@cred_type = params[:sum] || "1"
-		@npay = params[:sum] || "2"
+		@cred_type = params[:cred_type] || "1"
+		@npay = params[:npay] || "2"
 		@xxxFirstName = params[:xxxFirstName] || ""
 		@xxxFirstName = CGI::unescape(@xxxFirstName)
 		@xxxLastName = params[:xxxLastName] || ""
@@ -107,6 +107,7 @@ class UserController < ApplicationController
 			when response == 33 : "Defective card"
 			when response == 35 : "Card is not permitted for transaction or type of credit"
 			when response == 36 : "Credit card is expired"
+			when response == 37 : "Rejected"
 			when response == 39 : "Incorrect card number"
 			when response == 57 : "ID number missing"
 			when response == 61 : "Credit card number missing"

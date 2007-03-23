@@ -26,16 +26,16 @@
 			</td>
 		</tr>
 		<tr>
-			<td><%=_('Payment method')%>:<span class="star">*</span></td>
+			<td><!--<%=_('Payment method')%>:<span class="star">*</span>--></td>
 			<td>
-				<input id="reg_credit" onclick="Enable_Disable();" <%if @cred_type == "1"%>checked="checked"<%end%> type="radio" name="cred_type" value="1" /><%=_('Regular Credit')%>
+				<input id="reg_credit" onclick="Enable_Disable();" <%if @cred_type == "1"%>checked="checked"<%end%> type="hidden" name="cred_type" value="1" /><!--<%=_('Regular Credit')%>-->
 			</td>
 			<td class="sep"></td>
 			<td>
-				<input id="installments" onclick="Enable_Disable();" <%if @cred_type == "8"%>checked="checked"<%end%> type="radio" name="cred_type" value="8" /><%=_('Installments')%>
+				<!--input id="installments" onclick="Enable_Disable();" <%if @cred_type == "8"%>checked="checked"<%end%> type="radio" name="cred_type" value="8" /><%=_('Installments')%>-->
 			</td>
 			<td>
-				<select id="payments" disabled="disabled" size="1" name="npay">
+				<!--select id="payments" disabled="disabled" size="1" name="npay">
 					<option value="2" <%if @npay == "2"%>selected="selected"<%end%>>2</option>
 					<option value="3" <%if @npay == "3"%>selected="selected"<%end%>>3</option>
 					<option value="4" <%if @npay == "4"%>selected="selected"<%end%>>4</option>
@@ -47,7 +47,7 @@
 					<option value="10" <%if @npay == "10"%>selected="selected"<%end%>>10</option>
 					<option value="11" <%if @npay == "11"%>selected="selected"<%end%>>11</option>
 					<option value="12" <%if @npay == "12"%>selected="selected"<%end%>>12</option>
-				</select>
+				</select-->
 			</td>
 		</tr>
 		<tr>
