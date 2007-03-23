@@ -10,6 +10,7 @@
     l.store "Projects' History", "RU Projects' History"
     l.store 'Projects and Expenses', 'RU Projects and Expenses'
     l.store "Donors' list", "RU Donors' list"
+    l.store "Donors\\\' list", "RU Donors\\\' list"
 
     l.store 'More', 'RU More'
     l.store 'Bnei Baruch Association', 'RU Bnei Baruch Association'
@@ -60,10 +61,18 @@
     l.store 'No', 'RU No'
     l.store 'Details', 'RU Details'
 
+    l.store 'Your email was successfully sent.', 'RU Your email was successfully sent.'
+    l.store 'Image text does not match - please re-enter.', 'RU Image text does not match - please re-enter.'
+    l.store 'Please type the text from the image.', 'RU Please type the text from the image.'
+    l.store 'Please enter name.', 'RU Please enter name.'
+    l.store 'Please enter your email address.', 'RU Please enter your email address.'
+    l.store 'Please enter your comments.', 'RU Please enter your comments.'
+    l.store 'is missing', 'RU is missing'
+    l.store 'are missing', 'RU are missing'
     l.store 'Send Email Now', 'RU Send Email Now'
     l.store 'Send Email', 'RU Send Email'
-    l.store 'Your name', 'RU Your name'
-    l.store 'Your email', 'RU Your email'
+    l.store 'Your Name', 'RU Your name'
+    l.store 'Your Email Address', 'RU Your Email Address'
     l.store 'Comments', 'RU Comments'
     l.store 'Send', 'RU Send'
 
