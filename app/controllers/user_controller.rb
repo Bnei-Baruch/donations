@@ -1,3 +1,5 @@
+require 'cgi'
+
 class UserController < ApplicationController
 
   layout 'user', :except => [ :main_full, :show_projects, :show_donors ]
@@ -73,8 +75,6 @@ class UserController < ApplicationController
 		render :layout =>  'layouts/main_full', :text => bank_details.description
 	end
 
-require 'cgi'
-
 	def tranzilla
     set_params false
 		@first_pay = params[:first_pay] || ""
@@ -83,17 +83,20 @@ require 'cgi'
 		@sum = params[:sum] || ""
 		@cred_type = params[:sum] || "1"
 		@npay = params[:sum] || "2"
-		@first_name = params[:first_name] || ""
-		@last_name = params[:last_name] || ""
+		@xxxFirstName = params[:xxxFirstName] || ""
+		@xxxFirstName = CGI::unescape(@xxxFirstName)
+		@xxxLastName = params[:xxxLastName] || ""
+		@xxxLastName = CGI::unescape(@xxxLastName)
 		@ccno = ""
 		@expmonth = params[:expmonth] || "1"
 		@expyear = params[:expyear] || "7"
 		@mycvv = params[:mycvv] || ""
 		@myid = params[:myid] || ""
 		@anon = params[:anon] || "0"
-		@email = params[:email] || ""
-		@email = CGI::unescape(@email)
+		@xxxEmail = params[:xxxEmail] || ""
+		@xxxEmail = CGI::unescape(@xxxEmail)
 		@message = params[:message] || ""
+		@message = CGI::unescape(@message)
 		response = params[:Response].to_i
 		flash[:notice] = case
 			when response == 0 : ""

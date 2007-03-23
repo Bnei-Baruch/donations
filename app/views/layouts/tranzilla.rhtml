@@ -21,19 +21,19 @@ var p_number;
 var sum = parseFloat(document.forms['tranzilla'].elements['sum'].value);
 var payment;
 var warning;
-var value = (document.forms['tranzilla'].elements['myid'].value!='')&&(document.forms['tranzilla'].elements['ccno'].value!='')&&(document.forms['tranzilla'].elements['mycvv'].value!='')&&(document.forms['tranzilla'].elements['sum'].value!='')&&(document.forms['first_name']!='')&&(document.forms['last_name']!='')&&(document.forms['email']!='')&&(sum>=0.01);
+var value = (document.forms['tranzilla'].elements['myid'].value!='')&&(document.forms['tranzilla'].elements['ccno'].value!='')&&(document.forms['tranzilla'].elements['mycvv'].value!='')&&(document.forms['tranzilla'].elements['sum'].value!='')&&(document.forms['xxxFirstName']!='')&&(document.forms['xxxLastName']!='')&&(document.forms['xxxEmail']!='')&&(sum>=0.01);
 
 	if(value == true){
 		document.forms['tranzilla'].submit();
 	} else {
 		warning='Please fill:\n';
-		if(document.forms['tranzilla'].elements['first_name'].value=='') {
+		if(document.forms['tranzilla'].elements['xxxFirstName'].value=='') {
 			warning+="First Name\n";
 		}
-		if(document.forms['tranzilla'].elements['last_name'].value=='') {
+		if(document.forms['tranzilla'].elements['xxxLastName'].value=='') {
 			warning+="Last Name\n";
 		}
-		if(document.forms['tranzilla'].elements['email'].value=='') {
+		if(document.forms['tranzilla'].elements['xxxEmail'].value=='') {
 			warning+="Email Address\n";
 		}
 		if(document.forms['tranzilla'].elements['ccno'].value=='') {
