@@ -1,35 +1,38 @@
+<div id="title">
+<h3>Donate to help share the wisdom of Kabbalah</h3>
+<h3>Your part in correcting the world</h3>
+</div>
+<%= render :partial => "payment" -%>
 <div id="content">
-	<h3><%=_("Donors' list")%></h3>
+	<h3><%=_("Donor list")%></h3>
 <table cellspacing="0" class="table">
   <tr>
-  <th><%=_('Donation date')%></th>
-  <th class="list-intern-right"><%=_('Name')%></th>
+  <th><%=_('Date')%></th>
+  <th class="list-intern-left"><%=_('Name')%></th>
+  <th class="list-intern-right"><%=_('Message')%></th>
   <th><%=_('Amount')%></th>
   </tr>
   
 <% for @donor in @donors %>
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
 
-    <td class="short-column"><%= @donor.created_at.to_date %></td>
-
+    <td class="don-date"><%= @donor.created_at.to_date %></td>
 <% if @donor.is_anonymous%>
-    <td class="list-intern-right"><%=_('Anonymous')%></td>
+    <td class="don-name list-intern-left"><%=_('Anonymous')%></td>
 <% else %>
-    <td class="list-intern-right"><%= @donor.name %></td>
+    <td class="don-name list-intern-left"><%= h @donor.name %></td>
 <% end %>
 
-    <td class="short-column">$<%= @donor.sum_dollars %></td>
+	<td class="don-msg list-intern-right">
+		<% if @donor.message.empty? -%>
+		&nbsp;
+		<%else-%>
+			<%= h @donor.message%>
+		<%end-%>
+	</td>
+    <td class="don-sum">$<%= @donor.sum_dollars %></td>
 
   </tr>
 <% end %>
 </table>
-
-<%=   @title = _('Donors\\\' list')
-      link_to _('More') + image_tag("../images/more.gif", :size => "6x11", :class => "more"), 
-		 {:controller => "user", :action => "show_donors" },
-		 {:target => "_blank",
-		  :onclick => "OpenWin('#{url_for(:controller => "user", :action => "show_donors")}', '#{@title}', 600, 400); return false"}
-		 %>
-
 </div>
-<%= render :partial => "payment" -%>

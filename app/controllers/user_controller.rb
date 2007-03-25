@@ -2,7 +2,7 @@ require 'cgi'
 
 class UserController < ApplicationController
 
-  layout 'user', :except => [ :main_full, :show_projects, :show_donors ]
+  layout 'user'
 
   #before_filter :set_params
 
@@ -12,13 +12,6 @@ class UserController < ApplicationController
 
   def index
 	set_params
-  end
-
-  def main_full
-	 lang = get_language     
-	 @page_title = get_page_component(lang, params[:cur_action], "_page_title")
-	 @page_content = get_page_component(lang, params[:cur_action], "_page")
-	 render(:layout =>  'layouts/main_full')
   end
 
   def about
@@ -43,31 +36,12 @@ class UserController < ApplicationController
 
   def donors_list
 	 set_params false
-    @donors = Donor.all_approved_donors(true)
+    @donors = Donor.all_approved_donors(false)
   end
 
   def projects_and_expenses
 	 set_params false
     @projects = Project.all_completed_projects("English", false, true)
-	 @completed = false
-  end
-
-  def projects_history
-	 set_params false
-    @projects = Project.all_completed_projects("English", true, true)	
-	 @completed = true
-	 render :action => "projects_and_expenses"
-  end
-
-  def show_projects
-    @projects = Project.all_completed_projects("English", params[:completed], false)
-	 @completed = params[:completed]
-	 render(:layout =>  'layouts/main_full')
-  end
-
-  def show_donors
-    @donors = Donor.all_approved_donors(false)
-	 render(:layout =>  'layouts/main_full')
   end
 
 	def bank_details
@@ -126,7 +100,7 @@ class UserController < ApplicationController
 	render :layout => "tranzilla"
   end
 
-  private
+  private ######### PRIVATE FUNCTIONS #########################
 
   def set_params(to_render = true)
 	 lang = get_language

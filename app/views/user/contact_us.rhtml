@@ -1,4 +1,9 @@
 <%require 'cgi'-%>
+<div id="title">
+<h3>Donate to help share the wisdom of Kabbalah</h3>
+<h3>Your part in correcting the world</h3>
+</div>
+<%= render :partial => "payment" -%>
 <div id="content">
 
 <h3><%= @page_title %></h3>
@@ -13,7 +18,3 @@ onclick = "OpenWin('#{winurl}', '#@page_title', 600, 400); return false"
 		 {:target => "_blank", :class => "email", :onclick => onclick }
 		 %>	
 </div>
-
-<%= render :partial => "payment" -%>
-
-
