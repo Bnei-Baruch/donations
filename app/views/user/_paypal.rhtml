@@ -11,5 +11,5 @@
 	<input type="hidden" name="cancel_return" value="<%= "http://" + @host + url_for(:action => "main")%>" />
 	<input type="hidden" name="return" value="<%= "http://" + @host + url_for(:action => "thank_you")%>" />
 	<input type="hidden" name="rm" value="2" />
-	<%=image_submit_tag("../images/paypal.gif", :alt => _('PayPal'), :name => "submit")%>
+	<%=image_submit_tag("paypal.gif", :alt => _('PayPal'), :name => "submit")%>
 </form>

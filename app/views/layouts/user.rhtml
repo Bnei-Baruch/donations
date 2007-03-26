@@ -17,7 +17,7 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
   <%= javascript_include_tag "application" %>
 	<div id="left">
 		<div id="logo">
-			<%=image_tag("../images/tree.gif", :alt => _('Bnei Baruch Association'))%>
+			<%=image_tag("tree.gif", :alt => _('Bnei Baruch Association'))%>
 			<div id="BB"><%=_('Bnei Baruch Association')%></div>
 		</div>
 	  <div id="menu">
@@ -42,11 +42,7 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 	<%# Comodo Trust Logo -%>
 <script type="text/javascript">
 //<![CDATA[
-<% if params[:action] != "index" -%>
-COT("../images/secure_site.gif", "SC2", "none");
-<% else -%>
-COT("images/secure_site.gif", "SC2", "none");
-<% end -%>
+COT("<%= image_path("secure_site.gif") %>", "SC2", "none");
 //]]>
 </script>
   <%= javascript_include_tag "prototype" %>
