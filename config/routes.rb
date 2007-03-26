@@ -20,7 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id.:format'
   map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/cur_action/:cur_action'
-  map.connect ':controller/:action/completed/:completed'
+  map.connect ':lang/:controller/:action/:id.:format'
+  map.connect ':lang/:controller/:action/:id'
   map.empty '', :controller => 'user'
 end
