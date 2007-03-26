@@ -18,7 +18,7 @@ class UserController < ApplicationController
 	 set_params
   end
 
-  def why_now
+  def why_now	
 	 set_params
   end
 
@@ -36,21 +36,21 @@ class UserController < ApplicationController
 
   def donors_list
 	 set_params false
-    @donors = Donor.all_approved_donors(false)
+        @donors = Donor.all_approved_donors(@lang, true)
   end
 
   def projects_and_expenses
 	 set_params false
-    @projects = Project.all_completed_projects("English", false, true)
+        @projects = Project.all_completed_projects(@lang, false, true)
   end
 
-	def bank_details
-		bank_details = Payment.bank_details(get_language())
-		render :layout =>  'layouts/main_full', :text => bank_details.description
-	end
+  def bank_details
+   	 bank_details = Payment.bank_details(get_language())
+	 render :layout =>  'layouts/main_full', :text => bank_details.description
+  end
 
-	def tranzilla
-    set_params false
+  def tranzilla
+    		set_params false
 		@first_pay = params[:first_pay] || ""
 		@second_pay = params[:second_pay] || ""
 		@currency = params[:currency] || "2"
@@ -96,7 +96,7 @@ class UserController < ApplicationController
   end
 
   def thank_you # return from PayPal after payment was made
-   set_params false
+       set_params false
 	render :layout => "tranzilla"
   end
 
@@ -109,19 +109,32 @@ class UserController < ApplicationController
 		 @action = "main"
 	 end
         
-   @page_title = get_page_component(lang, @action, "_page_title")
+  	 @page_title = get_page_component(lang, @action, "_page_title")
 	 @page_content_short = get_page_component(lang, @action, "_page_short")
 	 @page_content = get_page_component(lang, @action, "_page")
 
 	 @payments = get_payments(lang)
-	 
 	 @host = request.env["HTTP_HOST"]
-   render :action => "main" if to_render
+   	 render :action => "main" if to_render
   end
 
   def get_language
-	 "English" # params[:lang]
-  end
+	lang_name = "English"
+	if params[:lang]
+		lang = params[:lang].downcase
+		l_obj = Language.find(:first, :conditions => ["short_name = ?", lang])
+		if !l_obj.nil?
+			lang_name = l_obj.name
+		else
+			l_obj = Language.find(:first, :conditions => ["name = ?", lang.capitalize])
+			if !l_obj.nil?
+				lang_name = l_obj.name
+			end
+		end
+	end
+	Localization.lang = lang_name
+	@lang = lang_name
+  end  
 
   def get_page_component(lang, action, suffix)
     page_contents = PageContent.get_page_content_by_lang(lang)

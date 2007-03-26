@@ -21,7 +21,7 @@ module Localization
     @@l10s[lang] ||= {}
     yield @@l10s[lang]
   end
-  
+
   def self.load
     Dir.glob("#{RAILS_ROOT}/lang/*.rb"){ |t| require t }
     Dir.glob("#{RAILS_ROOT}/lang/custom/*.rb"){ |t| require t }
