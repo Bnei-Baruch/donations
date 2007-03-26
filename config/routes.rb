@@ -18,9 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/service.wsdl', :action => 'wsdl'
 
   # Install the default route as the lowest priority.
-  map.connect ':controller/:action/:id.:format'
-  map.connect ':controller/:action/:id'
   map.connect ':lang/:controller/:action/:id.:format'
-  map.connect ':lang/:controller/:action/:id'
-  map.empty '', :controller => 'user'
+  map.connect ':lang/:controller/:action/:id', :defaults => { :lang => 'English', :controller => 'user', :action => 'main' }
+  map.empty '', :lang => 'English', :controller => 'user', :action => 'main'
 end
