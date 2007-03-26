@@ -1,7 +1,7 @@
 <% tranzilla = url_for(:controller => "user", :action => "tranzilla")%>
 <% bank_details = url_for(:controller => "user", :action => "bank_details")%>
 <div id="payment">
-<table cellspacing="0">
+<table cellspacing="0" class="pay-table">
 	<tr>
 		<th class="pay-th-left" />
 		<% for payment in @payments -%>
