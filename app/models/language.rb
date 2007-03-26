@@ -5,6 +5,7 @@ class Language < ActiveRecord::Base
   has_many :commons
 
   validates_presence_of :name
+  validates_presence_of :short_name
   validates_uniqueness_of :name
   validates_format_of :name,
  	:with => %r{[A-Z][a-z]*},

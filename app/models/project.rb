@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
 	language = Language.find(:first, :conditions => ["name = ?", lang])
 	if not language.nil?
 		if is_limit
-			@entries_num = Common.get_entries_per_page("English")
+			@entries_num = Common.get_entries_per_page(lang)
 			find(:all, :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed ], :limit => @entries_num)
 		else
 			find(:all, :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed ])
