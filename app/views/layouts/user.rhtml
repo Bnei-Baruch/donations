@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title><%=_('Bnei Baruch Association')%>::<%= controller.action_name %></title>
+  <title><%=_('Donations')%>::<%= controller.action_name %></title>
   <%= stylesheet_link_tag "don_user" , :media => "all" %>
   <%= stylesheet_link_tag "window" , :media => "all" %>
 <script type="text/javascript">
@@ -13,7 +13,7 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 //]]>
 </script>
 </head>
-<body>
+<body id="<%= controller.action_name %>">
   <%= javascript_include_tag "application" %>
 	<div id="left">
 		<div id="logo">
@@ -21,16 +21,14 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 			<div id="BB"><%=_('Bnei Baruch Association')%></div>
 		</div>
 	  <div id="menu">
-		  <%= link_to _("Home"), {:action => "main"},
-		  		@action == "main" ? {:id => "select"} : {} %>
-		  <%= link_to _("About Bnei Baruch"), {:action => "about"}, @action == "about" ? {:id => "select"} : {} %>
-		  <%= link_to _("Why Now"), {:action => "why_now"}, @action == "why_now" ? {:id => "select"} : {} %>
-		  <%= link_to _("Projects and Expenses"), {:action => "projects_and_expenses"}, @action == "projects_and_expenses" ? {:id => "select"} : {} %>
-		  <%# link_to _("Projects' History"), {:action => "projects_history"}, @action == "projects_history" ? {:id => "select"} : {} %>
-		  <%= link_to _("Donor list"), {:action => "donors_list"}, @action == "donors_list" ? {:id => "select"} : {} %>
-		  <%= link_to _("Privacy and Security"), {:action => "privacy_and_security"}, @action == "privacy_and_security" ? {:id => "select"} : {} %>
-		  <%= link_to _("FAQ"), {:action => "faq"}, @action == "faq" ? {:id => "select"} : {} %>
-		  <%= link_to _("Contact Us"), {:action => "contact_us"}, @action == "contact_us" ? {:id => "select"} : {} %>
+		  <%= link_to _("Home"), {:action => "main"}, {:class => "menu_main"} %>
+		  <%= link_to _("About Bnei Baruch"), {:action => "about"}, {:class => "menu_about"} %>
+		  <%= link_to _("Why Now"), {:action => "why_now"}, {:class => "menu_why_now"} %>
+		  <%= link_to _("Projects and Expenses"), {:action => "projects_and_expenses"}, {:class => "menu_projects_and_expenses"} %>
+		  <%= link_to _("Donor list"), {:action => "donors_list"}, {:class => "menu_donors_list"} %>
+		  <%= link_to _("Privacy and Security"), {:action => "privacy_and_security"}, {:class => "menu_privacy_and_security"} %>
+		  <%= link_to _("FAQ"), {:action => "faq"}, {:class => "menu_faq"} %>
+		  <%= link_to _("Contact Us"), {:action => "contact_us"}, {:class => "menu_contact_us"} %>
 	  </div>
   </div>
   <div id="main">		

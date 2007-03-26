@@ -9,6 +9,14 @@ a,a:visited,a:hover{color:#00479C}
 #menu a{display:block;margin:0 0 0 5px}
 #menu a#select{background-color:#E4F2FF}
 #menu a,#menu a:visited{padding:5px;text-decoration:none;color:#00479C;border:1px solid white;border-bottom:1px solid #E1E3E2;font:normal normal 14px Arial,sans-serif}
+body#main #menu a.menu_main,
+body#about #menu a.menu_about,
+body#why_now #menu a.menu_why_now,
+body#projects_and_expenses #menu a.menu_projects_and_expenses,
+body#donors_list #menu a.menu_donors_list,
+body#privacy_and_security #menu a.menu_privacy_and_security,
+body#faq #menu a.menu_faq,
+body#contact_us #menu a.menu_contact_us,
 #menu a:hover{background-color:#F8F8F8}
 #main{padding:20px 0 20px 20px}
 #content,#title{margin:0 30px 0 185px}
