@@ -13,6 +13,7 @@
   <th><%=_('Amount')%></th>
   </tr>
   
+<% if !@donors.nil? %>
 <% for @donor in @donors %>
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
 

@@ -1,22 +1,25 @@
-<h3>Send Email</h3>
+<h3><%=_('Send Email')%></h3>
 
 <% form_tag :action => 'send_email', :id => @email do -%>
 <%= error_messages_for :email %>
 <table>
 <tr>
-<td><label for="email_name">Your name</label><br/>
+<td><label for="email_name"><%=_('Your Name')%></label><br/>
 	<%= text_field :email, :name, :size => 40 %></td>
 </tr>
 <tr>
-<td><label for="email_email">Your email</label><br/>
+<td><label for="email_email"><%=_('Your Email Address')%></label><br/>
 	<%= text_field :email, :email, :size => 40, :dir => "ltr" %></td>
 </tr>
 <tr>
-<td><label for="email_comment">Comments</label><br/>
+<td><label for="email_comment"><%=_('Comments')%></label><br/>
 	<%= text_area :email, :comment, :rows => 5, :cols => 30 %></td>
 </tr>
 </table>
+
+<%= show_simple_captcha(:label => _('Please type the text from the image.'), :image_style => "simply_red", :object=>"email", :distortion => "medium") %>
+
 <!--[eoform:friend]-->
 
-<%= submit_tag "Send" %>
+<%= submit_tag _('Send') %>
 <% end %>
