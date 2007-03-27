@@ -4,8 +4,13 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title><%=_('Donations')%>::<%= controller.action_name %></title>
-  <%= stylesheet_link_tag "don_user" , :media => "all" %>
-  <%= stylesheet_link_tag "window" , :media => "all" %>
+  <% if @rtl -%>
+	  <%= stylesheet_link_tag "don_user-heb" , :media => "all" %>
+	  <%= stylesheet_link_tag "window-heb" , :media => "all" %>
+  <% else -%>
+	  <%= stylesheet_link_tag "don_user" , :media => "all" %>
+	  <%= stylesheet_link_tag "window" , :media => "all" %>
+  <% end -%>
 <script type="text/javascript">
 //<![CDATA[
 var cot_loc0=(window.location.protocol == "https:")? "https://secure.comodo.net/trustlogo/javascript/cot.js" : "http://www.trustlogo.com/trustlogo/javascript/cot.js";
@@ -14,7 +19,7 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 </script>
 </head>
 <body id="<%= controller.action_name %>">
-  <%= javascript_include_tag "application" %>
+   <%= javascript_include_tag "application" %>
 	<div id="left">
 		<div id="logo">
 			<%=image_tag("tree.gif", :alt => _('Bnei Baruch Association'))%>

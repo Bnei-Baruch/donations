@@ -31,22 +31,28 @@ class UserController < ApplicationController
   end
 
   def contact_us
-	 set_params false	 
+	 set_params false	
   end
 
   def donors_list
 	 set_params false
-        @donors = Donor.all_approved_donors(@lang, true)
+    @donors = Donor.all_approved_donors(@lang, true)
   end
 
   def projects_and_expenses
 	 set_params false
-        @projects = Project.all_completed_projects(@lang, false, true)
+    @projects = Project.all_completed_projects(@lang, false, false)
+  end
+
+  def window_privacy_and_security
+	 set_params false
+	 render :layout => 'layouts/main_full',
+		 :text => "<h3>#{@page_title}</h3>#{@page_content}"
   end
 
   def bank_details
-   	 bank_details = Payment.bank_details(get_language())
-	 render :layout =>  'layouts/main_full', :text => bank_details.description
+    bank_details = Payment.bank_details(get_language())
+	 render :layout => 'layouts/main_full', :text => bank_details.description
   end
 
   def tranzilla
@@ -95,51 +101,63 @@ class UserController < ApplicationController
 		render :layout => "tranzilla"
   end
 
-  def thank_you # return from PayPal after payment was made
+  def thank_you # return from tranzilla after payment was made
        set_params false
 	render :layout => "tranzilla"
+  end
+
+  def thank_you_paypal # return from PayPal after payment was made
+       set_params false
+		render :layout => "user"
   end
 
   private ######### PRIVATE FUNCTIONS #########################
 
   def set_params(to_render = true)
-	 lang = get_language
+	 get_language
 	 @action = action_name
-	 if (@action == "index")
+	 if (@action == "window_privacy_and_security")
+		 @action = "privacy_and_security"
+	 elsif (@action == "index")
 		 @action = "main"
-	 end
-        
-  	 @page_title = get_page_component(lang, @action, "_page_title")
-	 @page_content_short = get_page_component(lang, @action, "_page_short")
-	 @page_content = get_page_component(lang, @action, "_page")
+	 elsif (@action == "thank_you_paypal")
+		 @action = "thank_you"
+    end
 
-	 @payments = get_payments(lang)
+  	 @page_title = get_page_component(@lang, @action, "_page_title")
+	 @page_content_short = get_page_component(@lang, @action, "_page_short")
+	 @page_content = get_page_component(@lang, @action, "_page")
+
+	 @payments = get_payments(@lang)
 	 @host = request.env["HTTP_HOST"]
-   	 render :action => "main" if to_render
+    render :action => "main" if to_render
   end
 
   def get_language
 	lang_name = "English"
+	@rtl = false
 	if params[:lang]
 		lang = params[:lang].downcase
 		l_obj = Language.find(:first, :conditions => ["short_name = ?", lang])
 		if !l_obj.nil?
 			lang_name = l_obj.name
+			@rtl = (l_obj.direction || "ltr") == "rtl"
 		else
 			l_obj = Language.find(:first, :conditions => ["name = ?", lang.capitalize])
 			if !l_obj.nil?
 				lang_name = l_obj.name
+				@rtl = (l_obj.direction || "ltr") == "rtl"
 			end
 		end
 	end
 	Localization.lang = lang_name
 	@lang = lang_name
-  end  
+  end
 
   def get_page_component(lang, action, suffix)
     page_contents = PageContent.get_page_content_by_lang(lang)
     if page_contents.nil?
-      "" 
+      ""
     else
       page_contents[action + suffix]
     end

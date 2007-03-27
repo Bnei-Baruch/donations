@@ -1,0 +1,21 @@
+.overlay_darkX{background-color:white;filter:alpha(opacity=60);-moz-opacity:0.6;opacity:0.6}
+.darkX_nw,.darkX_n,.darkX_ne,.darkX_w,.darkX_e{background-color:#00479C;}
+.darkX_nw,.darkX_ne{width:6px;height:21px}
+.darkX_n{height:21px}
+.darkX_w,.darkX_e{width:3px}
+.darkX_sw,.darkX_s,.darkX_se,.darkX_sizer{border-top:3px solid #00479C;width:5px}
+.darkX_sw{height:5px}
+.darkX_se{height:3px}
+.darkX_sizer{height:3px;cursor:se-resize}
+.darkX_close{width:21px;height:21px;position:absolute;cursor:pointer;z-index:1000}
+.darkX_close{background:transparent url(../images/window/button-close-focused.gif) no-repeat 0 0;top:2px;right:-3px;}
+.darkX_title h3{font:normal bold 12px Arial,sans-serif}
+.darkX_title{float:left;height:14px;font:normal bold 12px Arial,sans-serif;margin-top:2px;width:100%;color:#FFF}
+.darkX_content{overflow:auto;color:#E6DF2A;font-family:Tahoma,Arial,sans-serif;font-size:14px;background:white}
+/* FOR IE */
+.wired_frame{display:block;position:absolute;border:1px #000 dashed}
+/* DO NOT CHANGE THESE VALUES*/
+.dialog{display:block;position:absolute}
+.dialog table.table_window{border-collapse:collapse;border-spacing:0;width:100%;margin:0px;padding:0px}
+.dialog table.table_window td,.dialog table.table_window th{padding:0}
+.dialog .title_window{-moz-user-select:none}

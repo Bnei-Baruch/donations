@@ -4,10 +4,14 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Donations::<%= controller.action_name %></title>
-  <%= stylesheet_link_tag "main_full" , :media => "all" %>
+  <% if @rtl -%>
+	  <%= stylesheet_link_tag "main_full-heb" , :media => "all" %>
+  <% else -%>
+	  <%= stylesheet_link_tag "main_full" , :media => "all" %>
+  <% end -%>
 </head>
 <body>
-  <div id="main">		
+  <div id="content">		
     <%= yield :layout %>
   </div>
 </body>

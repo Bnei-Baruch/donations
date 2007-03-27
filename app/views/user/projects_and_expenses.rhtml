@@ -1,7 +1,7 @@
 <%require 'cgi'-%>
 <div id="title">
-<h3>Donate to help share the wisdom of Kabbalah</h3>
-<h3>Your part in correcting the world</h3>
+<h3><%=_('Donate to help share the wisdom of Kabbalah')%></h3>
+<h3><%=_('Your part in correcting the world')%></h3>
 </div>
 <%= render :partial => "payment" -%>
 <div id="content">
@@ -14,10 +14,10 @@
 	<td class="short-name"><%=_('Description')%></td><td><%=@project.description%></td>
 </tr>
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
-	<td class="short-name"><%=_('Monthly Cost')%></td><td>$<%=@project.cost%></td>
+	<td class="short-name"><%=_('Running Expenses')%></td><td>$<%=@project.cost%></td>
 </tr>
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
-	<td class="short-name"><%=_('Fixed Cost')%></td><td>$<%=@project.fixed_sum%></td>
+	<td class="short-name"><%=_('Funding Required')%></td><td>$<%=@project.fixed_sum%></td>
 </table>
 <% end %>
 </div>
