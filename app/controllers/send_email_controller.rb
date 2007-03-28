@@ -1,5 +1,7 @@
 class SendEmailController < ApplicationController
 
+  layout 'email'
+
   def email_get_data
     @email = Email.new
   end

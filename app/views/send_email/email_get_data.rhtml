@@ -15,9 +15,14 @@
 <td><label for="email_comment"><%=_('Comments')%></label><br/>
 	<%= text_area :email, :comment, :rows => 5, :cols => 30 %></td>
 </tr>
+
+<tr>
+<td>
+<%= show_simple_captcha(:label => _('Please type the text from the image.'), :image_style => "simply_red", :object=>"email", :distortion => "medium") %>
+</td></tr>
+
 </table>
 
-<%= show_simple_captcha(:label => _('Please type the text from the image.'), :image_style => "simply_red", :object=>"email", :distortion => "medium") %>
 
 <!--[eoform:friend]-->
 
