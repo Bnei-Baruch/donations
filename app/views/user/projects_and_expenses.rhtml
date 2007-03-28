@@ -11,7 +11,12 @@
 <h3><%=@project.name%></h3>
 <table cellspacing="0" class="table projects">
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
-	<td class="short-name"><%=_('Description')%></td><td><%=@project.description%></td>
+	<td class="short-name"><%=_('Description')%>
+	    <% if @project.screenshot != "" %>
+    	       <%=link_to image_tag(@project.screenshot, :alt => @project.name), @project.url, :target => "_blank", :class => "screenshot"%>
+	    <% end %>
+	</td>
+	<td><%=@project.description%></td>
 </tr>
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
 	<td class="short-name"><%=_('Running Expenses')%></td><td>$<%=@project.cost%></td>

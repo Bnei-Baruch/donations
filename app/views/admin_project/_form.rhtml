@@ -22,6 +22,15 @@ select("project", "language_id", options)
 <p><label for="project_fixed_sum">Fixed Cost $</label><br/>
 <%= text_field 'project', 'fixed_sum'  %></p>
 
+<p><label for="project_screenshot">Screenshot file name</label><br/>
+<%= text_field 'project', 'screenshot'  %></p>
+
+<p><label for="project_url">Project url</label><br/>
+<%= text_field 'project', 'url'  %></p>
+
+<p><label for="project_priority">Priority</label><br/>
+<%= text_field 'project', 'priority'  %></p>
+
 <p><label for="project_is_completed">Completed</label><br/>
 <% if @project.is_completed %>
 	<select id="project_is_completed" name="project[is_completed]"><option value="true">True</option><option value="false">False</option></select></p>

@@ -5,6 +5,7 @@
   <th>Name</th>
   <th>Cost $</th>
   <th>Completed</th>
+  <th>Priority</th>
   <th>Language</th>
   </tr>
   
@@ -13,6 +14,7 @@
     <td><%= project.name %></td>
     <td><%= project.cost %></td>
     <td><%= project.is_completed%></td>
+    <td><%= project.priority %></td>
     <td><%= project.language.name %></td>
 
     <td><%= link_to 'Show', :action => 'show', :id => project %></td>
