@@ -12,6 +12,10 @@ class Common < ActiveRecord::Base
 	 find(:first, :conditions => [ "language_id = ?", language.id ])
   end
 
+  def self.get_user_by_lang(lang)
+    get_common_by_lang(lang).tranzilla_user
+  end
+
   def self.get_copyright_by_lang(lang)
     get_common_by_lang(lang).copyright
   end

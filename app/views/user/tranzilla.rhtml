@@ -4,7 +4,7 @@
 <div id="no-notice">&nbsp;</div>
 <%end-%>
 <form id="tranzilla" action="https://secure.tranzila.com/cgi-bin/tranzila31.cgi" method="post">
-	<input type="hidden" name="supplier" value="test2" />
+	<input type="hidden" name="supplier" value="<%= @user %>" />
 	<input type="hidden" name="lang" value="English" />
 	<input type="hidden" name="xxxCompany" value="Donation" />
 	<input id="first_pay" type="hidden" name="fpay" value="<%=@first_pay%>" />
