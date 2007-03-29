@@ -17,56 +17,69 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 <script type="text/javascript">
 //<![CDATA[
 function Enable_Disable(){
-	document.forms['tranzilla'].elements['payments'].disabled=
-		document.forms['tranzilla'].elements['reg_credit'].checked==1
+var form = document.forms['tranzilla'];
+	form['payments'].disabled= form['reg_credit'].checked==1
+	//if(form['installments'].checked) {
+		//sum = parseFloat(form['sum'].value);
+		//p_number=form['payments'].value;
+		//payment=Math.round(sum/p_number*100)/100;
+		//var x = sum - (p_number-1) * payment;
+		//x = Math.round(x * 100) / 100 
+		//curr = form['currency'].value == 1 ? "Shekels" : "US Dollars"
+		//alert(payment + " and " + (p_number-1) + " x " + x + " " + curr);
+	//}
 }
 function Make_Payments(){
 var p_number;
-var sum = parseFloat(document.forms['tranzilla'].elements['sum'].value);
+var sum;
 var payment;
-var warning;
-var value = (document.forms['tranzilla'].elements['myid'].value!='')&&(document.forms['tranzilla'].elements['ccno'].value!='')&&(document.forms['tranzilla'].elements['mycvv'].value!='')&&(document.forms['tranzilla'].elements['sum'].value!='')&&(document.forms['xxxFirstName']!='')&&(document.forms['xxxLastName']!='')&&(document.forms['xxxEmail']!='')&&(sum>=0.01);
+var warning = "";
+var form = document.forms['tranzilla'].elements;
+var value;
 
-	if(value == true){
-		document.forms['tranzilla'].submit();
-	} else {
-		warning='Please fill:\n';
-		if(document.forms['tranzilla'].elements['xxxFirstName'].value=='') {
-			warning+="First Name\n";
-		}
-		if(document.forms['tranzilla'].elements['xxxLastName'].value=='') {
-			warning+="Last Name\n";
-		}
-		if(document.forms['tranzilla'].elements['xxxEmail'].value=='') {
-			warning+="Email Address\n";
-		}
-		if(document.forms['tranzilla'].elements['ccno'].value=='') {
-			warning+="Card Number\n";
-		}
-		if(document.forms['tranzilla'].elements['mycvv'].value=='') {
-			warning+="CVV Number\n";
-		}
-		if((document.forms['tranzilla'].elements['sum'].value=='') || (sum < 0.01)) {
-			warning+="Correct Amount\n";
-		}
-		if(document.forms['tranzilla'].elements['myid'].value=='') {
-			warning+="ID";
-		}
+	value = form['sum'].value;
+	sum = parseFloat(value);
+	if((value=='') || (isNaN(sum)) || (sum < 0.01)) {
+		warning+="Correct Amount\n";
+	}
+	if(form['xxxFirstName'].value=='') {
+		warning+="First Name\n";
+	}
+	if(form['xxxLastName'].value=='') {
+		warning+="Last Name\n";
+	}
+	value = form['myid'].value;
+	if((value=='') || isNaN(parseInt(value)) || !value.match(/^\d{9}$/)) {
+		warning+="ID (9 digits including control number)\n";
+	}
+	value = form['ccno'].value;
+	if((value=='') || isNaN(parseInt(value))) {
+		warning+="Card Number\n";
+	}
+	if(form['mycvv'].value=='') {
+		warning+="CVV Number (3 digits on back side of your card)\n";
+	}
+	value = form['xxxEmail'].value;
+	if(!value.match(/^([a-zA-Z0-9_\-\.]+)@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|((([a-zA-Z0-9\-]+\.)+)([a-zA-Z]{2,4})))$/)) {
+		warning+="Email Address\n";
 	}
 
-	if(document.forms['tranzilla'].elements['reg_credit'].checked==0) {
-		sum=document.forms['tranzilla'].elements['sum'].value;
-		p_number=document.forms['tranzilla'].elements['payments'].value;
-		payment=sum/p_number;
-		document.forms['tranzilla'].elements['second_pay'].value=payment;
-		document.forms['tranzilla'].elements['first_pay'].value=payment;
+	if (warning != ""){
+		alert('Please fill in:\n' + warning);
+		return false;
+	}
+ 
+	if(document.forms['tranzilla']['installments'].checked) {
+		sum = parseFloat(form['sum'].value);
+		p_number=form['payments'].value;
+		payment=Math.round(sum/p_number*100)/100;
+		var x = sum - (p_number-1) * payment;
+		x = Math.round(x * 100) / 100 
+		form['second_pay'].value=payment;
+		form['first_pay'].value=x;
 	}
 
-	if(value == false) {
-		alert(warning);
-	} else {
-		document.forms['tranzilla'].submit();
-	}
+	document.forms['tranzilla'].submit();
 	return false;
 }
 //]]>
