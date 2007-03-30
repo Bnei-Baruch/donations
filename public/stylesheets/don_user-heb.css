@@ -5,6 +5,7 @@ a,a:visited,a:hover{color:#00479C}
 #left{float:right;width:190px;margin:20px 0 0}
 #left #logo img{float:right;margin:0 10px 0 0}
 #left #logo #BB{font:normal bold 16px "Times New Roman",serif;padding:38px 63px 25px 0}
+#logo #clear{clear: both; height: 0px; overflow: hidden;}
 #menu{line-height:26px;border-top:1px solid #E1E3E2;width:175px;margin:0 0 50px}
 #menu a{display:block;margin:0 5px 0 0}
 #menu a#select{background-color:#E4F2FF}
@@ -19,16 +20,14 @@ body#faq #menu a.menu_faq,
 body#contact_us #menu a.menu_contact_us,
 #menu a:hover{background-color:#F8F8F8}
 #main_div{padding:20px 20px 20px 0}
-#content,#title{margin:0 190px 0 30px}
-#content #head{font:normal normal 32px "Times New Roman",serif;text-align:left;margin:10px 0 30px}
-#content h2{font:normal bold 14px Arial,sans-serif}
+#content,#title{margin:0 170px 0 30px}
 #content h3,#title h3{text-align:right;font:normal normal 18px "Times New Roman",serif;color:#00479C}
 #content .email{margin:10px 0 0;display:block}
 #content img.more{margin:0 5px;border:0 none}
 #content a{font:normal normal 12px Arial,sans-serif;text-decoration:none}
 #content p{margin:20px 0 8px 0;font:normal normal 12px Arial,sans-serif;width:540px}
 #title{width:530px}
-#payment{margin:20px 190px 20px 50px}
+#payment{margin:20px 170px 20px 50px}
 td,th{border-collapse:collapse;width:150px;margin:0;padding:0;font-weight:normal}
 td{vertical-align:top}
 .pay-table{padding:0 0 1px 0;background:#F8F8F8 url(../images/h-border.gif) repeat-x bottom left}
@@ -44,7 +43,7 @@ td{vertical-align:top}
 .pay-td .el_payment img{border:0 none}
 #C{clear:both;border-top:1px solid #DADADA;padding:10px 205px 0 0;font-size:12px}
 #content .table{border-top:1px solid black;border-bottom:1px solid black;margin:5px 0 10px;width:530px !important;font:normal normal 12px Arial,sans-serif;empty-cells:show}
-#content .table th{padding:3px !important;text-align:left;border-bottom:1px solid black}
+#content .table th{padding:3px !important;text-align:right;border-bottom:1px solid black}
 #content .table td{padding:3px}
 #content .table p{width:370px !important;margin:0}
 .list-line-odd td{background-color:#F8F8F8}
@@ -52,9 +51,10 @@ td{vertical-align:top}
 .list-intern-left{border-right:1px solid #BFBFBF !important}
 .list-intern-right{border-right:1px solid #BFBFBF !important;border-left:1px solid #BFBFBF !important}
 .don-date{width:15%}
-.don-name{width:30%}
+.don-name{width:27%}
+.don-country{width:9%}
 .don-msg{width:40%}
-.don-sum{width:15%}
+.don-sum{width:9%}
 .short-name{width:30%}
 .short-column{width:20%}
 h2{margin:12.0pt 0 3;font:italic normal 14.0pt Arial}

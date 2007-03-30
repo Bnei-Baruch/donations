@@ -9,6 +9,7 @@
   <tr>
   <th><%=_('Date')%></th>
   <th class="list-intern-left"><%=_('Name')%></th>
+  <th class="list-intern-left"><%=_('Country')%></th>
   <th class="list-intern-right"><%=_('Message')%></th>
   <th><%=_('Amount')%></th>
   </tr>
@@ -24,6 +25,7 @@
     <td class="don-name list-intern-left"><%= h @donor.name %></td>
 <% end %>
 
+   <td class="don-country list-intern-left"><%= h @donor.country %></td>
 	<td class="don-msg list-intern-right">
 		<% if @donor.message.empty? -%>
 		&nbsp;

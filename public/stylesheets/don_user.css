@@ -4,8 +4,9 @@ font:normal normal 14px Arial,sans-serif}
 a,a:visited,a:hover{color:#00479C}
 #left{float:left;width:190px;margin:20px 0 0}
 #left #logo img{float:left;margin:0 0 0 10px}
-#left #logo #BB{font:normal bold 16px "Times New Roman",serif;padding:0 0 25px 63px}
-#menu{line-height:26px;border-top:1px solid #E1E3E2;width:175px;margin:0 0 50px}
+#left #logo #BB{font:normal bold 15px "Times New Roman",serif;margin:0 0 0 60px}
+#menu{line-height:26px;border-top:1px solid #E1E3E2;width:175px;margin:25px 0 50px;clear:both}
+#logo #clear{clear: both; height: 0px; overflow: hidden;}
 #menu a{display:block;margin:0 0 0 5px}
 #menu a#select{background-color:#E4F2FF}
 #menu a,#menu a:visited{padding:5px;text-decoration:none;color:#00479C;border:1px solid white;border-bottom:1px solid #E1E3E2;font:normal normal 14px Arial,sans-serif}
@@ -20,7 +21,6 @@ body#contact_us #menu a.menu_contact_us,
 #menu a:hover{background-color:#F8F8F8}
 #main_div{padding:20px 0 20px 0}
 #content,#title{margin:0 30px 0 190px}
-#content #head{font:normal normal 32px "Times New Roman",serif;text-align:left;margin:10px 0 30px}
 #content h2{font:normal bold 14px Arial,sans-serif}
 #content h3,#title h3{text-align:left;font:normal normal 18px "Times New Roman",serif;color:#00479C}
 #content .email{margin:10px 0 0;display:block}
@@ -52,9 +52,10 @@ td{vertical-align:top}
 .list-intern-left{border-left:1px solid #BFBFBF !important}
 .list-intern-right{border-left:1px solid #BFBFBF !important;border-right:1px solid #BFBFBF !important}
 .don-date{width:15%}
-.don-name{width:30%}
+.don-name{width:27%}
+.don-country{width:9%}
 .don-msg{width:40%}
-.don-sum{width:15%}
+.don-sum{width:9%}
 .short-name{width:30%}
 .short-column{width:20%}
 h2{margin:12.0pt 0 3 0;font:italic normal 14.0pt Arial}

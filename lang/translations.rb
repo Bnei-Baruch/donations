@@ -29,6 +29,7 @@
  
     l.store 'Message', 'Message'
     l.store 'Date', 'Date'
+    l.store 'Country', 'Country'
 
     l.store 'Thank you for your donation.', 'Thank you for your donation.'
     l.store 'Transaction completed successfully.', 'Transaction completed successfully.'
@@ -108,6 +109,7 @@
  
     l.store 'Message', 'Сообщение'
     l.store 'Date', 'Дата'
+    l.store 'Country', 'Страна'
 
     l.store 'Thank you for your donation.', 'Благодарим вас за ваше пожертвование.'
     l.store 'Transaction completed successfully.', 'Операция выполнена успешно.'
@@ -187,6 +189,7 @@
  
     l.store 'Message', 'הודעה'
     l.store 'Date', 'תאריך'
+    l.store 'Country', 'מדינה'
 
     l.store 'Thank you for your donation.', 'תודה על תרומתך'
     l.store 'Transaction completed successfully.', 'העסקה הסתיימה בהצלחה'
