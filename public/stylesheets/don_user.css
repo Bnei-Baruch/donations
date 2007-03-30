@@ -4,7 +4,7 @@ font:normal normal 14px Arial,sans-serif}
 a,a:visited,a:hover{color:#00479C}
 #left{float:left;width:190px;margin:20px 0 0}
 #left #logo img{float:left;margin:0 0 0 10px}
-#left #logo #BB{font:normal bold 16px "Times New Roman",serif;padding:38px 0 25px 63px}
+#left #logo #BB{font:normal bold 16px "Times New Roman",serif;padding:0 0 25px 63px}
 #menu{line-height:26px;border-top:1px solid #E1E3E2;width:175px;margin:0 0 50px}
 #menu a{display:block;margin:0 0 0 5px}
 #menu a#select{background-color:#E4F2FF}
@@ -18,7 +18,7 @@ body#privacy_and_security #menu a.menu_privacy_and_security,
 body#faq #menu a.menu_faq,
 body#contact_us #menu a.menu_contact_us,
 #menu a:hover{background-color:#F8F8F8}
-#main_div{padding:20px 0 20px 20px}
+#main_div{padding:20px 0 20px 0}
 #content,#title{margin:0 30px 0 190px}
 #content #head{font:normal normal 32px "Times New Roman",serif;text-align:left;margin:10px 0 30px}
 #content h2{font:normal bold 14px Arial,sans-serif}

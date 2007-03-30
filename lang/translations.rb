@@ -13,7 +13,7 @@
     l.store 'Donor list', 'Donor list'
 
     l.store 'More', 'More'
-    l.store 'Bnei Baruch Association', 'Bnei Baruch Association'
+    l.store 'Bnei Baruch Association', 'Bnei Baruch -- Kabbalah, Education and Research Institute'
 
     l.store 'Name', 'Name'
     l.store 'Description', 'Description'
