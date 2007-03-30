@@ -36,7 +36,7 @@ class UserController < ApplicationController
 
   def donors_list
 	 set_params false
-    @donors = Donor.all_approved_donors(@lang, true)
+    @donors = Donor.all_approved_donors(@lang, false)
   end
 
   def projects_and_expenses

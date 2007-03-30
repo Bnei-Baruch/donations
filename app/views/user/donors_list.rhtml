@@ -25,7 +25,11 @@
     <td class="don-name list-intern-left"><%= h @donor.name %></td>
 <% end %>
 
+<% if @donor.country != "0"%>
    <td class="don-country list-intern-left"><%= h @donor.country %></td>
+<% else %>
+   <td class="don-country list-intern-left"></td>
+<% end %>
 	<td class="don-msg list-intern-right">
 		<% if @donor.message.empty? -%>
 		&nbsp;
