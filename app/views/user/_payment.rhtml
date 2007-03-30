@@ -1,4 +1,5 @@
 <% tranzilla = url_for(:controller => "user", :action => "tranzilla")%>
+<% privacy_and_security = url_for(:controller => "user", :action => "window_privacy_and_security")%>
 <% bank_details = url_for(:controller => "user", :action => "bank_details")%>
 <div id="payment">
 <table cellspacing="0" class="pay-table">
@@ -14,6 +15,7 @@
 			<td class="pay-td">
 				<%=payment.short_description%>
 				<% if payment.code == "electronic" %>
+					<%= link_to _("About payment security"), privacy_and_security, :target => "_blank", :class => "el_payment", :onclick => "OpenWin('#{privacy_and_security}', '#{_("Privacy and Security")}', 600, 400);return false" %>
 					<%= link_to image_tag("visa.gif", :alt => _('Credit Card')),  "tranzilla", :target => "_blank", :class => "el_payment", :onclick => "OpenWin('#{tranzilla}', '#{_('Credit Card Payment')}', 565, 510);return false" %>
 						<%= render :partial => "paypal" -%>
 <%#<form class="el_payment" method="get" action="http://www.webmoney.com/">%>
@@ -21,7 +23,7 @@
 	<%#</form>%>
 				<% end %>
 				<% if payment.code == "bank_transaction" %>
-					<%= link_to _("Details"), "bank_details", :target => "_blank", :class => "el_payment", :onclick => "OpenWin('#{bank_details}', '#{payment.name}', 600, 400);return false" %>
+					<%= link_to _("Details"), bank_details, :target => "_blank", :class => "el_payment", :onclick => "OpenWin('#{bank_details}', '#{payment.name}', 600, 400);return false" %>
 				<% end %>
 			</td>
 		<% end -%>
