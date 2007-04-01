@@ -12,7 +12,7 @@
 <table cellspacing="0" class="table projects">
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
 	<td class="short-name"><%=_('Description')%>
-	    <% if @project.screenshot != "" %>
+	    <% if ! @project.screenshot.nil? %>
     	       <%=link_to image_tag(@project.screenshot, :alt => @project.name), @project.url, :target => "_blank", :class => "screenshot"%>
 	    <% end %>
 	</td>
