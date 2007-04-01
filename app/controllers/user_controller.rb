@@ -56,7 +56,12 @@ class UserController < ApplicationController
   end
 
   def tranzilla
-    		set_params false
+    	set_params false
+		if params[:language] && @lang != params[:language]
+			params[:lang] = params[:language]
+			get_language
+		end
+
 		@user = Common.get_user_by_lang(@lang)
 		@first_pay = params[:first_pay] || ""
 		@second_pay = params[:second_pay] || ""
