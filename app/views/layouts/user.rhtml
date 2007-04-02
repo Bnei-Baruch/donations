@@ -43,12 +43,19 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 	<div id="C">
 		 <%= Common.get_copyright_by_lang(@lang) %>
 	</div>
+  <%= javascript_include_tag "all" %>
+<script type="text/javascript">
+//<![CDATA[
+Event.observe($('priv_and_sec'), "click", function func_priv_and_sec(e){OpenWin('<%=@privacy_and_security%>','<%=_("Privacy and Security")%>',600,400);Event.stop(e)});
+Event.observe($('tranzilla'), "click", function func_tranzilla(e){OpenWin('<%=@tranzilla%>','<%=_('Credit Card Payment')%>',565,510);Event.stop(e)});
+Event.observe($('bank_details'), "click", function func_bank_details(e){OpenWin('<%=@bank_details%>','<%=_("Bank Transfer")%>',600,400);Event.stop(e)});
+//]]>
+</script>
 	<%# Comodo Trust Logo -%>
 <script type="text/javascript">
 //<![CDATA[
 COT("<%= image_path("secure_site.gif") %>", "SC2", "none");
 //]]>
 </script>
-  <%= javascript_include_tag "all" %>
 </body>
 </html>

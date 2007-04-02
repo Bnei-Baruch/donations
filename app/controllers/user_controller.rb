@@ -157,6 +157,9 @@ class UserController < ApplicationController
 		end
 	end
 	Localization.lang = lang_name
+	@privacy_and_security = url_for(:controller => "user", :action => "window_privacy_and_security")
+	@tranzilla = url_for(:controller => "user", :action => "tranzilla")
+	@bank_details = url_for(:controller => "user", :action => "bank_details")
 	@lang = lang_name
   end
 
