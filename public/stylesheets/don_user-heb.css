@@ -45,7 +45,7 @@ td{vertical-align:top}
 #content .table{border-top:1px solid black;border-bottom:1px solid black;margin:5px 0 10px;width:530px !important;font:normal normal 12px Arial,sans-serif;empty-cells:show}
 #content .table th{padding:3px !important;text-align:right;border-bottom:1px solid black}
 #content .table td{padding:3px}
-#content .table p{width:370px !important;margin:0}
+#content .table p{width:370px !important;margin:0 0 10px}
 .list-line-odd td{background-color:#F8F8F8}
 .list-line-even td{border-top:1px solid #BFBFBF;border-bottom:1px solid #BFBFBF}
 .list-intern-left{border-right:1px solid #BFBFBF !important}

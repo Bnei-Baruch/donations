@@ -1,4 +1,7 @@
 <div class="thanks">
 <h3><%=_('Thank you for your donation.')%></h3>
 <p><%=_('Transaction completed successfully.')%></p>
+<form id="ok" name="ok" action="" method="post">
+	<input id="close" name="close" type="button" onclick="parent.Windows.closeAll();" value="<%=_('Close')%>"/>
+</form>
 </div>

@@ -56,6 +56,7 @@
     l.store 'Publish my name', 'Publish my name'
     l.store 'Email Address', 'Email Address'
 
+    l.store 'Close', 'Close'
     l.store 'Submit', 'Submit'
     l.store 'Reset', 'Reset'
     l.store 'Yes', 'Yes'   
@@ -80,26 +81,26 @@
   end
   Localization.define('Russian') do |l|
  
-    l.store 'Donate to help share the wisdom of Kabbalah', 'Пожертвуйте для распространения науки каббала'
-    l.store 'Your part in correcting the world', 'Ваш вклад в исправление мира'
+    l.store 'Donate to help share the wisdom of Kabbalah', 'Раскрой для человечества науку Каббала'
+    l.store 'Your part in correcting the world', 'Твой вклад в исправление мира'
 
     l.store 'Home', 'Главная'
     l.store 'About Bnei Baruch', 'О Бней Барух'
-    l.store 'Why Now', 'Почему Сейчас?'
+    l.store 'Why Now', 'Почему сейчас?'
     l.store "Contact Us", "Контакты"
-    l.store 'FAQ', 'Часто Задаваемые Вопросы'
-    l.store 'Privacy and Security', 'Личная Информация и Безопасность'
-    l.store 'Projects and Expenses', 'Проекты и Затраты'
-    l.store "Donor list", "Список Пожертвований"
+    l.store 'FAQ', 'Часто задаваемые вопросы'
+    l.store 'Privacy and Security', 'О безопасности денежных переводов'
+    l.store 'Projects and Expenses', 'Проекты и затраты'
+    l.store "Donor list", "Список пожертвований"
 
     l.store 'More', 'Подробнее'
     l.store 'Bnei Baruch Association', 'Ассоциация Бней Барух'
 
-    l.store 'Name', 'Название'
+    l.store 'Name', 'Имя'
     l.store 'Description', 'Описание'
 	
-    l.store 'Monthly Cost', 'Ежемесячные затраты'
-    l.store 'Fixed Cost',   'Единовременные затраты'
+    l.store 'Running Expenses', 'Текущие расходы'
+    l.store 'Funding Required',   'Требуется'
     l.store 'Start Date',   'Дата начала'
     l.store 'End date',     'Дата завершения'
 
@@ -136,6 +137,7 @@
     l.store 'Publish my name', 'Опубликовать мое имя'
     l.store 'Email Address', 'Адрес email'
 
+    l.store 'Close', 'Закрыть'
     l.store 'Submit', 'Отправить'
     l.store 'Reset', 'Очистить'
     l.store 'Yes', 'Да'   
@@ -178,8 +180,8 @@
     l.store 'Name', 'שם'
     l.store 'Description', 'תאור'
 	
-    l.store 'Monthly Cost', 'עלויות חודשיות'
-    l.store 'Fixed Cost',   'עלויות קבועות'
+    l.store 'Running Expenses', 'Running Expenses'
+    l.store 'Funding Required',   'Funding Required'
     l.store 'Start Date',   'תאריך התחלה'
     l.store 'End date',     'תאריך סיום'
 
@@ -216,6 +218,7 @@
     l.store 'Publish my name', 'הצג את שמי'
     l.store 'Email Address', 'כתובת דואר אלקטרוני'
 
+    l.store 'Close', 'לסגור'
     l.store 'Submit', 'אישור'
     l.store 'Reset', 'ביטול'
     l.store 'Yes', 'כן'   

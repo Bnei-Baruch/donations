@@ -10,6 +10,7 @@ form#tranzilla div#buttons{float:right;margin:0}
 #notice{border: 2px solid red;padding: 3px;background-color: #f0f0f0 ;font: bold normal 12px Arial,sans-serif;width:540px}
 #no-notice{padding: 3px;font: bold normal 12px Arial,sans-serif;width:540px}
 h3{text-align: left;font:normal normal 18px "Times New Roman", serif;color:#00479C}
-.thanks{height:420px;border-bottom:1px solid gray}
+.thanks{height:300px;border-bottom:1px solid gray}
 #tranzilla_logo{float:left;margin:10px 0 0}
 img#ccs{display:block;margin:8px 0 0 10px;}
+.thanks #ok{margin:40px 0 0}
