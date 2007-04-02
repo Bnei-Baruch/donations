@@ -25,7 +25,7 @@
     <td class="don-name list-intern-left"><%= h @donor.name %></td>
 <% end %>
 
-<% if @donor.country != "0"%>
+<% if @donor.country != "Unknown" && @donor.country != "."%>
    <td class="don-country list-intern-left"><%= h @donor.country %></td>
 <% else %>
    <td class="don-country list-intern-left"></td>

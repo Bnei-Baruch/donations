@@ -11,6 +11,8 @@ class Project < ActiveRecord::Base
   validates_numericality_of :cost
   validates_presence_of :start_date
   validates_presence_of :duration
+  validates_presence_of :url => ""
+  validates_presence_of :screenshot => ""
 
   def self.all_projects
 	find(:all, :conditions => "true").map { |l| [l.name, l.id] }.sort

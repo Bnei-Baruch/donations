@@ -4,7 +4,6 @@ class Donor < ActiveRecord::Base
   belongs_to :payment
   belongs_to :currency
 
-  validates_presence_of :country
   validates_presence_of :sum_dollars
   validates_numericality_of :sum_dollars
 
