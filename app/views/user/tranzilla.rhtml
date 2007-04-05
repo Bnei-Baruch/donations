@@ -1,5 +1,5 @@
 <% if flash[:notice] != ""-%>
-<div id="notice"><%= _(flash[:notice]) %></div>
+<div id="notice"><%=_(flash[:notice])%> (<%=_("Error")%> #<%=@response%>)</div>
 <%else-%>
 <div id="no-notice">&nbsp;</div>
 <%end-%>

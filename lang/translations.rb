@@ -56,12 +56,37 @@
     l.store 'Publish my name', 'Publish my name'
     l.store 'Email Address', 'Email Address'
 
+    l.store 'Please fill in:', 'Please fill in:'
+    l.store 'Correct Amount', 'Correct Amount'
+    l.store 'ID (9 digits including control number)', 'ID (9 digits including control number)'
+    l.store 'Card Number', 'Card Number'
+    l.store 'CVV Number (3 digits on back side of your card)', 'CVV Number (3 digits on back side of your card)'
+
+	 # Tranzila Errors
+	 l.store '1', "Credit Card blocked"
+	 l.store '3', "Contact your Credit Company"
+	 l.store '4', "Credit Card Company refusal"
+	 l.store '6', "ID Number or CVV is incorrect"
+	 l.store '33', "Defective Card"
+	 l.store '35', "Card is not permitted for transaction or type of credit"
+	 l.store '36', "Credit Card Expired"
+	 l.store '37', "Credit Card Rejected"
+	 l.store '39', "Incorrect Card Number"
+	 l.store '57', "ID Number Missing"
+	 l.store '61', "Credit Card Number missing"
+	 l.store '107', "Transaction Amount is too high"
+	 l.store '111', "Temporary cannot accept payments"
+	 l.store '138', "You don't have Permission to make Payments"
+	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
+	 l.store "Error", "Error"
+
     l.store 'Close', 'Close'
     l.store 'Submit', 'Submit'
     l.store 'Reset', 'Reset'
     l.store 'Yes', 'Yes'   
     l.store 'No', 'No'
     l.store 'Details', 'Details'
+    l.store 'Bank Transfer', 'Bank Transfer'
 
     l.store 'Your email was successfully sent.', 'Your email was successfully sent.'
     l.store 'Image text does not match - please re-enter.', 'Image text does not match - please re-enter.'
@@ -128,14 +153,38 @@
     l.store 'Credit Card Payment', 'Платеж по кредитной карточке'
     l.store 'First Name', 'Имя'
     l.store 'Last Name', 'Фамилия'
-    l.store 'Credit Card Number', 'Номер кредитной карточки'
+    l.store 'Credit Card Number', 'кредитная карточка'
     l.store 'Credit Card', 'Кредитной карточка'
-    l.store 'Expiration Date', 'Срок годности до'
-    l.store 'ID', 'Номер удостоверения личности'
+    l.store 'Expiration Date', 'Действительна по'
+    l.store 'ID', 'Удостоверение'
     l.store 'CVV Number', 'Номер CVV'
     l.store 'Contact Information', 'Контактная информация'
-    l.store 'Publish my name', 'Опубликовать мое имя'
+    l.store 'Publish my name', 'Публиковать имя'
     l.store 'Email Address', 'Адрес email'
+
+    l.store 'Please fill in:', 'Пожалуйста введите:'
+    l.store 'Correct Amount', 'Правильную сумму'
+    l.store 'ID (9 digits including control number)', 'Номер паспорта (9 цифр, включая контрольную)'
+    l.store 'Card Number', 'Номер карточки'
+    l.store 'CVV Number (3 digits on back side of your card)', 'Номер CVV (3 цифры на обратной стороне карточки)'
+
+	 # Tranzila Errors
+	 l.store '1', "Кредитная карточка блокирована"
+	 l.store '3', "Обратитесь в вашу кредитную компанию"
+	 l.store '4', "Credit Card Company refusal"
+	 l.store '6', "ID Number or CVV is incorrect"
+	 l.store '33', "Неправильный номер карточки"
+	 l.store '35', "Card is not permitted for transaction or type of credit"
+	 l.store '36', "Credit Card Expired"
+	 l.store '37', "Credit Card Rejected"
+	 l.store '39', "Incorrect Card Number"
+	 l.store '57', "ID Number Missing"
+	 l.store '61', "Credit Card Number missing"
+	 l.store '107', "Transaction Amount is too high"
+	 l.store '111', "Temporary cannot accept payments"
+	 l.store '138', "You don't have Permission to make Payments"
+	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
+	 l.store "Error", "Ошибка"
 
     l.store 'Close', 'Закрыть'
     l.store 'Submit', 'Отправить'
@@ -143,6 +192,7 @@
     l.store 'Yes', 'Да'   
     l.store 'No', 'Нет'
     l.store 'Details', 'Подробнее'
+    l.store 'Bank Transfer', 'Банковский перевод'
 
     l.store 'Your email was successfully sent.', 'Ваше сообщение успешно отправлено.'
     l.store 'Image text does not match - please re-enter.', 'Текст не совпадает с изображением – пожалуйста, внесите снова.'
@@ -218,12 +268,37 @@
     l.store 'Publish my name', 'הצג את שמי'
     l.store 'Email Address', 'כתובת דואר אלקטרוני'
 
+    l.store 'Please fill in:', 'Please fill in:'
+    l.store 'Correct Amount', 'Correct Amount'
+    l.store 'ID (9 digits including control number)', 'ID (9 digits including control number)'
+    l.store 'Card Number', 'Card Number'
+    l.store 'CVV Number (3 digits on back side of your card)', 'CVV Number (3 digits on back side of your card)'
+
+	 # Tranzila Errors
+	 l.store '1', "Credit Card blocked"
+	 l.store '3', "Contact your Credit Company"
+	 l.store '4', "Credit Card Company refusal"
+	 l.store '6', "ID Number or CVV is incorrect"
+	 l.store '33', "Defective Card"
+	 l.store '35', "Card is not permitted for transaction or type of credit"
+	 l.store '36', "Credit Card Expired"
+	 l.store '37', "Credit Card Rejected"
+	 l.store '39', "Incorrect Card Number"
+	 l.store '57', "ID Number Missing"
+	 l.store '61', "Credit Card Number missing"
+	 l.store '107', "Transaction Amount is too high"
+	 l.store '111', "Temporary cannot accept payments"
+	 l.store '138', "You don't have Permission to make Payments"
+	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
+	 l.store "Error", "Error"
+
     l.store 'Close', 'לסגור'
     l.store 'Submit', 'אישור'
     l.store 'Reset', 'ביטול'
     l.store 'Yes', 'כן'   
     l.store 'No', 'לא'
     l.store 'Details', 'פרטים'
+    l.store 'Bank Transfer', 'Bank Transfer'
 
     l.store 'Your email was successfully sent.', 'הודעתך נשלחה'
     l.store 'Image text does not match - please re-enter.', 'שגיאה בהכנסת הקוד, הכנס שנית'

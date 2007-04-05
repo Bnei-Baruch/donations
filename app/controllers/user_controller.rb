@@ -83,28 +83,30 @@ class UserController < ApplicationController
 		@xxxEmail = CGI::unescape(@xxxEmail)
 		@message = params[:message] || ""
 		@message = CGI::unescape(@message)
-		response = params[:Response].to_i
-		flash[:notice] = case
-			when response == 0 : ""
-			when response == 1 : "Credit card is blocked"
-			when response == 3 : "Contact your credit company"
-			when response == 4 : "Credit card company refusal"
-			when response == 6 : "ID number or CVV is incorrect"
-			when response == 33 : "Defective card"
-			when response == 35 : "Card is not permitted for transaction or type of credit"
-			when response == 36 : "Credit card is expired"
-			when response == 37 : "Rejected"
-			when response == 39 : "Incorrect card number"
-			when response == 57 : "ID number missing"
-			when response == 61 : "Credit card number missing"
-			when response == 107 : "Transaction amount is too high"
-			when response == 111 : "Temporary cannot accept payments"
-			when response == 138 : "You don't have permission to make payments"
-			when response == 139 : "Number of installments is too high, maximum 12 installments are allowed"
-			else "Error ##{response}"
+		@response = params[:Response].to_i
+		flash[:notice] = case @response
+			when 0 : ""
+			when 1 : @response.to_s
+			when 3 : @response.to_s
+			when 4 : @response.to_s
+			when 6 : @response.to_s
+			when 33 : @response.to_s
+			when 35 : @response.to_s
+			when 36 : @response.to_s
+			when 37 : @response.to_s
+			when 39 : @response.to_s
+			when 57 : @response.to_s
+			when 61 : @response.to_s
+			when 107 : @response.to_s
+			when 111 : @response.to_s
+			when 138 : @response.to_s
+			when 139 : @response.to_s
+			else "Error"
 		end
 
 		render :layout => "tranzilla"
+		# http://books.kbb1.com/checkout_failure_tranzila.php
+		# http://books.kbb1.com/checkout_success_tranzila.php
   end
 
   def thank_you # return from tranzilla after payment was made

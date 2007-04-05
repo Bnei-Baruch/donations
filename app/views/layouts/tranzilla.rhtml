@@ -19,15 +19,6 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 function Enable_Disable(){
 var form = document.forms['tranzilla'];
 	form['payments'].disabled= form['reg_credit'].checked==1
-	//if(form['installments'].checked) {
-		//sum = parseFloat(form['sum'].value);
-		//p_number=form['payments'].value;
-		//payment=Math.round(sum/p_number*100)/100;
-		//var x = sum - (p_number-1) * payment;
-		//x = Math.round(x * 100) / 100 
-		//curr = form['currency'].value == 1 ? "Shekels" : "US Dollars"
-		//alert(payment + " and " + (p_number-1) + " x " + x + " " + curr);
-	//}
 }
 function Make_Payments(){
 var p_number;
@@ -40,32 +31,32 @@ var value;
 	value = form['sum'].value;
 	sum = parseFloat(value);
 	if((value=='') || (isNaN(sum)) || (sum < 0.01)) {
-		warning+="Correct Amount\n";
+		warning+="<%=_("Correct Amount")%>\n";
 	}
 	if(form['xxxFirstName'].value=='') {
-		warning+="First Name\n";
+		warning+="<%=_("First Name")%>\n";
 	}
 	if(form['xxxLastName'].value=='') {
-		warning+="Last Name\n";
+		warning+="<%=_("Last Name")%>\n";
 	}
 	value = form['myid'].value;
 	if((value=='') || isNaN(parseInt(value)) || !value.match(/^\d{9}$/)) {
-		warning+="ID (9 digits including control number)\n";
+		warning+="<%=_("ID (9 digits including control number)")%>\n";
 	}
 	value = form['ccno'].value;
 	if((value=='') || isNaN(parseInt(value))) {
-		warning+="Card Number\n";
+		warning+="<%=_("Card Number")%>\n";
 	}
 	if(form['mycvv'].value=='') {
-		warning+="CVV Number (3 digits on back side of your card)\n";
+		warning+="<%=_("CVV Number (3 digits on back side of your card)")%>\n";
 	}
 	value = form['xxxEmail'].value;
 	if(!value.match(/^([a-zA-Z0-9_\-\.]+)@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|((([a-zA-Z0-9\-]+\.)+)([a-zA-Z]{2,4})))$/)) {
-		warning+="Email Address\n";
+		warning+="<%=_("Email Address")%>\n";
 	}
 
 	if (warning != ""){
-		alert('Please fill in:\n' + warning);
+		alert('<%= _("Please fill in:")%>\n' + warning);
 		return false;
 	}
  
