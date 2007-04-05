@@ -105,8 +105,6 @@ class UserController < ApplicationController
 		end
 
 		render :layout => "tranzilla"
-		# http://books.kbb1.com/checkout_failure_tranzila.php
-		# http://books.kbb1.com/checkout_success_tranzila.php
   end
 
   def thank_you # return from tranzilla after payment was made
