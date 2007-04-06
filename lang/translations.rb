@@ -138,8 +138,8 @@
     l.store 'Date', 'Дата'
     l.store 'Country', 'Страна'
 
-    l.store 'Thank you for your donation.', 'Благодарим вас за ваше пожертвование.'
-    l.store 'Transaction completed successfully.', 'Операция выполнена успешно.'
+    l.store 'Thank you for your donation.', 'Спасибо за ваше пожертвование.'
+    l.store 'Transaction completed successfully.', 'Транзакция проведена успешно.'
 
     l.store 'Payment', 'Платеж'
     l.store 'WebMoney', 'WebMoney'
@@ -170,21 +170,21 @@
     l.store 'CVV Number (3 digits on back side of your card)', 'Номер CVV (3 цифры на обратной стороне карточки)'
 
 	 # Tranzila Errors
-	 l.store '1', "Кредитная карточка блокирована"
-	 l.store '3', "Обратитесь в вашу кредитную компанию"
-	 l.store '4', "Credit Card Company refusal"
-	 l.store '6', "ID Number or CVV is incorrect"
-	 l.store '33', "Неправильный номер карточки"
-	 l.store '35', "Card is not permitted for transaction or type of credit"
-	 l.store '36', "Credit Card Expired"
+	 l.store '1', "Кредитная карточка заблокирована"
+	 l.store '3', "Свяжитесь с вашей кредитной компанией"
+	 l.store '4', "Отказ кредитной компании"
+	 l.store '6', "Неправильный номер удостоверения личности или CVV"
+	 l.store '33', "Дефективная карточка"
+	 l.store '35', "Карточка не разрешена к использованию или неправильный тип кредитной карточки"
+	 l.store '36', "Кредитная карточка просрочена"
 	 l.store '37', "Credit Card Rejected"
-	 l.store '39', "Incorrect Card Number"
-	 l.store '57', "ID Number Missing"
-	 l.store '61', "Credit Card Number missing"
-	 l.store '107', "Transaction Amount is too high"
+	 l.store '39', "Неправильный номер кредитной карточки"
+	 l.store '57', "Отсутствует номер удостоверения личности"
+	 l.store '61', "Отсутствует номер кредитной карточки"
+	 l.store '107', "Превышена допустимая сумма транзакции"
 	 l.store '111', "Temporary cannot accept payments"
-	 l.store '138', "You don't have Permission to make Payments"
-	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
+	 l.store '138', "У вас нет разрешения производить платежи"
+	 l.store '139', "Превышено допустимое количество платежей, разрешенный максимум платежей -12"
 	 l.store "Error", "Ошибка"
 
     l.store 'Page', 'Страница'
