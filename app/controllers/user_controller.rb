@@ -55,6 +55,12 @@ class UserController < ApplicationController
 												  :conditions => [ "approved = ?", true],
 												  :per_page => items_per_page,
 												  :order => sort
+	 @donors.each do |d|
+		 d.name = _('Anonymous') if d.is_anonymous
+		 d.country = "" if d.country == "Unknown" || d.country == "."
+		 d.message = " " if d.message.empty?
+	 end
+
 	 if request.xhr?
 		 render :partial => "donors_list", :layout => false
 	 end
