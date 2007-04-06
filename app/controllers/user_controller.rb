@@ -38,6 +38,9 @@ class UserController < ApplicationController
 	 set_params false
 
 	 @items_per_page = 10
+	 if @params['page'] == "-1"
+		 @items_per_page = 10000000
+	 end
 	 sort = case @params['sort']
            when "date"					: "created_at"
            when "name"					: "name"

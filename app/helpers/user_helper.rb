@@ -8,7 +8,7 @@ module UserHelper
 			:before => "Element.show('spinner')",
 			:success => "Element.hide('spinner')"
 		 }
-		 html_options = {:href => url_for(:action => 'list', :params => @params.merge({:page => n}))}
+		 html_options = {:href => url_for(:action => 'list', :params => @params.merge({:page => n})), :class => "pg"}
 		 link_to_remote(n.to_s, options, html_options)
 	  end
 	end
@@ -21,6 +21,23 @@ module UserHelper
 		end
 	end
 
+	def all_pages_link_helper(text, param)
+	  key = param
+	  key += "_reverse" if @params[:sort] == param
+	  options = {
+			:url => {:action => 'list', :params => @params.merge({:sort => key, :page => "-1"})},
+			:update => 'content',
+			:before => "Element.show('spinner')",
+			:success => "Element.hide('spinner')"
+	  }
+	  html_options = {
+		 :title => _("Sort by this field"),
+		 :href => url_for(:action => 'list', :params => @params.merge({:sort => key, :page => "-1"})),
+		 :class => "pg"
+	  }
+	  link_to_remote(text, options, html_options)
+	end
+
 	def sort_link_helper(text, param)
 	  key = param
 	  key += "_reverse" if @params[:sort] == param
@@ -31,8 +48,9 @@ module UserHelper
 			:success => "Element.hide('spinner')"
 	  }
 	  html_options = {
-		 :title => "Sort by this field",
-		 :href => url_for(:action => 'list', :params => @params.merge({:sort => key, :page => nil}))
+		 :title => _("Sort by this field"),
+		 :href => url_for(:action => 'list', :params => @params.merge({:sort => key, :page => nil})
+			)
 	  }
 	  link_to_remote(text, options, html_options)
 	end

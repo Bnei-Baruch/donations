@@ -50,7 +50,10 @@ td{vertical-align:top}
 #content .table th{padding:3px !important;text-align:right;border-bottom:1px solid black}
 #content .table td{padding:3px}
 #content .table p{width:370px !important;margin:0 0 10px}
-#content .table a{display:block}
+#content .table a{display:block;text-decoration:underline}
+#content a.pg{text-decoration:underline}
+#content p.pages{text-align:center}
+#content p.pages span{color:red;font-weight:bold}
 .list-line-odd td{background-color:#F8F8F8}
 .list-line-even td{border-top:1px solid #BFBFBF;border-bottom:1px solid #BFBFBF}
 .list-intern-left{border-right:1px solid #BFBFBF !important}

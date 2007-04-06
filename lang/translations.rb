@@ -80,6 +80,7 @@
 	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
 	 l.store "Error", "Error"
 
+    l.store 'Sort by this field', 'Sort by this field'
     l.store 'Page', 'Page'
     l.store 'Close', 'Close'
     l.store 'Submit', 'Submit'
@@ -187,6 +188,7 @@
 	 l.store '139', "Превышено допустимое количество платежей, разрешенный максимум платежей -12"
 	 l.store "Error", "Ошибка"
 
+    l.store 'Sort by this field', 'Сортировать по этому полю'
     l.store 'Page', 'Страница'
     l.store 'Close', 'Закрыть'
     l.store 'Submit', 'Отправить'
@@ -294,7 +296,8 @@
 	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
 	 l.store "Error", "Error"
 
-    l.store 'Page', 'דף'
+    l.store 'Sort by this field', 'למיין לפי העמודע הזאת'
+l.store 'Page', 'דף'
     l.store 'Close', 'לסגור'
     l.store 'Submit', 'אישור'
     l.store 'Reset', 'ביטול'

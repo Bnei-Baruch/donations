@@ -5,9 +5,9 @@
               :id => "spinner",
               :style=>"display: none;" ) %>
 <% if @donors_pages.page_count > 1 %>
-<p>
+<p class="pages">
 <%=_('Page')%>&nbsp;:
-<%= pagination_links_remote @donors_pages %>
+<span><%= pagination_links_remote @donors_pages %> <%=all_pages_link_helper _("All"), "date"%></span>
 </p>
 <% end %>
 
@@ -36,4 +36,10 @@
 <% end %>
 </tbody>
 </table>
+<% if @donors_pages.page_count > 1 %>
+<p class="pages">
+<%=_('Page')%>&nbsp;:
+<span><%= pagination_links_remote @donors_pages %> <%=all_pages_link_helper _("All"), "date"%></span>
+</p>
+<% end %>
 <% end %>
