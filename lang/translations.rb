@@ -80,6 +80,7 @@
 	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
 	 l.store "Error", "Error"
 
+    l.store 'Page', 'Page'
     l.store 'Close', 'Close'
     l.store 'Submit', 'Submit'
     l.store 'Reset', 'Reset'
@@ -186,6 +187,7 @@
 	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
 	 l.store "Error", "Ошибка"
 
+    l.store 'Page', 'Страница'
     l.store 'Close', 'Закрыть'
     l.store 'Submit', 'Отправить'
     l.store 'Reset', 'Очистить'
@@ -292,6 +294,7 @@
 	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
 	 l.store "Error", "Error"
 
+    l.store 'Page', 'דף'
     l.store 'Close', 'לסגור'
     l.store 'Submit', 'אישור'
     l.store 'Reset', 'ביטול'

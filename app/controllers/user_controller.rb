@@ -36,7 +36,28 @@ class UserController < ApplicationController
 
   def donors_list
 	 set_params false
-    @donors = Donor.all_approved_donors(@lang, false)
+
+	 items_per_page = 10
+	 sort = case @params['sort']
+           when "date"					: "created_at"
+           when "name"					: "name"
+           when "country"				: "country"
+           when "sum"					: "sum_dollars"
+           when "date_reverse"		: "created_at DESC"
+           when "name_reverse"		: "name DESC"
+           when "country_reverse"	: "country DESC"
+           when "sum_reverse" 		: "sum_dollars DESC"
+
+			  else    "created_at DESC"
+           end
+
+    @donors_pages, @donors = paginate :donors,
+												  :conditions => [ "approved = ?", true],
+												  :per_page => items_per_page,
+												  :order => sort
+	 if request.xhr?
+		 render :partial => "donors_list", :layout => false
+	 end
   end
 
   def projects_and_expenses
@@ -85,18 +106,18 @@ class UserController < ApplicationController
 		@message = CGI::unescape(@message)
 		@response = params[:Response].to_i
 		flash[:notice] = case @response
-			when 0 : ""
-			when 1 : @response.to_s
-			when 3 : @response.to_s
-			when 4 : @response.to_s
-			when 6 : @response.to_s
-			when 33 : @response.to_s
-			when 35 : @response.to_s
-			when 36 : @response.to_s
-			when 37 : @response.to_s
-			when 39 : @response.to_s
-			when 57 : @response.to_s
-			when 61 : @response.to_s
+			when 0   : ""
+			when 1   : @response.to_s
+			when 3   : @response.to_s
+			when 4   : @response.to_s
+			when 6   : @response.to_s
+			when 33  : @response.to_s
+			when 35  : @response.to_s
+			when 36  : @response.to_s
+			when 37  : @response.to_s
+			when 39  : @response.to_s
+			when 57  : @response.to_s
+			when 61  : @response.to_s
 			when 107 : @response.to_s
 			when 111 : @response.to_s
 			when 138 : @response.to_s

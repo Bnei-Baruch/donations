@@ -51,6 +51,10 @@ td{vertical-align:top}
 .list-line-even td{border-top:1px solid #BFBFBF;border-bottom:1px solid #BFBFBF}
 .list-intern-left{border-left:1px solid #BFBFBF !important}
 .list-intern-right{border-left:1px solid #BFBFBF !important;border-right:1px solid #BFBFBF !important}
+.sortup{background:#00479C url(../images/up-arrow.gif) no-repeat 96% 3px}
+.sortup a,.sortdown a{color:white !important}
+.sortdown{background:#00479C url(../images/down-arrow.gif) no-repeat 96% 3px}
+#spinner{float:left}
 .don-date{width:15%}
 .don-name{width:27%}
 .don-country{width:9%}

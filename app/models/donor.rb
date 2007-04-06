@@ -11,15 +11,6 @@ class Donor < ActiveRecord::Base
 	find(:all)
   end
 
-  def self.all_approved_donors(lang, to_limit)
-	if to_limit
-		@entries_num = Common.get_entries_per_page(lang)
-		find(:all, :conditions => [ "approved = ?", true], :limit => @entries_num, :order => "created_at DESC")
-	else
-		find(:all, :conditions => [ "approved = ?", true], :order => "created_at DESC")
-	end
-  end
-
   def self.get_total_sum (lang)
 	date = Common.get_date_by_lang(lang)
 	sum = 0

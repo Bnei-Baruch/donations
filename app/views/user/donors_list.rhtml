@@ -4,43 +4,5 @@
 </div>
 <%= render :partial => "payment" -%>
 <div id="content">
-	<h3><%=_("Donor list")%></h3>
-<table cellspacing="0" class="table">
-  <tr>
-  <th><%=_('Date')%></th>
-  <th class="list-intern-left"><%=_('Name')%></th>
-  <th class="list-intern-left"><%=_('Country')%></th>
-  <th class="list-intern-right"><%=_('Message')%></th>
-  <th><%=_('Amount')%></th>
-  </tr>
-  
-<% if !@donors.nil? %>
-<% for @donor in @donors %>
-	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
-
-    <td class="don-date"><%= @donor.created_at.to_date %></td>
-<% if @donor.is_anonymous%>
-    <td class="don-name list-intern-left"><%=_('Anonymous')%></td>
-<% else %>
-    <td class="don-name list-intern-left"><%= h @donor.name %></td>
-<% end %>
-
-<% if @donor.country != "Unknown" && @donor.country != "."%>
-   <td class="don-country list-intern-left"><%= h @donor.country %></td>
-<% else %>
-   <td class="don-country list-intern-left"></td>
-<% end %>
-	<td class="don-msg list-intern-right">
-		<% if @donor.message.empty? -%>
-		&nbsp;
-		<%else-%>
-			<%= h @donor.message%>
-		<%end-%>
-	</td>
-    <td class="don-sum">$<%= @donor.sum_dollars %></td>
-
-  </tr>
-<% end %>
-<% end %>
-</table>
+<%= render :partial => "donors_list" -%>
 </div>
