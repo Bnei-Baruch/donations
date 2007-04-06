@@ -4,7 +4,7 @@ font:normal normal 14px Arial,sans-serif}
 a,a:visited,a:hover{color:#00479C}
 #left{float:left;width:190px;margin:20px 0 0}
 #left #logo img{float:left;margin:0 0 0 10px}
-#left #logo #BB{font:normal bold 15px "Times New Roman",serif;margin:0 0 0 60px}
+#left #logo #BB{font:normal bold 15px "Times New Roman",serif;padding:40px 0 0 60px}
 #menu{line-height:26px;border-top:1px solid #E1E3E2;width:175px;margin:25px 0 50px;clear:both}
 #logo #clear{clear: both; height: 0px; overflow: hidden;}
 #menu a{display:block;margin:0 0 0 5px}

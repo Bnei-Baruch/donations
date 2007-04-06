@@ -13,7 +13,7 @@
     l.store 'Donor list', 'Donor list'
 
     l.store 'More', 'More'
-    l.store 'Bnei Baruch Association', 'Bnei Baruch -- Kabbalah, Education and Research Institute'
+    l.store 'Bnei Baruch Association', 'Bnei Baruch Association'
 
     l.store 'Name', 'Name'
     l.store 'Description', 'Description'
@@ -81,6 +81,7 @@
 	 l.store "Error", "Error"
 
     l.store 'Sort by this field', 'Sort by this field'
+    l.store 'All', 'All'
     l.store 'Page', 'Page'
     l.store 'Close', 'Close'
     l.store 'Submit', 'Submit'
@@ -189,6 +190,7 @@
 	 l.store "Error", "Ошибка"
 
     l.store 'Sort by this field', 'Сортировать по этому полю'
+    l.store 'All', 'Все'
     l.store 'Page', 'Страница'
     l.store 'Close', 'Закрыть'
     l.store 'Submit', 'Отправить'
@@ -297,7 +299,8 @@
 	 l.store "Error", "Error"
 
     l.store 'Sort by this field', 'למיין לפי העמודע הזאת'
-l.store 'Page', 'דף'
+    l.store 'All', 'הכל'
+	 l.store 'Page', 'דף'
     l.store 'Close', 'לסגור'
     l.store 'Submit', 'אישור'
     l.store 'Reset', 'ביטול'
