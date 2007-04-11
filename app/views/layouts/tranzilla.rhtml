@@ -40,7 +40,7 @@ var value;
 		warning+="<%=_("Last Name")%>\n";
 	}
 	value = form['myid'].value;
-	if((value=='') || isNaN(parseInt(value)) || !value.match(/^\d{9}$/)) {
+	if((value!='') && (isNaN(parseInt(value)) || !value.match(/^\d{9}$/))) {
 		warning+="<%=_("ID (9 digits including control number)")%>\n";
 	}
 	value = form['ccno'].value;

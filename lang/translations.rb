@@ -50,7 +50,7 @@
     l.store 'Credit Card Number', 'Credit Card Number'
     l.store 'Credit Card', 'Credit Card'
     l.store 'Expiration Date', 'Expiration Date'
-    l.store 'ID', 'ID'
+    l.store 'ID', 'ID (for CC issued in Israel)'
     l.store 'CVV Number', 'CVV Number'
     l.store 'Contact Information', 'Contact Information'
     l.store 'Publish my name', 'Publish my name'
