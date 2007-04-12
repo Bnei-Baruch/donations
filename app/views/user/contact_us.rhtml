@@ -11,7 +11,7 @@
 
 <%
 winurl = CGI::unescape(url_for(:controller => "send_email", :action => "email_get_data"))
-onclick = "OpenWin('#{winurl}', '#@page_title', 600, 400); return false"
+onclick = "OpenWin('#{winurl}', '#@page_title', 600, 450); return false"
 %>
 <%= link_to _('Send Email Now'), 
 		 {:controller => "send_email", :action => "email_get_data" },
