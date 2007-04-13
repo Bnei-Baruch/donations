@@ -228,5 +228,9 @@ h1 {
 
 
 #main_div h3{
-text-align:left;font:normal normal 18px "Times New Roman",serif;color:#00479C}
+text-align:left;
+font:normal normal 18px "Times New Roman",serif;
+color:#00479C;
+margin:0;
+}
 
