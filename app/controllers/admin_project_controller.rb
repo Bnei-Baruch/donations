@@ -15,7 +15,7 @@ class AdminProjectController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @project_pages, @projects = paginate :projects, :per_page => 10
+    @project_pages, @projects = paginate :projects, :per_page => 10, :order => 'language_id, priority'
   end
 
   def show
