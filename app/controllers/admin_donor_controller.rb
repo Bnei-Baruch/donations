@@ -14,7 +14,7 @@ class AdminDonorController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @donor_pages, @donors = paginate :donors, :per_page => 10
+    @donor_pages, @donors = paginate :donors, :per_page => 10, :order => "created_at DESC"
   end
 
   def show
