@@ -38,10 +38,10 @@ class UserController < ApplicationController
 	 set_params false
 
 	 @items_per_page = 10
-	 if @params['page'] == "-1"
+	 if params['page'] == "-1"
 		 @items_per_page = 10000000
 	 end
-	 sort = case @params['sort']
+	 sort = case params['sort']
            when "date"					: "created_at"
            when "name"					: "name"
            when "country"				: "country"
@@ -188,7 +188,7 @@ class UserController < ApplicationController
 	end
 	Localization.lang = lang_name
 	@privacy_and_security = url_for(:controller => "user", :action => "window_privacy_and_security")
-	@tranzilla = url_for(:protocol => "https://", :controller => "user", :action => "tranzilla")
+	@tranzilla = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "tranzilla")
 	@bank_details = url_for(:controller => "user", :action => "bank_details")
 	@lang = lang_name
   end

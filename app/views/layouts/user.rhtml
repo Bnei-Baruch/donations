@@ -11,12 +11,6 @@
 	  <%= stylesheet_link_tag "don_user" , :media => "all" %>
 	  <%= stylesheet_link_tag "window" , :media => "all" %>
   <% end -%>
-<script type="text/javascript">
-//<![CDATA[
-var cot_loc0=(window.location.protocol == "https:")? "https://secure.comodo.net/trustlogo/javascript/cot.js" : "http://www.trustlogo.com/trustlogo/javascript/cot.js";
-document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/javascript"><\/script>');
-//]]>
-</script>
 </head>
 <body id="<%= controller.action_name %>">
    <%= javascript_include_tag "application" %>
@@ -52,6 +46,12 @@ Event.observe($('bank_details'), "click", function func_bank_details(e){OpenWin(
 //]]>
 </script>
 	<%# Comodo Trust Logo -%>
+<script type="text/javascript">
+//<![CDATA[
+var cot_loc0=(window.location.protocol == "https:")? "https://secure.comodo.net/trustlogo/javascript/cot.js" : "http://www.trustlogo.com/trustlogo/javascript/cot.js";
+document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/javascript"><\/script>');
+//]]>
+</script>
 <script type="text/javascript">
 //<![CDATA[
 COT("<%= image_path("secure_site.gif") %>", "SC2", "none");
