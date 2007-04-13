@@ -8,7 +8,7 @@
 <h3><%=_('Projects and Expenses')%></h3>
 <% for @project in @projects %>
 <br/>
-<h3><%=@project.name%></h3>
+<%=@project.name%>
 <table cellspacing="0" class="table projects">
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
 	<td class="short-name"><%=_('Description')%>
