@@ -7,7 +7,7 @@
 <div id="content">
 
 <h3><%= @page_title %></h3>
-<%= @page_content_short %>
+<%= @page_content %>
 
 <%
 winurl = CGI::unescape(url_for(:controller => "send_email", :action => "email_get_data"))

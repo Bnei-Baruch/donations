@@ -1,11 +1,55 @@
 <p>
   <b>Language: </b><%=@page_content.language.name%>
 </p>
-<% for column in PageContent.content_columns %>
+
 <p>
-  <b><%= column.human_name %>:</b> <%=h @page_content.send(column.name) %>
+<b>Main Page Title:</b><%= @page_content.main_page_title %>
 </p>
-<% end %>
+<p>
+<b>Main Page Content:</b><%= @page_content.main_page %>
+</p>
+
+<p>
+<b>About Page Title:</b><%= @page_content.about_page_title %>
+</p>
+<p>
+<b>About Page Content:</b><%= @page_content.about_page %>
+</p>
+
+<p>
+<b>Faq Page Title:</b><%= @page_content.faq_page_title %>
+</p>
+<p>
+<b>Faq Page Content:</b><%= @page_content.faq_page %>
+</p>
+
+<p>
+<b>Why Now Page Title:</b><%= @page_content.why_now_page_title %>
+</p>
+<p>
+<b>Why Now Page Content:</b><%= @page_content.why_now_page %>
+</p>
+
+<p>
+<b>Privacy and Security Page Title:</b><%= @page_content.privacy_and_security_page_title %>
+</p>
+<p>
+<b>Privacy and Security Page Content:</b><%= @page_content.privacy_and_security_page %>
+</p>
+
+<p>
+<b>Main Page Title:</b><%= @page_content.main_page_title %>
+</p>
+<p>
+<b>Main Page Content:</b><%= @page_content.main_page %>
+</p>
+
+<p>
+<b>Contact Us Page Title:</b><%= @page_content.contact_us_page_title %>
+</p>
+<p>
+<b>Contact Us Page Content:</b><%= @page_content.contact_us_page %>
+</p>
 
 <%= link_to 'Edit', :action => 'edit', :id => @page_content %> |
 <%= link_to 'Back', :action => 'list' %>
