@@ -55,7 +55,7 @@
     l.store 'ID', 'ID (for CC issued in Israel)'
     l.store 'CVV Number', 'CVV Number'
     l.store 'Contact Information', 'Contact Information'
-    l.store 'Publish my name', 'Publish my name'
+    l.store 'Publish my name', 'I want to be anonymous'
     l.store 'Email Address', 'Email Address'
 
     l.store 'Please fill in:', 'Please fill in:'
@@ -166,7 +166,7 @@
     l.store 'ID', 'Удостоверение'
     l.store 'CVV Number', 'Номер CVV'
     l.store 'Contact Information', 'Контактная информация'
-    l.store 'Publish my name', 'Публиковать имя'
+    l.store 'Publish my name', 'Я хочу остаться анонимным'
     l.store 'Email Address', 'Адрес email'
 
     l.store 'Please fill in:', 'Пожалуйста введите:'
@@ -277,7 +277,7 @@
     l.store 'ID', 'מספר תעודת זהות'
     l.store 'CVV Number', 'CVV '
     l.store 'Contact Information', 'פרטים ליצירת קשר'
-    l.store 'Publish my name', 'הצג את שמי'
+    l.store 'Publish my name', 'אני רוצה להיות אלמוני'
     l.store 'Email Address', 'כתובת דואר אלקטרוני'
 
     l.store 'Please fill in:', 'Please fill in:'
