@@ -1,6 +1,8 @@
 class AdminProjectController < ApplicationController
   layout 'admin'
 
+  in_place_edit_for :project, :priority
+
   before_filter :authorize
 
   def index
