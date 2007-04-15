@@ -124,7 +124,7 @@
     l.store "Donor list", "Список пожертвований"
 
     l.store 'More', 'Подробнее'
-    l.store 'Bnei Baruch Association', 'Ассоциация Бней Барух'
+    l.store 'Bnei Baruch Association', 'Ассоциация<br/>Бней Барух'
 
     l.store 'Name', 'Имя'
     l.store 'Description', 'Описание'
