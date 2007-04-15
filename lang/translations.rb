@@ -163,7 +163,7 @@
     l.store 'Credit Card Number', 'кредитная карточка'
     l.store 'Credit Card', 'Кредитной карточка'
     l.store 'Expiration Date', 'Действительна по'
-    l.store 'ID', 'Удостоверение'
+    l.store 'ID', 'Теудат Зеут (для израильских кредитных карт)'
     l.store 'CVV Number', 'Номер CVV'
     l.store 'Contact Information', 'Контактная информация'
     l.store 'Publish my name', 'Я хочу остаться анонимным'
