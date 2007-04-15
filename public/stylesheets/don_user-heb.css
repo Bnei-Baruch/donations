@@ -26,7 +26,7 @@ body#contact_us #menu a.menu_contact_us,
 #content img.more{margin:0 5px;border:0 none}
 #content a{font:normal normal 12px Arial,sans-serif;text-decoration:none}
 #content p{margin:15px 0 10px 0;font:normal normal 12px Arial,sans-serif;width:540px;line-height:1.3}
-#content h4{margin:15px 0 10px 0;font:bold normal 12px Arial,sans-serif;width:540px}
+#content h4{margin:15px 0 10px 0;font:normal bold 12px Arial,sans-serif;width:540px}
 .sortup{background:#00479C url(../images/up-arrow.gif) no-repeat 4% 3px}
 .sortup a,.sortdown a{color:white !important}
 .sortdown{background:#00479C url(../images/down-arrow.gif) no-repeat 4% 3px}

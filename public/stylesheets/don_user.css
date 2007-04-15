@@ -27,7 +27,7 @@ body#contact_us #menu a.menu_contact_us,
 #content img.more{margin:0 5px;border:0 none}
 #content a{font:normal normal 12px Arial,sans-serif;text-decoration:none}
 #content p{margin:15px 0 10px 0;font:normal normal 12px Arial,sans-serif;width:530px !important;line-height:1.3}
-#content h4{font:bold normal 12px Arial, sans-serif !important;width:530px !important;margin:15px 0 10px 0;}
+#content h4{font:normal bold 12px Arial, sans-serif !important;width:530px !important;margin:15px 0 10px 0;}
 #title{width:530px}
 #payment{margin:20px 50px 20px 190px}
 td,th{border-collapse:collapse;width:150px;margin:0;padding:0;font-weight:normal}
