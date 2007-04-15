@@ -14,6 +14,7 @@
 
     l.store 'More', 'More'
     l.store 'Bnei Baruch Association', 'Bnei Baruch Association'
+    l.store 'Bnei Baruch Association Title', 'Bnei Baruch Association'
 
     l.store 'Name', 'Name'
     l.store 'Description', 'Description'
@@ -125,6 +126,7 @@
 
     l.store 'More', 'Подробнее'
     l.store 'Bnei Baruch Association', 'Ассоциация<br/>Бней Барух'
+    l.store 'Bnei Baruch Association Title', 'Ассоциация Бней Барух'
 
     l.store 'Name', 'Имя'
     l.store 'Description', 'Описание'
@@ -236,6 +238,7 @@
 
     l.store 'More', 'פרטים'
     l.store 'Bnei Baruch Association', 'ארגון בני ברוך'
+    l.store 'Bnei Baruch Association Title', 'ארגון בני ברוך'
 
     l.store 'Name', 'שם'
     l.store 'Description', 'תאור'

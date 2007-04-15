@@ -23,7 +23,7 @@ body#contact_us #menu a.menu_contact_us,
 #content,#title{margin:0 30px 0 190px}
 #content h2{font:normal bold 14px Arial,sans-serif}
 #content h3,#title h3{text-align:left;font:normal normal 18px "Times New Roman",serif;color:#00479C}
-#content .email{margin:10px 0 0;display:block}
+#content .email{margin:10px 0 0;display:block;text-decoration:underline}
 #content img.more{margin:0 5px;border:0 none}
 #content a{font:normal normal 12px Arial,sans-serif;text-decoration:none}
 #content p{margin:15px 0 10px 0;font:normal normal 12px Arial,sans-serif;width:530px !important;line-height:1.3}
