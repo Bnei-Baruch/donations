@@ -8,8 +8,8 @@ class Common < ActiveRecord::Base
   validates_numericality_of :entries_per_page
 
   def self.get_common_by_lang(lang)
-    language = Language.find(:first, :conditions => [ "name = ?", lang]) 
-	 find(:first, :conditions => [ "language_id = ?", language.id ])
+		language = Language.find_by_name(lang)
+		find(language.id)
   end
 
   def self.get_user_by_lang(lang)
@@ -37,7 +37,7 @@ class Common < ActiveRecord::Base
   end
 
   def validate
-      errors.add(:language_id, "is missing" ) if language.nil?
+		errors.add(:language_id, "is missing" ) if language.nil?
   end
 
 end

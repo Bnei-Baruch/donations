@@ -9,8 +9,8 @@
   <th>Sum $</th>
   <th>Project </th>
   <th>Donation date </th>
-  <th>Anonymous </th>
-  <th>Approved </th>
+  <th>Anon </th>
+  <th>Approv </th>
   </tr>
   
 <% for donor in @donors %>
@@ -18,21 +18,33 @@
     <td><%= donor.name %></td>
     <td><%= donor.country %></td>
     <td><%= donor.payment.name %></td>
-    <td><%= donor.sum_dollars %></td>
+    <td style="text-align:right"><%= donor.sum_dollars %></td>
 <% if not donor.project.nil?%>
     <td><%= donor.project.name %></td>
 <% else %>
     <td>All projects</td>
 <% end %>
-    <td><%= donor.created_at %></td>
-    <td><%= donor.is_anonymous %></td>
-    <td><%= donor.approved %></td>
+    <td><%= donor.created_at.to_date %></td>
+    <td style="text-align:center"><%= donor.is_anonymous ? "V" : "X" %></td>
+    <td style="text-align:center"><%= donor.approved ? "V" : "X" %></td>
 
     <td><%= link_to 'Show', :action => 'show', :id => donor %></td>
     <td><%= link_to 'Edit', :action => 'edit', :id => donor %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :id => donor }, :confirm => 'Are you sure?', :method => :post %></td>
   </tr>
 <% end %>
+	<tr>
+		<td colspan="11"><hr /></td>
+	</tr>
+	<tr>
+		<td><b>Total sum:</b></td>
+		<td>Approved:</td>
+		<td><b>$<%= Donor.get_total_sum(true)%></b></td>
+		<td></td>
+		<td>Not approved:</td>
+		<td><b>$<%= Donor.get_total_sum(false)%></b></td>
+		<td></td>
+	</tr>
 </table>
 
 <%= link_to 'Previous page', { :page => @donor_pages.current.previous } if @donor_pages.current.previous %>

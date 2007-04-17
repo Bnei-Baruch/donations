@@ -12,6 +12,6 @@ class Language < ActiveRecord::Base
  	:message => " -- the first letter must be in uppercase"
 
   def self.all_langs
-	find(:all, :conditions => "true").map { |l| [l.name, l.id] }.sort
+	find_all().map { |l| [l.name, l.id] }.sort
   end
 end

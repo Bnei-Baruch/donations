@@ -15,19 +15,19 @@ class Project < ActiveRecord::Base
   validates_presence_of :screenshot => ""
 
   def self.all_projects
-	find(:all, :conditions => "true").map { |l| [l.name, l.id] }.sort
+		find_all().map { |l| [l.name, l.id] }.sort
   end
 
   def self.all_completed_projects(lang, is_completed, is_limit)
-	language = Language.find(:first, :conditions => ["name = ?", lang])
-	if not language.nil?
-		if is_limit
-			@entries_num = Common.get_entries_per_page(lang)
-			find(:all, :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed ], :limit => @entries_num, :order => 'priority')
-		else
-			find(:all, :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed ], :order => 'priority')
-		end
-      end
+		language = Language.find_by_name(lang)
+		if not language.nil?
+			if is_limit
+				@entries_num = Common.get_entries_per_page(lang)
+				find(:all, :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed ], :limit => @entries_num, :order => 'priority')
+			else
+				find_all_by_language_id_and_is_completed(language.id, is_completed, 'priority')
+			end
+    end
   end
 
   protected

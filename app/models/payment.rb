@@ -15,18 +15,15 @@ class Payment < ActiveRecord::Base
   validates_numericality_of :priority
  
   def self.all_payments_by_lang(lang)
-    language = Language.find(:first, :conditions => [ "name = ?", lang]) 
-	 find(:all, :conditions => [ "language_id = ?", language.id ], :order => [:priority])
+		find_all_by_language_id( Language.find_by_name(lang).id, :priority )
   end
 
   def self.all_payments_by_lang_sorted(lang)
-    language = Language.find(:first, :conditions => [ "name = ?", lang]) 
-	 find(:all, :conditions => [ "language_id = ?", language.id ], :order => [:priority]).map { |l| [l.name, l.id] }.sort
+	 all_payments_by_lang(lang).map { |l| [l.name, l.id] }.sort
   end
 
   def self.bank_details(lang)
-    language = Language.find(:first, :conditions => [ "name = ?", lang]) 
-	 find(:first, :conditions => [ "language_id = ? AND code = ?", language.id, "bank_transaction" ])
+		find_by_language_id_and_code(Language.find_by_name(lang).id, "bank_transaction")
   end
 
   def validate
