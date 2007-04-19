@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
   session :session_key => '_don_session_id'
 
   def can_manage_pages?
+	  #session[:user_id] && User.find_by_id(session[:user_id]).name == "boka"
 	  @is_root
-	  session[:user_id] && User.find_by_id(session[:user_id]).name == "boka"
   end
 
   private
