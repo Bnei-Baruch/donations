@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_don_session_id'
 
+  def can_manage_pages?
+	  @is_root
+	  session[:user_id] && User.find_by_id(session[:user_id]).name == "boka"
+  end
+
   private
   
   def authorize
