@@ -1,5 +1,5 @@
   Localization.define('English') do |l|
- 
+
     l.store 'Donate to help share the wisdom of Kabbalah', 'Donate to help share the wisdom of Kabbalah'
     l.store 'Your part in correcting the world', 'Your part in correcting the world'
 
@@ -18,7 +18,7 @@
 
     l.store 'Name', 'Name'
     l.store 'Description', 'Description'
-	
+
     l.store 'Running Expenses', 'Running Expenses'
     l.store 'Funding Required',   'Funding Required'
     l.store 'Start Date',   'Start Date'
@@ -27,7 +27,7 @@
     l.store 'Donation date', 'Donation date'
     l.store 'Amount', 'Amount'
     l.store 'Anonymous', 'Anonymous'
- 
+
     l.store 'Message', 'Message'
     l.store 'Date', 'Date'
     l.store 'Country', 'Country'
@@ -91,7 +91,7 @@
     l.store 'Close', 'Close'
     l.store 'Submit', 'Submit'
     l.store 'Reset', 'Reset'
-    l.store 'Yes', 'Yes'   
+    l.store 'Yes', 'Yes'
     l.store 'No', 'No'
     l.store 'Details', 'Details'
     l.store 'Bank Transfer', 'Bank Transfer'
@@ -113,7 +113,7 @@
 
   end
   Localization.define('Russian') do |l|
- 
+
     l.store 'Donate to help share the wisdom of Kabbalah', 'Раскрой для человечества науку Каббала'
     l.store 'Your part in correcting the world', 'Твой вклад в исправление мира'
 
@@ -132,7 +132,7 @@
 
     l.store 'Name', 'Имя'
     l.store 'Description', 'Описание'
-	
+
     l.store 'Running Expenses', 'Текущие расходы'
     l.store 'Funding Required',   'Требуется'
     l.store 'Start Date',   'Дата начала'
@@ -141,7 +141,7 @@
     l.store 'Donation date', 'Дата пожертвования'
     l.store 'Amount', 'Сумма'
     l.store 'Anonymous', 'Без имени'
- 
+
     l.store 'Message', 'Сообщение'
     l.store 'Date', 'Дата'
     l.store 'Country', 'Страна'
@@ -168,7 +168,7 @@
     l.store 'Credit Card', 'Кредитной карточка'
     l.store 'Expiration Date', 'Действительна по'
     l.store 'ID', 'Теудат Зеут'
-    l.store 'ID comment', '(для израильских кредитных карт)'
+    l.store 'ID comment', '(для кредитных карт, выпущенных в Израиле)'
     l.store 'CVV Number', 'Номер CVV'
     l.store 'What is CVV', 'Что такое код CVV'
     l.store 'Contact Information', 'Контактная информация'
@@ -205,7 +205,7 @@
     l.store 'Close', 'Закрыть'
     l.store 'Submit', 'Отправить'
     l.store 'Reset', 'Очистить'
-    l.store 'Yes', 'Да'   
+    l.store 'Yes', 'Да'
     l.store 'No', 'Нет'
     l.store 'Details', 'Подробнее'
     l.store 'Bank Transfer', 'Банковский перевод'
@@ -227,7 +227,7 @@
 
   end
   Localization.define('Hebrew') do |l|
- 
+
     l.store 'Donate to help share the wisdom of Kabbalah', 'Donate to help share the wisdom of Kabbalah'
     l.store 'Your part in correcting the world', 'Your part in correcting the world'
 
@@ -246,7 +246,7 @@
 
     l.store 'Name', 'שם'
     l.store 'Description', 'תאור'
-	
+
     l.store 'Running Expenses', 'Running Expenses'
     l.store 'Funding Required',   'Funding Required'
     l.store 'Start Date',   'תאריך התחלה'
@@ -255,7 +255,7 @@
     l.store 'Donation date', 'תאריך התרומה'
     l.store 'Amount', 'סכום'
     l.store 'Anonymous', 'אלמוני'
- 
+
     l.store 'Message', 'הודעה'
     l.store 'Date', 'תאריך'
     l.store 'Country', 'מדינה'
@@ -319,7 +319,7 @@
     l.store 'Close', 'לסגור'
     l.store 'Submit', 'אישור'
     l.store 'Reset', 'ביטול'
-    l.store 'Yes', 'כן'   
+    l.store 'Yes', 'כן'
     l.store 'No', 'לא'
     l.store 'Details', 'פרטים'
     l.store 'Bank Transfer', 'Bank Transfer'
@@ -340,4 +340,4 @@
     l.store 'Send', 'שלח'
 
   end
- 
+
