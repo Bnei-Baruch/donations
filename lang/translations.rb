@@ -343,31 +343,31 @@
 
   Localization.define('Spanish') do |l|
 
-    l.store 'Donate to help share the wisdom of Kabbalah', 'Done para ayudar a compartir la Sabiduría de la kabbalah'
-    l.store 'Your part in correcting the world', 'Su parte en la corrección del mundo'
+    l.store 'Donate to help share the wisdom of Kabbalah', 'Tu donación ayudará a compartir la Sabiduría de la Cabalá con los demás'
+    l.store 'Your part in correcting the world', 'Toma parte en la corrección del mundo'
 
-    l.store 'Home', 'Home'
-    l.store 'About Bnei Baruch', 'Acerca de Bnei Baruch'
+    l.store 'Home','Página principal'
+    l.store 'About Bnei Baruch','Acerca de Bnei Baruj' 
     l.store 'Why Now', 'Por qué ahora' 
     l.store 'Contact Us', 'Contáctenos'
     l.store 'FAQ', 'FAQ'
-    l.store 'Privacy and Security', 'Privacía y Seguridad'
+    l.store 'Privacy and Security','Privacidad y Seguridad' 
     l.store 'Projects and Expenses', 'Proyectos y Gastos'
-    l.store 'Donor list', 'Lista de Benefactores'
+    l.store 'Donor list','Lista de donantes' 
 
     l.store 'More', 'Mas' 
-    l.store 'Bnei Baruch Association', 'La Asociación de Bnei Baruch'
+    l.store 'Bnei Baruch Association','Asociación Bnei Baruj' 
     l.store 'Bnei Baruch Association Title', 'La Asociación de Bnei Baruch'
 
     l.store 'Name', 'Nombre'
     l.store 'Description', 'Descripción'
 
-    l.store 'Running Expenses', 'Gastos de Operación'
-    l.store 'Funding Required', 'Precisamos Fondos'
+    l.store 'Running Expenses', 'Gastos de Gestión'
+    l.store 'Funding Required', 'Financiamiento Requerido'
     l.store 'Start Date',   'Desde'
     l.store 'End date',     'Hasta'
 
-    l.store 'Donation date', 'Fecha de la Donación'
+    l.store 'Donation date', 'Fecha de Donación'
     l.store 'Amount', 'Monto'
     l.store 'Anonymous', 'Anónimo'
 
@@ -375,8 +375,7 @@
     l.store 'Date', 'Fecha'
     l.store 'Country', 'País'
     l.store 'Thank you for your donation.', 'Gracias por su donación.'
-    l.store 'Transaction completed successfully.', 'Transacción completa.'
-
+    l.store 'Transaction completed successfully.', 'Transacción completada exitosamente.'
     l.store 'Payment',  'Pago'
     l.store 'WebMoney', 'WebMoney'
     l.store 'PayPal', 'PayPal'
@@ -389,7 +388,7 @@
     l.store 'Regular Credit', 'Crédito Regular'
     l.store 'Installments', 'Cuotas'
     l.store 'Credit Card Information', 'Información de Tarjeta de Crédito'
-    l.store 'Credit Card Payment', 'Pago de Tarjeta de Crédito'
+    l.store 'Credit Card Payment', 'Pago por Tarjeta de Crédito'
     l.store 'First Name', 'Nombre'
     l.store 'Last Name', 'Apellido'
     l.store 'Credit Card Number', 'Número de Tarjeta de Crédito'
@@ -400,10 +399,10 @@
     l.store 'CVV Number', 'Número de CVV'
     l.store 'What is CVV', 'Qué es CVV'
     l.store 'Contact Information', 'Información de Contacto'
-    l.store 'Publish my name', 'Publique mi nombre'
+    l.store 'Publish my name', 'Publicar mi nombre'
     l.store 'Email Address', 'Dirección de Correo Electrónico'
 
-    l.store 'Please fill in:', 'Favor Llenar la Información:'
+    l.store 'Please fill in:', 'Favor llenar la Información:'
     l.store 'Correct Amount', 'Monto Correcto'
     l.store 'ID (9 digits including control number)', 'Cédula de Identidad (9 dígitos incluyendo el número de control)'
     l.store 'Card Number', 'Número de Tarjeta'
@@ -417,11 +416,11 @@
 	 l.store '33', "Tarjeta Defectuosa"
 	 l.store '35', "Ésta tarjeta no ha sido autorizada para realizar esta transacción o este tipo de crédito"
 	 l.store '36', "La Tarjeta de Crédito ha Caducado"
-	 l.store '37', "Crédito ha sido Rechazado"
+	 l.store '37', "Tarjeta de Crédito ha sido Rechazada"
 	 l.store '39', "Número Incorrecto de Tarjeta de Crédito"
-	 l.store '57', "Falta el Número de Tarjeta de Crédito"
+	 l.store '57', "Falta el Número de identidad"
 	 l.store '61', "Falta el número de la Tarjeta de Crédito"
-	 l.store '107', "La Cantidad de la Transacción es muy alta"
+	 l.store '107', "El Monto de la Transacción es muy alto"
 	 l.store '111', "No puede Procesar Pagos Temporalmente"
 	 l.store '138', "No tiene Permiso Para Hacer Pagos"
 	 l.store '139', "El número de cuotas es muy alto, Se permite un máximo de 12 cuotas"
@@ -431,18 +430,18 @@
     l.store 'All', 'Todo'
     l.store 'Page',  'Página'
     l.store 'Close', 'Cierre'
-    l.store 'Submit', 'Mandar'
-    l.store 'Reset', 'Reset'
+    l.store 'Submit', 'Enviar'
+    l.store 'Reset', 'Cancelar'
     l.store 'Yes',  'Sí'
     l.store 'No', 'No'
     l.store 'Details', 'Detalles'
     l.store 'Bank Transfer', 'Transferencia Bancaria'
 
-    l.store 'Your email was successfully sent.', 'Su mensaje de Correo electrónico fué correctamente enviado.'
+    l.store 'Your email was successfully sent.', 'Su mensaje de Correo electrónico fue correctamente enviado.'
     l.store 'Image text does not match - please re-enter.', 'El texto de imagen no concuerda-por favor vuelva a insertar.'
-    l.store 'Please type the text from the image.', 'Por favor inserte el texto de este mejsaje.'
+    l.store 'Please type the text from the image.', 'Por favor inserte el texto de este mensaje.'
     l.store 'Please enter name.', 'Por favor inserte su nombre'
-    l.store 'Please enter your email address.', 'Por favor inserte su dirección electrónica '
+    l.store 'Please enter your email address.', 'Por favor inserte su dirección de correo electrónico'
     l.store 'Please enter your comments.', 'Por favor inserte sus comentarios.'
     l.store 'is missing', 'falta'
     l.store 'are missing', 'faltan'
