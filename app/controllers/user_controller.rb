@@ -91,7 +91,7 @@ class UserController < ApplicationController
 			params[:lang] = params[:language]
 			get_language
 		end
-
+		
 		@user = Common.get_user_by_lang(@lang)
 		@first_pay = params[:first_pay] || ""
 		@second_pay = params[:second_pay] || ""
@@ -136,6 +136,11 @@ class UserController < ApplicationController
 
 		render :layout => "tranzilla"
   end
+
+  def webmoney
+	set_params false
+	render :layout => "webmoney"
+  end	
 
   def thank_you # return from tranzilla after payment was made
        set_params false
@@ -190,6 +195,7 @@ class UserController < ApplicationController
 	@privacy_and_security = url_for(:controller => "user", :action => "window_privacy_and_security")
 	@tranzilla = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "tranzilla")
 	@bank_details = url_for(:controller => "user", :action => "bank_details")
+	@webmoney = url_for(:controller => "user", :action => "webmoney")	
 	@lang = lang_name
   end
 
@@ -205,4 +211,16 @@ class UserController < ApplicationController
   def get_payments(lang)
 	  Payment.all_payments_by_lang(lang)
   end
+
+#   def paypal_ipn
+#	set_params false
+#  	@notify = Paypal::Notification.new(request.raw_post)
+#       if @notify.acknowledge
+#         order = Order.find(notify.item_id)
+#         order.success = (notify.complete? and order.total == notify.amount) ? 'success' : 'failure'
+#         order.save
+#       end
+#       render :nothing => true
+#   end
+
 end

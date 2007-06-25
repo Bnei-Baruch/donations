@@ -12,15 +12,15 @@
 			<td class="pay-td">
 				<%=payment.short_description%>
 				<% if payment.code == "electronic" %>
-				<%= link_to _("Privacy and Security"), @privacy_and_security, :target => "_blank", :class => "el_payment", :id => "priv_and_sec"%>
-				<%= link_to image_tag("visa.gif", :alt => _('Credit Card')),  @tranzilla, :target => "_blank", :class => "el_payment", :id => "tranzilla" %>
-						<%= render :partial => "paypal" -%>
-<%#<form class="el_payment" method="get" action="http://www.webmoney.com/">%>
-	<%#<div><input value=_("WebMoney") type="submit" /></div>%>
-	<%#</form>%>
+					<%= link_to _("Privacy and Security"), @privacy_and_security, :target => "_blank", :class => "el_payment", :id => "priv_and_sec"%>
+					<%= link_to image_tag("visa.gif", :alt => _('Credit Card')),  @tranzilla, :target => "_blank", :class => "el_payment", :id => "tranzilla" %>
+					<%= render :partial => "paypal" -%>
+					<% if @lang == "Russian" %>
+						<%= link_to image_tag("webmoney.gif", :alt => _('WebMoney')),  @webmoney, :target => "_blank", :class => "el_payment", :onclick => "OpenWin('#{@webmoney}', '#{_('Webmoney Payment')}', 450, 310);return false" %>
+					<% end %>
 				<% end %>
 				<% if payment.code == "bank_transaction" %>
-				<%= link_to _("Details"), @bank_details, :target => "_blank", :class => "el_payment", :id => "bank_details" %>
+					<%= link_to _("Details"), @bank_details, :target => "_blank", :class => "el_payment", :id => "bank_details" %>
 				<% end %>
 			</td>
 		<% end -%>
