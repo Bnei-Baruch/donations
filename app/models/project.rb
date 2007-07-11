@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :name
   validates_uniqueness_of :name
+  validates_presence_of :short_name
+  validates_uniqueness_of :short_name
   validates_presence_of :short_decr
   validates_presence_of :description
   validates_presence_of :cost, :only_integer => true, :allow_nil => false
@@ -16,6 +18,14 @@ class Project < ActiveRecord::Base
 
   def self.all_projects
 		find_all().map { |l| [l.name, l.id] }.sort
+  end
+
+  def self.all_projects_names(lang)
+	
+	language = Language.find_by_name(lang)
+	if not language.nil?
+		(find(:all,  :conditions => [ "language_id = ?", language.id])).map { |l| [l.short_name, l.id] }.sort
+	end
   end
 
   def self.all_completed_projects(lang, is_completed, is_limit)
