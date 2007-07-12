@@ -255,6 +255,9 @@ select("donor", "country", options)
 <p><label for="donor_sum_dollars">Sum $</label><br/>
 <%= text_field 'donor', 'sum_dollars'  %></p>
 
+<p><label for="donor_email">Email $</label><br/>
+<%= text_field 'donor', 'email'  %></p>
+
 <p><%=
 	options = [["All Projects", "0"]] + Project.all_projects
 	select("donor", "project_id", options)
