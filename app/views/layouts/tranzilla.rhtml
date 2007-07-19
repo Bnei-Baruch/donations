@@ -68,6 +68,7 @@ var value;
 		x = Math.round(x * 100) / 100 
 		form['second_pay'].value=payment;
 		form['first_pay'].value=x;
+		form['payments'].value--;
 	}
 
 	document.forms['tranzilla'].submit();

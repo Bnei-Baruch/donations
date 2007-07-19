@@ -17,6 +17,7 @@
 	<th <%= sort_td_class_helper "date" %>><%=sort_link_helper _('Date'), "date"%></th>
    <th <%= sort_td_class_helper "name", "list-intern-left"%>><%=sort_link_helper _('Name'), "name"%></th>
    <th <%= sort_td_class_helper "country", "list-intern-left"%>><%=sort_link_helper _('Country'), "country"%></th>
+   <th class="list-intern-right"><%=_('Project')%></th>
    <th class="list-intern-right"><%=_('Message')%></th>
    <th <%= sort_td_class_helper "sum" %>><%=sort_link_helper _('Amount'), "sum"%></th>
   </tr>
@@ -29,7 +30,12 @@
    <td class="don-date"><%= donor.created_at.to_date %></td>
    <td class="don-name list-intern-left"><%= h donor.name %></td>
    <td class="don-country list-intern-left"><%= h donor.country %></td>
-	<td class="don-msg list-intern-right"><%= h donor.message%></td>
+<% if (donor.project_id != 0) %>
+   <td class="don-project list-intern-left"><%= h donor.project.short_name %></td>
+<% else %>
+   <td class="don-project list-intern-left">All Projects</td>
+<% end %>
+   <td class="don-msg list-intern-right"><%= h donor.message%></td>
    <td class="don-sum">$<%= donor.sum_dollars %></td>
 
   </tr>

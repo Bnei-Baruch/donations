@@ -60,13 +60,14 @@ td{vertical-align:top}
 .sortup a,.sortdown a{color:white !important}
 .sortdown{background:#00479C url(../images/down-arrow.gif) no-repeat 96% 3px}
 #spinner{float:left}
-.don-date{width:15%}
+.don-date{width:17%}
 .don-name{width:27%}
 .don-country{width:9%}
 .don-msg{width:40%}
 .don-sum{width:9%}
 .short-name{width:30%}
 .short-column{width:20%}
+.don-project{width:15%}
 h2{margin:12.0pt 0 3 0;font:italic normal 14.0pt Arial}
 
 .screenshot img{border:0 none;float:left;margin:10px 0 0 10px}

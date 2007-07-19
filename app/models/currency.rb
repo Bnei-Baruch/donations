@@ -6,4 +6,8 @@ class Currency < ActiveRecord::Base
 	find(:all, :conditions => "true").map { |l| [l.name, l.id] }.sort
   end
 
+  def self.find_currencies_id_by_name(name)
+	(find_by_name(name)).id
+  end
+
 end
