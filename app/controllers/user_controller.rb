@@ -177,7 +177,7 @@ class UserController < ApplicationController
 							     :email => @xxxEmail,
 				  			     :message => @message, 
 							     :sum_dollars => @sum, 
-							     :is_anonymous => @anon.to_b, 
+							     :is_anonymous => @anon, 
 							     :payment_id => Payment.get_payment_id_by_code("electronic"), 
 					  		     :project_id => @xxxProject.to_i, 
 						  	     :approved => false, 
