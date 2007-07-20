@@ -32,6 +32,7 @@
     l.store 'Date', 'Date'
     l.store 'Country', 'Country'
     l.store 'Project', 'Project'
+    l.store 'All Projects', 'All Projects'
 
     l.store 'Thank you for your donation.', 'Thank you for your donation.'
     l.store 'Transaction completed successfully.', 'Transaction completed successfully.'
@@ -148,6 +149,7 @@
     l.store 'Date', 'Дата'
     l.store 'Country', 'Страна'
     l.store 'Project', 'Проект'
+    l.store 'All Projects', 'Все Проекты'
 
     l.store 'Thank you for your donation.', 'Спасибо за ваше пожертвование.'
     l.store 'Transaction completed successfully.', 'Транзакция проведена успешно.'
@@ -264,6 +266,7 @@
     l.store 'Date', 'תאריך'
     l.store 'Country', 'מדינה'
     l.store 'Project', 'פרוייקט'
+    l.store 'All Projects', 'כל הפרוייקטים'
 
     l.store 'Thank you for your donation.', 'תודה על תרומתך'
     l.store 'Transaction completed successfully.', 'העסקה הסתיימה בהצלחה'
@@ -380,6 +383,7 @@
     l.store 'Date', 'Fecha'
     l.store 'Country', 'País'
     l.store 'Project', 'Proyecto'
+    l.store 'All Projects', 'Todos los Proyectos'
 
     l.store 'Thank you for your donation.', 'Gracias por su donación.'
     l.store 'Transaction completed successfully.', 'Transacción completada exitosamente.'

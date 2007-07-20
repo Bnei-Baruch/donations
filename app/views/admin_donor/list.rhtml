@@ -20,7 +20,7 @@
     <td><%= donor.payment.name %></td>
     <td style="text-align:right"><%= donor.sum_dollars %></td>
 <% if not donor.project.nil?%>
-    <td><%= donor.project.name %></td>
+    <td><%= donor.project.short_name %></td>
 <% else %>
     <td>All projects</td>
 <% end %>
