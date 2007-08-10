@@ -99,7 +99,7 @@ class UserController < ApplicationController
 		get_language
 	end
 
-       if false #RAILS_ENV == 'development'
+       if RAILS_ENV == 'development'
       		@paypal_url = "http://www.sandbox.paypal.com/cgi-bin/webscr"
 		@paypal_user = "seller_1185156568_biz@yahoo.com"
   	else
