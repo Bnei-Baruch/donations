@@ -30,6 +30,9 @@
   <b>Payment: </b><%=@donor.payment.name%>
 </p>
 <p>
+  <b>Payment Type: </b><%=@donor.eptype%>
+</p>
+<p>
   <b>Anonymous: </b><%=@donor.is_anonymous%>
 </p>
 <p>
@@ -40,6 +43,10 @@
 </p>
 <p>
   <b>IP: </b><%=@donor.ip%>
+</p>
+
+<p>
+  <b>Acknowledged: </b><%=@donor.acked%>
 </p>
 
 <% if not @donor.currency.nil?%>

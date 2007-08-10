@@ -2,6 +2,8 @@ require 'cgi'
 
 require 'socket'
 require 'openssl'
+require 'net/http'
+require 'uri'
 
 class UserController < ApplicationController
 
@@ -86,6 +88,63 @@ class UserController < ApplicationController
   def bank_details
     bank_details = Payment.bank_details(get_language())
 	 render :layout => 'layouts/main_full', :text => bank_details.description
+  end
+
+	
+  def paypal
+    	set_params false
+	
+	if params[:language] && @lang != params[:language]
+		params[:lang] = params[:language]
+		get_language
+	end
+
+       if false #RAILS_ENV == 'development'
+      		@paypal_url = "http://www.sandbox.paypal.com/cgi-bin/webscr"
+		@paypal_user = "seller_1185156568_biz@yahoo.com"
+  	else
+    		@paypal_url = "https://www.paypal.com/cgi-bin/webscr"
+		@paypal_user = "finance@kabbalah.info"
+  	end
+
+	@xxxFirstName = params[:xxxFirstName] || ""
+	@xxxFirstName = CGI::unescape(@xxxFirstName)
+	@xxxLastName = params[:xxxLastName] || ""
+	@xxxLastName = CGI::unescape(@xxxLastName)
+	@xxxCountry = params[:xxxCountry] || "Unknown"
+	@xxxEmail = params[:xxxEmail] || ""
+	@xxxEmail = CGI::unescape(@xxxEmail)
+	@message = params[:message] || ""
+	@message = CGI::unescape(@message)	
+	@xxxProject = params[:xxxProject] || "0"
+	@sum = params[:sum] || ""
+	@anon = params[:anon] || "0"
+	@timestamp = params[:timestamp]
+
+     if (params[:sum])
+
+     	@donor = Donor.new(:name => @xxxFirstName + " " + @xxxLastName,  
+	   	  	     :country => @xxxCountry, 
+			     #:city => "", 
+			     #:region => "", 
+			     :email => @xxxEmail,
+			     :message => @message,
+			     :sum_dollars => @sum,
+			     :is_anonymous => @anon,  
+			     :payment_id => Payment.get_payment_id_by_code("electronic"), 
+			     :project_id => @xxxProject.to_i, 
+			     :approved => false, 
+			     :is_new => true,
+			     :eptype => "PayPal",
+			     :created_at => @timestamp,
+			     :currency_id => Currency.find_currencies_id_by_name("$"))					  		     
+	 @donor.save
+
+	else
+
+	 render :layout => "paypal"
+
+	end
   end
 
 
@@ -180,7 +239,9 @@ class UserController < ApplicationController
 							     :is_anonymous => @anon, 
 							     :payment_id => Payment.get_payment_id_by_code("electronic"), 
 					  		     :project_id => @xxxProject.to_i, 
-						  	     :approved => false, 
+						  	     :approved => false,
+							     :acked => true, 
+							     :eptype => "Tranzila",
 							     :currency_id => @currency_id)
 					@err= @donor.save
 				end
@@ -208,7 +269,32 @@ class UserController < ApplicationController
 
   def thank_you_paypal # return from PayPal after payment was made
        set_params false
-		render :layout => "user"
+	render :layout => false
+  end
+
+  def cancel_paypal # return from PayPal after payment was canceled
+       set_params false
+	render :layout => false
+  end
+
+  def paypal_ipn
+       set_params false
+
+  	@notify = Paypal::Notification.new(request.raw_post)
+       if @notify.acknowledge
+		@donor = Donor.find_by_acked_and_is_new_and_created_at(false, true, @notify.item_id)	
+
+		if (@donor)
+			if (@notify.complete?)
+				@donor.acked = true	
+				@donor.save
+			else
+				@donor.destroy
+			end
+		end
+	end
+
+	render :layout => false
   end
 
   private ######### PRIVATE FUNCTIONS #########################
@@ -253,6 +339,7 @@ class UserController < ApplicationController
 	Localization.lang = lang_name
 	@privacy_and_security = url_for(:controller => "user", :action => "window_privacy_and_security")
 	@tranzilla = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "tranzilla")
+	@paypal = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "paypal")
 	@bank_details = url_for(:controller => "user", :action => "bank_details")
 	@webmoney = url_for(:controller => "user", :action => "webmoney")	
 	@lang = lang_name
@@ -271,19 +358,24 @@ class UserController < ApplicationController
 	  Payment.all_payments_by_lang(lang)
   end
 
-#   def paypal_ipn
-#	set_params false
-#  	@notify = Paypal::Notification.new(request.raw_post)
-#       if @notify.acknowledge
-#         order = Order.find(notify.item_id)
-#         order.success = (notify.complete? and order.total == notify.amount) ? 'success' : 'failure'
-#         order.save
-#       end
-#       render :layout => "paypal_ipn"
-#   end
+  def paypal_save
+	set_params false
 
-#  def paypal_ipn_test
-#	set_params false
-#	render :layout => "paypal_ipn_test"
-#  end	
+	@donor = Donor.new(:name => "DIMA", 
+		    	     :country => "Israel", 
+			     #:city => "", 
+			     #:region => "", 
+			     :email => "dpol_bb@yahoo.com",
+			     :message => "HI", 
+			     :sum_dollars => 0, 
+			     :is_anonymous => "0", 
+			     :payment_id => Payment.get_payment_id_by_code("electronic"), 
+			     :project_id => 0, 
+		 	     :approved => false, 
+			     :currency_id => 0)
+	@donor.save
+
+	render :layout => "user"
+  end
+
 end
