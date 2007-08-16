@@ -281,7 +281,7 @@ class UserController < ApplicationController
        set_params false
 
   	@notify = Paypal::Notification.new(request.raw_post)
-       if @notify.acknowledge
+       if true #@notify.acknowledge
 		@donor = Donor.find_by_acked_and_is_new_and_created_at(false, true, @notify.item_id)	
 
 		if (@donor)
