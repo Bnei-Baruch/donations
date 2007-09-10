@@ -234,13 +234,13 @@
   end
   Localization.define('Hebrew') do |l|
 
-    l.store 'Donate to help share the wisdom of Kabbalah', 'Donate to help share the wisdom of Kabbalah'
-    l.store 'Your part in correcting the world', 'Your part in correcting the world'
+    l.store 'Donate to help share the wisdom of Kabbalah', 'תרום את חלקך בהפצת חוכמת הקבלה'
+    l.store 'Your part in correcting the world', ''
 
     l.store 'Home', 'דף הבית'
     l.store 'About Bnei Baruch', 'אודות בני ברוך'
     l.store 'Why Now', 'מדוע דווקא עכשיו'
-    l.store "Contact Us", "צור קשר"
+    l.store 'Contact Us', 'צור קשר'
     l.store 'FAQ', 'שאלות נפוצות'
     l.store 'Privacy and Security', 'הצהרת פרטיות'
     l.store 'Projects and Expenses', 'פרויקטים ועלויות'
@@ -253,8 +253,8 @@
     l.store 'Name', 'שם'
     l.store 'Description', 'תאור'
 
-    l.store 'Running Expenses', 'Running Expenses'
-    l.store 'Funding Required',   'Funding Required'
+    l.store 'Running Expenses', 'הוצאות שוטפות'
+    l.store 'Funding Required',   'השקעה נדרשת'
     l.store 'Start Date',   'תאריך התחלה'
     l.store 'End date',     'תאריך סיום'
 
@@ -269,7 +269,7 @@
     l.store 'All Projects', 'כל הפרוייקטים'
 
     l.store 'Thank you for your donation.', 'תודה על תרומתך'
-    l.store 'Transaction completed successfully.', 'העסקה הסתיימה בהצלחה'
+    l.store 'Transaction completed successfully.', 'העברה הסתיימה בהצלחה'
 
     l.store 'Payment', 'תשלום'
     l.store 'WebMoney', 'WebMoney'
@@ -297,29 +297,29 @@
     l.store 'Publish my name', 'אני רוצה להיות אלמוני'
     l.store 'Email Address', 'כתובת דואר אלקטרוני'
 
-    l.store 'Please fill in:', 'Please fill in:'
-    l.store 'Correct Amount', 'Correct Amount'
-    l.store 'ID (9 digits including control number)', 'ID (9 digits including control number)'
-    l.store 'Card Number', 'Card Number'
+    l.store 'Please fill in:', 'נא למלא:'
+    l.store 'Correct Amount', 'סכום מדוייק'
+    l.store 'ID (9 digits including control number)', 'מספר תעודת זהות'
+    l.store 'Card Number', 'מספר כרטיס'
     l.store 'CVV Number (3 digits on back side of your card)', 'CVV Number (3 digits on back side of your card)'
 
 	 # Tranzila Errors
-	 l.store '1', "Credit Card blocked"
-	 l.store '3', "Contact your Credit Company"
-	 l.store '4', "Credit Card Company refusal"
-	 l.store '6', "ID Number or CVV is incorrect"
-	 l.store '33', "Defective Card"
-	 l.store '35', "Card is not permitted for transaction or type of credit"
-	 l.store '36', "Credit Card Expired"
-	 l.store '37', "Credit Card Rejected"
-	 l.store '39', "Incorrect Card Number"
-	 l.store '57', "ID Number Missing"
-	 l.store '61', "Credit Card Number missing"
-	 l.store '107', "Transaction Amount is too high"
-	 l.store '111', "Temporary cannot accept payments"
-	 l.store '138', "You don't have Permission to make Payments"
-	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
-	 l.store "Error", "Error"
+	 l.store '1', "כרטיס חסום"
+	 l.store '3', "יש לקבל אישור מחברת האשראי"
+	 l.store '4', "התקבל סרוב לעסקה מחברת האשראי"
+	 l.store '6', "מספר תעודת הזהות שגוי או CVV שגוי"
+	 l.store '33', "כרטיס לא תקין"
+	 l.store '35', "סוג אשראי לא תקין"
+	 l.store '36', "לא הוכנס תוקף הכרטיס או פג תוקף הכרטיס"
+	 l.store '37', "הכרטיס נדחה"
+	 l.store '39', "מספר הכרטיס שגוי"
+	 l.store '57', "לא הוקלד מספר תעודת הזהות"
+	 l.store '61', "לא הוקלד מספר כרטיס אשראי"
+	 l.store '107', "סכום העסקה גבוה מהמותר"
+	 l.store '111', "זמנית לא ניתן לבצע תשלום"
+	 l.store '138', "אין אישור לביצוע עסקה בתשלומים"
+	 l.store '139', "מספר התשלומים גדול מדי, ניתן לבצע עד 12 תשלומים"
+	 l.store "Error", "שגיאה"
 
     l.store 'Sort by this field', 'למיין לפי העמודע הזאת'
     l.store 'All', 'הכל'
@@ -330,7 +330,7 @@
     l.store 'Yes', 'כן'
     l.store 'No', 'לא'
     l.store 'Details', 'פרטים'
-    l.store 'Bank Transfer', 'Bank Transfer'
+    l.store 'Bank Transfer', 'העברה בנקאית'
 
     l.store 'Your email was successfully sent.', 'הודעתך נשלחה'
     l.store 'Image text does not match - please re-enter.', 'שגיאה בהכנסת הקוד, הכנס שנית'
