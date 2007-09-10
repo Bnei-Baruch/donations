@@ -4,7 +4,7 @@ body{direction:rtl}
 a,a:visited,a:hover{color:#00479C}
 #left{float:right;width:190px;margin:20px 0 0}
 #left #logo img{float:right;margin:0 10px 0 0}
-#left #logo #BB{font:normal bold 16px "Times New Roman",serif;padding:38px 63px 25px 0}
+#left #logo #BB{font:normal bold 16px "Arial",serif;padding:38px 63px 25px 0}
 #logo #clear{clear: both; height: 0px; overflow: hidden;}
 #menu{line-height:26px;border-top:1px solid #E1E3E2;width:175px;margin:0 0 50px}
 #menu a{display:block;margin:0 5px 0 0}
@@ -21,7 +21,7 @@ body#contact_us #menu a.menu_contact_us,
 #menu a:hover{background-color:#F8F8F8}
 #main_div{padding:20px 20px 20px 0}
 #content,#title{margin:0 170px 0 30px}
-#content h3,#title h3{text-align:right;font:normal normal 18px "Times New Roman",serif;color:#00479C}
+#content h3,#title h3{text-align:right;font:normal normal 18px "Arial",serif;color:#00479C}
 #content .email{margin:10px 0 0;display:block;text-decoration:underline}
 #content img.more{margin:0 5px;border:0 none}
 #content a{font:normal normal 12px Arial,sans-serif;text-decoration:none}
@@ -37,7 +37,7 @@ td,th{border-collapse:collapse;width:150px;margin:0;padding:0;font-weight:normal
 td{vertical-align:top}
 .pay-table{padding:0 0 1px 0;background:#F8F8F8 url(../images/h-border.gif) repeat-x bottom left}
 .pay-th-left{width:1px;background:#00479C url(../images/v-white.gif) repeat-y top right}
-.pay-th{height:25px;color:white;font:normal bold 17px "Times New Roman",serif;padding:0 13px 0 0;text-align:right;background:#00479C url(../images/v-white.gif) repeat-y top right}
+.pay-th{height:25px;color:white;font:normal bold 17px "Arial",serif;padding:0 13px 0 0;text-align:right;background:#00479C url(../images/v-white.gif) repeat-y top right}
 .pay-td-left{background:#F8F8F8 url(../images/v-border.gif) repeat-y top left;width:1px}
 .pay-td{background:#F8F8F8 url(../images/v-border.gif) repeat-y top left;padding:25px 13px 10px;font:normal normal 12px Arial,serif}
 .pay-td p{padding:0 0 5px}
