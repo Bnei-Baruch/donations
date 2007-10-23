@@ -234,7 +234,7 @@
   end
   Localization.define('Hebrew') do |l|
 
-    l.store 'Donate to help share the wisdom of Kabbalah', 'תרום את חלקך בהפצת חוכמת הקבלה'
+    l.store 'Donate to help share the wisdom of Kabbalah', 'תרומות להפצת הקבלה'
     l.store 'Your part in correcting the world', ''
 
     l.store 'Home', 'דף הבית'
