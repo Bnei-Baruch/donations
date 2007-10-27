@@ -14,10 +14,11 @@
 				<% if payment.code == "electronic" %>
 					<%= link_to _("Privacy and Security"), @privacy_and_security, :target => "_blank", :class => "el_payment", :id => "priv_and_sec"%>
 					<%= link_to image_tag("visa.gif", :alt => _('Credit Card')),  @tranzilla, :target => "_blank", :class => "el_payment", :id => "tranzilla" %>
-					<%= link_to image_tag("paypal.gif", :alt => _('PayPal')),  @paypal, :target => "_blank", :class => "el_payment" %>
 					<% if @lang == "Russian" %>
+						<%= link_to image_tag("yandexdengi.gif", :alt => _('Yandex.Money')),  @yandex, :target => "_blank", :class => "el_payment", :onclick => "OpenWin('#{@yandex}', '#{_('Yandex.Money Payment')}', 450, 310);return false" %>
 						<%= link_to image_tag("webmoney.gif", :alt => _('WebMoney')),  @webmoney, :target => "_blank", :class => "el_payment", :onclick => "OpenWin('#{@webmoney}', '#{_('Webmoney Payment')}', 450, 310);return false" %>
 					<% end %>
+					<%= link_to image_tag("paypal.gif", :alt => _('PayPal')),  @paypal, :target => "_blank", :class => "el_payment" %>
 				<% end %>
 				<% if payment.code == "bank_transaction" %>
 					<%= link_to _("Details"), @bank_details, :target => "_blank", :class => "el_payment", :id => "bank_details" %>

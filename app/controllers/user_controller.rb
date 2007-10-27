@@ -262,6 +262,11 @@ class UserController < ApplicationController
 	render :layout => "webmoney"
   end	
 
+  def yandex
+	set_params false
+	render :layout => "yandex"
+  end	
+
   def thank_you # return from tranzilla after payment was made
        set_params false
 	render :layout => "tranzilla"
@@ -341,7 +346,8 @@ class UserController < ApplicationController
 	@tranzilla = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "tranzilla")
 	@paypal = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "paypal")
 	@bank_details = url_for(:controller => "user", :action => "bank_details")
-	@webmoney = url_for(:controller => "user", :action => "webmoney")	
+	@webmoney = url_for(:controller => "user", :action => "webmoney")
+	@yandex = url_for(:controller => "user", :action => "yandex")		
 	@lang = lang_name
   end
 
