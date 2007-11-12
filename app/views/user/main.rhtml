@@ -1,5 +1,6 @@
 <div id="title">
 <h3><%=_('Donate to help share the wisdom of Kabbalah')%></h3>
+<h3><%=_('Your part in correcting the world')%></h3>
 <div id="links_div">
 		<% if (@lang != "English") %>
 			<a  href="/<%=@path_don%>/eng/" title="Donations in English">English</a>
@@ -19,7 +20,6 @@
 			<a  href="/<%=@path_don%>/spa/" title="Donations in Spanish">Español</a>
 		<% end %>
 </div>
-<h3><%=_('Your part in correcting the world')%></h3>
 </div>
 <%= render :partial => "payment" -%>
 <div id="content">
