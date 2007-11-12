@@ -31,6 +31,7 @@ body#contact_us #menu a.menu_contact_us,
 .sortup a,.sortdown a{color:white !important}
 .sortdown{background:#00479C url(../images/down-arrow.gif) no-repeat 4% 3px}
 #spinner{float:right}
+#links_div{float:left;width:175px;margin:0 0 0}
 #title{width:530px}
 #payment{margin:20px 170px 20px 50px}
 td,th{border-collapse:collapse;width:150px;margin:0;padding:0;font-weight:normal}

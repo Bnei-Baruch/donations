@@ -349,6 +349,12 @@ class UserController < ApplicationController
 	@webmoney = url_for(:controller => "user", :action => "webmoney")
 	@yandex = url_for(:controller => "user", :action => "yandex")		
 	@lang = lang_name
+
+	if RAILS_ENV == 'development'
+		@path_don = 'don'
+	else
+		@path_don = 'donations'
+	end
   end
 
   def get_page_component(lang, action, suffix)
