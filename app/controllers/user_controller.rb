@@ -191,7 +191,7 @@ class UserController < ApplicationController
 	       ssl.sync_close = true
  	       ssl.connect
 
-	       ssl.puts("POST /cgi-bin/tranzila31.cgi HTTPs/1.1\r\n")
+	       ssl.puts("POST /cgi-bin/tranzila31.cgi HTTP/1.1\r\n")
 		ssl.puts("Host: secure.tranzila.com\r\n")
     		ssl.puts("User-Agent: Bnei Baruch\r\n")
 		ssl.puts("Content-Type: application/x-www-form-urlencoded\r\n")
@@ -246,6 +246,7 @@ class UserController < ApplicationController
 					@err= @donor.save
 				end
 			end
+			break
 		end
 	       ssl.close
 	  end

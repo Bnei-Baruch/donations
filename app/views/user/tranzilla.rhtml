@@ -1,6 +1,3 @@
-<% if flash[:notice] != ""-%>
-<div id="notice"><%=_(flash[:notice])%> (<%=_("Error")%> #<%=@response%>)</div>
-<%end-%>
 <div id="no-notice">&nbsp;</div>
 <form id="tranzilla" action="<%=url_for(:controller => "user", :action => "tranzilla") %>" method="get">
 	<input type="hidden" name="supplier" value="<%= @user %>" />
@@ -115,6 +112,16 @@
 			<td colspan="2"> </td>
 			<td><a target="_blank" href="<%=url_for(:controller => "../pages", :action => "cvv_#{@lang.downcase}") %>"><%=  _('What is CVV')%></a></td>
 		</tr>
+			<td colspan="2"	><div id='wait' style="display:none;color:red"><%= image_tag("progress_FFF.gif", :alt => _("Wait please...")) %> <h1><%= _("Please wait... Processing...") %></h1></div>
+		</tr>
+
+<% if flash[:notice] != ""-%>
+		<tr> 
+			<td colspan="5"><div  id="notice" style="font-size:350%"><%=_("Error")%>: <%=_(flash[:notice])%></div></td>
+			<td></td>
+		</tr>
+<%end-%>
+
 		<tr>
 			<td colspan="5"><div><%=_('Contact Information')%></div></td>
 		</tr>

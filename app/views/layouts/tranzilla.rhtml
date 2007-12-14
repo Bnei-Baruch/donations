@@ -4,6 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Donations::<%= controller.action_name %></title>
+  <%= javascript_include_tag 'prototype'%>
   <% if @rtl -%>
 	  <%= stylesheet_link_tag "tranzilla-heb" , :media => "all" %>
   <% else -%>
@@ -71,6 +72,7 @@ var value;
 		form['payments'].value--;
 	}
 
+	$('wait').show();
 	document.forms['tranzilla'].submit();
 	return false;
 }
