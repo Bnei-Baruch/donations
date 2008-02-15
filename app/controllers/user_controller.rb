@@ -159,7 +159,7 @@ class UserController < ApplicationController
 	@user = Common.get_user_by_lang(@lang)
 	@first_pay = params[:fpay] || ""
 	@second_pay = params[:spay] || ""
-	@currency = params[:currency] || "2"
+	@currency = params[:currency] || "1"
 	@sum = params[:sum] || ""
 	@cred_type = params[:cred_type] || "1"
 	@npay = params[:npay] || "1"
