@@ -13,7 +13,7 @@
   <tr>
     <td><%= donor.name %></td>
     <td><%= donor.country %></td>
-    <td style="text-align:right"><%= donor.sum_curr %></td>
+    <td><%= donor.sum_dollars %></td>
 <% if not donor.project.nil?%>
     <td><%= donor.project.short_name %></td>
 <% else %>
