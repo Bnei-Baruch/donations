@@ -1,0 +1,68 @@
+<script type="text/javascript">
+function Make_Search(){
+
+	var warning = "";
+	var form = document.forms['search_pay'].elements;
+	var value;
+
+	value = form['donor_name'].value;
+	//alert(value);
+	//return;
+	document.forms['search_pay'].submit();
+	return false;
+}
+</script>
+<form id="search_pay" action="<%=url_for(:controller => "admin_donor", :action => "search_results") %>" method="get">
+	<table>
+		<tr>
+			<td colspan="5"><div><%=_('Payment Search')%></div></td>
+		</tr>
+
+		<tr>
+			<td>Name:</td>
+			<td><%= text_field_with_auto_complete :donor, :name %> </td>
+		</tr>
+				
+		<tr>
+			<td><%=_('Country')%>:</td>
+			<td>
+				<select id="xxxCountry" name="xxxCountry"><option value="">All</option>
+				<% @countries.each do |country| %>
+					<option value="<%=country%>"><%=country%></option>
+				<% end %>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td><%=_('Date')%>:</td>
+			<td>
+				<select id="xxxDate" name="xxxDate"><option value="">All</option>
+				<% @dates.each do |date| %>
+					<option value="<%=date%>"><%=date%></option>
+				<% end %>
+				</select>
+			</td>
+		</tr>
+
+<!--
+		<tr>
+			<td><%=_('Approved')%>:</td>
+			<td>
+				<select id="xxxApproved" name="xxxApproved"><option value="true">All</option>
+					<option value="false">Not Approved</option>
+				</select>
+			</td>
+		</tr>
+-->
+
+		<tr>
+			<td colspan="5">
+				<div id="buttons">
+					<input onclick="Make_Search();" type="button" value="<%=_('Search')%>" />
+					<input type="reset" value="<%=_('Reset')%>" />
+				</div>
+			</td>
+		</tr>
+	</table>
+</form>
