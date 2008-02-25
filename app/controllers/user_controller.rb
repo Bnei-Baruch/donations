@@ -86,8 +86,9 @@ class UserController < ApplicationController
   end
 
   def bank_details
-    bank_details = Payment.bank_details(get_language())
-	 render :layout => 'layouts/main_full', :text => bank_details.description
+	get_language
+    bank_details = Payment.bank_details(@lang)
+	render :layout => 'layouts/main_full', :text => bank_details.description
   end
 
 	
