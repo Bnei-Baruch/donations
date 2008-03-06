@@ -238,21 +238,21 @@
   end
   Localization.define('Hebrew') do |l|
 
-    l.store 'Donate to help share the wisdom of Kabbalah', 'תרומות להפצת הקבלה'
+    l.store 'Donate to help share the wisdom of Kabbalah', 'תרומות להפצת חכמת הקבלה'
     l.store 'Your part in correcting the world', ''
 
     l.store 'Home', 'דף הבית'
-    l.store 'About Bnei Baruch', 'אודות בני ברוך'
+    l.store 'About Bnei Baruch', 'על אודות בני ברוך'
     l.store 'Why Now', 'מדוע דווקא עכשיו'
-    l.store 'Contact Us', 'צור קשר'
+    l.store 'Contact Us', 'צרו קשר'
     l.store 'FAQ', 'שאלות נפוצות'
     l.store 'Privacy and Security', 'הצהרת פרטיות'
     l.store 'Projects and Expenses', 'פרויקטים ועלויות'
     l.store "Donor list", "רשימת התורמים"
 
     l.store 'More', 'פרטים'
-    l.store 'Bnei Baruch Association', 'ארגון בני ברוך'
-    l.store 'Bnei Baruch Association Title', 'ארגון בני ברוך'
+    l.store 'Bnei Baruch Association', 'תנועת בני ברוך'
+    l.store 'Bnei Baruch Association Title', 'תנועת בני ברוך'
 
     l.store 'Name', 'שם'
     l.store 'Description', 'תאור'
