@@ -11,6 +11,7 @@
     l.store 'Privacy and Security', 'Privacy and Security'
     l.store 'Projects and Expenses', 'Projects and Expenses'
     l.store 'Donor list', 'Donor list'
+    l.store 'Maaser', 'Maaser'
 
     l.store 'More', 'More'
     l.store 'Bnei Baruch Association', 'Bnei Baruch Association'
@@ -130,6 +131,7 @@
     l.store 'Privacy and Security', 'О безопасности денежных переводов'
     l.store 'Projects and Expenses', 'Проекты и затраты'
     l.store "Donor list", "Список пожертвований"
+    l.store 'Maaser', 'Маасер'
 
     l.store 'More', 'Подробнее'
     l.store 'Bnei Baruch Association', 'Ассоциация<br/>Бней Барух'
@@ -249,6 +251,7 @@
     l.store 'Privacy and Security', 'הצהרת פרטיות'
     l.store 'Projects and Expenses', 'פרויקטים ועלויות'
     l.store "Donor list", "רשימת התורמים"
+    l.store 'Maaser', 'מעשר'
 
     l.store 'More', 'פרטים'
     l.store 'Bnei Baruch Association', 'תנועת בני ברוך'
@@ -366,7 +369,8 @@
     l.store 'FAQ', 'FAQ'
     l.store 'Privacy and Security','Privacidad y Seguridad' 
     l.store 'Projects and Expenses', 'Proyectos y Gastos'
-    l.store 'Donor list','Lista de donantes' 
+    l.store 'Donor list','Lista de donantes'
+    l.store 'Maaser', 'Diezmo (Maaser)' 
 
     l.store 'More', 'Mas' 
     l.store 'Bnei Baruch Association','Asociación Bnei Baruj' 
