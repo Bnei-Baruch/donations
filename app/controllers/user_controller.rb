@@ -189,7 +189,7 @@ class UserController < ApplicationController
 
     	flash[:notice] = ""
 	@response = 1
-
+	
 	if (params[:sum])
 	       myrequest = "supplier=#{@user}&sum=#{@sum}&xxxProject=#{@xxxProject}&xxxCountry=#{@xxxCountry}&xxxEmail=#{@xxxEmail}&message=#{@message}&anon=#{@anon}&mycvv=#{@mycvv}&myid=#{@myid}&cred_type=#{@cred_type}&npay=#{@npay}&currency=#{@currency}&fpay=#{@first_pay}&spay=#{@second_pay}&xxxFirstName=#{@xxxFirstName}&xxxLastName=#{@xxxLastName}&ccno=#{@ccno}&expmonth=#{@expmonth}&expyear=#{@expyear}&myid=#{@myid}\r\n"
     		ctx = OpenSSL::SSL::SSLContext.new
@@ -252,10 +252,12 @@ class UserController < ApplicationController
 							     :currency_id => @currency_id)
 					@err= @donor.save
 				end
+				# Break if @ret_params["Response"][0]
+				break
 			end
 		end
-	       ssl.close
-	  end
+	    ssl.close
+	end 
 	
 	  if (@response != 0)
 		  render :layout => "tranzilla"
