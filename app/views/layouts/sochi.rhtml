@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Donations::<%= controller.action_name %></title>
+  <%= javascript_include_tag 'prototype'%>
+  <% if @rtl -%>
+	  <%= stylesheet_link_tag "tranzilla-heb" , :media => "all" %>
+  <% else -%>
+	  <%= stylesheet_link_tag "tranzilla" , :media => "all" %>
+  <% end -%>
+<script type="text/javascript">
+//<![CDATA[
+var cot_loc0=(window.location.protocol == "https:")? "https://secure.comodo.net/trustlogo/javascript/cot.js" : "http://www.trustlogo.com/trustlogo/javascript/cot.js";
+document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/javascript"><\/script>');
+</script>
+<script type="text/javascript">
+//<![CDATA[
+function Enable_Disable(){
+var form = document.forms['sochi'];
+	form['payments'].disabled= form['reg_credit'].checked==1
+}
+function Make_Payments(){
+var p_number;
+var sum;
+var payment;
+var warning = "";
+var form = document.forms['sochi'].elements;
+var value;
+
+	value = form['sum'].value;
+	sum = parseFloat(value);
+	if((value=='') || (isNaN(sum)) || (sum < 0.01)) {
+		warning+="<%=_("Correct Amount")%>\n";
+	}
+	if(form['xxxFirstName'].value=='') {
+		warning+="<%=_("First Name")%>\n";
+	}
+	if(form['xxxLastName'].value=='') {
+		warning+="<%=_("Last Name")%>\n";
+	}
+	value = form['myid'].value;
+	if((value!='') && (isNaN(parseInt(value)) || !value.match(/^\d{9}$/))) {
+		warning+="<%=_("ID (9 digits including control number)")%>\n";
+	}
+	value = form['ccno'].value;
+	if((value=='') || isNaN(parseInt(value))) {
+		warning+="<%=_("Card Number")%>\n";
+	}
+	//if(form['mycvv'].value=='') {
+	//	warning+="<%=_("CVV Number (3 digits on back side of your card)")%>\n";
+	//}
+	value = form['xxxEmail'].value;
+	if(!value.match(/^([a-zA-Z0-9_\-\.]+)@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|((([a-zA-Z0-9\-]+\.)+)([a-zA-Z]{2,4})))$/)) {
+		warning+="<%=_("Email Address")%>\n";
+	}
+
+	if (warning != ""){
+		alert('<%= _("Please fill in:")%>\n' + warning);
+		return false;
+	}
+ 
+	if(document.forms['sochi']['installments'].checked) {
+		sum = parseFloat(form['sum'].value);
+		p_number=form['payments'].value;
+		payment=Math.round(sum/p_number*100)/100;
+		var x = sum - (p_number-1) * payment;
+		x = Math.round(x * 100) / 100 
+		form['second_pay'].value=payment;
+		form['first_pay'].value=x;
+		form['payments'].value--;
+	}
+
+	//$('wait').show();
+	document.forms['sochi'].submit();
+	return false;
+}
+//]]>
+</script>
+</head>
+<body>
+    <%= yield :layout %>
+<!-- Tranzila Verified START -->
+<div id="tranzilla_logo">
+<script language="JavaScript" type="text/javascript"
+src="https://secure.tranzila.com/verified//tranzila.js?lng=ENG"></script>
+</div>
+<%= image_tag("credit_cards.gif", :alt => _("Credit Card"), :id => "ccs") %>
+<!-- Tranzila Verified END -->
+	<%# Comodo Trust Logo -%>
+<script type="text/javascript">
+//<![CDATA[
+COT("<%= image_path("secure_site.gif") %>", "SC2", "none");
+//]]>
+</script>
+</body>
+</html>
