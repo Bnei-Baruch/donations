@@ -1,0 +1,16 @@
+*{padding:0;margin:0}
+body,html{font:normal normal 12px Arial, sans-serif}
+body{margin:0 0 0 10px}
+form#webmoney{border-bottom:1px solid gray}
+form#webmoney td{vertical-align:top;padding:0 3px;height:20px}
+form#webmoney td.sep{width:40px}
+form#webmoney td div{margin: 15px 0 10px;color:#00479B;font-weight:bold}
+form#webmoney span.star{color:#C50000}
+form#webmoney div#buttons{float:right;margin:0}
+#notice{border: 2px solid red;padding: 3px;background-color: #f0f0f0 ;font: bold normal 12px Arial,sans-serif;width:540px}
+#no-notice{padding: 3px;font: bold normal 12px Arial,sans-serif;width:540px}
+h3{text-align: left;font:normal normal 18px "Times New Roman", serif;color:#00479C}
+.thanks{height:300px;border-bottom:1px solid gray}
+#webmoney_logo{float:left;margin:10px 0 0}
+img#ccs{display:block;margin:8px 0 0 10px;}
+.thanks #ok{margin:40px 0 0}

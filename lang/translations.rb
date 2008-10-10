@@ -38,6 +38,8 @@
     l.store 'Thank you for your donation.', 'Thank you for your donation.'
     l.store 'Transaction completed successfully.', 'Transaction completed successfully.'
 
+    l.store 'Transaction failed.', 'Transaction failed.'
+
     l.store 'Payment', 'Payment'
     l.store 'WebMoney', 'WebMoney'
     l.store 'Yandex.Money', 'Yandex.Money'
@@ -157,6 +159,8 @@
 
     l.store 'Thank you for your donation.', 'Спасибо за ваше пожертвование.'
     l.store 'Transaction completed successfully.', 'Транзакция проведена успешно.'
+
+    l.store 'Transaction failed.', 'Транзакция не проведена.'
 
     l.store 'Payment', 'Платеж'
     l.store 'WebMoney', 'WebMoney'

@@ -383,11 +383,6 @@ class UserController < ApplicationController
 	  end	
   end
 
-  def webmoney
-	set_params false
-	render :layout => "webmoney"
-  end	
-
   def yandex
 	set_params false
 	render :layout => "yandex"
@@ -423,6 +418,92 @@ class UserController < ApplicationController
 				@donor.destroy
 			end
 		end
+	end
+
+	render :layout => false
+  end
+
+  #################### WebMoney Functions ##########################	
+
+  def webmoney
+	set_params false
+	
+	if params[:language] && @lang != params[:language]
+		params[:lang] = params[:language]
+		get_language
+	end
+			
+	#@webmoney_rub_purse = Common.get_webmoney_rub_purse_by_lang(@lang)
+	#@webmoney_dol_purse = Common.get_webmoney_dol_purse_by_lang(@lang)
+	#@webmoney_eur_purse = Common.get_webmoney_eur_purse_by_lang(@lang)
+
+	@webmoney_rub_purse = "R325349133575"
+	@webmoney_dol_purse = "Z301940718631"
+	@webmoney_eur_purse = "E335388151063"
+
+	@currency = params[:currency] || @webmoney_rub_purse
+	@xxxFirstName = params[:xxxFirstName] || ""
+	@xxxFirstName = CGI::unescape(@xxxFirstName)
+	@xxxLastName = params[:xxxLastName] || ""
+	@xxxLastName = CGI::unescape(@xxxLastName)
+	@xxxCountry = params[:xxxCountry] || "Unknown"
+	@xxxEmail = params[:xxxEmail] || ""
+	@xxxEmail = CGI::unescape(@xxxEmail)
+	@message = params[:message] || ""
+	@message = CGI::unescape(@message)	
+	@xxxProject = params[:xxxProject] || "0"
+	@sum = params[:sum] || ""
+	@anon = params[:anon] || "0"
+	@timestamp = params[:timestamp] || "0"
+
+    if (params[:sum])
+		case @currency
+			when @webmoney_rub_purse: currency_id = Currency.find_currencies_id_by_name("RUB")
+			when @webmoney_dol_purse: currency_id = Currency.find_currencies_id_by_name("$")
+			when @webmoney_eur_purse: currency_id = Currency.find_currencies_id_by_name("EUR")
+		end
+
+     	@donor = Donor.new(:name => @xxxFirstName + " " + @xxxLastName,  
+	   	  				 :country => @xxxCountry, 
+						 :email => @xxxEmail,
+						 :message => @message,
+						 :sum_dollars => @sum,
+						 :is_anonymous => @anon,  
+						 :payment_id => Payment.get_payment_id_by_code("electronic"), 
+						 :project_id => @xxxProject.to_i, 
+						 :approved => false, 
+						 :is_new => true,
+						 :eptype => "WebMoney",
+						 :created_at => Time.at(@timestamp.to_i).to_s,
+						 :currency_id => currency_id)					  		     
+		@donor.save
+	else
+		render :layout => "webmoney"
+	end
+  end	
+
+  def webmoney_success # return from Webmoney after successful payment
+    set_params false
+	
+	id = params[:LMI_PAYMENT_NO]
+	donor = Donor.find_by_acked_and_is_new_and_created_at(false, true, Time.at(id.to_i))	
+
+	if (donor)
+		donor.acked = true	
+		donor.save
+	end
+
+	render :layout => false
+  end
+
+  def webmoney_fail # return from Webmoney after failed payment
+	set_params false
+	
+	id = params[:LMI_PAYMENT_NO]
+	donor = Donor.find_by_acked_and_is_new_and_created_at(false, true, Time.at(id.to_i))	
+
+	if (donor)
+		donor.destroy
 	end
 
 	render :layout => false
@@ -472,7 +553,7 @@ class UserController < ApplicationController
 	@tranzilla = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "tranzilla")
 	@paypal = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "paypal")
 	@bank_details = url_for(:controller => "user", :action => "bank_details")
-	@webmoney = url_for(:controller => "user", :action => "webmoney")
+	@webmoney = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "webmoney")
 	@yandex = url_for(:controller => "user", :action => "yandex")		
 	@lang = lang_name
 
