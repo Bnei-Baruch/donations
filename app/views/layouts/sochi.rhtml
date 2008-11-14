@@ -30,7 +30,7 @@ var form = document.forms['sochi'].elements;
 var value;
 
 	value = form['sum'].value;
-	sum = parseFloat(value);
+	sum = parseInt(value);
 	if((value=='') || (isNaN(sum)) || (sum < 0.01)) {
 		warning+="<%=_("Correct Amount")%>\n";
 	}
@@ -62,7 +62,7 @@ var value;
 	}
  
 	if(document.forms['sochi']['installments'].checked) {
-		sum = parseFloat(form['sum'].value);
+		sum = parseInt(form['sum'].value);
 		p_number=form['payments'].value;
 		payment=Math.round(sum/p_number*100)/100;
 		var x = sum - (p_number-1) * payment;

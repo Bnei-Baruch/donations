@@ -34,7 +34,7 @@ function Make_Payments(){
 	var value;
 
 	value = form['sum'].value;
-	sum = parseFloat(value);
+	sum = parseInt(value);
 	if((value=='') || (isNaN(sum)) || (sum < 0.01)) {
 		warning+="<%=_("Correct Amount")%>\n";
 	}

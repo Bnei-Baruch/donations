@@ -30,7 +30,7 @@ var form = document.forms['tranzilla'].elements;
 var value;
 
 	value = form['sum'].value;
-	sum = parseFloat(value);
+	sum = parseInt(value);
 	if((value=='') || (isNaN(sum)) || (sum < 0.01)) {
 		warning+="<%=_("Correct Amount")%>\n";
 	}
@@ -55,14 +55,14 @@ var value;
 	if(!value.match(/^([a-zA-Z0-9_\-\.]+)@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|((([a-zA-Z0-9\-]+\.)+)([a-zA-Z]{2,4})))$/)) {
 		warning+="<%=_("Email Address")%>\n";
 	}
-
+	alert('<%= _("Please fill in:")%>\n' + sum);
 	if (warning != ""){
 		alert('<%= _("Please fill in:")%>\n' + warning);
 		return false;
 	}
  
 	if(document.forms['tranzilla']['installments'].checked) {
-		sum = parseFloat(form['sum'].value);
+		sum = parseInt(form['sum'].value);
 		p_number=form['payments'].value;
 		payment=Math.round(sum/p_number*100)/100;
 		var x = sum - (p_number-1) * payment;
