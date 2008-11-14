@@ -289,6 +289,13 @@ select("donor", "country", options)
 	<select id="donor_approved" name="donor[approved]"><option value="false">False</option><option value="true">True</option></select></p>
 <% end %>
 
+<p><label for="donor_approved">Acknowledged</label><br/>
+<% if @donor.acked %>
+	<select id="donor_acked" name="donor[acked]"><option value="true">True</option><option value="false">False</option></select></p>
+<% else %>
+	<select id="donor_acked" name="donor[acked]"><option value="false">False</option><option value="true">True</option></select></p>
+<% end %>
+
 <p><%=
 	options = [["Select Currency", "0"]] + Currency.all_currencies
 	select("donor", "currency_id", options)

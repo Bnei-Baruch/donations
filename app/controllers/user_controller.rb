@@ -60,9 +60,9 @@ class UserController < ApplicationController
            end
 
     @donors_pages, @donors = paginate :donors,
-												  :conditions => [ "approved = ?", true],
-												  :per_page => @items_per_page,
-												  :order => sort
+									  :conditions => [ "approved = ? OR acked = ?", true, true ],
+									  :per_page => @items_per_page,
+									  :order => sort
 	 @donors.each do |d|
 		 d.name = _('Anonymous') if d.is_anonymous
 		 d.country = "" if d.country == "Unknown" || d.country == "."
