@@ -36,8 +36,17 @@
    <td class="don-project list-intern-left">All Projects</td>
 <% end %>
    <!--<td class="don-msg list-intern-right"><%= h donor.message%></td>-->
-   <td class="don-sum">$<%= donor.sum_dollars %></td>
-
+   <!--<td class="don-sum">$<%= donor.sum_dollars %></td>-->
+   
+<% if not donor.currency.nil?%>   	
+	<%if donor.currency.name == 'NIS'%> <td class="don-sum">$<%= Finance::Currency::convert("USD", "ILS", donor.sum_dollars.to_i) %></td><%end%>  
+	<%if donor.currency.name == 'RUB'%> <td class="don-sum">$<%= Finance::Currency::convert("USD", "RUB", donor.sum_dollars.to_i) %></td><%end%>
+	<%if donor.currency.name == 'EUR'%> <td class="don-sum">$<%= Finance::Currency::convert("USD", "EUR", donor.sum_dollars.to_i) %></td><%end%>
+	<%if donor.currency.name == '$'%><td class="don-sum">$<%= donor.sum_dollars %></td><%end%> 
+<%else%>
+	<td class="don-sum">$<%= donor.sum_dollars %></td> 
+<%end%>
+   
   </tr>
 <% end %>
 </tbody>
