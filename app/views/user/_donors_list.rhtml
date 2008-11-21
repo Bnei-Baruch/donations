@@ -30,7 +30,7 @@
    <td class="don-date"><%= donor.created_at.to_date %></td>
    <td class="don-name list-intern-left"><%= h donor.name %></td>
    <td class="don-country list-intern-left"><%= h donor.country %></td>
-<% if (donor.project_id != 0) %>
+<% if (donor.project_id != 0 && !donor.project.nil?) %>
    <td class="don-project list-intern-left"><%= h donor.project.short_name %></td>
 <% else %>
    <td class="don-project list-intern-left">All Projects</td>
