@@ -13,4 +13,18 @@ class ContactUsMailer < ActionMailer::Base
 
   end
 
+  def acknowledge(lang, recipient_email, recipient_name, sum, currency)
+
+	@subject = 'Confirmation'
+	@body['recipient_name'] = recipient_name
+	@body['sum'] = sum
+	@body['currency'] = currency
+	@body['lang'] = lang
+    @recipients = recipient_email
+    @from       = [ "Bnei Baruch Association <michak@kbb1.com>" ]
+    @sent_on    = Time.now
+    @headers    = {}
+
+  end
+
 end

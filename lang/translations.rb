@@ -15,6 +15,7 @@
 
     l.store 'More', 'More'
     l.store 'Bnei Baruch Association', 'Bnei Baruch Association'
+    l.store 'Bnei Baruch Association+', 'Bnei Baruch Association'
     l.store 'Bnei Baruch Association Title', 'Bnei Baruch Association'
 
     l.store 'Name', 'Name'
@@ -119,6 +120,12 @@
     l.store 'Comments', 'Comments'
     l.store 'Send', 'Send'
 
+    l.store 'Dear', 'Dear'
+    l.store 'This is to confirm that your donation of', 'This is to confirm that your donation of'
+    l.store 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.'
+    l.store 'Thank you for your support!', 'Thank you for your support!'
+    l.store 'Sincerely,', 'Sincerely,'
+
   end
   Localization.define('Russian') do |l|
 
@@ -137,6 +144,7 @@
 
     l.store 'More', 'Подробнее'
     l.store 'Bnei Baruch Association', 'Ассоциация<br/>Бней Барух'
+    l.store 'Bnei Baruch Association+', 'Ассоциация Бней Барух'
     l.store 'Bnei Baruch Association Title', 'Ассоциация Бней Барух'
 
     l.store 'Name', 'Имя'
@@ -241,6 +249,12 @@
     l.store 'Comments', 'Сообщение'
     l.store 'Send', 'Отправить'
 
+    l.store 'Dear', 'Здравствуйте'
+    l.store 'This is to confirm that your donation of', 'Мы подтверждаем, что получили Ваше пожертвование для «Бней Барух» на сумму'
+    l.store 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', '. Оно будет использовано для распространения науки каббала.'
+    l.store 'Thank you for your support!', 'Благодарим за Ваш вклад.'
+    l.store 'Sincerely,', 'С уважением,'
+
   end
   Localization.define('Hebrew') do |l|
 
@@ -259,6 +273,7 @@
 
     l.store 'More', 'פרטים'
     l.store 'Bnei Baruch Association', 'תנועת בני ברוך'
+    l.store 'Bnei Baruch Association+', 'תנועת בני ברוך'
     l.store 'Bnei Baruch Association Title', 'תנועת בני ברוך'
 
     l.store 'Name', 'שם'
@@ -378,6 +393,7 @@
 
     l.store 'More', 'Mas' 
     l.store 'Bnei Baruch Association','Asociación Bnei Baruj' 
+    l.store 'Bnei Baruch Association+','Asociación Bnei Baruj'
     l.store 'Bnei Baruch Association Title', 'La Asociación de Bnei Baruch'
 
     l.store 'Name', 'Nombre'
@@ -476,5 +492,12 @@
     l.store 'Your Email Address', 'Su Dirección de Correo Electrónico'
     l.store 'Comments', 'Comentarios'
     l.store 'Send', 'Envíe'
+
+    
+    l.store 'Dear', 'Estimado/a'
+    l.store 'This is to confirm that your donation of', 'Acusamos recepción de su donación de'
+    l.store 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', 'a Bnei Baruj, la cual será dirigida a ayudar compartir la sabiduría de la Cabalá.'
+    l.store 'Thank you for your support!', ''
+    l.store 'Sincerely,', 'Atentamente,'
 
   end

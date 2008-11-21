@@ -4,6 +4,7 @@ require 'socket'
 require 'openssl'
 require 'net/http'
 require 'uri'
+require 'finance/currency'
 
 class UserController < ApplicationController
 
@@ -150,8 +151,8 @@ class UserController < ApplicationController
 
 
   def tranzilla
-    	set_params false
-	
+    set_params false
+
 	if params[:language] && @lang != params[:language]
 		params[:lang] = params[:language]
 		get_language
@@ -187,7 +188,7 @@ class UserController < ApplicationController
 	@xxxCountry = params[:xxxCountry] || "Unknown"
 	@xxxProject = params[:xxxProject] || "0"
 
-    	flash[:notice] = ""
+    flash[:notice] = ""
 	@response = 1
 	
 	if (params[:sum])
@@ -251,6 +252,9 @@ class UserController < ApplicationController
 							     :eptype => "Tranzila",
 							     :currency_id => @currency_id)
 					@err= @donor.save
+
+					send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
+
 				end
 				# Break if @ret_params["Response"][0]
 				break
@@ -368,6 +372,7 @@ class UserController < ApplicationController
 							     :eptype => "Tranzila",
 							     :currency_id => @currency_id)
 					@err= @donor.save
+					send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
 				end
 				# Break if @ret_params["Response"][0]
 				break
@@ -414,6 +419,7 @@ class UserController < ApplicationController
 			if (@notify.complete?)
 				@donor.acked = true	
 				@donor.save
+				send_ack_email(@donor.email, @donor.name, @donor.sum_dollars.to_s, @donor.currency.name)
 			else
 				@donor.destroy
 			end
@@ -491,6 +497,7 @@ class UserController < ApplicationController
 	if (donor)
 		donor.acked = true	
 		donor.save
+		send_ack_email(donor.email, donor.name, donor.sum_dollars.to_s, donor.currency.name)
 	end
 
 	render :layout => false
@@ -511,6 +518,11 @@ class UserController < ApplicationController
 
   private ######### PRIVATE FUNCTIONS #########################
 
+  def send_ack_email(email, name, sum, currency)
+	acknowledge = ContactUsMailer.create_acknowledge(@lang, 'michak@kbb1.com', name, sum, currency)
+	ContactUsMailer.deliver(acknowledge)
+  end
+  
   def set_params(to_render = true)
 	 get_language
 	 @action = action_name
