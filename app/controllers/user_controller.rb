@@ -616,7 +616,7 @@ class UserController < ApplicationController
 										:sum_dollars => @sum, 
 										:is_anonymous => @anon, 
 										:payment_id => Payment.get_payment_id_by_code("electronic"), 
-					  					 #:project_id => @xxxProject.to_i, 
+					  					:project_id => 29, 
 						  				:approved => false,
 										:acked => true, 
 										:eptype => "Tranzila",
