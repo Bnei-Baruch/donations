@@ -20,11 +20,12 @@ class ContactUsMailer < ActionMailer::Base
 	@body['sum'] = sum
 	@body['currency'] = currency
 	@body['lang'] = lang
+	@body['rtl'] = (lang == "Hebrew") ? 'rtl' : 'ltr'
     @recipients = recipient_email
     @from       = [ "Bnei Baruch Association <michak@kbb1.com>" ]
     @sent_on    = Time.now
     @headers    = {}
-
+	@content_type = 'text/html'
   end
 
 end

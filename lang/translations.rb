@@ -273,7 +273,7 @@
 
     l.store 'More', 'פרטים'
     l.store 'Bnei Baruch Association', 'תנועת בני ברוך'
-    l.store 'Bnei Baruch Association+', 'תנועת בני ברוך'
+    l.store 'Bnei Baruch Association+', '"בני ברוך"'
     l.store 'Bnei Baruch Association Title', 'תנועת בני ברוך'
 
     l.store 'Name', 'שם'
@@ -374,6 +374,11 @@
     l.store 'Comments', 'הודעה'
     l.store 'Send', 'שלח'
 
+    l.store 'Dear', 'היקר/ה'
+    l.store 'This is to confirm that your donation of', 'אנו שמחים לאשר כי קיבלנו את תרומתך לעמותת "בני ברוך" בסך'
+    l.store 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', ''
+    l.store 'Thank you for your support!', 'כספך ישמש להפצת חכמת הקבלה בארץ ובעולם ועל כך תודתנו.'
+    l.store 'Sincerely,', 'בברכה'
   end
 
   Localization.define('Spanish') do |l|

@@ -152,7 +152,6 @@ class UserController < ApplicationController
 
   def tranzilla
     set_params false
-
 	if params[:language] && @lang != params[:language]
 		params[:lang] = params[:language]
 		get_language
@@ -641,8 +640,10 @@ class UserController < ApplicationController
   private ######### PRIVATE FUNCTIONS #########################
 
   def send_ack_email(email, name, sum, currency)
-	acknowledge = ContactUsMailer.create_acknowledge(@lang, 'michak@kbb1.com', name, sum, currency)
-	ContactUsMailer.deliver(acknowledge)
+	if (!email.nil? && !email.empty?)
+		acknowledge = ContactUsMailer.create_acknowledge(@lang, 'michak@kbb1.com', name, sum, currency)
+		ContactUsMailer.deliver(acknowledge)
+	end
   end
   
   def set_params(to_render = true)
