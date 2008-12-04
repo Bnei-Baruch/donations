@@ -641,7 +641,7 @@ class UserController < ApplicationController
 
   def send_ack_email(email, name, sum, currency)
 	if (!email.nil? && !email.empty?)
-		acknowledge = ContactUsMailer.create_acknowledge(@lang, 'michak@kbb1.com', name, sum, currency)
+		acknowledge = ContactUsMailer.create_acknowledge(@lang, email, name, sum, currency)
 		ContactUsMailer.deliver(acknowledge)
 	end
   end
