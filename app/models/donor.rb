@@ -15,6 +15,10 @@ class Donor < ActiveRecord::Base
 	find_all_by_approved(appr).sum {|donor| donor.sum_dollars}
   end
 
+  def self.get_donors_per_project (approved, acked, project_id, sort_col = 'id', sort_order = 'desc')
+	donors = find(:all, :conditions => [ "(approved = ? OR acked = ?) AND project_id = ?", approved, acked, project_id ], :order => "#{sort_col} #{sort_order}")
+  end
+
   protected
 
   def validate

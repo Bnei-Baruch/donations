@@ -637,6 +637,185 @@ class UserController < ApplicationController
 	  end	
   end
 
+
+#################### KABBALAH STATE DONATION ##########################
+
+  def kab_state
+    
+	set_params false
+	
+	if params[:language] && @lang != params[:language]
+		params[:lang] = params[:language]
+		get_language
+	end
+			
+	@user = Common.get_user_by_lang(@lang)
+	@first_pay = params[:fpay] || ""
+	@second_pay = params[:spay] || ""
+
+	if (@lang == "Hebrew")
+		@currency = params[:currency] || "1"
+	else
+		@currency = params[:currency] || "2"
+	end
+
+	@sum = params[:sum] || ""
+	@cred_type = params[:cred_type] || "1"
+	@npay = params[:npay] || "1"
+	@xxxFirstName = params[:xxxFirstName] || ""
+	@xxxFirstName = CGI::unescape(@xxxFirstName)
+	@xxxLastName = params[:xxxLastName] || ""
+	@xxxLastName = CGI::unescape(@xxxLastName)
+	@ccno = params[:ccno] || ""
+	@expmonth = params[:expmonth] || "1"
+	@expyear = params[:expyear] || "7"
+	@mycvv = params[:mycvv] || ""
+	@myid = params[:myid] || ""
+	@anon = params[:anon] || "0"
+	@xxxEmail = params[:xxxEmail] || ""
+	@xxxEmail = CGI::unescape(@xxxEmail)
+	@message = params[:message] || ""
+	@message = CGI::unescape(@message)	
+	@xxxCountry = params[:xxxCountry] || "Unknown"
+	@xxxProject = "Kabbalah State"
+
+    flash[:notice] = ""
+	@response = 1
+	
+	if (params[:sum])
+	    myrequest = "supplier=#{@user}&sum=#{@sum}&xxxProject=#{@xxxProject}&xxxCountry=#{@xxxCountry}&xxxEmail=#{@xxxEmail}&message=#{@message}&anon=#{@anon}&mycvv=#{@mycvv}&myid=#{@myid}&cred_type=#{@cred_type}&npay=#{@npay}&currency=#{@currency}&fpay=#{@first_pay}&spay=#{@second_pay}&xxxFirstName=#{@xxxFirstName}&xxxLastName=#{@xxxLastName}&ccno=#{@ccno}&expmonth=#{@expmonth}&expyear=#{@expyear}&myid=#{@myid}\r\n"
+    	ctx = OpenSSL::SSL::SSLContext.new
+   		t = TCPSocket.new('secure.tranzila.com','https')
+		ssl = OpenSSL::SSL::SSLSocket.new(t, ctx)
+	    ssl.sync_close = true
+ 	    ssl.connect
+
+	    ssl.puts("POST /cgi-bin/tranzila31.cgi HTTPs/1.1\r\n")
+		ssl.puts("Host: secure.tranzila.com\r\n")
+    	ssl.puts("User-Agent: Bnei Baruch\r\n")
+		ssl.puts("Content-Type: application/x-www-form-urlencoded\r\n")
+   	 	ssl.puts("Content-Length: #{myrequest.length}\r\n")
+     	ssl.puts("\r\n")
+    	ssl.puts(myrequest)
+		while res = ssl.gets
+			@ret_params = CGI::parse(res)
+			if (@ret_params["Response"][0])	
+				@response = @ret_params["Response"][0].to_i
+				flash[:notice] = case @response
+					when 0   : ""
+					when 1   : @response.to_s
+					when 3   : @response.to_s
+					when 4   : @response.to_s
+					when 6   : @response.to_s
+					when 33  : @response.to_s
+					when 35  : @response.to_s
+					when 36  : @response.to_s
+					when 37  : @response.to_s
+					when 39  : @response.to_s
+					when 57  : @response.to_s
+					when 61  : @response.to_s
+					when 107 : @response.to_s
+					when 111 : @response.to_s
+					when 138 : @response.to_s
+					when 139 : @response.to_s
+					else "Error"
+				end
+				
+				if (@response == 0)
+				 	if (@currency == "1")
+						@currency_id = Currency.find_currencies_id_by_name("NIS")
+					else
+						@currency_id = Currency.find_currencies_id_by_name("$")
+					end
+
+					@donor = Donor.new(:name => @xxxFirstName + " " + @xxxLastName, 
+		       			    	       :country => @xxxCountry, 
+			     						#:city => "", 
+										#:region => "", 
+										:email => @xxxEmail,
+				  						:message => @message, 
+										:sum_dollars => @sum, 
+										:is_anonymous => @anon, 
+										:payment_id => Payment.get_payment_id_by_code("electronic"), 
+					  					:project_id => 29, 
+						  				:approved => false,
+										:acked => true, 
+										:eptype => "Tranzila",
+										:currency_id => @currency_id)
+					@err= @donor.save
+					send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
+				end
+				# Break if @ret_params["Response"][0]
+				break
+			end
+		end
+	    ssl.close
+	end 
+	
+	  if (@response != 0)
+		  render :layout => "kab_state"
+	  else
+		  render :partial => "thank_you", :layout => false
+	  end	
+  end
+
+   #################### PER PROJECT DONORS LIST ##########################
+   def project_donors_list
+	 set_params false
+
+	 donors_per_page = 0
+	 if params.has_key?(:project_id)
+		@donors = Donor.get_donors_per_project (true, true, params[:project_id], params[:sidx], params[:sord])
+		@donors.each do |d|
+			 d.name = _('Anonymous') if d.is_anonymous
+			 d.country = "&nbsp;" if d.country == "Unknown" || d.country == "."
+			 d.message = "&nbsp;" if d.message.empty?
+		end
+
+		donors_per_page = params.has_key?(:rows) ? params[:rows].to_i : 10
+		if params.has_key?(:page)
+			page_num = params[:page].to_i - 1
+		else
+			page_num = 0
+			donors_per_page = @donors.size
+		end
+		offset = donors_per_page * page_num
+
+		if offset >= @donors.size
+			donors_per_page = 0 
+		elsif @donors.size - offset < donors_per_page
+			donors_per_page = @donors.size - offset 
+		end
+	 else
+		 @donors = []
+	 end
+
+	 if (params[:mode] == 'xml')
+		doc = REXML::Document.new(donors_per_page > 0 ? (@donors[offset, donors_per_page]).to_xml : '<donors></donors>')
+		doc.root.add_attributes({"grandtotal", @donors ? @donors.size.to_s : '0'})
+		doc.root.add_attributes({"total", donors_per_page.to_s})
+		render :xml => doc.to_s
+	 else
+		total = @donors.size.to_f / donors_per_page
+		page = page_num + 1
+		records = @donors.size
+		res = {:total => total.ceil.to_s,
+			:page => page.to_s,
+			:records => records.to_s,
+			:rows => @donors[offset, donors_per_page.to_i].map{|d|
+				{:id => d.id.to_s,
+				 :cell => [d.name, d.sum_dollars.to_s, d.country, d.created_at.strftime('%Y-%m-%d'), d.message]
+				}
+			}
+		}.to_json
+		if params[:callback]
+			res = "#{params[:callback]}(#{res});"
+		end
+
+		render :json => res
+	 end
+  end
+
   private ######### PRIVATE FUNCTIONS #########################
 
   def send_ack_email(email, name, sum, currency)
