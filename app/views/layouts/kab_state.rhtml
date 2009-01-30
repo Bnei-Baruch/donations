@@ -6,10 +6,13 @@
   <title>Donations::<%= controller.action_name %></title>
   <%= javascript_include_tag 'prototype'%>
   <% if @rtl -%>
-	  <%= stylesheet_link_tag "tranzilla-heb" , :media => "all" %>
+	  <%= stylesheet_link_tag "kab_state-heb" , :media => "all" %>
   <% else -%>
-	  <%= stylesheet_link_tag "tranzilla" , :media => "all" %>
+	  <%= stylesheet_link_tag "kab_state" , :media => "all" %>
   <% end -%>
+  <%= stylesheet_link_tag "/stylesheets/sok/content_page" , :media => "all" %>
+  <%= stylesheet_link_tag "/stylesheets/sok/common" , :media => "all" %>
+  <%= stylesheet_link_tag "/stylesheets/sok/common" , :media => "all" %>
 <script type="text/javascript">
 //<![CDATA[
 var cot_loc0=(window.location.protocol == "https:")? "https://secure.comodo.net/trustlogo/javascript/cot.js" : "http://www.trustlogo.com/trustlogo/javascript/cot.js";

@@ -1,3 +1,11 @@
+<div id="header">
+<h1 id="logo"><a href="http://sok.localhost:3000" target="_blank">x</a></h1>
+<div id="main_quote">"And this is a true sign of the correction of the body, when one feels that his soul is present in the whole nation of Israel." - Baal HaSulam</div>
+<div id="links"><div id="top_links_int"><span class="bullet_blue"></span><span id="el1_1"><a href="#" title="">Donate Now</a></span><span class="bullet_blue"></span><span id="el2_2"><a href="http://sok.localhost:3000/en/about-the-project" title="">About the project</a></span><span class="bullet_blue"></span><span id="el3_3"><a href="http://sok.localhost:3000/en/help-needed" title="">Help Needed</a></span><span class="bullet_blue"></span><span id="el4_4"><a href="http://sok.localhost:3000/en/donors-list" title="">Donors' list</a></span><span class="bullet_blue"></span><span id="el5_5"><a href="http://sok.localhost:3000/en/feature-preview" title="">Feature Preview</a></span><span class="bullet_blue"></span><span id="el6_6"><a href="http://sok.localhost:3000/en/about-us" title="">About us</a></span><span class="bullet_blue"></span></div></div><div id="lang">Languages:<a href="">English</a><a href="">Russian</a><a href="">Hebrew</a></div><div class="hr_blue"></div></div><div id="body"><div id="menu">
+</div>
+
+<div class="content"><h1 class="red">Donation Form</h1><div class="red_underline"></div></div>
+
 <div id="no-notice">&nbsp;</div>
 <form id="kab_state" action="<%=url_for(:controller => "user", :action => "kab_state") %>" method="get">
 	<input type="hidden" name="supplier" value="<%= @user %>" />
@@ -5,7 +13,7 @@
 	<input type="hidden" name="xxxCampaign" value="Donation" />
 	<input id="first_pay" type="hidden" name="fpay" value="<%=@first_pay%>" />
 	<input id="second_pay" type="hidden" name="spay" value="<%=@second_pay%>" />
-	<table>
+	<table style="margin:0 0 0 100px">
 		<tr>
 			<td colspan="5"><div><%=_('Payment')%></div></td>
 		</tr>
@@ -150,10 +158,6 @@
 			<td colspan="4">
 				<textarea rows="3" cols="47" id="message" name="message"><%=@message%></textarea>
 			</td>
-		</tr>
-		<tr>
-			<td><%=_('Project')%>:</td>
-			<td><b>Kabbalah State</b></td>
 		</tr>
 		<tr>
 			<td><%=_('Country')%>:</td>
@@ -382,6 +386,7 @@
 <option value="Zimbabwe">Zimbabwe</option></select>
 			</td>
 		</tr>
+		<tr></tr><tr></tr><tr></tr><tr></tr>
 		<tr>
 			<td colspan="5">
 				<div id="buttons">
@@ -390,6 +395,7 @@
 				</div>
 			</td>
 		</tr>
+		<tr></tr><tr></tr><tr></tr><tr></tr>
 	</table>
 </form>
 
