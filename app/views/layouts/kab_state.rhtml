@@ -27,7 +27,6 @@ var form = document.forms['kab_state'];
 function Make_Payments(){
 var p_number;
 var sum;
-var payment;
 var warning = "";
 var form = document.forms['kab_state'].elements;
 var value;
@@ -65,14 +64,15 @@ var value;
 	}
  
 	if(document.forms['kab_state']['installments'].checked) {
-		sum = parseInt(form['sum'].value);
-		p_number=form['payments'].value;
-		payment=Math.round(sum/p_number*100)/100;
-		var x = sum - (p_number-1) * payment;
-		x = Math.round(x * 100) / 100 
-		form['second_pay'].value=payment;
-		form['first_pay'].value=x;
-		form['payments'].value--;
+		sum				  = parseInt(form['sum'].value);
+		form['sum'].value = sum
+		p_number          = form['payments'].value;
+		payment           = Math.round(sum/p_number*100)/100;
+		var x             = sum - (p_number-1) * payment;
+
+		form['second_pay'].value = payment;
+		form['first_pay'].value  = x;
+		form['npay'].value		 = p_number - 1;	
 	}
 
 	//$('wait').show();

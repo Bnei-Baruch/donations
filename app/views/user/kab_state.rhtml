@@ -1,7 +1,12 @@
 <div id="header">
 <h1 id="logo"><a href="http://sok.localhost:3000" target="_blank">x</a></h1>
 <div id="main_quote">"And this is a true sign of the correction of the body, when one feels that his soul is present in the whole nation of Israel." - Baal HaSulam</div>
-<div id="links"><div id="top_links_int"><span class="bullet_blue"></span><span id="el1_1"><a href="#" title="">Donate Now</a></span><span class="bullet_blue"></span><span id="el2_2"><a href="http://sok.localhost:3000/en/about-the-project" title="">About the project</a></span><span class="bullet_blue"></span><span id="el3_3"><a href="http://sok.localhost:3000/en/help-needed" title="">Help Needed</a></span><span class="bullet_blue"></span><span id="el4_4"><a href="http://sok.localhost:3000/en/donors-list" title="">Donors' list</a></span><span class="bullet_blue"></span><span id="el5_5"><a href="http://sok.localhost:3000/en/feature-preview" title="">Feature Preview</a></span><span class="bullet_blue"></span><span id="el6_6"><a href="http://sok.localhost:3000/en/about-us" title="">About us</a></span><span class="bullet_blue"></span></div></div><div id="lang">Languages:<a href="">English</a><a href="">Russian</a><a href="">Hebrew</a></div><div class="hr_blue"></div></div><div id="body"><div id="menu">
+<div id="links"><div id="top_links_int"><span class="bullet_blue"></span><span id="el1_1"><a href="#" title="">Donate Now</a></span><span class="bullet_blue"></span><span id="el2_2"><a href="http://sok.localhost:3000/en/about-the-project" title="">About the project</a></span><span class="bullet_blue"></span><span id="el3_3"><a href="http://sok.localhost:3000/en/help-needed" title="">Help Needed</a></span><span class="bullet_blue"></span><span id="el4_4"><a href="http://sok.localhost:3000/en/donors-list" title="">Donors' list</a></span><span class="bullet_blue"></span><span id="el5_5"><a href="http://sok.localhost:3000/en/feature-preview" title="">Feature Preview</a></span><span class="bullet_blue"></span><span id="el6_6"><a href="http://sok.localhost:3000/en/about-us" title="">About us</a></span><span class="bullet_blue"></span></div></div>
+<!--
+<div id="lang">Languages:<a href="">English</a><a href="">Russian</a><a href="">Hebrew</a></div>
+-->
+<div class="hr_blue"></div></div>
+<div id="body"><div id="menu">
 </div>
 
 <div class="content"><h1 class="red">Donation Form</h1><div class="red_underline"></div></div>
@@ -13,6 +18,7 @@
 	<input type="hidden" name="xxxCampaign" value="Donation" />
 	<input id="first_pay" type="hidden" name="fpay" value="<%=@first_pay%>" />
 	<input id="second_pay" type="hidden" name="spay" value="<%=@second_pay%>" />
+	<input id="npay" type="hidden" name="npay" value="0" />
 	<table style="margin:0 0 0 100px">
 		<tr>
 			<td colspan="5"><div><%=_('Payment')%></div></td>
@@ -39,7 +45,7 @@
 				<input id="installments" onclick="Enable_Disable();" <%if @cred_type == "8"%>checked="checked"<%end%> type="radio" name="cred_type" value="8" /><%=_('Installments')%>
 			</td>
 			<td>
-				<select id="payments" onchange="Enable_Disable()" disabled="disabled" size="1" name="npay">
+				<select id="payments" onchange="Enable_Disable()" disabled="disabled" size="1">
 					<option value="2" <%if @npay == "1"%>selected="selected"<%end%>>2</option>
 					<option value="3" <%if @npay == "2"%>selected="selected"<%end%>>3</option>
 					<option value="4" <%if @npay == "3"%>selected="selected"<%end%>>4</option>

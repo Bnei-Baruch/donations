@@ -7,6 +7,7 @@
 <div id="content">
 <h3><%=_('Projects and Expenses')%></h3>
 <% for @project in @projects %>
+<% if @project.cost != 0 %>
 <br/>
 <%=@project.name%>
 <table cellspacing="0" class="table projects">
@@ -32,6 +33,7 @@
 	<tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
 	<td class="short-name"><%=_('Funding Required')%></td><td>$<%=@project.fixed_sum%></td>
 </table>
+<% end %>
 <% end %>
 </div>
 
