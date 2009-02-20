@@ -28,6 +28,14 @@ class Project < ActiveRecord::Base
 	end
   end
 
+  def self.all_projects_names_completed(lang, is_completed)
+	
+	language = Language.find_by_name(lang)
+	if not language.nil?
+		(find(:all,  :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed])).map { |l| [l.short_name, l.id] }.sort
+	end
+  end
+
   def self.all_completed_projects(lang, is_completed, is_limit)
 		language = Language.find_by_name(lang)
 		if not language.nil?

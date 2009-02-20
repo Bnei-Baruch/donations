@@ -62,7 +62,7 @@
 			<td><%=_('Project')%>:</td>
 			<td>
 				<%=
-				options = [[_('All Projects'), "0"]] + Project.all_projects_names(@lang)
+				options = [[_('All Projects'), "0"]] + Project.all_projects_names_completed(@lang, false)
 				select_tag("xxxProject", options_for_select(options))
 				%>
 			</td>
