@@ -11,11 +11,24 @@ function Make_Search(){
 	document.forms['search_pay'].submit();
 	return false;
 }
+
+var disabled = true;
+function Enable_Disable(){
+	var form = document.forms['search_pay'];
+	disabled = !disabled;
+	form['xxxStartDay'].disabled = disabled;
+	form['xxxStartMonth'].disabled = disabled;
+	form['xxxStartYear'].disabled = disabled;
+	form['xxxEndDay'].disabled = disabled;
+	form['xxxEndMonth'].disabled = disabled;
+	form['xxxEndYear'].disabled = disabled;
+}
 </script>
+
 <form id="search_pay" action="<%=url_for(:controller => "admin_donor", :action => "search_results") %>" method="get">
 	<table>
 		<tr>
-			<td colspan="5"><div><%=_('Payment Search')%></div></td>
+			<td colspan="5"><div><%=_('Donations Report')%></div></td>
 		</tr>
 
 		<tr>
@@ -23,7 +36,7 @@ function Make_Search(){
 			<td><%= text_field_with_auto_complete :donor, :name %> </td>
 		</tr>
 				
-		<tr>
+	
 			<td><%=_('Country')%>:</td>
 			<td>
 				<select id="xxxCountry" name="xxxCountry"><option value="">All</option>
@@ -35,13 +48,141 @@ function Make_Search(){
 		</tr>
 
 		<tr>
-			<td><%=_('Date')%>:</td>
+			<td>Show History</td>
+			<td><input id="history" name="xxxHistory" onclick="Enable_Disable();" type="checkbox"/></td>
+		</tr>
+
+		<tr>
+			<td><%=_('From Date')%>:</td>
 			<td>
-				<select id="xxxDate" name="xxxDate"><option value="">All</option>
-				<% @dates.each do |date| %>
-					<option value="<%=date%>"><%=date%></option>
-				<% end %>
+				<select name="xxxStartDay" disabled="disabled">
+					<option value="01" selected="selected">1</option>
+					<option value="02">2</option>
+					<option value="03">3</option>
+					<option value="04">4</option>
+					<option value="05">5</option>
+					<option value="06">6</option>
+					<option value="07">7</option>
+					<option value="08">8</option>
+					<option value="09">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>					
+					<option value="23">23</option>
+					<option value="34">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
 				</select>
+
+				<select name="xxxStartMonth" disabled="disabled">
+					<option value="01" selected="selected">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="04">April</option>
+					<option value="05">May</option>
+					<option value="06">June</option>
+					<option value="07">July</option>
+					<option value="08">August</option>
+					<option value="09">September</option>
+					<option value="10">October</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
+				</select>
+
+				<select name="xxxStartYear" disabled="disabled">
+					<option selected="selected" value="09">2009</option>
+					<option value="10">2010</option>
+					<option value="11">2011</option>
+					<option value="12">2012</option>
+					<option value="13">2013</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td><%=_('To Date')%>:</td>
+			<td>
+				<select name="xxxEndDay" disabled="disabled">
+					<option value="01" selected="selected">1</option>
+					<option value="02">2</option>
+					<option value="03">3</option>
+					<option value="04">4</option>
+					<option value="05">5</option>
+					<option value="06">6</option>
+					<option value="07">7</option>
+					<option value="08">8</option>
+					<option value="09">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>					
+					<option value="23">23</option>
+					<option value="34">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+				</select>
+
+				<select name="xxxEndMonth" disabled="disabled">
+					<option value="01" selected="selected">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="04">April</option>
+					<option value="05">May</option>
+					<option value="06">June</option>
+					<option value="07">July</option>
+					<option value="08">August</option>
+					<option value="09">September</option>
+					<option value="10">October</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
+				</select>
+
+				<select name="xxxEndYear" disabled="disabled">
+					<option selected="selected" value="09">2009</option>
+					<option value="10">2010</option>
+					<option value="11">2011</option>
+					<option value="12">2012</option>
+					<option value="13">2013</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td><%=_('Project')%>:</td>
+			<td>
+				<%=
+				options = [[_('All Projects'), "0"]] + @projects
+				select_tag("xxxProject", options_for_select(options))
+				%>
 			</td>
 		</tr>
 
@@ -59,10 +200,11 @@ function Make_Search(){
 		<tr>
 			<td colspan="5">
 				<div id="buttons">
-					<input onclick="Make_Search();" type="button" value="<%=_('Search')%>" />
+					<input onclick="Make_Search();" type="button" value="<%=_('Report')%>" />
 					<input type="reset" value="<%=_('Reset')%>" />
 				</div>
 			</td>
 		</tr>
 	</table>
 </form>
+

@@ -29,4 +29,14 @@
 <% end %>
 </table>
 
+<% if @run_export_window %>
+  <script type="text/javascript">
+	var downloadLocation = <%= @file_url.inspect %>;
+	window.onload = function () 
+	{
+		t = setTimeout('document.location = downloadLocation', 300);
+	}
+  </script>
+<% end %>
+
 

@@ -30,9 +30,13 @@ class Project < ActiveRecord::Base
 
   def self.all_projects_names_completed(lang, is_completed)
 	
-	language = Language.find_by_name(lang)
-	if not language.nil?
-		(find(:all,  :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed])).map { |l| [l.short_name, l.id] }.sort
+	if not lang.nil?
+		language = Language.find_by_name(lang)
+		if not language.nil?
+			(find(:all, :conditions => [ "language_id = ? AND is_completed = ?", language.id, is_completed])).map { |l| [l.short_name, l.id] }.sort
+		end
+	else
+		(find(:all, :conditions => ["is_completed = ?", is_completed])).map { |l| [l.short_name, l.id] }.sort	
 	end
   end
 
