@@ -1,4 +1,3 @@
-require 'csv'
 require 'finance/currency'
 
 class AdminDonorController < ApplicationController
@@ -114,43 +113,62 @@ class AdminDonorController < ApplicationController
 								   Date.new(y=donor.created_at.year - 2000, m=donor.created_at.month, d=donor.created_at.day) > to_date) }
     end
 
-    @file_name = 'public/report.csv'
+    @file_name = 'public/report.xls'
     if File.exist?(@file_name)
       File.delete(@file_name)
     end
 
-    CSV.open(@file_name, 'w') do |writer|
+    open(@file_name, 'w') do |writer|
 
-	  total = 0
+		writer << 
+			'<?xml version="1.0"?>
+			<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+			 xmlns:o="urn:schemas-microsoft-com:office:office"
+			 xmlns:x="urn:schemas-microsoft-com:office:excel"
+			 xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+			 xmlns:html="http://www.w3.org/TR/REC-html40">
+			 <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+			  <LastAuthor>Donations Admin</LastAuthor>
+			 </DocumentProperties>
+			 <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+			  <DownloadComponents/>
+			 </OfficeDocumentSettings>
+			 <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+			  <WindowHeight>9300</WindowHeight>
+			  <WindowWidth>15135</WindowWidth>
+			  <WindowTopX>120</WindowTopX>
+			  <WindowTopY>120</WindowTopY>
+			  <AcceptLabelsInFormulas/>
+			  <ProtectStructure>False</ProtectStructure>
+			  <ProtectWindows>False</ProtectWindows>
+			 </ExcelWorkbook>
+			 <Styles>
+			  <Style ss:ID="Default" ss:Name="Normal">
+			   <Alignment ss:Vertical="Bottom"/>
+			   <Borders/>
+			   <Font/>
+			   <Interior/>
+			   <NumberFormat/>
+			   <Protection/>
+			  </Style>
+			 </Styles>
+			 <Worksheet ss:Name="Sheet1">
+			  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="' + (@donors.size + 3).to_s + '" x:FullColumns="1"
+			   x:FullRows="1">
+			   <Column ss:Index="6" ss:Width="109.5"/>'
 
-      writer << ['Name', 'Email', 'Country', 'Date', 'Sum [$]', 'Sum [Original currency]', 'Project'] 
-      for donor in @donors
-		currency_str = Currency.find(donor.currency_id).name rescue '$'
+		writer << create_donors_xml_entries(@donors)
 
-		sum_in_dollars = 0
-		sum_in_dollars = case currency_str
-			when '$'   : donor.sum_dollars
-			when 'RUB' : Finance::Currency::convert("USD", "RUB", donor.sum_dollars)
-			when 'NIS' : Finance::Currency::convert("USD", "ILS", donor.sum_dollars)
-			when 'EUR' : Finance::Currency::convert("USD", "EUR", donor.sum_dollars)
-			else donor.sum_dollars
-		end
-		
-		day_padd = donor.created_at.day / 10 == 0 ? '0' : ''
-		mon_padd = donor.created_at.month / 10 == 0 ? '0' : ''
-        writer << [donor.name, 
-				   donor.email, 
-				   donor.country, 
-				   day_padd + donor.created_at.day.to_s + '.' + mon_padd + donor.created_at.month.to_s + '.' + donor.created_at.year.to_s, 
-				   sum_in_dollars, 
-				   donor.sum_dollars.to_s + ' ' + currency_str, 
-				   donor.project.nil? ? 'All projects' : donor.project.short_name]
+		writer <<
+		  '</Table>
+		  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+		   <Selected/>
+		   <ProtectObjects>False</ProtectObjects>
+		   <ProtectScenarios>False</ProtectScenarios>
+		  </WorksheetOptions>
+		 </Worksheet>		 
+		</Workbook>'
 
-		total = total + sum_in_dollars
-      end 
-
-	  writer << []
-	  writer << ['Total Sum', '', '', '', total] 
     end
 
     if RAILS_ENV == 'development'
@@ -160,7 +178,7 @@ class AdminDonorController < ApplicationController
     end
 
     @run_export_window = true
-    @file_url = 'http://' + request.env["HTTP_HOST"] + path_don + '/report.csv'
+    @file_url = 'http://' + request.env["HTTP_HOST"] + path_don + '/report.xls'
 
     #render :action => 'search_pay'
 
@@ -172,6 +190,63 @@ class AdminDonorController < ApplicationController
 						 :conditions => [ "name ILIKE ?", value + '%'], 
 						 :order => 'name ASC')
 	render :inline => "<%= auto_complete_result @donors, 'name' %>"
+  end
+
+  def create_donors_xml_entries(donors)
+	
+	xml_entries = 
+		'<Row>
+		<Cell><Data ss:Type="String">Name</Data></Cell>
+		<Cell><Data ss:Type="String">Email</Data></Cell>
+		<Cell><Data ss:Type="String">Country</Data></Cell>
+		<Cell><Data ss:Type="String">Date</Data></Cell>
+		<Cell><Data ss:Type="String">Sum [$]</Data></Cell>
+		<Cell><Data ss:Type="String">Sum [Original currency]</Data></Cell>
+		<Cell><Data ss:Type="String">Project</Data></Cell>
+	   </Row>'
+
+	total = 0
+
+	for donor in donors
+		currency_str = Currency.find(donor.currency_id).name rescue '$'
+
+		sum_in_dollars = 0
+		sum_in_dollars = case currency_str
+			when '$'   : donor.sum_dollars
+			when 'RUB' : Finance::Currency::convert("USD", "RUB", donor.sum_dollars)
+			when 'NIS' : Finance::Currency::convert("USD", "ILS", donor.sum_dollars)
+			when 'EUR' : Finance::Currency::convert("USD", "EUR", donor.sum_dollars)
+			else donor.sum_dollars
+		end
+
+		day_padd = donor.created_at.day / 10 == 0 ? '0' : ''
+		mon_padd = donor.created_at.month / 10 == 0 ? '0' : ''
+		project  = donor.project.nil? ? 'All projects' : donor.project.short_name
+		country  = donor.country.nil? ? 'Unknown' : donor.country
+		email    = donor.email.nil? ? '' : donor.email
+
+		xml_entries = xml_entries +	
+		'<Row>
+		<Cell><Data ss:Type="String">' + donor.name + '</Data></Cell>
+		<Cell><Data ss:Type="String">' + email + '</Data></Cell>
+		<Cell><Data ss:Type="String">' + country + '</Data></Cell>
+		<Cell><Data ss:Type="String">' + day_padd + donor.created_at.day.to_s + '.' + mon_padd + donor.created_at.month.to_s + '.' + donor.created_at.year.to_s + '</Data></Cell>
+		<Cell><Data ss:Type="Number">' + sum_in_dollars.to_s + '</Data></Cell>
+		<Cell><Data ss:Type="String">' + donor.sum_dollars.to_s + ' ' + currency_str + '</Data></Cell>
+		<Cell><Data ss:Type="String">' + project + '</Data></Cell>
+	   </Row>'
+
+		total = total + sum_in_dollars
+	end 
+
+	xml_entries = xml_entries +
+	'<Row ss:Index="' + (donors.size + 3).to_s + '">
+	<Cell><Data ss:Type="String">Total Sum</Data></Cell>
+	<Cell ss:Index="5"><Data ss:Type="Number">' + total.to_s + '</Data></Cell>
+	</Row>' 
+
+	return xml_entries
+
   end
 
 end
