@@ -224,10 +224,11 @@ class AdminDonorController < ApplicationController
 		project  = donor.project.nil? ? 'All projects' : donor.project.short_name
 		country  = donor.country.nil? ? 'Unknown' : donor.country
 		email    = donor.email.nil? ? '' : donor.email
+		name     = donor.name.nil? ? '' : donor.name
 
 		xml_entries = xml_entries +	
 		'<Row>
-		<Cell><Data ss:Type="String">' + donor.name + '</Data></Cell>
+		<Cell><Data ss:Type="String">' + name + '</Data></Cell>
 		<Cell><Data ss:Type="String">' + email + '</Data></Cell>
 		<Cell><Data ss:Type="String">' + country + '</Data></Cell>
 		<Cell><Data ss:Type="String">' + day_padd + donor.created_at.day.to_s + '.' + mon_padd + donor.created_at.month.to_s + '.' + donor.created_at.year.to_s + '</Data></Cell>
