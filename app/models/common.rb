@@ -9,7 +9,7 @@ class Common < ActiveRecord::Base
 
   def self.get_common_by_lang(lang)
 		language = Language.find_by_name(lang)
-		find(language.id)
+		find_by_language_id(language.id)
   end
 
   def self.get_user_by_lang(lang)
