@@ -506,3 +506,264 @@
     l.store 'Sincerely,', 'Atentamente,'
 
   end
+
+    Localization.define('German') do |l|
+
+    l.store 'Donate to help share the wisdom of Kabbalah', 'Donate to help share the wisdom of Kabbalah'
+    l.store 'Your part in correcting the world', 'Your part in correcting the world'
+
+    l.store 'Home', 'Home'
+    l.store 'About Bnei Baruch', 'About Bnei Baruch'
+    l.store 'Why Now', 'Why Now'
+    l.store 'Contact Us', 'Contact Us'
+    l.store 'FAQ', 'FAQ'
+    l.store 'Privacy and Security', 'Privacy and Security'
+    l.store 'Projects and Expenses', 'Projects and Expenses'
+    l.store 'Donor list', 'Donor list'
+    l.store 'Maaser', 'Maaser'
+
+    l.store 'More', 'More'
+    l.store 'Bnei Baruch Association', 'Bnei Baruch Association'
+    l.store 'Bnei Baruch Association+', 'Bnei Baruch Association'
+    l.store 'Bnei Baruch Association Title', 'Bnei Baruch Association'
+
+    l.store 'Name', 'Name'
+    l.store 'Description', 'Description'
+
+    l.store 'Running Expenses', 'Running Expenses'
+    l.store 'Funding Required',   'Funding Required'
+    l.store 'Start Date',   'Start Date'
+    l.store 'End date',     'End date'
+
+    l.store 'Donation date', 'Donation date'
+    l.store 'Amount', 'Amount'
+    l.store 'Anonymous', 'Anonymous'
+
+    l.store 'Message', 'Message'
+    l.store 'Date', 'Date'
+    l.store 'Country', 'Country'
+    l.store 'Project', 'Project'
+    l.store 'All Projects', 'All Projects'
+
+    l.store 'Thank you for your donation.', 'Thank you for your donation.'
+    l.store 'Transaction completed successfully.', 'Transaction completed successfully.'
+
+    l.store 'Transaction failed.', 'Transaction failed.'
+
+    l.store 'Payment', 'Payment'
+    l.store 'WebMoney', 'WebMoney'
+    l.store 'Yandex.Money', 'Yandex.Money'
+    l.store 'PayPal', 'PayPal'
+    l.store 'Currency', 'Currency'
+    l.store 'Shekels', 'Shekels'
+    l.store 'US Dollars', 'US Dollars'
+    l.store 'Euro', 'Euro'
+    l.store 'Roubles', 'Roubles'
+    l.store 'Payment method', 'Payment method'
+    l.store 'Regular Credit', 'Regular Credit'
+    l.store 'Installments', 'Installments'
+    l.store 'Credit Card Information', 'Credit Card Information'
+    l.store 'Credit Card Payment', 'Credit Card Payment'
+    l.store 'WebMoney Payment', 'WebMoney Payment'
+    l.store 'Yandex.Money Payment', 'Yandex.Money Payment'
+    l.store 'First Name', 'First Name'
+    l.store 'Last Name', 'Last Name'
+    l.store 'Credit Card Number', 'Credit Card Number'
+    l.store 'Credit Card', 'Credit Card'
+    l.store 'Expiration Date', 'Expiration Date'
+    l.store 'ID', 'ID'
+    l.store 'ID comment', '(for CC issued in Israel)'
+    l.store 'CVV Number', 'CVV Number'
+    l.store 'What is CVV', 'What is CVV'
+    l.store 'Contact Information', 'Contact Information'
+    l.store 'Publish my name', 'I want to be anonymous'
+    l.store 'Email Address', 'Email Address'
+
+    l.store 'Please fill in:', 'Please fill in:'
+    l.store 'Correct Amount', 'Correct Amount'
+    l.store 'ID (9 digits including control number)', 'ID (9 digits including control number)'
+    l.store 'Card Number', 'Card Number'
+    l.store 'CVV Number (3 digits on back side of your card)', 'CVV Number (3 digits on back side of your card)'
+
+	 # Tranzila Errors
+	 l.store '1', "Credit Card blocked"
+	 l.store '3', "Contact your Credit Company"
+	 l.store '4', "Credit Card Company refusal"
+	 l.store '6', "ID Number or CVV is incorrect"
+	 l.store '33', "Defective Card"
+	 l.store '35', "Card is not permitted for transaction or type of credit"
+	 l.store '36', "Credit Card Expired"
+	 l.store '37', "Credit Card Rejected"
+	 l.store '39', "Incorrect Card Number"
+	 l.store '57', "ID Number Missing"
+	 l.store '61', "Credit Card Number missing"
+	 l.store '107', "Transaction Amount is too high"
+	 l.store '111', "Temporary cannot accept payments"
+	 l.store '138', "You don't have Permission to make Payments"
+	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
+	 l.store "Error", "Error"
+
+    l.store 'Sort by this field', 'Sort by this field'
+    l.store 'All', 'All'
+    l.store 'Page', 'Page'
+    l.store 'Close', 'Close'
+    l.store 'Submit', 'Submit'
+    l.store 'Reset', 'Reset'
+    l.store 'Yes', 'Yes'
+    l.store 'No', 'No'
+    l.store 'Details', 'Details'
+    l.store 'Bank Transfer', 'Bank Transfer'
+
+    l.store 'Your email was successfully sent.', 'Your email was successfully sent.'
+    l.store 'Image text does not match - please re-enter.', 'Image text does not match - please re-enter.'
+    l.store 'Please type the text from the image.', 'Please type the text from the image.'
+    l.store 'Please enter name.', 'Please enter name.'
+    l.store 'Please enter your email address.', 'Please enter your email address.'
+    l.store 'Please enter your comments.', 'Please enter your comments.'
+    l.store 'is missing', 'is missing'
+    l.store 'are missing', 'are missing'
+    l.store 'Send Email Now', 'Send Email Now'
+    l.store 'Send Email', 'Send Email'
+    l.store 'Your Name', 'Your name'
+    l.store 'Your Email Address', 'Your Email Address'
+    l.store 'Comments', 'Comments'
+    l.store 'Send', 'Send'
+
+    l.store 'Dear', 'Dear'
+    l.store 'This is to confirm that your donation of', 'This is to confirm that your donation of'
+    l.store 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.'
+    l.store 'Thank you for your support!', 'Thank you for your support!'
+    l.store 'Sincerely,', 'Sincerely,'
+
+  end
+
+  Localization.define('German') do |l|
+
+    l.store 'Donate to help share the wisdom of Kabbalah', 'Mit dieser Spende unterstützen Sie die Verbreitung der Weisheit der Kabbala'
+    l.store 'Your part in correcting the world', 'Ihr Anteil an der Korrektur der Welt'
+
+    l.store 'Home', 'Home'
+    l.store 'About Bnei Baruch', 'Über Bnei Baruch'
+    l.store 'Why Now', 'Weshalb jetzt'
+    l.store 'Contact Us', 'Kontakt'
+    l.store 'FAQ', 'Häufige Fragen'
+    l.store 'Privacy and Security', 'Sicherheit und Privacy'
+    l.store 'Projects and Expenses', 'Projekte und Ausgaben'
+    l.store 'Donor list', 'Liste der Spendenden'
+    l.store 'Maaser', 'Maaser'
+
+    l.store 'More', 'Mehr'
+    l.store 'Bnei Baruch Association', 'Die Organisation Bnei Baruch'
+    l.store 'Bnei Baruch Association+', 'Die Organisation Bnei Baruch'
+    l.store 'Bnei Baruch Association Title', 'Die Organisation Bnei Baruch'
+
+    l.store 'Name', 'Name'
+    l.store 'Description', 'Beschreibung'
+
+    l.store 'Running Expenses', 'Laufende Kosten'
+    l.store 'Funding Required',   'Unterstützung benötigt'
+    l.store 'Start Date',   'Projektbeginn'
+    l.store 'End date',     'Projektende'
+
+    l.store 'Donation date', 'Datum der Spende'
+    l.store 'Amount', 'Höhe'
+    l.store 'Anonymous', 'Anonym'
+
+    l.store 'Message', 'Botschaft'
+    l.store 'Date', 'Datum'
+    l.store 'Country', 'Land'
+    l.store 'Project', 'Projekt'
+    l.store 'All Projects', 'Alle Projekte'
+
+    l.store 'Thank you for your donation.', 'Vielen Dank für Ihre Spende.'
+    l.store 'Transaction completed successfully.', 'Transaktion wurde erfolgreich durchgeführt.'
+
+    l.store 'Transaction failed.', 'Transaktion abgebrochen.'
+
+    l.store 'Payment', 'Bezahlung'
+    l.store 'WebMoney', 'WebMoney'
+    l.store 'Yandex.Money', 'Yandex.Money'
+    l.store 'PayPal', 'PayPal'
+    l.store 'Currency', 'Währung'
+    l.store 'Shekels', 'Schekel'
+    l.store 'US Dollars', 'US Dollars'
+    l.store 'Euro', 'Euro'
+    l.store 'Roubles', 'Rubel'
+    l.store 'Payment method', 'Zahlmethode'
+    l.store 'Regular Credit', 'Einmalige Zahlung'
+    l.store 'Installments', 'Häufigkeit der Zahlung'
+    l.store 'Credit Card Information', 'Kreditkarten Information'
+    l.store 'Credit Card Payment', 'Kreditkarte'
+    l.store 'WebMoney Payment', 'WebMoney'
+    l.store 'Yandex.Money Payment', 'Yandex.Money'
+    l.store 'First Name', 'Vorname'
+    l.store 'Last Name', 'Nachname'
+    l.store 'Credit Card Number', 'Kreditkartennummer'
+    l.store 'Credit Card', 'Kreditkarte'
+    l.store 'Expiration Date', 'Ablaufdatum'
+    l.store 'ID', 'ID'
+    l.store 'ID comment', '(nur für Kreditkarten aus Israel)'
+    l.store 'CVV Number', 'Code Nummer'
+    l.store 'What is CVV', 'Was ist die Code Nummer'
+    l.store 'Contact Information', 'Kontakt'
+    l.store 'Publish my name', 'Ich möchte anonym bleiben'
+    l.store 'Email Address', 'Email Adresse'
+
+    l.store 'Please fill in:', 'Bitte ausfüllen:'
+    l.store 'Correct Amount', 'Korrekte Zahlungshöhe'
+    l.store 'ID (9 digits including control number)', 'ID (9-stellige Nummer, einschließlich Code Nummer)'
+    l.store 'Card Number', 'Kartennummer'
+    l.store 'CVV Number (3 digits on back side of your card)', 'Code Nummer (3-stellige Nummer auf der Kartenrückseite)'
+
+	 # Tranzila Errors
+	 l.store '1', "Kreditkarte blockiert"
+	 l.store '3', "Kontaktieren Sie Ihre Bank "
+	 l.store '4', "Ihre Bank hat den Transfer abgelehnt "
+	 l.store '6', "ID Nummer oder Code Nummer nicht korrekt "
+	 l.store '33', "Karte fehlerhaft "
+	 l.store '35', "Karte für Transaktion oder Art der Transaktion nicht zugelassen "
+	 l.store '36', "Kreditkarte abgelaufen "
+	 l.store '37', "Kreditkarte zurückgewiesen "
+	 l.store '39', "Inkorrekte Kartennummer "
+	 l.store '57', "ID Nummer fehlt"
+	 l.store '61', "Kreditkartennummer fehlt "
+	 l.store '107', "Überweisungssumme überschritten "
+	 l.store '111', "Momentan keine Zahlung möglich "
+	 l.store '138', "Sie haben keine Berechtigung Zahlungen durchzuführen "
+	 l.store '139', "Zu viele Zahlungsanweisungen, maximal 12 Zahlungsanweisungen erlaubt "
+	 l.store "Error", "Fehler"
+
+    l.store 'Sort by this field', 'Sortierung'
+    l.store 'All', 'Alle'
+    l.store 'Page', 'Seite'
+    l.store 'Close', 'Schließen'
+    l.store 'Submit', 'Senden'
+    l.store 'Reset', 'Reset'
+    l.store 'Yes', 'Ja'
+    l.store 'No', 'Nein'
+    l.store 'Details', 'Details'
+    l.store 'Bank Transfer', 'Bank Transfer'
+
+    l.store 'Your email was successfully sent.', 'Ihre Email wurde erfolgreich versendet.'
+    l.store 'Image text does not match - please re-enter.', 'Inkorrekte Zeichenfolge - bitte wiederholen.'
+    l.store 'Please type the text from the image.', 'Bitte korrekte Zeichenfolge eingeben.'
+    l.store 'Please enter name.', 'Bitte geben Sie Ihren Namen ein.'
+    l.store 'Please enter your email address.', 'Bitte tragen Sie Ihre Email-Adresse ein.'
+    l.store 'Please enter your comments.', 'Bitte Kommentar einfügen.'
+    l.store 'is missing', 'fehlt'
+    l.store 'are missing', 'fehlen'
+    l.store 'Send Email Now', 'Jetzt Email absenden'
+    l.store 'Send Email', 'Email absenden'
+    l.store 'Your Name', 'Ihr Name'
+    l.store 'Your Email Address', 'Ihre Email-Adresse'
+    l.store 'Comments', 'Kommentare'
+    l.store 'Send', 'Senden'
+
+    l.store 'Dear', 'S. g.'
+    l.store 'This is to confirm that your donation of', 'Dies ist die Bestätigung, dass Ihre Spende von'
+    l.store ' to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', ' bei Bnei Baruch erfolgreich ankam und zur Verbreitung der Weisheit der Kabbala verwendet wird '
+    l.store 'Thank you for your support!', 'Vielen Dank für Ihre Unterstützung!'
+    l.store 'Sincerely,', 'Mit freundlichen Grüßen,'
+
+  end
+    
