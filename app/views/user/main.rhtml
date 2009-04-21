@@ -1,26 +1,17 @@
 <div id="title">
 <h3><%=_('Donate to help share the wisdom of Kabbalah')%></h3>
 <h3><%=_('Your part in correcting the world')%></h3>
-<div id="links_div">
-		<% if (@lang != "English") %>
-			<a  href="/<%=@path_don%>/eng/" title="Donations in English">English</a>
-		<% end %>
-		<% if (@lang != "Hebrew") %>
-			<% if (@lang != "English") %>
-			| 
-			<% end %>
-			<a  href="/<%=@path_don%>/heb/" title="Donations in Hebrew">עברית</a>
-		<% end %>
-		<% if (@lang != "Russian") %>
-			| 
-			<a  href="/<%=@path_don%>/rus/" title="Donations in Russian">Русский</a>
-		<% end %>
-		<% if (@lang != "Spanish") %> 
-			|
-			<a  href="/<%=@path_don%>/spa/" title="Donations in Spanish">Español</a>
-		<% end %>
+
+<form id="links_div" name="jump" action="">
+  <select name="lang" onchange="top.location=document.jump.lang.options[document.jump.lang.selectedIndex].value;">
+  <option><%=_(@lang)%></option>
+  <%for lang in Language.find_all()%>
+    <% if (@lang != lang.name) %> <option value="/<%=@path_don%>/<%=lang.short_name%>/"><%=_(lang.name)%></option> <%end%>
+  <%end%>
+  </select>
+</form>
 </div>
-</div>
+
 <%= render :partial => "payment" -%>
 <div id="content">
 <%if @page_title == ""-%>
