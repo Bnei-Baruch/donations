@@ -5,6 +5,7 @@ require 'openssl'
 require 'net/http'
 require 'uri'
 require 'finance/currency'
+require 'curl'
 
 class UserController < ApplicationController
 
@@ -185,26 +186,29 @@ class UserController < ApplicationController
 	@message = params[:message] || ""
 	@message = CGI::unescape(@message)	
 	@xxxCountry = params[:xxxCountry] || "Unknown"
+  @xxxCCType = params[:xxxCCType] || "Visa"
 	@xxxProject = params[:xxxProject] || "0"
 
-    flash[:notice] = ""
+  flash[:notice] = ""
 	@response = 1
 	
-	if (params[:sum])
-	       myrequest = "supplier=#{@user}&sum=#{@sum}&xxxProject=#{@xxxProject}&xxxCountry=#{@xxxCountry}&xxxEmail=#{@xxxEmail}&message=#{@message}&anon=#{@anon}&mycvv=#{@mycvv}&myid=#{@myid}&cred_type=#{@cred_type}&npay=#{@npay}&currency=#{@currency}&fpay=#{@first_pay}&spay=#{@second_pay}&xxxFirstName=#{@xxxFirstName}&xxxLastName=#{@xxxLastName}&ccno=#{@ccno}&expmonth=#{@expmonth}&expyear=#{@expyear}&myid=#{@myid}\r\n"
-    		ctx = OpenSSL::SSL::SSLContext.new
-   		t = TCPSocket.new('secure.tranzila.com','https')
-     		ssl = OpenSSL::SSL::SSLSocket.new(t, ctx)
-	       ssl.sync_close = true
- 	       ssl.connect
+	if (params[:sum])      
+       
+    myrequest = "supplier=#{@user}&sum=#{@sum}&xxxProject=#{@xxxProject}&xxxCountry=#{@xxxCountry}&xxxEmail=#{@xxxEmail}&message=#{@message}&anon=#{@anon}&mycvv=#{@mycvv}&myid=#{@myid}&cred_type=#{@cred_type}&npay=#{@npay}&currency=#{@currency}&fpay=#{@first_pay}&spay=#{@second_pay}&xxxFirstName=#{@xxxFirstName}&xxxLastName=#{@xxxLastName}&ccno=#{@ccno}&expmonth=#{@expmonth}&expyear=#{@expyear}&myid=#{@myid}\r\n"
+    ctx = OpenSSL::SSL::SSLContext.new
+    t = TCPSocket.new('secure.tranzila.com','https')
+    ssl = OpenSSL::SSL::SSLSocket.new(t, ctx)
+    ssl.sync_close = true
+    ssl.connect
 
-	       ssl.puts("POST /cgi-bin/tranzila31.cgi HTTPs/1.1\r\n")
-		ssl.puts("Host: secure.tranzila.com\r\n")
-    		ssl.puts("User-Agent: Bnei Baruch\r\n")
-		ssl.puts("Content-Type: application/x-www-form-urlencoded\r\n")
-   	 	ssl.puts("Content-Length: #{myrequest.length}\r\n")
-     		ssl.puts("\r\n")
-    		ssl.puts(myrequest)
+    ssl.puts("POST /cgi-bin/tranzila31.cgi HTTPs/1.1\r\n")
+    ssl.puts("Host: secure.tranzila.com\r\n")
+    ssl.puts("User-Agent: Bnei Baruch\r\n")
+    ssl.puts("Content-Type: application/x-www-form-urlencoded\r\n")
+    ssl.puts("Content-Length: #{myrequest.length}\r\n")
+    ssl.puts("\r\n")
+    ssl.puts(myrequest)
+    
 		while res = ssl.gets
 			@ret_params = CGI::parse(res)
 			if (@ret_params["Response"][0])	
@@ -237,23 +241,24 @@ class UserController < ApplicationController
 					end
 
 					@donor = Donor.new(:name => @xxxFirstName + " " + @xxxLastName, 
-		       			    	     :country => @xxxCountry, 
-			     				     #:city => "", 
-							     #:region => "", 
-							     :email => @xxxEmail,
-				  			     :message => @message, 
-							     :sum_dollars => @sum, 
-							     :is_anonymous => @anon, 
-							     :payment_id => Payment.get_payment_id_by_code("electronic"), 
-					  		     :project_id => @xxxProject.to_i, 
-						  	     :approved => false,
-							     :acked => true, 
-							     :eptype => "Tranzila",
-							     :currency_id => @currency_id)
-					@err= @donor.save
+                            :country => @xxxCountry,
+                            #:city => "",
+                            #:region => "",
+                            :email => @xxxEmail,
+                            :message => @message,
+                            :sum_dollars => @sum,
+                            :is_anonymous => @anon,
+                            :payment_id => Payment.get_payment_id_by_code("electronic"),
+                            :project_id => @xxxProject.to_i,
+                            :approved => false,
+                            :acked => true,
+                            :eptype => "Tranzila",
+                            :currency_id => @currency_id)
+					@err = @donor.save
 
-					send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
-
+          #send to iCount instead of email
+          #send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
+          send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars, @donor.currency_id, @xxxCCType)
 				end
 				# Break if @ret_params["Response"][0]
 				break
@@ -418,7 +423,10 @@ class UserController < ApplicationController
 			if (@notify.complete?)
 				@donor.acked = true	
 				@donor.save
-				send_ack_email(@donor.email, @donor.name, @donor.sum_dollars.to_s, @donor.currency.name)
+
+        #send to iCount instead of email
+        #send_ack_email(@donor.email, @donor.name, @donor.sum_dollars.to_s, @donor.currency.name)
+        send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars, @donor.currency_id)
 			else
 				@donor.destroy
 			end
@@ -496,7 +504,10 @@ class UserController < ApplicationController
 	if (donor)
 		donor.acked = true	
 		donor.save
-		send_ack_email(donor.email, donor.name, donor.sum_dollars.to_s, donor.currency.name)
+
+    #send to iCount instead of email
+    #send_ack_email(donor.email, donor.name, donor.sum_dollars.to_s, donor.currency.name)
+    send_to_icount(donor.name, donor.created_at, donor.country, donor.email, donor.sum_dollars, donor.currency_id)
 	end
 
 	render :layout => false
@@ -911,4 +922,69 @@ class UserController < ApplicationController
 	render :layout => "user"
   end
 
+  def get_credit_card_type(card_num)
+     card_regexes = Hash[
+        /^4\d{12}(\d\d\d){0,1}$/ => "Visa",
+        /^5[12345]\d{14}$/       => "MasterCard",
+        /^3[47]\d{13}$/          => "Amex",
+        /^6011\d{12}$/           => "Discover",
+        /^30[012345]\d{11}$/     => "Diners",
+        /^3[68]\d{12}$/          => "Diners",
+        /^\d{7}$/                => "Isracard",
+        /^\d{8}$/                => "Isracard",
+        /^\d{9}$/                => "Isracard"]
+
+    card_type = "Unknown"
+    card_regexes.each {|regex, type|
+      if (regex.match(card_num))
+           card_type = type
+           break;
+       end
+    }
+    return card_type
+  end
+
+  def send_to_icount(name, date, country, email, sum, currency_id, cc_type = '')
+    #send to iCount
+    comp_id  = "bneibaruch"
+    user     = "bb"
+    pass     = "an1711"
+
+    doc_type = "receipt"
+    income_type_name = "Donations"
+
+    case currency_id
+			when Currency.find_currencies_id_by_name("RUB"): 
+          currency_icount = "7"
+          currency_name   = "RUB"
+			when Currency.find_currencies_id_by_name("$"):
+          currency_icount = "2"
+          currency_name   = "$"
+			when Currency.find_currencies_id_by_name("EUR"):
+          currency_icount = "1"
+          currency_name   = "EUR"
+      else
+          currency_icount = "5" #NIS
+          currency_name   = "NIS"
+		end
+
+    hwc = _('This is to confirm that your donation of') + " #{currency_name}#{sum} "  +
+          _('to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.') + ' ' +
+          _('Thank you for your support!')
+
+    email_lang  = (@lang == "Hebrew") ? "he" : "en"
+
+    additional_fields = cc_type.empty? ? '' : "&credit=1&cc_cardtype[0]=#{cc_type}&cctotal[0]=#{sum}"
+
+    icount_fields = "compID=#{comp_id}&user=#{user}&pass=#{pass}&docType=#{doc_type}&show_response=1&lang=#{email_lang}&hwc=#{hwc}&income_type_name=#{income_type_name}&"
+    icount_fields = icount_fields + "dateissued=#{date.year.to_s + date.month.to_s + date.day.to_s}&"
+    icount_fields = icount_fields + "clientname=#{name}&"
+    icount_fields = icount_fields + "client_country=#{country}&"
+    icount_fields = icount_fields + "totalammount=#{sum}&ammountb4nicui=#{sum}&currency=#{currency_icount}&"
+    icount_fields = icount_fields + "sendOrig=#{email}&"
+    icount_fields = icount_fields + additional_fields + "\r\n"
+    c = Curl::Easy.http_post("https://icount.co.il/api/create_doc.php", icount_fields)
+
+    #flash[:notice] = c.body_str
+  end
 end

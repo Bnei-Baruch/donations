@@ -107,6 +107,18 @@
 			<td><%=_('CVV Number')%><span class="star">*</span></td>
 			<td><input size="6" maxlength="5" name="mycvv" value="<%=@mycvv%>" /></td>
 			-->
+                        <td class="sep"></td>
+                        <td><%=_('Type of Credit Card')%>:<span class="star">*</span></td>
+			<td>
+				<select id="xxxCCType" name="xxxCCType">
+                                        <option value="Visa"><%=@xxxCCType%></option>
+					<option value="MasterCard">MasterCard</option>
+                                        <option value="American Express">American Express</option>
+                                        <option value="Isracard">Isracard</option>
+                                        <option value="Leumi card">Leumi card</option>
+                                        <option value="Diners">Diners</option>
+				</select>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2"><%=_('ID comment')%></td>
