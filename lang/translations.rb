@@ -12,6 +12,7 @@
     l.store 'Projects and Expenses', 'Projects and Expenses'
     l.store 'Donor list', 'Donor list'
     l.store 'Maaser', 'Maaser'
+    l.store 'Donations', 'Donations'
 
     l.store 'More', 'More'
     l.store 'Bnei Baruch Association', 'Bnei Baruch Association'
@@ -150,6 +151,7 @@
     l.store 'Projects and Expenses', 'Проекты и затраты'
     l.store "Donor list", "Список пожертвований"
     l.store 'Maaser', 'Маасер'
+    l.store 'Donations', 'Donations'
 
     l.store 'More', 'Подробнее'
     l.store 'Bnei Baruch Association', 'Ассоциация<br/>Бней Барух'
@@ -288,6 +290,7 @@
     l.store 'Projects and Expenses', 'פרויקטים ועלויות'
     l.store "Donor list", "רשימת התורמים"
     l.store 'Maaser', 'מעשר'
+    l.store 'Donations', 'תרומות'
 
     l.store 'More', 'פרטים'
     l.store 'Bnei Baruch Association', 'תנועת בני ברוך'
@@ -333,7 +336,7 @@
     l.store 'Last Name', 'שם משפחה '
     l.store 'Credit Card Number', 'מספר כרטיס אשראי'
     l.store 'Credit Card', 'כרטיס אשראי'
-    l.store 'Type of Credit Card', 'סוג הכרטיס'
+    l.store 'Type of Credit Card', 'סוג כרטיס אשראי'
     l.store 'Expiration Date', 'תוקף '
     l.store 'ID', 'מספר תעודת זהות'
     l.store 'ID comment', ''
@@ -421,7 +424,8 @@
     l.store 'Privacy and Security','Privacidad y Seguridad' 
     l.store 'Projects and Expenses', 'Proyectos y Gastos'
     l.store 'Donor list','Lista de donantes'
-    l.store 'Maaser', 'Diezmo (Maaser)' 
+    l.store 'Maaser', 'Diezmo (Maaser)'
+    l.store 'Donations', 'Donations' 
 
     l.store 'More', 'Mas' 
     l.store 'Bnei Baruch Association','Asociación Bnei Baruj' 
@@ -466,7 +470,7 @@
     l.store 'Last Name', 'Apellido'
     l.store 'Credit Card Number', 'Número de Tarjeta de Crédito'
     l.store 'Credit Card', 'Tarjeta de Crédito'
-    l.store 'Type of Credit Card', 'Type of Credit Card'
+    l.store 'Type of Credit Card', 'Tipo de Tarjeta de Crédito'
     l.store 'Expiration Date', 'Fecha de Vencimiento'
     l.store 'ID', 'Número de Identidad'
     l.store 'ID comment', '(Para Tarjetas de Crédito emitidas en Israel)'
@@ -557,6 +561,7 @@
     l.store 'Projects and Expenses', 'Projekte und Ausgaben'
     l.store 'Donor list', 'Liste der Spendenden'
     l.store 'Maaser', 'Maaser'
+    l.store 'Donations', 'Donations'
 
     l.store 'More', 'Mehr'
     l.store 'Bnei Baruch Association', 'Die Organisation Bnei Baruch'
@@ -606,7 +611,7 @@
     l.store 'Last Name', 'Nachname'
     l.store 'Credit Card Number', 'Kreditkartennummer'
     l.store 'Credit Card', 'Kreditkarte'
-    l.store 'Type of Credit Card', 'Type of Credit Card'
+    l.store 'Type of Credit Card', 'Typ der Kreditkarte'
     l.store 'Expiration Date', 'Ablaufdatum'
     l.store 'ID', 'ID'
     l.store 'ID comment', '(nur für Kreditkarten aus Israel)'

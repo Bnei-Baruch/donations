@@ -258,7 +258,8 @@ class UserController < ApplicationController
 
           #send to iCount instead of email
           #send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
-          send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars, @donor.currency_id, @xxxCCType)
+          send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars, 
+                         @donor.currency_id, @xxxCCType, @npay.to_i, @first_pay.to_i)
 				end
 				# Break if @ret_params["Response"][0]
 				break
@@ -944,7 +945,7 @@ class UserController < ApplicationController
     return card_type
   end
 
-  def send_to_icount(name, date, country, email, sum, currency_id, cc_type = '')
+  def send_to_icount(name, date, country, email, sum, currency_id, cc_type = '', npay = 1, fpay = 0)
     #send to iCount
     comp_id  = "bneibaruch"
     user     = "bb"
@@ -968,13 +969,17 @@ class UserController < ApplicationController
           currency_name   = "NIS"
 		end
 
-    hwc = _('This is to confirm that your donation of') + " #{currency_name}#{sum} "  +
-          _('to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.') + ' ' +
-          _('Thank you for your support!')
+#    hwc = _('This is to confirm that your donation of') + " #{currency_name}#{sum} "  +
+#          _('to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.') + ' ' +
+#          _('Thank you for your support!')
+
+    hwc = _('Donations')
 
     email_lang  = (@lang == "Hebrew") ? "he" : "en"
 
-    additional_fields = cc_type.empty? ? '' : "&credit=1&cc_cardtype[0]=#{cc_type}&cctotal[0]=#{sum}"
+    fpay = sum if npay == 1
+    npay = (sum.to_i / fpay.to_f).round()
+    additional_fields = cc_type.empty? ? '' : "credit=1&cc_cardtype[0]=#{cc_type}&cctotal[0]=#{sum}&cc_numofpayments[]=#{npay}&ccfirstpayment[]=#{fpay}"
 
     icount_fields = "compID=#{comp_id}&user=#{user}&pass=#{pass}&docType=#{doc_type}&show_response=1&lang=#{email_lang}&hwc=#{hwc}&income_type_name=#{income_type_name}&"
     icount_fields = icount_fields + "dateissued=#{date.year.to_s + date.month.to_s + date.day.to_s}&"
