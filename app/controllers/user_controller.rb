@@ -257,9 +257,9 @@ class UserController < ApplicationController
 					@err = @donor.save
 
           #send to iCount instead of email
-          #send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
-          send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars, 
-                         @donor.currency_id, @xxxCCType, @npay.to_i, @first_pay.to_i)
+          send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
+          #send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars,
+          #               @donor.currency_id, @xxxCCType, @npay.to_i, @first_pay.to_i)
 				end
 				# Break if @ret_params["Response"][0]
 				break
@@ -426,8 +426,8 @@ class UserController < ApplicationController
 				@donor.save
 
         #send to iCount instead of email
-        #send_ack_email(@donor.email, @donor.name, @donor.sum_dollars.to_s, @donor.currency.name)
-        send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars, @donor.currency_id)
+        send_ack_email(@donor.email, @donor.name, @donor.sum_dollars.to_s, @donor.currency.name)
+        #send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars, @donor.currency_id)
 			else
 				@donor.destroy
 			end
@@ -507,8 +507,8 @@ class UserController < ApplicationController
 		donor.save
 
     #send to iCount instead of email
-    #send_ack_email(donor.email, donor.name, donor.sum_dollars.to_s, donor.currency.name)
-    send_to_icount(donor.name, donor.created_at, donor.country, donor.email, donor.sum_dollars, donor.currency_id)
+    send_ack_email(donor.email, donor.name, donor.sum_dollars.to_s, donor.currency.name)
+    #send_to_icount(donor.name, donor.created_at, donor.country, donor.email, donor.sum_dollars, donor.currency_id)
 	end
 
 	render :layout => false
