@@ -193,7 +193,6 @@ class UserController < ApplicationController
 	@response = 1
 	
 	if (params[:sum])      
-       
     myrequest = "supplier=#{@user}&sum=#{@sum}&xxxProject=#{@xxxProject}&xxxCountry=#{@xxxCountry}&xxxEmail=#{@xxxEmail}&message=#{@message}&anon=#{@anon}&mycvv=#{@mycvv}&myid=#{@myid}&cred_type=#{@cred_type}&npay=#{@npay}&currency=#{@currency}&fpay=#{@first_pay}&spay=#{@second_pay}&xxxFirstName=#{@xxxFirstName}&xxxLastName=#{@xxxLastName}&ccno=#{@ccno}&expmonth=#{@expmonth}&expyear=#{@expyear}&myid=#{@myid}\r\n"
     ctx = OpenSSL::SSL::SSLContext.new
     t = TCPSocket.new('secure.tranzila.com','https')
@@ -257,9 +256,9 @@ class UserController < ApplicationController
 					@err = @donor.save
 
           #send to iCount instead of email
-          send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
-          #send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars,
-          #               @donor.currency_id, @xxxCCType, @npay.to_i, @first_pay.to_i)
+          #send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
+          send_to_icount(@donor.name, @donor.country, @donor.email, @donor.sum_dollars,
+                         @donor.currency_id, @xxxCCType, @npay.to_i, @first_pay.to_i)
 				end
 				# Break if @ret_params["Response"][0]
 				break
@@ -424,10 +423,7 @@ class UserController < ApplicationController
 			if (@notify.complete?)
 				@donor.acked = true	
 				@donor.save
-
-        #send to iCount instead of email
         send_ack_email(@donor.email, @donor.name, @donor.sum_dollars.to_s, @donor.currency.name)
-        #send_to_icount(@donor.name, @donor.created_at, @donor.country, @donor.email, @donor.sum_dollars, @donor.currency_id)
 			else
 				@donor.destroy
 			end
@@ -505,10 +501,7 @@ class UserController < ApplicationController
 	if (donor)
 		donor.acked = true	
 		donor.save
-
-    #send to iCount instead of email
     send_ack_email(donor.email, donor.name, donor.sum_dollars.to_s, donor.currency.name)
-    #send_to_icount(donor.name, donor.created_at, donor.country, donor.email, donor.sum_dollars, donor.currency_id)
 	end
 
 	render :layout => false
@@ -945,7 +938,8 @@ class UserController < ApplicationController
     return card_type
   end
 
-  def send_to_icount(name, date, country, email, sum, currency_id, cc_type = '', npay = 1, fpay = 0)
+  def send_to_icount(name, country, email, sum, currency_id, cc_type, npay = 1, fpay = 0)
+
     #send to iCount
     comp_id  = "bneibaruch"
     user     = "bb"
@@ -977,18 +971,17 @@ class UserController < ApplicationController
 
     email_lang  = (@lang == "Hebrew") ? "he" : "en"
 
-    fpay = sum if npay == 1
-    npay = (sum.to_i / fpay.to_f).round()
-    additional_fields = cc_type.empty? ? '' : "credit=1&cc_cardtype[0]=#{cc_type}&cctotal[0]=#{sum}&cc_numofpayments[]=#{npay}&ccfirstpayment[]=#{fpay}"
-
-    icount_fields = "compID=#{comp_id}&user=#{user}&pass=#{pass}&docType=#{doc_type}&show_response=1&lang=#{email_lang}&hwc=#{hwc}&income_type_name=#{income_type_name}&"
-    icount_fields = icount_fields + "dateissued=#{date.year.to_s + date.month.to_s + date.day.to_s}&"
+    icount_fields = "compID=#{comp_id}&user=#{user}&pass=#{pass}&docType=#{doc_type}&hwc=#{hwc}&income_type_name=#{income_type_name}&"
     icount_fields = icount_fields + "clientname=#{name}&"
     icount_fields = icount_fields + "client_country=#{country}&"
-    icount_fields = icount_fields + "totalammount=#{sum}&ammountb4nicui=#{sum}&currency=#{currency_icount}&"
-    icount_fields = icount_fields + "sendOrig=#{email}&"
-    icount_fields = icount_fields + additional_fields + "\r\n"
-    c = Curl::Easy.http_post("https://icount.co.il/api/create_doc.php", icount_fields)
+    icount_fields = icount_fields + "credit=1&cc_cardtype[0]=#{cc_type}&cctotal[0]=#{sum}&"
+    if npay > 1
+      npay = (sum.to_i / fpay.to_f).round()
+      icount_fields = icount_fields + "&cc_numofpayments[]=#{npay}&ccfirstpayment[]=#{fpay}&"
+    end
+    icount_fields = icount_fields + "currency=#{currency_icount}&"
+    icount_fields = icount_fields + "lang=#{email_lang}&sendOrig=#{email}&" + "\r\n"
+    Curl::Easy.http_post("https://www.icount.co.il/api/create_doc_auto.php", icount_fields)
 
     #flash[:notice] = c.body_str
   end
