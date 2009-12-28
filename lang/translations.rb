@@ -685,4 +685,132 @@
     l.store 'French', 'Français'
     l.store 'Japanese', '語本日'
   end
-    
+
+  Localization.define('French') do |l|
+
+    l.store 'Donate to help share the wisdom of Kabbalah', 'Donnez pour aider à diffuser la sagesse de la Kabbale'
+    l.store 'Your part in correcting the world', 'Votre participation dans la correction du monde'
+
+    l.store 'Home', 'Accueil'
+    l.store 'About Bnei Baruch', 'A propos de Bnei Baruch'
+    l.store 'Why Now', 'Pourquoi maintenant'
+    l.store 'Contact Us', 'Contactez-nous'
+    l.store 'FAQ', 'FAQ'
+    l.store 'Privacy and Security', 'Confidentialité et Sécurité'
+    l.store 'Projects and Expenses', 'Projets et Dépenses'
+    l.store 'Donor list', 'Liste des Donneurs'
+    l.store 'Maaser', 'Maasser'
+
+    l.store 'More', 'Plus'
+    l.store 'Bnei Baruch Association', 'Association Bnei Baruch'
+    l.store 'Bnei Baruch Association+', ' Association Bnei Baruch' 
+    l.store 'Bnei Baruch Association Title', 'Titre Association Bnei Baruch '
+
+    l.store 'Name', 'Nom'
+    l.store 'Description', 'Description'
+
+    l.store 'Running Expenses', 'Frais de Gestion'
+    l.store 'Funding Required', 'Financement Requis'
+    l.store 'Start Date', 'Date de début'
+    l.store 'End date', 'Date de fin'
+
+    l.store 'Donation date', 'Date du Don'
+    l.store 'Amount', 'Montant'
+    l.store 'Anonymous', 'Anonyme'
+
+    l.store 'Message', 'Message'
+    l.store 'Date', 'Date'
+    l.store 'Country', 'Pays'
+    l.store 'Project', 'Projet'
+    l.store 'All Projects', 'Tous les Projets'
+
+    l.store 'Thank you for your donation.', 'Merci pour votre don.'
+    l.store 'Transaction completed successfully.', 'Transaction terminée avec succès.'
+
+    l.store 'Transaction failed.', 'La transaction a échoué.'
+
+    l.store 'Payment', 'Paiement'
+    l.store 'WebMoney', 'WebMoney'
+    l.store 'Yandex.Money', 'Yandex.Money'
+    l.store 'PayPal', 'PayPal'
+    l.store 'Currency', 'Devise'
+    l.store 'Shekels', 'Shekels'
+    l.store 'US Dollars', 'Dollars US '
+    l.store 'Euro', 'Euro'
+    l.store 'Roubles', 'Roubles'
+    l.store 'Payment method', 'Mode de Paiement'
+    l.store 'Regular Credit', 'Crédit Normal'
+    l.store 'Installments', 'Mensualités'
+    l.store 'Credit Card Information', 'Information sur la Carte de Crédit'
+    l.store 'Credit Card Payment', 'Paiement par Carte de Crédit'
+    l.store 'WebMoney Payment', ' Paiement WebMoney'
+    l.store 'Yandex.Money Payment', ' Paiement Yandex.Money'
+    l.store 'First Name', 'Prénom'
+    l.store 'Last Name', 'Nom'
+    l.store 'Credit Card Number', 'Numéro Carte de Crédit'
+    l.store 'Credit Card', 'Carte de Crédit'
+    l.store 'Expiration Date', 'Expire à fin'
+    l.store 'ID', 'Carte d’identité'
+    l.store 'ID comment', '(pour cartes de crédit émises en Israël)'
+    l.store 'CVV Number', 'Numéro CVV'
+    l.store 'What is CVV', 'Qu’est-ce que le CVV'
+    l.store 'Contact Information', 'Information Contact '
+    l.store 'Publish my name', 'Publier mon nom'
+    l.store 'Email Address', 'Adresse Email '
+
+    l.store 'Please fill in:', 'Remplissez SVP:'
+    l.store 'Correct Amount', 'Montant Correct'
+    l.store 'ID (9 digits including control number)', 'Carte d’identité (9 chiffres, y compris le numéro de contrôle)'
+    l.store 'Card Number', 'Numéro de carte'
+    l.store 'Numéro CVV (3 digits on back side of your card)', 'Numéro CVV (3 derniers numéro au dos de votre carte)'
+
+	 # Tranzila Errors
+	 l.store '1', "Carte de Crédit bloquée"
+	 l.store '3', "Contactez votre Compagnie de Carte de Crédit"
+	 l.store '4', "Refus de votre Compagnie de carte de Crédit"
+	 l.store '6', "Numéro identité ou CVV incorrect"
+	 l.store '33', "Carte Défectueuse"
+	 l.store '35', "Cette Carte n’est pas autorisée pour cette transaction ou type de crédit"
+	 l.store '36', "Carte de Crédit périmée"
+	 l.store '37', "Carte de Crédit Rejetée"
+	 l.store '39', "Numéro de Carte de Crédit Incorrect"
+	 l.store '57', "Manque le Numéro d’identidé"
+	 l.store '61', "Manque le Numéro de la Carte de Crédit"
+	 l.store '107', "Le montant de la transaction est trop élevé"
+	 l.store '111', "Temporairement nous ne pouvons pas accepter des paiements"
+	 l.store '138', "Vous n’avez pas l’autorisation d’effectuer des paiements"
+	 l.store '139', "Nombre de mensualités trop élevé, 12 mensualités maximum sont permises"
+	 l.store "Error", "Erreur"
+
+    l.store 'Sort by this field', 'Triez par ce champ'
+    l.store 'All', 'Tout'
+    l.store 'Page', 'Page'
+    l.store 'Close', 'Fermer'
+    l.store 'Submit', 'Envoi'
+    l.store 'Reset', 'Reinitialiser'
+    l.store 'Yes', 'Oui'
+    l.store 'No', 'Non'
+    l.store 'Details', 'Détails'
+    l.store 'Bank Transfer', 'Virement bancaire'
+
+    l.store 'Your email was successfully sent.', 'Votre email a été envoyé avec succès.'
+    l.store 'Image text does not match - please re-enter.', 'L’image et le texte ne concordent pas – SVP essayez à nouveau.'
+    l.store 'Please type the text from the image.', 'SVP tapez le texte de l’image.'
+    l.store 'Please enter name.', 'SVP entrez le nom.'
+    l.store 'Please enter your email address.', 'SVP entrez votre adresse email.'
+    l.store 'Please enter your comments.', 'SVP entrez vos commentaires.'
+    l.store 'is missing', 'est manquant'
+    l.store 'are missing', 'sont manquants'
+    l.store 'Send Email Now', 'Envoyez l’Email maintenant'
+    l.store 'Send Email', ‘'Envoyez Email'
+    l.store 'Your Name', 'Votre nom'
+    l.store 'Your Email Address', 'Votre Adresse Email'
+    l.store 'Comments', 'Commentaires'
+    l.store 'Send', 'Envoi'
+
+    l.store 'Dear', 'Cher/Chère'
+    l.store 'This is to confirm that your donation of', 'Nous vous confirmons que votre don de'
+    l.store 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', 'à Bnei Baruch a bien été reçu et sera utilisé pour aider à diffuser la sagesse de de la Kabbale.'
+    l.store 'Thank you for your support!', 'Merci de votre soutien!'
+    l.store 'Sincerely,', 'Cordialement,'
+end  
