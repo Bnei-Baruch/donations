@@ -802,7 +802,7 @@
     l.store 'is missing', 'est manquant'
     l.store 'are missing', 'sont manquants'
     l.store 'Send Email Now', 'Envoyez l’Email maintenant'
-    l.store 'Send Email', ‘'Envoyez Email'
+    l.store 'Send Email', 'Envoyez Email'
     l.store 'Your Name', 'Votre nom'
     l.store 'Your Email Address', 'Votre Adresse Email'
     l.store 'Comments', 'Commentaires'
@@ -813,4 +813,151 @@
     l.store 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', 'à Bnei Baruch a bien été reçu et sera utilisé pour aider à diffuser la sagesse de de la Kabbale.'
     l.store 'Thank you for your support!', 'Merci de votre soutien!'
     l.store 'Sincerely,', 'Cordialement,'
-end  
+    
+    l.store 'English', 'English'
+    l.store 'Russian', 'Русский'
+    l.store 'Hebrew', 'עברית'
+    l.store 'Spanish', 'Español'
+    l.store 'German', 'Deutsch'
+    l.store 'French', 'Français'
+    l.store 'Japanese', '語本日'
+end 
+
+ Localization.define('Japanese') do |l|
+
+    l.store 'Donate to help share the wisdom of Kabbalah', 'Donate to help share the wisdom of Kabbalah'
+    l.store 'Your part in correcting the world', 'Your part in correcting the world'
+
+    l.store 'Home', 'Home'
+    l.store 'About Bnei Baruch', 'About Bnei Baruch'
+    l.store 'Why Now', 'Why Now'
+    l.store 'Contact Us', 'Contact Us'
+    l.store 'FAQ', 'FAQ'
+    l.store 'Privacy and Security', 'Privacy and Security'
+    l.store 'Projects and Expenses', 'Projects and Expenses'
+    l.store 'Donor list', 'Donor list'
+    l.store 'Maaser', 'Maaser'
+    l.store 'Donations', 'Donations'
+
+    l.store 'More', 'More'
+    l.store 'Bnei Baruch Association', 'Bnei Baruch Association'
+    l.store 'Bnei Baruch Association+', 'Bnei Baruch Association'
+    l.store 'Bnei Baruch Association Title', 'Bnei Baruch Association'
+
+    l.store 'Name', 'Name'
+    l.store 'Description', 'Description'
+
+    l.store 'Running Expenses', 'Running Expenses'
+    l.store 'Funding Required',   'Funding Required'
+    l.store 'Start Date',   'Start Date'
+    l.store 'End date',     'End date'
+
+    l.store 'Donation date', 'Donation date'
+    l.store 'Amount', 'Amount'
+    l.store 'Anonymous', 'Anonymous'
+
+    l.store 'Message', 'Message'
+    l.store 'Date', 'Date'
+    l.store 'Country', 'Country'
+    l.store 'Project', 'Project'
+    l.store 'All Projects', 'All Projects'
+
+    l.store 'Thank you for your donation.', 'Thank you for your donation.'
+    l.store 'Transaction completed successfully.', 'Transaction completed successfully.'
+
+    l.store 'Transaction failed.', 'Transaction failed.'
+
+    l.store 'Payment', 'Payment'
+    l.store 'WebMoney', 'WebMoney'
+    l.store 'Yandex.Money', 'Yandex.Money'
+    l.store 'PayPal', 'PayPal'
+    l.store 'Currency', 'Currency'
+    l.store 'Shekels', 'Shekels'
+    l.store 'US Dollars', 'US Dollars'
+    l.store 'Euro', 'Euro'
+    l.store 'Roubles', 'Roubles'
+    l.store 'Payment method', 'Payment method'
+    l.store 'Regular Credit', 'Regular Credit'
+    l.store 'Installments', 'Installments'
+    l.store 'Credit Card Information', 'Credit Card Information'
+    l.store 'Credit Card Payment', 'Credit Card Payment'
+    l.store 'WebMoney Payment', 'WebMoney Payment'
+    l.store 'Yandex.Money Payment', 'Yandex.Money Payment'
+    l.store 'First Name', 'First Name'
+    l.store 'Last Name', 'Last Name'
+    l.store 'Credit Card Number', 'Credit Card Number'
+    l.store 'Credit Card', 'Credit Card'
+    l.store 'Type of Credit Card', 'Type of Credit Card'
+    l.store 'Expiration Date', 'Expiration Date'
+    l.store 'ID', 'ID'
+    l.store 'ID comment', '(for CC issued in Israel)'
+    l.store 'CVV Number', 'CVV Number'
+    l.store 'What is CVV', 'What is CVV'
+    l.store 'Contact Information', 'Contact Information'
+    l.store 'Publish my name', 'I want to be anonymous'
+    l.store 'Email Address', 'Email Address'
+
+    l.store 'Please fill in:', 'Please fill in:'
+    l.store 'Correct Amount', 'Correct Amount'
+    l.store 'ID (9 digits including control number)', 'ID (9 digits including control number)'
+    l.store 'Card Number', 'Card Number'
+    l.store 'CVV Number (3 digits on back side of your card)', 'CVV Number (3 digits on back side of your card)'
+
+	 # Tranzila Errors
+	 l.store '1', "Credit Card blocked"
+	 l.store '3', "Contact your Credit Company"
+	 l.store '4', "Credit Card Company refusal"
+	 l.store '6', "ID Number or CVV is incorrect"
+	 l.store '33', "Defective Card"
+	 l.store '35', "Card is not permitted for transaction or type of credit"
+	 l.store '36', "Credit Card Expired"
+	 l.store '37', "Credit Card Rejected"
+	 l.store '39', "Incorrect Card Number"
+	 l.store '57', "ID Number Missing"
+	 l.store '61', "Credit Card Number missing"
+	 l.store '107', "Transaction Amount is too high"
+	 l.store '111', "Temporary cannot accept payments"
+	 l.store '138', "You don't have Permission to make Payments"
+	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
+	 l.store "Error", "Error"
+
+    l.store 'Sort by this field', 'Sort by this field'
+    l.store 'All', 'All'
+    l.store 'Page', 'Page'
+    l.store 'Close', 'Close'
+    l.store 'Submit', 'Submit'
+    l.store 'Reset', 'Reset'
+    l.store 'Yes', 'Yes'
+    l.store 'No', 'No'
+    l.store 'Details', 'Details'
+    l.store 'Bank Transfer', 'Bank Transfer'
+
+    l.store 'Your email was successfully sent.', 'Your email was successfully sent.'
+    l.store 'Image text does not match - please re-enter.', 'Image text does not match - please re-enter.'
+    l.store 'Please type the text from the image.', 'Please type the text from the image.'
+    l.store 'Please enter name.', 'Please enter name.'
+    l.store 'Please enter your email address.', 'Please enter your email address.'
+    l.store 'Please enter your comments.', 'Please enter your comments.'
+    l.store 'is missing', 'is missing'
+    l.store 'are missing', 'are missing'
+    l.store 'Send Email Now', 'Send Email Now'
+    l.store 'Send Email', 'Send Email'
+    l.store 'Your Name', 'Your name'
+    l.store 'Your Email Address', 'Your Email Address'
+    l.store 'Comments', 'Comments'
+    l.store 'Send', 'Send'
+
+    l.store 'Dear', 'Dear'
+    l.store 'This is to confirm that your donation of', 'This is to confirm that your donation of'
+    l.store 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.'
+    l.store 'Thank you for your support!', 'Thank you for your support!'
+    l.store 'Sincerely,', 'Sincerely,'
+
+    l.store 'English', 'English'
+    l.store 'Russian', 'Русский'
+    l.store 'Hebrew', 'עברית'
+    l.store 'Spanish', 'Español'
+    l.store 'German', 'Deutsch'
+    l.store 'French', 'Français'
+    l.store 'Japanese', '語本日'
+  end
