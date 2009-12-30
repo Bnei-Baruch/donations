@@ -192,7 +192,27 @@ class UserController < ApplicationController
   flash[:notice] = ""
 	@response = 1
 	
-	if (params[:sum])      
+	if (params[:sum])
+					@donor = Donor.new(:name => @xxxFirstName + " " + @xxxLastName,
+                            :country => @xxxCountry,
+                            #:city => "",
+                            #:region => "",
+                            :email => @xxxEmail,
+                            :message => @message,
+                            :sum_dollars => @sum,
+                            :is_anonymous => @anon,
+                            :payment_id => Payment.get_payment_id_by_code("electronic"),
+                            :project_id => @xxxProject.to_i,
+                            :approved => false,
+                            :acked => true,
+                            :eptype => "Tranzila",
+                            :currency_id => @currency_id)
+					@err = @donor.save
+
+          #send to iCount instead of email
+          #send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
+          send_to_icount(@donor.name, @donor.country, @donor.email, @donor.sum_dollars,
+                         @donor.currency_id, @xxxCCType, @npay.to_i, @first_pay.to_i)
     myrequest = "supplier=#{@user}&sum=#{@sum}&xxxProject=#{@xxxProject}&xxxCountry=#{@xxxCountry}&xxxEmail=#{@xxxEmail}&message=#{@message}&anon=#{@anon}&mycvv=#{@mycvv}&myid=#{@myid}&cred_type=#{@cred_type}&npay=#{@npay}&currency=#{@currency}&fpay=#{@first_pay}&spay=#{@second_pay}&xxxFirstName=#{@xxxFirstName}&xxxLastName=#{@xxxLastName}&ccno=#{@ccno}&expmonth=#{@expmonth}&expyear=#{@expyear}&myid=#{@myid}\r\n"
     ctx = OpenSSL::SSL::SSLContext.new
     t = TCPSocket.new('secure.tranzila.com','https')
@@ -207,28 +227,28 @@ class UserController < ApplicationController
     ssl.puts("Content-Length: #{myrequest.length}\r\n")
     ssl.puts("\r\n")
     ssl.puts(myrequest)
-    
+
 		while res = ssl.gets
 			@ret_params = CGI::parse(res)
 			if (@ret_params["Response"][0])	
 				@response = @ret_params["Response"][0].to_i
 				flash[:notice] = case @response
 					when 0   : ""
-					when 1   : @response.to_s
-					when 3   : @response.to_s
-					when 4   : @response.to_s
-					when 6   : @response.to_s
-					when 33  : @response.to_s
-					when 35  : @response.to_s
-					when 36  : @response.to_s
-					when 37  : @response.to_s
-					when 39  : @response.to_s
-					when 57  : @response.to_s
-					when 61  : @response.to_s
-					when 107 : @response.to_s
-					when 111 : @response.to_s
-					when 138 : @response.to_s
-					when 139 : @response.to_s
+					when 1   : '_' + @response.to_s
+					when 3   : '_' + @response.to_s
+					when 4   : '_' + @response.to_s
+					when 6   : '_' + @response.to_s
+					when 33  : '_' + @response.to_s
+					when 35  : '_' + @response.to_s
+					when 36  : '_' + @response.to_s
+					when 37  : '_' + @response.to_s
+					when 39  : '_' + @response.to_s
+					when 57  : '_' + @response.to_s
+					when 61  : '_' + @response.to_s
+					when 107 : '_' + @response.to_s
+					when 111 : '_' + @response.to_s
+					when 138 : '_' + @response.to_s
+					when 139 : '_' + @response.to_s
 					else "Error"
 				end
 				
@@ -336,21 +356,21 @@ class UserController < ApplicationController
 				@response = @ret_params["Response"][0].to_i
 				flash[:notice] = case @response
 					when 0   : ""
-					when 1   : @response.to_s
-					when 3   : @response.to_s
-					when 4   : @response.to_s
-					when 6   : @response.to_s
-					when 33  : @response.to_s
-					when 35  : @response.to_s
-					when 36  : @response.to_s
-					when 37  : @response.to_s
-					when 39  : @response.to_s
-					when 57  : @response.to_s
-					when 61  : @response.to_s
-					when 107 : @response.to_s
-					when 111 : @response.to_s
-					when 138 : @response.to_s
-					when 139 : @response.to_s
+					when 1   : '_' + @response.to_s
+					when 3   : '_' + @response.to_s
+					when 4   : '_' + @response.to_s
+					when 6   : '_' + @response.to_s
+					when 33  : '_' + @response.to_s
+					when 35  : '_' + @response.to_s
+					when 36  : '_' + @response.to_s
+					when 37  : '_' + @response.to_s
+					when 39  : '_' + @response.to_s
+					when 57  : '_' + @response.to_s
+					when 61  : '_' + @response.to_s
+					when 107 : '_' + @response.to_s
+					when 111 : '_' + @response.to_s
+					when 138 : '_' + @response.to_s
+					when 139 : '_' + @response.to_s
 					else "Error"
 				end
 				
@@ -586,21 +606,21 @@ class UserController < ApplicationController
 				@response = @ret_params["Response"][0].to_i
 				flash[:notice] = case @response
 					when 0   : ""
-					when 1   : @response.to_s
-					when 3   : @response.to_s
-					when 4   : @response.to_s
-					when 6   : @response.to_s
-					when 33  : @response.to_s
-					when 35  : @response.to_s
-					when 36  : @response.to_s
-					when 37  : @response.to_s
-					when 39  : @response.to_s
-					when 57  : @response.to_s
-					when 61  : @response.to_s
-					when 107 : @response.to_s
-					when 111 : @response.to_s
-					when 138 : @response.to_s
-					when 139 : @response.to_s
+					when 1   : '_' + @response.to_s
+					when 3   : '_' + @response.to_s
+					when 4   : '_' + @response.to_s
+					when 6   : '_' + @response.to_s
+					when 33  : '_' + @response.to_s
+					when 35  : '_' + @response.to_s
+					when 36  : '_' + @response.to_s
+					when 37  : '_' + @response.to_s
+					when 39  : '_' + @response.to_s
+					when 57  : '_' + @response.to_s
+					when 61  : '_' + @response.to_s
+					when 107 : '_' + @response.to_s
+					when 111 : '_' + @response.to_s
+					when 138 : '_' + @response.to_s
+					when 139 : '_' + @response.to_s
 					else "Error"
 				end
 				
@@ -708,21 +728,21 @@ class UserController < ApplicationController
 				@response = @ret_params["Response"][0].to_i
 				flash[:notice] = case @response
 					when 0   : ""
-					when 1   : @response.to_s
-					when 3   : @response.to_s
-					when 4   : @response.to_s
-					when 6   : @response.to_s
-					when 33  : @response.to_s
-					when 35  : @response.to_s
-					when 36  : @response.to_s
-					when 37  : @response.to_s
-					when 39  : @response.to_s
-					when 57  : @response.to_s
-					when 61  : @response.to_s
-					when 107 : @response.to_s
-					when 111 : @response.to_s
-					when 138 : @response.to_s
-					when 139 : @response.to_s
+					when 1   : '_' + @response.to_s
+					when 3   : '_' + @response.to_s
+					when 4   : '_' + @response.to_s
+					when 6   : '_' + @response.to_s
+					when 33  : '_' + @response.to_s
+					when 35  : '_' + @response.to_s
+					when 36  : '_' + @response.to_s
+					when 37  : '_' + @response.to_s
+					when 39  : '_' + @response.to_s
+					when 57  : '_' + @response.to_s
+					when 61  : '_' + @response.to_s
+					when 107 : '_' + @response.to_s
+					when 111 : '_' + @response.to_s
+					when 138 : '_' + @response.to_s
+					when 139 : '_' + @response.to_s
 					else "Error"
 				end
 				
@@ -770,7 +790,7 @@ class UserController < ApplicationController
 
 	 donors_per_page = 0
 	 if params.has_key?(:project_id)
-		@donors = Donor.get_donors_per_project (true, true, params[:project_id], params[:sidx], params[:sord])
+		@donors = Donor.get_donors_per_project(true, true, params[:project_id], params[:sidx], params[:sord])
 		@donors.each do |d|
 			 d.name = _('Anonymous') if d.is_anonymous
 			 d.country = "&nbsp;" if d.country == "Unknown" || d.country == "."
@@ -947,6 +967,7 @@ class UserController < ApplicationController
 
     doc_type = "receipt"
     income_type_name = "Donations"
+    es = _('Bnei Baruch - Payment confirmation')
 
     case currency_id
 			when Currency.find_currencies_id_by_name("RUB"): 
@@ -971,7 +992,10 @@ class UserController < ApplicationController
 
     email_lang  = (@lang == "Hebrew") ? "he" : "en"
 
-    icount_fields = "compID=#{comp_id}&user=#{user}&pass=#{pass}&docType=#{doc_type}&hwc=#{hwc}&income_type_name=#{income_type_name}&"
+    icount_fields = "compID=#{comp_id}&user=#{user}&pass=#{pass}&docType=#{doc_type}&hwc=#{hwc}&income_type_name=#{income_type_name}&es=#{es}&"
+    if (email_lang == "he")
+      icount_fields = icount_fields + "eft=קבלה על תשלום תרומתך תוכל לקבל בלינק המצורף: &"
+    end
     icount_fields = icount_fields + "clientname=#{name}&"
     icount_fields = icount_fields + "client_country=#{country}&"
     icount_fields = icount_fields + "credit=1&cc_cardtype[0]=#{cc_type}&cctotal[0]=#{sum}&"

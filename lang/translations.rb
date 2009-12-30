@@ -13,6 +13,7 @@
     l.store 'Donor list', 'Donor list'
     l.store 'Maaser', 'Maaser'
     l.store 'Donations', 'Donations'
+    l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch - Payment confirmation'
 
     l.store 'More', 'More'
     l.store 'Bnei Baruch Association', 'Bnei Baruch Association'
@@ -79,21 +80,21 @@
     l.store 'CVV Number (3 digits on back side of your card)', 'CVV Number (3 digits on back side of your card)'
 
 	 # Tranzila Errors
-	 l.store '1', "Credit Card blocked"
-	 l.store '3', "Contact your Credit Company"
-	 l.store '4', "Credit Card Company refusal"
-	 l.store '6', "ID Number or CVV is incorrect"
-	 l.store '33', "Defective Card"
-	 l.store '35', "Card is not permitted for transaction or type of credit"
-	 l.store '36', "Credit Card Expired"
-	 l.store '37', "Credit Card Rejected"
-	 l.store '39', "Incorrect Card Number"
-	 l.store '57', "ID Number Missing"
-	 l.store '61', "Credit Card Number missing"
-	 l.store '107', "Transaction Amount is too high"
-	 l.store '111', "Temporary cannot accept payments"
-	 l.store '138', "You don't have Permission to make Payments"
-	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
+	 l.store '_1', "Credit Card blocked"
+	 l.store '_3', "Contact your Credit Company"
+	 l.store '_4', "Credit Card Company refusal"
+	 l.store '_6', "ID Number or CVV is incorrect"
+	 l.store '_33', "Defective Card"
+	 l.store '_35', "Card is not permitted for transaction or type of credit"
+	 l.store '_36', "Credit Card Expired"
+	 l.store '_37', "Credit Card Rejected"
+	 l.store '_39', "Incorrect Card Number"
+	 l.store '_57', "ID Number Missing"
+	 l.store '_61', "Credit Card Number missing"
+	 l.store '_107', "Transaction Amount is too high"
+	 l.store '_111', "Temporary cannot accept payments"
+	 l.store '_138', "You don't have Permission to make Payments"
+	 l.store '_139', "Number of Installments is too high, maximum 12 Installments are allowed"
 	 l.store "Error", "Error"
 
     l.store 'Sort by this field', 'Sort by this field'
@@ -152,6 +153,7 @@
     l.store "Donor list", "Список пожертвований"
     l.store 'Maaser', 'Маасер'
     l.store 'Donations', 'Donations'
+    l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch - Payment confirmation'
 
     l.store 'More', 'Подробнее'
     l.store 'Bnei Baruch Association', 'Ассоциация<br/>Бней Барух'
@@ -218,21 +220,21 @@
     l.store 'CVV Number (3 digits on back side of your card)', 'Номер CVV (3 цифры на обратной стороне карточки)'
 
 	 # Tranzila Errors
-	 l.store '1', "Кредитная карточка заблокирована"
-	 l.store '3', "Свяжитесь с вашей кредитной компанией"
-	 l.store '4', "Отказ кредитной компании"
-	 l.store '6', "Неправильный номер удостоверения личности или CVV"
-	 l.store '33', "Карточка недействительна"
-	 l.store '35', "Карточка не разрешена к использованию или неправильный тип кредитной карточки"
-	 l.store '36', "Кредитная карточка просрочена"
-	 l.store '37', "Отказано в авторизации кредитной карточки"
-	 l.store '39', "Неправильный номер кредитной карточки"
-	 l.store '57', "Отсутствует номер удостоверения личности"
-	 l.store '61', "Отсутствует номер кредитной карточки"
-	 l.store '107', "Превышена допустимая сумма транзакции"
-	 l.store '111', "Платежи временно не принимаются"
-	 l.store '138', "У вас нет разрешения производить платежи"
-	 l.store '139', "Превышено допустимое количество платежей, разрешенный максимум платежей -12"
+	 l.store '_1', "Кредитная карточка заблокирована"
+	 l.store '_3', "Свяжитесь с вашей кредитной компанией"
+	 l.store '_4', "Отказ кредитной компании"
+	 l.store '_6', "Неправильный номер удостоверения личности или CVV"
+	 l.store '_33', "Карточка недействительна"
+	 l.store '_35', "Карточка не разрешена к использованию или неправильный тип кредитной карточки"
+	 l.store '_36', "Кредитная карточка просрочена"
+	 l.store '_37', "Отказано в авторизации кредитной карточки"
+	 l.store '_39', "Неправильный номер кредитной карточки"
+	 l.store '_57', "Отсутствует номер удостоверения личности"
+	 l.store '_61', "Отсутствует номер кредитной карточки"
+	 l.store '_107', "Превышена допустимая сумма транзакции"
+	 l.store '_111', "Платежи временно не принимаются"
+	 l.store '_138', "У вас нет разрешения производить платежи"
+	 l.store '_139', "Превышено допустимое количество платежей, разрешенный максимум платежей -12"
 	 l.store "Error", "Ошибка"
 
     l.store 'Sort by this field', 'Сортировать по этому полю'
@@ -291,6 +293,7 @@
     l.store "Donor list", "רשימת התורמים"
     l.store 'Maaser', 'מעשר'
     l.store 'Donations', 'תרומות'
+    l.store 'Bnei Baruch - Payment confirmation', 'קבלה לעם - אישור תשלום'
 
     l.store 'More', 'פרטים'
     l.store 'Bnei Baruch Association', 'תנועת בני ברוך'
@@ -353,21 +356,21 @@
     l.store 'CVV Number (3 digits on back side of your card)', 'CVV Number (3 digits on back side of your card)'
 
 	 # Tranzila Errors
-	 l.store '1', "כרטיס חסום"
-	 l.store '3', "יש לקבל אישור מחברת האשראי"
-	 l.store '4', "התקבל סרוב לעסקה מחברת האשראי"
-	 l.store '6', "מספר תעודת הזהות שגוי או CVV שגוי"
-	 l.store '33', "כרטיס לא תקין"
-	 l.store '35', "סוג אשראי לא תקין"
-	 l.store '36', "לא הוכנס תוקף הכרטיס או פג תוקף הכרטיס"
-	 l.store '37', "הכרטיס נדחה"
-	 l.store '39', "מספר הכרטיס שגוי"
-	 l.store '57', "לא הוקלד מספר תעודת הזהות"
-	 l.store '61', "לא הוקלד מספר כרטיס אשראי"
-	 l.store '107', "סכום העסקה גבוה מהמותר"
-	 l.store '111', "זמנית לא ניתן לבצע תשלום"
-	 l.store '138', "אין אישור לביצוע עסקה בתשלומים"
-	 l.store '139', "מספר התשלומים גדול מדי, ניתן לבצע עד 12 תשלומים"
+	 l.store '_1', "כרטיס חסום"
+	 l.store '_3', "יש לקבל אישור מחברת האשראי"
+	 l.store '_4', "התקבל סרוב לעסקה מחברת האשראי"
+	 l.store '_6', "מספר תעודת הזהות שגוי או CVV שגוי"
+	 l.store '_33', "כרטיס לא תקין"
+	 l.store '_35', "סוג אשראי לא תקין"
+	 l.store '_36', "לא הוכנס תוקף הכרטיס או פג תוקף הכרטיס"
+	 l.store '_37', "הכרטיס נדחה"
+	 l.store '_39', "מספר הכרטיס שגוי"
+	 l.store '_57', "לא הוקלד מספר תעודת הזהות"
+	 l.store '_61', "לא הוקלד מספר כרטיס אשראי"
+	 l.store '_107', "סכום העסקה גבוה מהמותר"
+	 l.store '_111', "זמנית לא ניתן לבצע תשלום"
+	 l.store '_138', "אין אישור לביצוע עסקה בתשלומים"
+	 l.store '_139', "מספר התשלומים גדול מדי, ניתן לבצע עד 12 תשלומים"
 	 l.store "Error", "שגיאה"
 
     l.store 'Sort by this field', 'למיין לפי העמודע הזאת'
@@ -426,6 +429,7 @@
     l.store 'Donor list','Lista de donantes'
     l.store 'Maaser', 'Diezmo (Maaser)'
     l.store 'Donations', 'Donations' 
+    l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch - Payment confirmation'
 
     l.store 'More', 'Mas' 
     l.store 'Bnei Baruch Association','Asociación Bnei Baruj' 
@@ -487,21 +491,21 @@
     l.store 'CVV Number (3 digits on back side of your card)', 'Número de CVV (3 dígitos en la parte trasera de su tarjeta)'
 
 	 # Tranzila Errors
-	 l.store '1', "Tarjeta de Crédito Bloqueada"
-	 l.store '3', "Contacte a su Compañía de Crédito"
-	 l.store '4', "Rechazo de la Compañía de Crédito"
-	 l.store '6', "El número de identidad o de CVV es incorrecto"
-	 l.store '33', "Tarjeta Defectuosa"
-	 l.store '35', "Ésta tarjeta no ha sido autorizada para realizar esta transacción o este tipo de crédito"
-	 l.store '36', "La Tarjeta de Crédito ha Caducado"
-	 l.store '37', "Tarjeta de Crédito ha sido Rechazada"
-	 l.store '39', "Número Incorrecto de Tarjeta de Crédito"
-	 l.store '57', "Falta el Número de identidad"
-	 l.store '61', "Falta el número de la Tarjeta de Crédito"
-	 l.store '107', "El Monto de la Transacción es muy alto"
-	 l.store '111', "No puede Procesar Pagos Temporalmente"
-	 l.store '138', "No tiene Permiso Para Hacer Pagos"
-	 l.store '139', "El número de cuotas es muy alto, Se permite un máximo de 12 cuotas"
+	 l.store '_1', "Tarjeta de Crédito Bloqueada"
+	 l.store '_3', "Contacte a su Compañía de Crédito"
+	 l.store '_4', "Rechazo de la Compañía de Crédito"
+	 l.store '_6', "El número de identidad o de CVV es incorrecto"
+	 l.store '_33', "Tarjeta Defectuosa"
+	 l.store '_35', "Ésta tarjeta no ha sido autorizada para realizar esta transacción o este tipo de crédito"
+	 l.store '_36', "La Tarjeta de Crédito ha Caducado"
+	 l.store '_37', "Tarjeta de Crédito ha sido Rechazada"
+	 l.store '_39', "Número Incorrecto de Tarjeta de Crédito"
+	 l.store '_57', "Falta el Número de identidad"
+	 l.store '_61', "Falta el número de la Tarjeta de Crédito"
+	 l.store '_107', "El Monto de la Transacción es muy alto"
+	 l.store '_111', "No puede Procesar Pagos Temporalmente"
+	 l.store '_138', "No tiene Permiso Para Hacer Pagos"
+	 l.store '_139', "El número de cuotas es muy alto, Se permite un máximo de 12 cuotas"
 	 l.store "Error", "Error"
 
     l.store 'Sort by this field', 'Ordene de acuerdo a éste campo'
@@ -562,6 +566,7 @@
     l.store 'Donor list', 'Liste der Spendenden'
     l.store 'Maaser', 'Maaser'
     l.store 'Donations', 'Donations'
+    l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch - Payment confirmation'
 
     l.store 'More', 'Mehr'
     l.store 'Bnei Baruch Association', 'Die Organisation Bnei Baruch'
@@ -628,21 +633,21 @@
     l.store 'CVV Number (3 digits on back side of your card)', 'Code Nummer (3-stellige Nummer auf der Kartenrückseite)'
 
 	 # Tranzila Errors
-	 l.store '1', "Kreditkarte blockiert"
-	 l.store '3', "Kontaktieren Sie Ihre Bank "
-	 l.store '4', "Ihre Bank hat den Transfer abgelehnt "
-	 l.store '6', "ID Nummer oder Code Nummer nicht korrekt "
-	 l.store '33', "Karte fehlerhaft "
-	 l.store '35', "Karte für Transaktion oder Art der Transaktion nicht zugelassen "
-	 l.store '36', "Kreditkarte abgelaufen "
-	 l.store '37', "Kreditkarte zurückgewiesen "
-	 l.store '39', "Inkorrekte Kartennummer "
-	 l.store '57', "ID Nummer fehlt"
-	 l.store '61', "Kreditkartennummer fehlt "
-	 l.store '107', "Überweisungssumme überschritten "
-	 l.store '111', "Momentan keine Zahlung möglich "
-	 l.store '138', "Sie haben keine Berechtigung Zahlungen durchzuführen "
-	 l.store '139', "Zu viele Zahlungsanweisungen, maximal 12 Zahlungsanweisungen erlaubt "
+	 l.store '_1', "Kreditkarte blockiert"
+	 l.store '_3', "Kontaktieren Sie Ihre Bank "
+	 l.store '_4', "Ihre Bank hat den Transfer abgelehnt "
+	 l.store '_6', "ID Nummer oder Code Nummer nicht korrekt "
+	 l.store '_33', "Karte fehlerhaft "
+	 l.store '_35', "Karte für Transaktion oder Art der Transaktion nicht zugelassen "
+	 l.store '_36', "Kreditkarte abgelaufen "
+	 l.store '_37', "Kreditkarte zurückgewiesen "
+	 l.store '_39', "Inkorrekte Kartennummer "
+	 l.store '_57', "ID Nummer fehlt"
+	 l.store '_61', "Kreditkartennummer fehlt "
+	 l.store '_107', "Überweisungssumme überschritten "
+	 l.store '_111', "Momentan keine Zahlung möglich "
+	 l.store '_138', "Sie haben keine Berechtigung Zahlungen durchzuführen "
+	 l.store '_139', "Zu viele Zahlungsanweisungen, maximal 12 Zahlungsanweisungen erlaubt "
 	 l.store "Error", "Fehler"
 
     l.store 'Sort by this field', 'Sortierung'
@@ -700,6 +705,8 @@
     l.store 'Projects and Expenses', 'Projets et Dépenses'
     l.store 'Donor list', 'Liste des Donneurs'
     l.store 'Maaser', 'Maasser'
+    l.store 'Donations', 'Donations'
+    l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch - Payment confirmation'
 
     l.store 'More', 'Plus'
     l.store 'Bnei Baruch Association', 'Association Bnei Baruch'
@@ -765,21 +772,21 @@
     l.store 'Numéro CVV (3 digits on back side of your card)', 'Numéro CVV (3 derniers numéro au dos de votre carte)'
 
 	 # Tranzila Errors
-	 l.store '1', "Carte de Crédit bloquée"
-	 l.store '3', "Contactez votre Compagnie de Carte de Crédit"
-	 l.store '4', "Refus de votre Compagnie de carte de Crédit"
-	 l.store '6', "Numéro identité ou CVV incorrect"
-	 l.store '33', "Carte Défectueuse"
-	 l.store '35', "Cette Carte n’est pas autorisée pour cette transaction ou type de crédit"
-	 l.store '36', "Carte de Crédit périmée"
-	 l.store '37', "Carte de Crédit Rejetée"
-	 l.store '39', "Numéro de Carte de Crédit Incorrect"
-	 l.store '57', "Manque le Numéro d’identidé"
-	 l.store '61', "Manque le Numéro de la Carte de Crédit"
-	 l.store '107', "Le montant de la transaction est trop élevé"
-	 l.store '111', "Temporairement nous ne pouvons pas accepter des paiements"
-	 l.store '138', "Vous n’avez pas l’autorisation d’effectuer des paiements"
-	 l.store '139', "Nombre de mensualités trop élevé, 12 mensualités maximum sont permises"
+	 l.store '_1', "Carte de Crédit bloquée"
+	 l.store '_3', "Contactez votre Compagnie de Carte de Crédit"
+	 l.store '_4', "Refus de votre Compagnie de carte de Crédit"
+	 l.store '_6', "Numéro identité ou CVV incorrect"
+	 l.store '_33', "Carte Défectueuse"
+	 l.store '_35', "Cette Carte n’est pas autorisée pour cette transaction ou type de crédit"
+	 l.store '_36', "Carte de Crédit périmée"
+	 l.store '_37', "Carte de Crédit Rejetée"
+	 l.store '_39', "Numéro de Carte de Crédit Incorrect"
+	 l.store '_57', "Manque le Numéro d’identidé"
+	 l.store '_61', "Manque le Numéro de la Carte de Crédit"
+	 l.store '_107', "Le montant de la transaction est trop élevé"
+	 l.store '_111', "Temporairement nous ne pouvons pas accepter des paiements"
+	 l.store '_138', "Vous n’avez pas l’autorisation d’effectuer des paiements"
+	 l.store '_139', "Nombre de mensualités trop élevé, 12 mensualités maximum sont permises"
 	 l.store "Error", "Erreur"
 
     l.store 'Sort by this field', 'Triez par ce champ'
@@ -837,6 +844,8 @@ end
     l.store 'Projects and Expenses', 'プロジェクトと費用'
     l.store 'Donor list', '寄付者リスト'
     l.store 'Maaser', 'マアサー'
+    l.store 'Donations', 'Donations'
+    l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch - Payment confirmation'
 
     l.store 'More', '詳細'
     l.store 'Bnei Baruch Association', 'ブネイ・バルーフ・アソシエーション'
@@ -902,21 +911,21 @@ end
     l.store 'CVV Number (3 digits on back side of your card)', 'CVV番号(カードの裏に記載してある３桁)'
 
 	 # Tranzila Errors
-	 l.store '1', "Credit Card blocked"
-	 l.store '3', "Contact your Credit Company"
-	 l.store '4', "Credit Card Company refusal"
-	 l.store '6', "ID Number or CVV is incorrect"
-	 l.store '33', "Defective Card"
-	 l.store '35', "Card is not permitted for transaction or type of credit"
-	 l.store '36', "Credit Card Expired"
-	 l.store '37', "Credit Card Rejected"
-	 l.store '39', "Incorrect Card Number"
-	 l.store '57', "ID Number Missing"
-	 l.store '61', "Credit Card Number missing"
-	 l.store '107', "Transaction Amount is too high"
-	 l.store '111', "Temporary cannot accept payments"
-	 l.store '138', "You don't have Permission to make Payments"
-	 l.store '139', "Number of Installments is too high, maximum 12 Installments are allowed"
+	 l.store '_1', "Credit Card blocked"
+	 l.store '_3', "Contact your Credit Company"
+	 l.store '_4', "Credit Card Company refusal"
+	 l.store '_6', "ID Number or CVV is incorrect"
+	 l.store '_33', "Defective Card"
+	 l.store '_35', "Card is not permitted for transaction or type of credit"
+	 l.store '_36', "Credit Card Expired"
+	 l.store '_37', "Credit Card Rejected"
+	 l.store '_39', "Incorrect Card Number"
+	 l.store '_57', "ID Number Missing"
+	 l.store '_61', "Credit Card Number missing"
+	 l.store '_107', "Transaction Amount is too high"
+	 l.store '_111', "Temporary cannot accept payments"
+	 l.store '_138', "You don't have Permission to make Payments"
+	 l.store '_139', "Number of Installments is too high, maximum 12 Installments are allowed"
 	 l.store "Error", "エラー"
 
     l.store 'Sort by this field', '以下の順に並べる'
