@@ -193,26 +193,7 @@ class UserController < ApplicationController
 	@response = 1
 	
 	if (params[:sum])
-					@donor = Donor.new(:name => @xxxFirstName + " " + @xxxLastName,
-                            :country => @xxxCountry,
-                            #:city => "",
-                            #:region => "",
-                            :email => @xxxEmail,
-                            :message => @message,
-                            :sum_dollars => @sum,
-                            :is_anonymous => @anon,
-                            :payment_id => Payment.get_payment_id_by_code("electronic"),
-                            :project_id => @xxxProject.to_i,
-                            :approved => false,
-                            :acked => true,
-                            :eptype => "Tranzila",
-                            :currency_id => @currency_id)
-					@err = @donor.save
 
-          #send to iCount instead of email
-          #send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
-          send_to_icount(@donor.name, @donor.country, @donor.email, @donor.sum_dollars,
-                         @donor.currency_id, @xxxCCType, @npay.to_i, @first_pay.to_i)
     myrequest = "supplier=#{@user}&sum=#{@sum}&xxxProject=#{@xxxProject}&xxxCountry=#{@xxxCountry}&xxxEmail=#{@xxxEmail}&message=#{@message}&anon=#{@anon}&mycvv=#{@mycvv}&myid=#{@myid}&cred_type=#{@cred_type}&npay=#{@npay}&currency=#{@currency}&fpay=#{@first_pay}&spay=#{@second_pay}&xxxFirstName=#{@xxxFirstName}&xxxLastName=#{@xxxLastName}&ccno=#{@ccno}&expmonth=#{@expmonth}&expyear=#{@expyear}&myid=#{@myid}\r\n"
     ctx = OpenSSL::SSL::SSLContext.new
     t = TCPSocket.new('secure.tranzila.com','https')
