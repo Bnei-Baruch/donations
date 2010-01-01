@@ -136,6 +136,7 @@
     l.store 'German', 'Deutsch'
     l.store 'French', 'Français'
     l.store 'Japanese', '語本日'
+	l.store 'Chinese', '中文'
   end
 
   Localization.define('Russian') do |l|
@@ -276,6 +277,7 @@
     l.store 'German', 'Deutsch'
     l.store 'French', 'Français'
     l.store 'Japanese', '語本日'
+	l.store 'Chinese', '中文'
   end
 
   Localization.define('Hebrew') do |l|
@@ -412,6 +414,7 @@
     l.store 'German', 'Deutsch'
     l.store 'French', 'Français'
     l.store 'Japanese', '語本日'
+	l.store 'Chinese', '中文'
   end
 
   Localization.define('Spanish') do |l|
@@ -548,6 +551,7 @@
     l.store 'German', 'Deutsch'
     l.store 'French', 'Français'
     l.store 'Japanese', '語本日'
+	l.store 'Chinese', '中文'
   end
 
 
@@ -689,6 +693,7 @@
     l.store 'German', 'Deutsch'
     l.store 'French', 'Français'
     l.store 'Japanese', '語本日'
+	l.store 'Chinese', '中文'
   end
 
   Localization.define('French') do |l|
@@ -828,6 +833,7 @@
     l.store 'German', 'Deutsch'
     l.store 'French', 'Français'
     l.store 'Japanese', '語本日'
+	l.store 'Chinese', '中文'
 end 
 
  Localization.define('Japanese') do |l|
@@ -967,4 +973,147 @@ end
     l.store 'German', 'Deutsch'
     l.store 'French', 'Français'
     l.store 'Japanese', '語本日'
+	l.store 'Chinese', '中文'
+end
+
+   
+  Localization.define('Chinese') do |l|
+
+    l.store 'Donate to help share the wisdom of Kabbalah', '捐赠以帮助分享卡巴拉智慧'
+    l.store 'Your part in correcting the world', '改正世界中你的部分'
+
+    l.store 'Home', '主页'
+    l.store 'About Bnei Baruch', '关于Bnei Baruch'
+    l.store 'Why Now', '为什么现在'
+    l.store 'Contact Us', '联系我们'
+    l.store 'FAQ', '常见问题'
+    l.store 'Privacy and Security', '隐私和安全'
+    l.store 'Projects and Expenses', '项目和费用'
+    l.store 'Donor list', '捐助者名单'
+    l.store 'Maaser', 'Maaser'
+    l.store 'Donations', '捐款'
+    l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch 付款确认'
+
+    l.store 'More', '更多'
+    l.store 'Bnei Baruch Association', 'Bnei Baruch协会'
+    l.store 'Bnei Baruch Association+', 'Bnei Baruch协会'
+    l.store 'Bnei Baruch Association Title', 'Bnei Baruch协会'
+
+    l.store 'Name', '姓名'
+    l.store 'Description', '描述'
+
+    l.store 'Running Expenses', '运行费用'
+    l.store 'Funding Required', '所需资金'
+    l.store 'Start Date', '开始日期'
+    l.store 'End date', '结束日期'
+
+    l.store 'Donation date', '捐款日期'
+    l.store 'Amount', '数量'
+    l.store 'Anonymous', '匿名'
+
+    l.store 'Message', '信息'
+    l.store 'Date', '日期'
+    l.store 'Country', '国家'
+    l.store 'Project', '项目'
+    l.store 'All Projects', '所有项目'
+
+    l.store 'Thank you for your donation.', '感谢您的捐款。'
+    l.store 'Transaction completed successfully.', '交易成功完成。'
+
+    l.store 'Transaction failed.', '交易失败。'
+
+    l.store 'Payment', '付款'
+    l.store 'WebMoney', 'WebMoney'
+    l.store 'Yandex.Money', 'Yandex.Money'
+    l.store 'PayPal', 'PayPal'
+    l.store 'Currency', '货币'
+    l.store 'Shekels', '以色列币'
+    l.store 'US Dollars', '美元'
+    l.store 'Euro', '欧元'
+    l.store 'Roubles', '卢布'
+    l.store 'Payment method', '付款方式'
+    l.store 'Regular Credit', '全额付款'
+    l.store 'Installments', '分期付款'
+    l.store 'Credit Card Information', '信用卡信息'
+    l.store 'Credit Card Payment', '信用卡付款'
+    l.store 'WebMoney Payment', 'WebMoney付款'
+    l.store 'Yandex.Money Payment', 'Yandex.Money付款'
+    l.store 'First Name', '名'
+    l.store 'Last Name', '姓'
+    l.store 'Credit Card Number', '信用卡号码'
+    l.store 'Credit Card', '信用卡'
+	l.store 'Type of Credit Card', '信用卡类型'
+    l.store 'Expiration Date', '截止日期'
+    l.store 'ID', '证件号码'
+    l.store 'ID comment', '（以色列信用卡用户填写）'
+    l.store 'CVV Number', 'CVV验证号码'
+    l.store 'What is CVV', '什么是CVV'
+    l.store 'Contact Information', '联系信息'
+    l.store 'Publish my name', '我想匿名'
+    l.store 'Email Address', '电子邮件'
+
+    l.store 'Please fill in:', '请填写：'
+    l.store 'Correct Amount', '数额正确'
+    l.store 'ID (9 digits including control number)', '证件号码（9位数，其中包括控制数）'
+    l.store 'Card Number', '卡号'
+    l.store 'CVV Number (3 digits on back side of your card)', 'CVV验证号码（你信用卡背面的3位数字）'
+
+	 # Tranzila Errors
+	 l.store '_1', "信用卡被锁"
+	 l.store '_3', "联系您的信用卡公司"
+	 l.store '_4', "信用卡公司拒绝"
+	 l.store '_6', "身份证号码或CVV验证号码不正确"
+	 l.store '_33', "缺陷卡"
+	 l.store '_35', "卡不允许交易或信用类型不符合"
+	 l.store '_36', "信用卡过期"
+	 l.store '_37', "信用卡被拒绝"
+	 l.store '_39', "卡号不正确"
+	 l.store '_57', "证件号码不存在"
+	 l.store '_61', "信用卡号码不存在"
+	 l.store '_107', "交易金额过高"
+	 l.store '_111', "暂时不能接受付款"
+	 l.store '_138', "您没有权限进行支付"
+	 l.store '_139', "期数太高，最多12个允许分期付款"
+	 l.store "Error", "错误"
+
+    l.store 'Sort by this field', '按此字段排序'
+    l.store 'All', '全部'
+    l.store 'Page', '页'
+    l.store 'Close', '关闭'
+    l.store 'Submit', '提交'
+    l.store 'Reset', '重设'
+    l.store 'Yes', '是'
+    l.store 'No', '否'
+    l.store 'Details', '详细信息'
+    l.store 'Bank Transfer', '银行转帐'
+
+    l.store 'Your email was successfully sent.', '邮件已成功发送。'
+    l.store 'Image text does not match - please re-enter.', '图像文本不匹配-请重新输入。'
+    l.store 'Please type the text from the image.', '请输入文字从图像。'
+    l.store 'Please enter name.', '请输入名字。'
+    l.store 'Please enter your email address.', '请输入您的电子邮件地址。'
+    l.store 'Please enter your comments.', '请写下您的意见。'
+    l.store 'is missing', '缺省'
+    l.store 'are missing', '缺省'
+    l.store 'Send Email Now', '现在发送电子邮件'
+    l.store 'Send Email', '发送电子邮件'
+    l.store 'Your Name', '您的姓名'
+    l.store 'Your Email Address', '您的电子邮件地址'
+    l.store 'Comments', '评论'
+    l.store 'Send', '发送'
+
+    l.store 'Dear', '亲爱的'
+    l.store 'This is to confirm that your donation of', '这是为了确认您的捐赠'
+    l.store 'to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.', 'Bnei Baruch已经收到，它将用于帮助分享卡巴拉智慧。'
+    l.store 'Thank you for your support!', '感谢您的支持！'
+    l.store 'Sincerely,', '此致'
+
+    l.store 'English', 'English'
+    l.store 'Russian', 'Русский'
+    l.store 'Hebrew', 'עברית'
+    l.store 'Spanish', 'Español'
+    l.store 'German', 'Deutsch'
+    l.store 'French', 'Français'
+    l.store 'Japanese', '語本日'
+	l.store 'Chinese', '中文'
   end
