@@ -849,7 +849,7 @@ end
     l.store 'Privacy and Security', '個人情報保護と安全性'
     l.store 'Projects and Expenses', 'プロジェクトと費用'
     l.store 'Donor list', '寄付者リスト'
-    l.store 'Maaser', 'マアサー'
+    l.store 'Maaser', 'Maasser'
     l.store 'Donations', 'Donations'
     l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch - Payment confirmation'
 
@@ -990,9 +990,9 @@ end
     l.store 'Privacy and Security', '隐私和安全'
     l.store 'Projects and Expenses', '项目和费用'
     l.store 'Donor list', '捐助者名单'
-    l.store 'Maaser', 'Maaser'
-    l.store 'Donations', '捐款'
-    l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch 付款确认'
+    l.store 'Maaser', 'Maasser'
+    l.store 'Donations', 'Donations'
+    l.store 'Bnei Baruch - Payment confirmation', 'Bnei Baruch - Payment confirmation'
 
     l.store 'More', '更多'
     l.store 'Bnei Baruch Association', 'Bnei Baruch协会'
