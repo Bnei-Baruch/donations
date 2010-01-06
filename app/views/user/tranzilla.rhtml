@@ -18,6 +18,7 @@
 				<select id="currency" size="1" name="currency">
 					<option value="1" <%if @currency == "1"%>selected="selected"<%end%>><%=_('Shekels')%></option>
 					<option value="2" <%if @currency == "2"%>selected="selected"<%end%>><%=_('US Dollars')%></option>
+                                        <option value="3" <%if @currency == "3"%>selected="selected"<%end%>><%=_('Euro')%></option>
 				</select>
 			</td>
 		</tr>
@@ -173,9 +174,9 @@
 			</td>
 		</tr>
 		<tr>
-			<td><%=_('Country')%>:</td>
+			<td><%=_('Country')%>:<span class="star">*</span></td>
 				<td>
-<select id="xxxCountry" name="xxxCountry"><option value="Unknown"><%=@xxxCountry%></option>
+<select id="xxxCountry" name="xxxCountry"><option value="<%=@xxxCountry%>"><%=@xxxCountry%></option>
 <option value="Afghanistan">Afghanistan</option>
 <option value="Albania">Albania</option>
 <option value="Algeria">Algeria</option>

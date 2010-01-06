@@ -185,7 +185,7 @@ class UserController < ApplicationController
 	@xxxEmail = CGI::unescape(@xxxEmail)
 	@message = params[:message] || ""
 	@message = CGI::unescape(@message)	
-	@xxxCountry = params[:xxxCountry] || "Unknown"
+	@xxxCountry = params[:xxxCountry] || '- ' + _('Country') + ' -'
   @xxxCCType = params[:xxxCCType] || "Visa"
 	@xxxProject = params[:xxxProject] || "0"
 
@@ -234,10 +234,10 @@ class UserController < ApplicationController
 				end
 				
 				if (@response == 0)
-				 	if (@currency == "1")
-						@currency_id = Currency.find_currencies_id_by_name("NIS")
-					else
-						@currency_id = Currency.find_currencies_id_by_name("$")
+					@currency_id = case @currency
+					  when "1": Currency.find_currencies_id_by_name("NIS")
+					  when "2": Currency.find_currencies_id_by_name("$")
+					  when "3": Currency.find_currencies_id_by_name("EUR")
 					end
 
 					@donor = Donor.new(:name => @xxxFirstName + " " + @xxxLastName, 

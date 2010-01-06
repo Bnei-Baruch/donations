@@ -214,7 +214,7 @@ class AdminDonorController < ApplicationController
 		sum_in_dollars = case currency_str
 			when '$'   : donor.sum_dollars
 			when 'RUB' : Finance::Currency::convert("USD", "RUB", donor.sum_dollars)
-			when 'NIS' : Finance::Currency::convert("USD", "ILS", donor.sum_dollars)
+			when 'NIS' : donor.sum_dollars / 4 #Finance::Currency::convert("USD", "ILS", donor.sum_dollars)
 			when 'EUR' : Finance::Currency::convert("USD", "EUR", donor.sum_dollars)
 			else donor.sum_dollars
 		end
