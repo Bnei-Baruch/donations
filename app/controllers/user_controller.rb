@@ -947,7 +947,7 @@ class UserController < ApplicationController
     pass     = "an1711"
 
     doc_type = "receipt"
-    income_type_name = "Donations"
+    income_type_name = (@lang == "Hebrew") ? "Donations" : "DonationsHUL" 
     es = _('Bnei Baruch - Payment confirmation')
 
     case currency_id
