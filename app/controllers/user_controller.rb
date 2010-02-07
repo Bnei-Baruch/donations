@@ -201,7 +201,11 @@ class UserController < ApplicationController
     ssl.sync_close = true
     ssl.connect
 
-    ssl.puts("POST /cgi-bin/tranzila31.cgi HTTPs/1.1\r\n")
+    if  @currency == "978"
+    	ssl.puts("POST /cgi-bin/tranzila36a.cgi HTTPs/1.1\r\n")
+    else
+	ssl.puts("POST /cgi-bin/tranzila31.cgi HTTPs/1.1\r\n")
+    end
     ssl.puts("Host: secure.tranzila.com\r\n")
     ssl.puts("User-Agent: Bnei Baruch\r\n")
     ssl.puts("Content-Type: application/x-www-form-urlencoded\r\n")
@@ -237,7 +241,7 @@ class UserController < ApplicationController
 					@currency_id = case @currency
 					  when "1": Currency.find_currencies_id_by_name("NIS")
 					  when "2": Currency.find_currencies_id_by_name("$")
-					  when "3": Currency.find_currencies_id_by_name("EUR")
+					  when "978": Currency.find_currencies_id_by_name("EUR")
 					end
 
 					@donor = Donor.new(:name => @xxxFirstName + " " + @xxxLastName, 
