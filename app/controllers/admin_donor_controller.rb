@@ -200,7 +200,6 @@ class AdminDonorController < ApplicationController
 		<Cell><Data ss:Type="String">Email</Data></Cell>
 		<Cell><Data ss:Type="String">Country</Data></Cell>
 		<Cell><Data ss:Type="String">Date</Data></Cell>
-		<Cell><Data ss:Type="String">Sum [$]</Data></Cell>
 		<Cell><Data ss:Type="String">Sum [Original currency]</Data></Cell>
 		<Cell><Data ss:Type="String">Project</Data></Cell>
 	   </Row>'
@@ -211,13 +210,13 @@ class AdminDonorController < ApplicationController
 		currency_str = Currency.find(donor.currency_id).name rescue '$'
 
 		sum_in_dollars = 0
-		sum_in_dollars = case currency_str
-			when '$'   : donor.sum_dollars
-			when 'RUB' : Finance::Currency::convert("USD", "RUB", donor.sum_dollars)
-			when 'NIS' : donor.sum_dollars / 4 #Finance::Currency::convert("USD", "ILS", donor.sum_dollars)
-			when 'EUR' : Finance::Currency::convert("USD", "EUR", donor.sum_dollars)
-			else donor.sum_dollars
-		end
+#		sum_in_dollars = case currency_str
+#			when '$'   : donor.sum_dollars
+#			when 'RUB' : Finance::Currency::convert("USD", "RUB", donor.sum_dollars)
+#			when 'NIS' : Finance::Currency::convert("USD", "ILS", donor.sum_dollars)
+#			when 'EUR' : Finance::Currency::convert("USD", "EUR", donor.sum_dollars)
+#			else donor.sum_dollars
+#		end
 
 		day_padd = donor.created_at.day / 10 == 0 ? '0' : ''
 		mon_padd = donor.created_at.month / 10 == 0 ? '0' : ''
@@ -232,7 +231,6 @@ class AdminDonorController < ApplicationController
 		<Cell><Data ss:Type="String">' + email + '</Data></Cell>
 		<Cell><Data ss:Type="String">' + country + '</Data></Cell>
 		<Cell><Data ss:Type="String">' + day_padd + donor.created_at.day.to_s + '.' + mon_padd + donor.created_at.month.to_s + '.' + donor.created_at.year.to_s + '</Data></Cell>
-		<Cell><Data ss:Type="Number">' + sum_in_dollars.to_s + '</Data></Cell>
 		<Cell><Data ss:Type="String">' + donor.sum_dollars.to_s + ' ' + currency_str + '</Data></Cell>
 		<Cell><Data ss:Type="String">' + project + '</Data></Cell>
 	   </Row>'
@@ -240,11 +238,11 @@ class AdminDonorController < ApplicationController
 		total = total + sum_in_dollars
 	end 
 
-	xml_entries = xml_entries +
-	'<Row ss:Index="' + (donors.size + 3).to_s + '">
-	<Cell><Data ss:Type="String">Total Sum</Data></Cell>
-	<Cell ss:Index="5"><Data ss:Type="Number">' + total.to_s + '</Data></Cell>
-	</Row>' 
+#	xml_entries = xml_entries +
+#	'<Row ss:Index="' + (donors.size + 3).to_s + '">
+#	<Cell><Data ss:Type="String">Total Sum</Data></Cell>
+#	<Cell ss:Index="5"><Data ss:Type="Number">' + total.to_s + '</Data></Cell>
+#	</Row>' 
 
 	return xml_entries
 
