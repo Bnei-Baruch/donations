@@ -68,7 +68,11 @@ function Make_Payments(){
 
 	new Ajax.Request('<%=url_for(:action => "paypal")%>', { asynchronous:false, parameters:parameters, onComplete:function(request){} });
 
-	form['amount'].value = form['sum'].value + ".00";
+	if (form['sum'].value.match(/\./)) {
+		form['amount'].value = form['sum'].value;
+	} else {
+		form['amount'].value = form['sum'].value + ".00";
+	}
 	form['item_number'].value = timestamp;
 
 	document.forms['paypal'].submit();
