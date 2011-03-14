@@ -487,7 +487,7 @@
     l.store 'CVV Number', 'Número de CVV'
     l.store 'What is CVV', 'Qué es CVV'
     l.store 'Contact Information', 'Información de Contacto'
-    l.store 'Publish my name', 'Publicar mi nombre'
+    l.store 'Publish my name', 'Quiero ser anónimo'
     l.store 'Email Address', 'Dirección de Correo Electrónico'
 
     l.store 'Please fill in:', 'Favor llenar la Información:'
