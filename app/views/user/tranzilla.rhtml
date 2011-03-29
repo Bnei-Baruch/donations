@@ -103,12 +103,7 @@
 		<tr>
 			<td><%=_('ID')%><span class="star">*</span></td>
 			<td><input size="14" maxlength="30" name="myid" value="<%=@myid%>" /></td>
-			<!--
 			<td class="sep"></td>
-			<td><%=_('CVV Number')%><span class="star">*</span></td>
-			<td><input size="6" maxlength="5" name="mycvv" value="<%=@mycvv%>" /></td>
-			-->
-                        <td class="sep"></td>
                         <td><%=_('Type of Credit Card')%>:<span class="star">*</span></td>
 			<td>
 				<select id="xxxCCType" name="xxxCCType">
@@ -123,10 +118,14 @@
 		</tr>
 		<tr>
 			<td colspan="2"><%=_('ID comment')%></td>
-			<td colspan="2"> </td>
-			<!--
+			<td colspan="1"> </td>
+			<td><%=_('CVV Number')%><span class="star">*</span></td>
+			<td><input size="6" maxlength="5" name="mycvv" value="<%=@mycvv%>" /></td>
+                        <td class="sep"></td>
+		</tr>
+		<tr>
+			<td colspan="4"> </td>
 			<td><a target="_blank" href="<%=url_for(:controller => "../pages", :action => "cvv_#{@lang.downcase}") %>"><%=  _('What is CVV')%></a></td>
-			-->
 		</tr>
 			<td colspan="2"	><div id='wait' style="display:none;color:red"><%= image_tag("progress_FFF.gif", :alt => _("Wait please...")) %> <h1><%= _("Please wait... Processing...") %></h1></div>
 		</tr>
