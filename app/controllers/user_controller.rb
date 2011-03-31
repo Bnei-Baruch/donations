@@ -114,7 +114,7 @@ class UserController < ApplicationController
 	@xxxFirstName = CGI::unescape(@xxxFirstName)
 	@xxxLastName = params[:xxxLastName] || ""
 	@xxxLastName = CGI::unescape(@xxxLastName)
-	@xxxCountry = params[:xxxCountry] || "Unknown"
+	@xxxCountry = params[:xxxCountry] || "Please select"
 	@xxxEmail = params[:xxxEmail] || ""
 	@xxxEmail = CGI::unescape(@xxxEmail)
 	@message = params[:message] || ""
