@@ -16,7 +16,7 @@
 					<%= link_to image_tag("visa.gif", :alt => _('Credit Card')),  @tranzilla, :target => "_blank", :class => "el_payment", :id => "tranzilla" %>
 					<% if @lang == "Russian" %>
 						<!--<%= link_to image_tag("yandexdengi.gif", :alt => _('Yandex.Money')),  @yandex, :target => "_blank", :class => "el_payment", :onclick => "OpenWin('#{@yandex}', '#{_('Yandex.Money Payment')}', 450, 310);return false" %>-->
-						<!--<%= link_to image_tag("webmoney.gif", :alt => _('WebMoney')),  @webmoney, :target => "_blank", :class => "el_payment", :id => "webmoney" %>-->
+						<%= link_to image_tag("webmoney.gif", :alt => _('WebMoney')),  @webmoney, :target => "_blank", :class => "el_payment", :id => "webmoney" %>
 					<% end %>
 					<%= link_to image_tag("paypal.gif", :alt => _('PayPal')),  @paypal, :target => "_blank", :class => "el_payment" %>
 				<% end %>
