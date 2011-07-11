@@ -35,10 +35,14 @@
   <div id="main_div">		
     <%= yield :layout %>
   </div>
-	<div id="C">
+	<div id="C" style="position: relative;">
 		 <%= Common.get_copyright_by_lang(@lang) %>
-	</div>
-  <%= javascript_include_tag "all" %>
+		 <% if @lang == "Russian" %>
+		 <!-- begin WebMoney Transfer : accept label -->
+<a style="position: absolute; top: 0; left: 30px;" href="http://www.megastock.ru/" target="_blank"><img src="http://www.megastock.ru/Doc/Logo/acc_blue_on_white_ru.png" alt="www.megastock.ru" border="0"></a>
+<!-- end WebMoney Transfer : accept label -->
+<% end %>
+ <%= javascript_include_tag "all" %>
 <script type="text/javascript">
 //<![CDATA[
 Event.observe($('priv_and_sec'), "click", function func_priv_and_sec(e){OpenWin('<%=@privacy_and_security%>','<%=_("Privacy and Security")%>',600,400);Event.stop(e)});

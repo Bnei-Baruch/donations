@@ -55,7 +55,7 @@
 			<td><input size="14" maxlength="30" name="xxxFirstName" value="<%=@xxxFirstName%>" /></td>
 			<td class="sep"></td>
 			<td><%=_('Credit Card Number')%>:<span class="star">*</span></td>
-			<td><input size="14" maxlength="30" name="ccno" value="<%=@ccno%>" /></td>
+			<td><input size="14" maxlength="30" name="ccno" autocomplete="off" value="<%=@ccno%>" /></td>
 		</tr>
 		<tr>
 			<td><%=_('Last Name')%>:<span class="star">*</span></td>
@@ -120,7 +120,7 @@
 			<td colspan="2"><%=_('ID comment')%></td>
 			<td colspan="1"> </td>
 			<td><%=_('CVV Number')%><span class="star">*</span></td>
-			<td><input size="6" maxlength="5" name="mycvv" value="<%=@mycvv%>" /></td>
+			<td><input size="6" maxlength="5" name="mycvv" autocomplete="off" value="<%=@mycvv%>" /></td>
                         <td class="sep"></td>
 		</tr>
 		<tr>
