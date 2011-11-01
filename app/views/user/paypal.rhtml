@@ -18,6 +18,15 @@
 
 	<table>
 		<tr>
+			<td><%=_('Project')%>:</td>
+			<td>
+				<%=
+				options = [[_('All Projects'), "0"]] + Project.all_projects_names_completed(@lang, false)
+				select_tag("xxxProject", options_for_select(options))
+				%>
+			</td>
+		</tr>
+		<tr>
 			<td colspan="5"><div><%=_('Payment')%></div></td>
 		</tr>
               <tr>
@@ -59,15 +68,7 @@
 				<textarea rows="3" cols="47" id="message" name="message"><%=@message%></textarea>
 			</td>
 		</tr>
-		<tr>
-			<td><%=_('Project')%>:</td>
-			<td>
-				<%=
-				options = [[_('All Projects'), "0"]] + Project.all_projects_names_completed(@lang, false)
-				select_tag("xxxProject", options_for_select(options))
-				%>
-			</td>
-		</tr>
+
 		<tr>
 			<td><%=_('Country')%>:<span class="star">*</span></td>
 				<td>

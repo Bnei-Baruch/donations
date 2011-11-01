@@ -5,7 +5,7 @@ require 'openssl'
 require 'net/http'
 require 'uri'
 require 'finance/currency'
-require 'curl'
+require 'rest_client'
 
 class UserController < ApplicationController
 
@@ -859,13 +859,14 @@ class UserController < ApplicationController
 	lang_name = "English"
 	@rtl = false
 	if params[:lang]
-		lang = params[:lang].downcase
-		l_obj = Language.find(:first, :conditions => ["short_name = ?", lang])
+		langa = params[:lang]
+		langd = params[:lang].downcase
+		l_obj = Language.find(:first, :conditions => ["short_name = ? OR short_name = ?", langa, langd])
 		if !l_obj.nil?
 			lang_name = l_obj.name
 			@rtl = (l_obj.direction || "ltr") == "rtl"
 		else
-			l_obj = Language.find(:first, :conditions => ["name = ?", lang.capitalize])
+			l_obj = Language.find(:first, :conditions => ["name = ?", langd.capitalize])
 			if !l_obj.nil?
 				lang_name = l_obj.name
 				@rtl = (l_obj.direction || "ltr") == "rtl"
@@ -943,6 +944,25 @@ class UserController < ApplicationController
     return card_type
   end
 
+  def contact_icount(data)
+    attempt = 0
+    while(true) do
+      response = RestClient.post('https://www.icount.co.il/api/create_doc_auto.php', data)
+      if response.code == 200
+        return true unless response.to_str =~ /DOCNUM_RESULT/
+      end
+      attempt += 1
+      if attempt == 3
+        message = "Unable to get result #{response.code} #{response.to_s}"
+        acknowledge = ContactUsMailer.create_acknowledge(@lang, 'gshilin@gmail.com', 'icount error', message, '')
+        ContactUsMailer.deliver(acknowledge)
+        return false
+      end
+      sleep 3
+    end
+
+    true
+  end
   def send_to_icount(name, country, email, sum, currency_id, cc_type, npay = 1, fpay = 0)
 
     #send to iCount
@@ -990,7 +1010,7 @@ class UserController < ApplicationController
     end
     icount_fields = icount_fields + "currency=#{currency_icount}&"
     icount_fields = icount_fields + "lang=#{email_lang}&sendOrig=#{email}&" + "\r\n"
-    Curl::Easy.http_post("https://www.icount.co.il/api/create_doc_auto.php", icount_fields)
+    contact_icount icount_fields
 
     #flash[:notice] = c.body_str
   end
