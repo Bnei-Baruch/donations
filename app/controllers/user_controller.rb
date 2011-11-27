@@ -859,9 +859,9 @@ class UserController < ApplicationController
 	lang_name = "English"
 	@rtl = false
 	if params[:lang]
-		langa = params[:lang]
-		langd = params[:lang].downcase
-		l_obj = Language.find(:first, :conditions => ["short_name = ? OR short_name = ?", langa, langd])
+                langa = params[:lang]
+                langd = params[:lang].downcase
+                l_obj = Language.find(:first, :conditions => ["short_name = ? OR short_name = ?", langa, langd])
 		if !l_obj.nil?
 			lang_name = l_obj.name
 			@rtl = (l_obj.direction || "ltr") == "rtl"
@@ -1003,14 +1003,28 @@ class UserController < ApplicationController
     end
     icount_fields = icount_fields + "clientname=#{name}&"
     icount_fields = icount_fields + "client_country=#{country}&"
-    icount_fields = icount_fields + "credit=1&cc_cardtype[0]=#{cc_type}&cctotal[0]=#{sum}&"
+    icount_fields = icount_fields + "credit=1&cc_cardtype[0]=#{cc_type}&cctotal[0]=#{sum.to_f}&"
     if npay > 1
       npay = (sum.to_i / fpay.to_f).round()
       icount_fields = icount_fields + "&cc_numofpayments[]=#{npay}&ccfirstpayment[]=#{fpay}&"
     end
     icount_fields = icount_fields + "currency=#{currency_icount}&"
-    icount_fields = icount_fields + "lang=#{email_lang}&sendOrig=#{email}&" + "\r\n"
-    contact_icount icount_fields
+    icount_fields = icount_fields + "lang=#{email_lang}&sendOrig=#{email}"
+    send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
+    #Curl::Easy.http_post("https://www.icount.co.il/api/create_doc_auto.php", icount_fields)
+    attempts = 0
+    while attempts < 3
+      response = RestClient.post("https://www.icount.co.il/api/create_doc_auto.php", icount_fields + '&show_response=1')
+      if response.code == 200 && !response.to_s.grep(/EMAIL_LINK/).empty? then
+        # success
+        send_ack_email('gshilin@gmail.com', icount_fields, "DONATION SUCCESS attempt ##{attempts}", 'SUCCESS')
+        break
+      else
+        send_ack_email('gshilin@gmail.com', icount_fields + " RESPONSE: code: " + response.code.to_s + ", text:" + response.to_s, "DONATION FAILURE attempt ##{attempts}", "FAILURE")
+      end
+      sleep 3
+      attempts += 1
+    end
 
     #flash[:notice] = c.body_str
   end
