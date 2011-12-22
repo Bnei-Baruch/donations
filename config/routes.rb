@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   # map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)
 
+  map.connect 'kabcoil/:action', :controller => 'kabcoil'
+
   # You can have the root of your site routed by hooking up '' 
   # -- just remember to delete public/index.html.
   # map.connect '', :controller => "welcome"

@@ -1,0 +1,57 @@
+<h3><%=_("Donor list")%></h3>
+<% if !@donors.nil? %>
+<%= image_tag("spinner.gif",
+              :border=> 0,
+              :id => "spinner",
+              :style=>"display: none;" ) %>
+<% if @donors_pages.page_count > 1 %>
+<p class="pages">
+<%=_('Page')%>&nbsp;:
+<span><%= pagination_links_remote @donors_pages %> <%=all_pages_link_helper _("All"), "date"%></span>
+</p>
+<% end %>
+
+<table cellspacing="0" class="table">
+<thead>
+  <tr>
+	<th <%= sort_td_class_helper "date" %>><%=sort_link_helper _('Date'), "date"%></th>
+   <th <%= sort_td_class_helper "name", "list-intern-left"%>><%=sort_link_helper _('Name'), "name"%></th>
+   <th <%= sort_td_class_helper "country", "list-intern-left"%>><%=sort_link_helper _('Country'), "country"%></th>
+   <th class="list-intern-right"><%=_('Project')%></th>
+   <!--<th class="list-intern-right"><%=_('Message')%></th>-->
+   <th <%= sort_td_class_helper "sum" %>><%=sort_link_helper _('Amount'), "sum"%></th>
+  </tr>
+</thead>
+  
+<tbody>
+<% @donors.each do |donor| %>
+  <tr class="<%=cycle('list-line-odd', 'list-line-even')%>">
+
+   <td class="don-date"><%= donor.created_at.to_date %></td>
+   <td class="don-name list-intern-left"><%= h donor.name %></td>
+   <td class="don-country list-intern-left"><%= h donor.country %></td>
+<% if (donor.project_id != 0 && !donor.project.nil?) %>
+   <td class="don-project list-intern-left"><%= h donor.project.short_name %></td>
+<% else %>
+   <td class="don-project list-intern-left">All Projects</td>
+<% end %>
+   <!--<td class="don-msg list-intern-right"><%= h donor.message%></td>-->
+   <!--<td class="don-sum">$<%= donor.sum_dollars %></td>-->
+   
+<% if not donor.currency.nil?%>   	
+	<td class="don-sum"><%= donor.currency.name %><%= donor.sum_dollars %></td>
+<%else%>
+	<td class="don-sum">$<%= donor.sum_dollars %></td> 
+<%end%>
+   
+  </tr>
+<% end %>
+</tbody>
+</table>
+<% if @donors_pages.page_count > 1 %>
+<p class="pages">
+<%=_('Page')%>&nbsp;:
+<span><%= pagination_links_remote @donors_pages %> <%=all_pages_link_helper _("All"), "date"%></span>
+</p>
+<% end %>
+<% end %>
