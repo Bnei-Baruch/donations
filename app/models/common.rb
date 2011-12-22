@@ -36,6 +36,10 @@ class Common < ActiveRecord::Base
     get_common_by_lang(lang).entries_per_page
   end
 
+  def self.get_kabcoil_by_lang(lang)
+    get_common_by_lang(lang).kabcoil
+  end
+
   def validate
 		errors.add(:language_id, "is missing" ) if language.nil?
   end

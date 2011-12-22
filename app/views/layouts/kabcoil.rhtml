@@ -3,12 +3,16 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
   <title><%= _('Donations') %>::<%= controller.action_name %></title>
+  <%= stylesheet_link_tag "don_user-heb", :media => "all" %>
+  <%= stylesheet_link_tag "tranzilla-heb", :media => "all" %>
+  <%= stylesheet_link_tag "window-heb", :media => "all" %>
   <%= javascript_include_tag "application" %>
 </head>
 <body>
-<h1><%= @external_page %></h1>
-<%= yield :layout %>
-
+<div id='kabcoil'>
+  <h1><%= @external_page %></h1>
+  <%= yield :layout %>
+</div>
 <%- if @external -%>
 <%# Comodo Trust Logo -%>
     <script type="text/javascript">

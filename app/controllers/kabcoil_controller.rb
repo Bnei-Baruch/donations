@@ -60,10 +60,6 @@ class KabcoilController < ApplicationController
   def tranzilla
     set_params
     @external = false
-    if params[:language] && @lang != params[:language]
-      params[:lang] = params[:language]
-      get_language
-    end
 
     @user = Common.get_user_by_lang(@lang)
     @first_pay = params[:fpay] || ""
@@ -200,7 +196,7 @@ class KabcoilController < ApplicationController
     if (@response != 0)
       render :layout => "kabcoil"
     else
-      render :partial => "thank_you1", :layout => false
+      render :partial => "thank_you", :layout => false
     end
   end
 
@@ -218,50 +214,22 @@ class KabcoilController < ApplicationController
   end
 
   def get_language
-    lang_name = "English"
-    @rtl = false
-    if params[:lang]
-      langa = params[:lang]
-      langd = params[:lang].downcase
-      l_obj = Language.find(:first, :conditions => ["short_name = ? OR short_name = ?", langa, langd])
-      if !l_obj.nil?
-        lang_name = l_obj.name
-        @rtl = (l_obj.direction || "ltr") == "rtl"
-      else
-        l_obj = Language.find(:first, :conditions => ["name = ?", langd.capitalize])
-        if !l_obj.nil?
-          lang_name = l_obj.name
-          @rtl = (l_obj.direction || "ltr") == "rtl"
-        end
-      end
-    end
-    Localization.lang = lang_name
+    @rtl = true
+    @lang = Localization.lang = "Hebrew"
     @privacy_and_security = url_for(:controller => "user", :action => "window_privacy_and_security")
     @tranzilla = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "tranzilla")
     @paypal = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "paypal")
     @bank_details = url_for(:controller => "user", :action => "bank_details")
     @webmoney = url_for(:protocol => (RAILS_ENV == "production" ? "https://" : "http://"), :controller => "user", :action => "webmoney")
     @yandex = url_for(:controller => "user", :action => "yandex")
-    @lang = lang_name
-
-    if RAILS_ENV == 'development'
-      @path_don = 'don'
-    else
-      @path_don = 'donations'
-    end
   end
 
   def get_page_component(lang, action, suffix)
     page_contents = PageContent.get_page_content_by_lang(lang)
-    if page_contents.nil?
-      ""
-    else
-      page_contents[action + suffix]
-    end
+    page_contents.nil? ? '' : page_contents[action + suffix]
   end
 
   def get_payments(lang)
     Payment.all_payments_by_lang(lang)
   end
-
 end
