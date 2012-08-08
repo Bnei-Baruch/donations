@@ -8,7 +8,7 @@
 	<table>
 		<tr>
 			<td><%=_('Project')%>:</td>
-			<td>
+			<td colspan="5">
 				<%=
 				options = [[_('All Projects'), "0"]] + Project.all_projects_names_completed(@lang, false)
 				select_tag("xxxProject", options_for_select(options))
@@ -16,60 +16,55 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="5"><div><%=_('Payment')%></div></td>
+			<td colspan="6"><div>פרטי תשלום</div></td>
 		</tr>
-    <tr>
+	        <tr>
+			<td><%=_('First Name')%>:<span class="star">*</span></td>
+			<td><input size="14" maxlength="30" name="xxxFirstName" value="<%=@xxxFirstName%>" /></td>
+			<td><%=_('Last Name')%>:<span class="star">*</span></td>
+			<td><input size="14" maxlength="30" name="xxxLastName" value="<%=@xxxLastName%>" /></td>
+			<td><%=_('ID')%><span class="star">*</span></td>
+			<td><input size="14" maxlength="30" name="myid" value="<%=@myid%>" /></td>
+		</tr>
+	        <tr>
 			<td><%=_('Amount')%>:<span class="star">*</span></td>
 			<td><input type="text" id="sum" size="10" maxlength="50" name="sum" value="<%=@sum%>" /></td>
-			<td class="sep"></td>
 			<td><%=_('Currency')%>:<span class="star">*</span></td>
 			<td>
 				<select id="currency" size="1" name="currency">
 					<option value="1" <%if @currency == "1"%>selected="selected"<%end%>><%=_('Shekels')%></option>
 					<option value="2" <%if @currency == "2"%>selected="selected"<%end%>><%=_('US Dollars')%></option>
-                                        <option value="978" <%if @currency == "978"%>selected="selected"<%end%>><%=_('Euro')%></option>
 				</select>
 			</td>
-		</tr>
-		<tr>
-			<td><%=_('Payment method')%>:<span class="star">*</span></td>
 			<td>
 				<input id="reg_credit" onclick="Enable_Disable();" <%if @cred_type == "1"%>checked="checked"<%end%> type="radio" name="cred_type" value="1" /><%=_('Regular Credit')%>
-			</td>
-			<td class="sep"></td>
-			<td>
+				<br/>
 				<input id="installments" onclick="Enable_Disable();" <%if @cred_type == "8"%>checked="checked"<%end%> type="radio" name="cred_type" value="8" /><%=_('Installments')%>
 			</td>
 			<td>
 				<select id="payments" onchange="Enable_Disable()" disabled="disabled" size="1" name="npay">
 					<option value="2" <%if @npay == "1"%>selected="selected"<%end%>>2</option>
 					<option value="3" <%if @npay == "2"%>selected="selected"<%end%>>3</option>
-					<option value="4" <%if @npay == "3"%>selected="selected"<%end%>>4</option>
-					<option value="5" <%if @npay == "4"%>selected="selected"<%end%>>5</option>
-					<option value="6" <%if @npay == "5"%>selected="selected"<%end%>>6</option>
-					<option value="7" <%if @npay == "6"%>selected="selected"<%end%>>7</option>
-					<option value="8" <%if @npay == "7"%>selected="selected"<%end%>>8</option>
-					<option value="9" <%if @npay == "8"%>selected="selected"<%end%>>9</option>
-					<option value="10" <%if @npay == "9"%>selected="selected"<%end%>>10</option>
-					<option value="11" <%if @npay == "10"%>selected="selected"<%end%>>11</option>
-					<option value="12" <%if @npay == "11"%>selected="selected"<%end%>>12</option>
 				</select>
 			</td>
 		</tr>
-		<tr>
-			<td colspan="5"><div><%=_('Credit Card Information')%></div></td>
-		</tr>
-		<tr>
-			<td><%=_('First Name')%>:<span class="star">*</span></td>
-			<td><input size="14" maxlength="30" name="xxxFirstName" value="<%=@xxxFirstName%>" /></td>
-			<td class="sep"></td>
+	        <tr>
 			<td><%=_('Credit Card Number')%>:<span class="star">*</span></td>
-			<td><input size="14" maxlength="30" name="ccno" autocomplete="off" value="<%=@ccno%>" /></td>
+			<td><input size="18" maxlength="30" name="ccno" autocomplete="off" value="<%=@ccno%>" /></td>
+                        <td><%=_('Type of Credit Card')%>:<span class="star">*</span></td>
+			<td>
+				<select id="xxxCCType" name="xxxCCType">
+                                        <option value="Visa"><%=@xxxCCType%></option>
+					<option value="MasterCard">MasterCard</option>
+                                        <option value="American Express">American Express</option>
+                                        <option value="Isracard">Isracard</option>
+                                        <option value="Leumi card">Leumi card</option>
+                                        <option value="Diners">Diners</option>
+				</select>
+			</td>
+			<td colspan="2">&nbsp;</td>
 		</tr>
 		<tr>
-			<td><%=_('Last Name')%>:<span class="star">*</span></td>
-			<td><input size="14" maxlength="30" name="xxxLastName" value="<%=@xxxLastName%>" /></td>
-			<td class="sep"></td>
 			<td><%=_('Expiration Date')%>:<span class="star">*</span></td>
 			<td>
 				<select size="1" name="expmonth">
@@ -88,7 +83,6 @@
 				</select>
 
 				<select name="expyear">
-					<option <%if @expyear == "11"%>selected="selected"<%end%> value="11">2011</option>
 					<option <%if @expyear == "12"%>selected="selected"<%end%> value="12">2012</option>
 					<option <%if @expyear == "13"%>selected="selected"<%end%> value="13">2013</option>
 					<option <%if @expyear == "14"%>selected="selected"<%end%> value="14">2014</option>
@@ -105,46 +99,33 @@
 					<option <%if @expyear == "25"%>selected="selected"<%end%> value="25">2025</option>
 				</select>
 			</td>
-		</tr>
-		<tr>
-			<td><%=_('ID')%><span class="star">*</span></td>
-			<td><input size="14" maxlength="30" name="myid" value="<%=@myid%>" /></td>
-			<td class="sep"></td>
-                        <td><%=_('Type of Credit Card')%>:<span class="star">*</span></td>
-			<td>
-				<select id="xxxCCType" name="xxxCCType">
-                                        <option value="Visa"><%=@xxxCCType%></option>
-					<option value="MasterCard">MasterCard</option>
-                                        <option value="American Express">American Express</option>
-                                        <option value="Isracard">Isracard</option>
-                                        <option value="Leumi card">Leumi card</option>
-                                        <option value="Diners">Diners</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2"><%=_('ID comment')%></td>
-			<td colspan="1"> </td>
 			<td><%=_('CVV Number')%><span class="star">*</span></td>
-			<td><input size="6" maxlength="5" name="mycvv" autocomplete="off" value="<%=@mycvv%>" /></td>
-                        <td class="sep"></td>
+			<td>
+				<input size="6" maxlength="5" name="mycvv" autocomplete="off" value="<%=@mycvv%>" />
+				<br/><a target="_blank" href="<%=url_for(:controller => "../pages", :action => "cvv_#{@lang.downcase}") %>"><%=  _('What is CVV')%></a>
+			</td>
+			<td colspan="2">&nbsp;</td>
 		</tr>
 		<tr>
-			<td colspan="4"> </td>
-			<td><a target="_blank" href="<%=url_for(:controller => "../pages", :action => "cvv_#{@lang.downcase}") %>"><%=  _('What is CVV')%></a></td>
+			<td colspan="6">
+				<a target="_blank" class="el_payment" href="https://www.kabbalah.info/donations/heb/user/paypal">
+					<img src="/donations/images/paypal.gif?1324559197" alt="PayPal">
+				</a>
+			</div>
 		</tr>
-			<td colspan="2"	><div id='wait' style="display:none;color:red"><%= image_tag("progress_FFF.gif", :alt => _("Wait please...")) %> <h1><%= _("Please wait... Processing...") %></h1></div>
+		<tr>
+			<td colspan="6"	><div id='wait' style="display:none;color:red"><%= image_tag("progress_FFF.gif", :alt => _("Wait please...")) %> <h1><%= _("Please wait... Processing...") %></h1></div>
 		</tr>
 
 <% if flash[:notice] != ""-%>
 		<tr> 
 			<td colspan="5"><div  id="notice" style="font-size:350%"><%=_("Error")%>: <%=_(flash[:notice])%></div></td>
-			<td></td>
+			<td>&nbsp;</td>
 		</tr>
 <%end-%>
 
 		<tr>
-			<td colspan="5"><div><%=_('Contact Information')%></div></td>
+			<td colspan="6"><div>פרטים ליצירת קשר</div></td>
 		</tr>
 		<tr>
 			<td><%=_('Publish my name')%>:</td>
@@ -152,20 +133,22 @@
 				<input id="anon_yes" <%if @anon == "1"%>checked="checked"<%end%> type="radio" name="anon" value="1" /><%=_('Yes')%>
 				<input id="anon_no" <%if @anon == "0"%>checked="checked"<%end%> type="radio" name="anon" value="0" /><%=_('No')%>
 			</td>
-			<td class="sep"></td>
-			<td></td>
-			<td></td>
+			<td colspan="4"></td>
 		</tr>
 		<tr>
 			<td><%=_('Email Address')%>:<span class="star">*</span></td>
-			<td><input size="14" maxlength="30" name="xxxEmail" value="<%=@xxxEmail%>" /></td>
-			<td class="sep"></td>
-			<td></td>
-			<td></td>
+			<td>
+				<input size="14" maxlength="30" name="xxxEmail" value="<%=@xxxEmail%>" />
+			</td>
+			<td colspan="4">
+				אני מאשר קבלת עדכונים לתיבת דוא"ל זו
+				<input id="agree_yes" checked="checked" type="radio" name="agree_to_receive_emails" value="1" /><%=_('Yes')%>
+				<input id="agree_no" type="radio" name="agree_to_receive_emails" value="0" /><%=_('No')%>
+			</td>
 		</tr>
 		<tr>
 			<td><%=_('Message')%>:</td>
-			<td colspan="4">
+			<td colspan="5">
 				<textarea rows="3" cols="47" id="message" name="message"><%=@message%></textarea>
 			</td>
 		</tr>
@@ -271,7 +254,7 @@
 <option value="Iran ">Iran </option>
 <option value="Iraq ">Iraq </option>
 <option value="Ireland">Ireland</option>
-<option value="Israel">Israel</option>
+<option value="Israel" selected="selected">Israel</option>
 <option value="Italy">Italy</option>
 <option value="Jamaica">Jamaica</option>
 <option value="Japan">Japan</option>
@@ -398,12 +381,14 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="5">
+			<td colspan="3"></td>
+			<td colspan="2">
 				<div id="buttons">
 					<input onclick="Make_Payments();" type="button" value="<%=_('Submit')%>" />
 					<input type="reset" value="<%=_('Reset')%>" />
 				</div>
 			</td>
+			<td>&nbsp;</td>
 		</tr>
 	</table>
 </form>

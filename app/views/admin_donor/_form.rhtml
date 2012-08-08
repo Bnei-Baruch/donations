@@ -275,6 +275,13 @@ select("donor", "country", options)
 	<select id="donor_is_anonymous" name="donor[is_anonymous]"><option value="false">False</option><option value="true">True</option></select></p>
 <% end %>
 
+<p><label for="agree_to_receive_emails">Agree To Receive Emails</label><br/>
+<% if @donor.agree_to_receive_emails %>
+	<select id="agree_to_receive_emails" name="donor[agree_to_receive_emails]"><option value="true">True</option><option value="false">False</option></select></p>
+<% else %>
+	<select id="agree_to_receive_emails" name="donor[agree_to_receive_emails]"><option value="false">False</option><option value="true">True</option></select></p>
+<% end %>
+
 <p><label for="donor_created_at">Donation date</label><br/>
 <%= datetime_select 'donor', 'created_at'  %></p>
 

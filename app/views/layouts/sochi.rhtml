@@ -74,6 +74,10 @@ var value;
 
 	//$('wait').show();
 	document.forms['sochi'].submit();
+         $$('input[type="button"]').find(function(input) {
+            input.value = 'Please wait ...';
+            input.setAttribute('disabled',true);
+            });
 	return false;
 }
 //]]>

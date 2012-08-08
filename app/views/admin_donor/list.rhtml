@@ -12,6 +12,7 @@
   <th>Anon </th>
   <th>Approv </th>
   <th>Acknowledge </th>
+  <th>List+ </th>
   </tr>
   
 <% for donor in @donors %>
@@ -29,6 +30,7 @@
     <td style="text-align:center"><%= donor.is_anonymous ? "V" : "X" %></td>
     <td style="text-align:center"><%= donor.approved ? "V" : "X" %></td>
     <td style="text-align:center"><%= donor.acked ? "V" : "X" %></td>
+    <td style="text-align:center"><%= donor.agree_to_receive_emails %></td>
 
     <td><%= link_to 'Show', :action => 'show', :id => donor %></td>
     <td><%= link_to 'Edit', :action => 'edit', :id => donor %></td>

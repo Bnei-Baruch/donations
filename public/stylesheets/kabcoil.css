@@ -1,0 +1,16 @@
+#kabcoil {margin: 20px 100px; width: 650px;}
+#kabcoil #content {margin: 0 auto; width: 650px;}
+#kabcoil iframe {width: 800px; height: 700px; border: 0 none;margin: -20px -100px;}
+#kabcoil form#tranzilla {border: 0 none;}
+.don-sum {
+border-right: 1px solid #BFBFBF !important;
+}
+#kabcoil #content .table ,
+#kabcoil #content .pages {
+	width: 650px !important;
+}
+#kabcoil form#tranzilla td {
+	height: auto;
+	padding: 0;
+	width: auto;
+}

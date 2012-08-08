@@ -84,6 +84,8 @@ class KabcoilController < ApplicationController
     @mycvv = params[:mycvv] || ""
     @myid = params[:myid] || ""
     @anon = params[:anon] || "0"
+    @agree_to_receive_emails = params[:agree_to_receive_emails] == '1' || false
+
     @xxxEmail = params[:xxxEmail] || ""
     @xxxEmail = CGI::unescape(@xxxEmail)
     @message = params[:message] || ""
@@ -98,64 +100,66 @@ class KabcoilController < ApplicationController
     if (params[:sum])
 
       myrequest = "supplier=#{@user}&sum=#{@sum}&xxxProject=#{@xxxProject}&xxxCountry=#{@xxxCountry}&xxxEmail=#{@xxxEmail}&message=#{@message}&anon=#{@anon}&mycvv=#{@mycvv}&myid=#{@myid}&cred_type=#{@cred_type}&npay=#{@npay}&currency=#{@currency}&fpay=#{@first_pay}&spay=#{@second_pay}&xxxFirstName=#{@xxxFirstName}&xxxLastName=#{@xxxLastName}&ccno=#{@ccno}&expmonth=#{@expmonth}&expyear=#{@expyear}&myid=#{@myid}"
-      ctx = OpenSSL::SSL::SSLContext.new
-      t = TCPSocket.new('secure.tranzila.com', 'https')
-      ssl = OpenSSL::SSL::SSLSocket.new(t, ctx)
-      ssl.sync_close = true
-      ssl.connect
+      #ZZZ ctx = OpenSSL::SSL::SSLContext.new
+      #ZZZ t = TCPSocket.new('secure.tranzila.com', 'https')
+      #ZZZ ssl = OpenSSL::SSL::SSLSocket.new(t, ctx)
+      #ZZZ ssl.sync_close = true
+      #ZZZ ssl.connect
 
-      if  @currency == "978"
-        ssl.puts("POST /cgi-bin/tranzila36a.cgi HTTPs/1.1\r\n")
-      else
-        ssl.puts("POST /cgi-bin/tranzila31.cgi HTTPs/1.1\r\n")
-      end
-      ssl.puts("Host: secure.tranzila.com\r\n")
-      ssl.puts("User-Agent: Bnei Baruch\r\n")
-      ssl.puts("Content-Type: application/x-www-form-urlencoded\r\n")
-      ssl.puts("Content-Length: #{myrequest.length}\r\n")
-      ssl.puts("\r\n")
-      ssl.puts(myrequest)
+      #ZZZ if  @currency == "978"
+        #ZZZ ssl.puts("POST /cgi-bin/tranzila36a.cgi HTTPs/1.1\r\n")
+      #ZZZ else
+        #ZZZ ssl.puts("POST /cgi-bin/tranzila31.cgi HTTPs/1.1\r\n")
+      #ZZZ end
+      #ZZZ ssl.puts("Host: secure.tranzila.com\r\n")
+      #ZZZ ssl.puts("User-Agent: Bnei Baruch\r\n")
+      #ZZZ ssl.puts("Content-Type: application/x-www-form-urlencoded\r\n")
+      #ZZZ ssl.puts("Content-Length: #{myrequest.length}\r\n")
+      #ZZZ ssl.puts("\r\n")
+      #ZZZ ssl.puts(myrequest)
 
-      while res = ssl.gets
-        @ret_params = CGI::parse(res)
-        if (@ret_params["Response"][0])
-          @response = @ret_params["Response"][0].to_i
-          flash[:notice] = case @response
-                             when 0 :
-                               ""
-                             when 1 :
-                               '_' + @response.to_s
-                             when 3 :
-                               '_' + @response.to_s
-                             when 4 :
-                               '_' + @response.to_s
-                             when 6 :
-                               '_' + @response.to_s
-                             when 33 :
-                               '_' + @response.to_s
-                             when 35 :
-                               '_' + @response.to_s
-                             when 36 :
-                               '_' + @response.to_s
-                             when 37 :
-                               '_' + @response.to_s
-                             when 39 :
-                               '_' + @response.to_s
-                             when 57 :
-                               '_' + @response.to_s
-                             when 61 :
-                               '_' + @response.to_s
-                             when 107 :
-                               '_' + @response.to_s
-                             when 111 :
-                               '_' + @response.to_s
-                             when 138 :
-                               '_' + @response.to_s
-                             when 139 :
-                               '_' + @response.to_s
-                             else
-                               "Error"
-                           end
+      while res = 1 #ZZZssl.gets
+        @ret_params = 1 #ZZZ CGI::parse(res)
+        #ZZZif (@ret_params["Response"][0])
+        if true
+          #ZZZ @response = @ret_params["Response"][0].to_i
+          @response = 0#ZZZ@ret_params["Response"][0].to_i
+          #ZZZ flash[:notice] = case @response
+                             #ZZZ when 0 :
+                               #ZZZ ""
+                             #ZZZ when 1 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 3 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 4 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 6 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 33 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 35 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 36 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 37 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 39 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 57 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 61 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 107 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 111 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 138 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ when 139 :
+                               #ZZZ '_' + @response.to_s
+                             #ZZZ else
+                               #ZZZ "Error"
+                           #ZZZ end
 
           if (@response == 0)
             @currency_id = case @currency
@@ -180,17 +184,18 @@ class KabcoilController < ApplicationController
                                :eptype => "Tranzila",
                                :currency_id => @currency_id)
             @err = @donor.save
+            d.update_attribute(:agree_to_receive_emails, @agree_to_receive_emails)
 
             #send to iCount instead of email
             #send_ack_email(@xxxEmail, @xxxFirstName + " " + @xxxLastName, @sum.to_s, @donor.currency.name)
-            send_to_icount(@donor.name, @donor.country, @donor.email, @donor.sum_dollars,
-                           @donor.currency_id, @xxxCCType, @npay.to_i, @first_pay.to_i)
+            #ZZZ send_to_icount(@donor.name, @donor.country, @donor.email, @donor.sum_dollars,
+                           #ZZZ @donor.currency_id, @xxxCCType, @npay.to_i, @first_pay.to_i)
           end
           # Break if @ret_params["Response"][0]
           break
         end
       end
-      ssl.close
+      #ZZZ ssl.close
     end
 
     if (@response != 0)
@@ -232,4 +237,63 @@ class KabcoilController < ApplicationController
   def get_payments(lang)
     Payment.all_payments_by_lang(lang)
   end
+
+    def send_to_icount(name, country, email, sum, currency_id, cc_type, npay = 1, fpay = 0)
+
+    #send to iCount
+    comp_id  = "bneibaruch"
+    user     = "bb"
+    pass     = "an1711"
+
+    doc_type = "receipt"
+    income_type_name = (@lang == "Hebrew") ? "Donations" : "DonationsHUL" 
+    es = _('Bnei Baruch - Payment confirmation')
+
+    case currency_id
+			when Currency.find_currencies_id_by_name("RUB"): 
+          currency_icount = "7"
+          currency_name   = "RUB"
+			when Currency.find_currencies_id_by_name("$"):
+          currency_icount = "2"
+          currency_name   = "$"
+			when Currency.find_currencies_id_by_name("EUR"):
+          currency_icount = "1"
+          currency_name   = "EUR"
+      else
+          currency_icount = "5" #NIS
+          currency_name   = "NIS"
+		end
+
+#    hwc = _('This is to confirm that your donation of') + " #{currency_name}#{sum} "  +
+#          _('to Bnei Baruch has been received, and will go toward helping share the wisdom of Kabbalah.') + ' ' +
+#          _('Thank you for your support!')
+
+    hwc = _('Donations')
+
+    email_lang  = (@lang == "Hebrew") ? "he" : "en"
+
+    icount_fields = "compID=#{comp_id}&user=#{user}&pass=#{pass}&docType=#{doc_type}&hwc=#{hwc}&income_type_name=#{income_type_name}&es=#{es}&"
+    if (email_lang == "he")
+      icount_fields = icount_fields + "eft=קבלה על תשלום תרומתך תוכל לקבל בלינק המצורף: &"
+    end
+    icount_fields = icount_fields + "clientname=#{name}&"
+    icount_fields = icount_fields + "client_country=#{country}&"
+    icount_fields = icount_fields + "credit=1&cc_cardtype[0]=#{cc_type}&cctotal[0]=#{sum.to_f}&"
+    if npay > 1
+      npay = (sum.to_i / fpay.to_f).round()
+      icount_fields = icount_fields + "&cc_numofpayments[]=#{npay}&ccfirstpayment[]=#{fpay}&"
+    end
+    icount_fields = icount_fields + "currency=#{currency_icount}&"
+    icount_fields = icount_fields + "lang=#{email_lang}&sendOrig=#{email}"
+    #Curl::Easy.http_post("https://www.icount.co.il/api/create_doc_auto.php", icount_fields)
+    attempts = 0
+    while attempts < 3
+      response = RestClient.post("https://www.icount.co.il/api/create_doc_auto.php", icount_fields + '&show_response=1') rescue nil
+      sleep 3
+      attempts += 1
+    end
+
+    #flash[:notice] = c.body_str
+  end
+
 end

@@ -6,11 +6,11 @@
   <%= stylesheet_link_tag "don_user-heb", :media => "all" %>
   <%= stylesheet_link_tag "tranzilla-heb", :media => "all" %>
   <%= stylesheet_link_tag "window-heb", :media => "all" %>
+  <%= stylesheet_link_tag "kabcoil", :media => "all" %>
   <%= javascript_include_tag "application" %>
 </head>
 <body>
 <div id='kabcoil'>
-  <h1><%= @external_page %></h1>
   <%= yield :layout %>
 </div>
 <%- if @external -%>
@@ -100,6 +100,10 @@
 
             //$('wait').show();
             document.forms['tranzilla'].submit();
+         $$('input[type="button"]').find(function(input) {
+            input.value = 'Please wait ...';
+            input.setAttribute('disabled',true);
+            });
             return false;
         }
         //]]>

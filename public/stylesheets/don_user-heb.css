@@ -73,7 +73,3 @@ p.Myheading2{font-weight:bold !important;width:530px !important}
 .screenshot img{border:0 none;float:right;margin:10px 10px 0 0}
 .screenshot-simple{border:0 none;float:right;margin:10px 10px 0 0}
 
-#kabcoil {margin: 20px 100px;}
-#kabcoil #content {margin: 0;}
-#kabcoil iframe {width: 800px; height: 700px; border: 0 none;margin: -20px -100px;}
-#kabcoil form#tranzilla {border: 0 none;}

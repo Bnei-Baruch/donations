@@ -17,6 +17,8 @@ document.writeln('<script language="JavaScript" src="'+cot_loc0+'" type="text\/j
 </script>
 <script type="text/javascript">
 //<![CDATA[
+
+
 function Enable_Disable(){
 var form = document.forms['tranzilla'];
 	form['payments'].disabled= form['reg_credit'].checked==1
@@ -77,6 +79,10 @@ var value;
 
 	//$('wait').show();
 	document.forms['tranzilla'].submit();
+         $$('input[type="button"]').find(function(input) {
+            input.value = 'Please wait ...';
+            input.setAttribute('disabled',true);
+            });
 	return false;
 }
 //]]>

@@ -79,6 +79,10 @@ function Make_Payments(){
 	form['item_number'].value = timestamp;
 
 	document.forms['paypal'].submit();
+         $$('input[type="button"]').find(function(input) {
+            input.value = 'Please wait ...';
+            input.setAttribute('disabled',true);
+            });
 	return false;
 }
 //]]>

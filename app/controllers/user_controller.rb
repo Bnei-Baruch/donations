@@ -422,7 +422,7 @@ class UserController < ApplicationController
 
   	@notify = Paypal::Notification.new(request.raw_post)
        if true #@notify.acknowledge
-		@donor = Donor.find_by_acked_and_is_new_and_created_at(false, true, @notify.item_id)	
+		@donor = Donor.find_by_acked_and_is_new_and_created_at(false, true, @notify.item_id) rescue nil
 
 		if (@donor)
 			if (@notify.complete?)
@@ -430,7 +430,7 @@ class UserController < ApplicationController
 				@donor.save
         send_ack_email(@donor.email, @donor.name, @donor.sum_dollars.to_s, @donor.currency.name)
 			else
-				@donor.destroy
+				#@donor.destroy
 			end
 		end
 	end
@@ -1014,8 +1014,12 @@ class UserController < ApplicationController
     #Curl::Easy.http_post("https://www.icount.co.il/api/create_doc_auto.php", icount_fields)
     attempts = 0
     while attempts < 3
-      response = RestClient.post("https://www.icount.co.il/api/create_doc_auto.php", icount_fields + '&show_response=1')
-      if response.code == 200 && !response.to_s.grep(/EMAIL_LINK/).empty? then
+      response = RestClient.post("https://www.icount.co.il/api/create_doc_auto.php", icount_fields + '&show_response=1') rescue nil
+      if response == nil then
+        send_ack_email('gshilin@gmail.com', icount_fields, "MAASER NETWORK FAILURE attempt ##{attempts}", 'NETWORK FAILURE')
+        break
+      end
+       if response.code == 200 && !response.to_s.grep(/EMAIL_LINK/).empty? then
         # success
         send_ack_email('gshilin@gmail.com', icount_fields, "DONATION SUCCESS attempt ##{attempts}", 'SUCCESS')
         break

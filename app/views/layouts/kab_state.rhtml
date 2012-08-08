@@ -77,6 +77,10 @@ var value;
 
 	//$('wait').show();
 	document.forms['kab_state'].submit();
+         $$('input[type="button"]').find(function(input) {
+            input.value = 'Please wait ...';
+            input.setAttribute('disabled',true);
+            });
 	return false;
 }
 //]]>

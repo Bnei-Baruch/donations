@@ -1,8 +1,11 @@
 <div id="description">
+  <a name="description"></a>
   <%=  Common.get_kabcoil_by_lang(@lang) %>
 </div>
 <div id="content">
+  <a name="donors"></a>
   <%= render :partial => "donors_list" -%>
 </div>
 
+<a name="payment"></a>
 <iframe src="<%=url_for(:controller => "kabcoil", :action => "tranzilla") %>">TRANZILLA PAYMENT</iframe>
