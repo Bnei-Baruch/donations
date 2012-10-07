@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_don_session_id'
   filter_parameter_logging "ccno", "mycvv", "myid"
+  RAILS_DEFAULT_LOGGER.level = Logger::ERROR
 
   def can_manage_pages?
 	  #@is_root
